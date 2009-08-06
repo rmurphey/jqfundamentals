@@ -1,26 +1,26 @@
 {
 	1 : {
-		"lastName" : 'Smith',
+		"lastName" : "Smith",
 		"age" : 35
 	},
 	
 	2 : {
-		"lastName" : 'Mason',
+		"lastName" : "Mason",
 		"age" : 27
 	},
 	
 	3: {
-		"lastName" : 'Resig',
+		"lastName" : "Resig",
 		"age" : 24
 	},
 	
 	4 : {
-		"lastName" : 'Higgins',
+		"lastName" : "Higgins",
 		"age" : 29
 	},
 	
 	5 : {
-		"lastName" : 'Murphey',
+		"lastName" : "Murphey",
 		"age" : 32
 	},
 	

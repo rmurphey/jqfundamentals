@@ -1,0 +1,15 @@
+{
+	"monday" : {
+		"title" : "Magic Monday",
+		"text" : "On Magic Monday, all the food disappears.",
+		"image" : "/images/special.jpg",
+		"color" : "red"
+	},
+	
+	"tuesday" : {
+		"title" : "Twofer Tuesday",
+		"text" : "Two vegetables for the price of one!.",
+		"image" : "/images/special.jpg",
+		"color" : "green"
+	}
+}
