@@ -1,0 +1,41 @@
+{
+	1 : {
+		"lastName" : 'Smith',
+		"age" : 35
+	},
+	
+	2 : {
+		"lastName" : 'Mason',
+		"age" : 27
+	},
+	
+	3: {
+		"lastName" : 'Resig',
+		"age" : 24
+	},
+	
+	4 : {
+		"lastName" : 'Higgins',
+		"age" : 29
+	},
+	
+	5 : {
+		"lastName" : 'Murphey',
+		"age" : 32
+	},
+	
+	6 : {
+		"lastName" : "Gonzalez",
+		"age" : 45
+	},
+	
+	7 : {
+		"lastName" : "Lindley",
+		"age" : 37
+	},
+	
+	8 : {
+		"lastName" : "Juniper",
+		"age" : 35
+	}
+}
