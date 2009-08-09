@@ -1,0 +1,141 @@
+/* general */
+h1 {
+	font-size: 250%;
+	margin: 5px 0 10px 0;
+}
+
+legend,
+h2 {
+	font-size: 150%;
+	margin: 5px 0;
+}
+
+h3 {
+	font-size: 120%;
+	margin: 5px 0;
+}
+
+h4 {
+	font-size: 110%;
+	font-weight: bold;
+	margin: 5px 0;
+}
+
+p {
+	line-height: 1.4em;
+	margin: 0 0 8px 0;
+	font-size: 90%;
+}
+
+a {
+	color: red;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #a00;
+}
+
+.template {
+	display: none;
+}
+
+form li {
+	margin: 0 0 10px 0;
+}
+
+textarea,
+input.input_text {
+	border: 1px solid #ccc;
+	padding: 4px;
+	width: 95%;
+	font-size: 120%;
+	font-family: Arial, sans-serif;
+}
+
+label {
+	display: block;
+	font-size: 90%;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+}
+
+ul {
+	margin: 20px 15px;
+	list-style-type: disc;
+}
+
+li {
+	margin: 5px 0;
+}
+
+li.checkbox {
+	margin: 0 0 15px 0;
+}
+
+li.checkbox label {
+	display: inline;
+}
+
+fieldset {
+	margin: 0 0 20px 0;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table td,
+table th {
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+table th {
+	background-color: #ccc;
+	font-weight: bold;
+}
+
+
+/* page */
+body {
+	font-family: Arial;
+	color: #333;
+	width: 970px;
+	margin: 10px auto;
+}
+
+/* etc */
+#myDiv {
+	background-color: #ccc;
+	-moz-border-radius: 10px;
+	padding: 10px 10px 5px;
+}
+
+.hover {
+	background-color: red;
+	cursor: pointer;
+}
+
+/* modal */
+#modal {
+	width: 500px;
+	padding: 10px;
+	background-color: #fff;
+	position: fixed;
+	top: 100px;
+	z-index: 101;
+	margin: 0 225px;
+}
+
+#overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 10000px;
+	height: 10000px;
+	background-color: #333;
+	z-index: 100;
+	
+}
+

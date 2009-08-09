@@ -62,6 +62,15 @@ label {
 	margin: 0 0 5px 0;
 }
 
+ul {
+	margin: 20px 15px;
+	list-style-type: disc;
+}
+
+li {
+	margin: 5px 0;
+}
+
 li.checkbox {
 	margin: 0 0 15px 0;
 }
@@ -73,6 +82,22 @@ li.checkbox label {
 fieldset {
 	margin: 0 0 20px 0;
 }
+
+table {
+	border-collapse: collapse;
+}
+
+table td,
+table th {
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+table th {
+	background-color: #ccc;
+	font-weight: bold;
+}
+
 
 /* page */
 body {
@@ -116,20 +141,24 @@ body {
 }
 
 #nav {
+	margin: 0 0 20px 0;
+	overflow: visible;
 	height: 30px;
 }
 
 #nav li {
 	float: left;
-	padding: 5px;
+	padding: 15px;
 	background-color: #333;
 	margin: 0 5px 0 0;
 	position: relative;
 	height: 20px;
+	list-style-type: none;
 }
 
 #nav li.selected {
 	background-color: red;
+	font-weight: normal;
 }
 
 #nav li.hover {
@@ -138,10 +167,11 @@ body {
 
 #nav li ul {
 	position: absolute;
-	top: 30px;
+	top: 50px;
 	left: 0;
 	width: 200px;
 	display: none;
+	margin: 0;
 }
 
 #nav li ul li {
@@ -160,8 +190,13 @@ body {
 	margin: 0 0 10px 0;
 }
 
+#hero {
+	margin: 0;
+}
+
 #hero li {
 	margin: 0 0 10px 0;
+	list-style-type: none;
 }
 
 #specials div.special {
@@ -199,21 +234,6 @@ body {
 
 #staff li {
 	margin: 25px 0;
-}
-
-#main table {
-	border-collapse: collapse;
-}
-
-#main table td,
-#main table th {
-	border: 1px solid #ccc;
-	padding: 5px;
-}
-
-#main table th {
-	background-color: #ccc;
-	font-weight: bold;
 }
 
 /* sidebar */
@@ -264,6 +284,10 @@ p.closer {
 	display: none;
 }
 
+ul li.selected {
+	font-weight: bold;
+}
+
 /* modal */
 #modal {
 	width: 500px;
@@ -285,3 +309,4 @@ p.closer {
 	z-index: 100;
 	
 }
+
