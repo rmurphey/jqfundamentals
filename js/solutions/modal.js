@@ -2,6 +2,8 @@ var modal = {
 	initialized : false,
 	
 	init : function() {
+		if (modal.initalized) { return; }
+		
 		modal.$m = $('<div id="modal"/>')
 			.appendTo('body')
 			.hide();
@@ -23,19 +25,19 @@ var modal = {
 	},
 	
 	show : function() {
-		modal.initialized || modal.init();
+		modal.init();
 		modal.$m.fadeIn(300);
 		modal.$o.show();
 	},
 	
 	populate : function(html) {
-		modal.initialized || modal.init();
+		modal.init();
 		modal.$c.html(html);
 		modal.show();
 	},
 	
 	hide : function() {
-		modal.initialized || modal.init();
+		modal.init();
 		modal.$m.fadeOut(300);
 		modal.$o.hide();
 	}

@@ -2,7 +2,9 @@
 var slideshow = {
 	
 	config : {
-		autoAdvance : true
+		autoAdvance : true,
+		selector : '#hero',
+		container : '#main'
 	},
 	
 	init : function(config) {
@@ -10,7 +12,7 @@ var slideshow = {
 		var config = config || {};
 		$.extend(slideshow.config, config);
 		
-		slideshow.$hero = $('#hero').prependTo('#main')
+		slideshow.$hero = $(slideshow.config.selector).prependTo(slideshow.config.container)
 			.addClass('js-slideshow');
 		slideshow.$items = slideshow.$hero.find('li').hide();
 		
