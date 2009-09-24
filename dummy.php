@@ -1,5 +1,5 @@
 <?
-$foo = $_REQUEST;
-$foo['extra_thing'] = 'hello there!';
+$foo = $_POST;
+$foo['message'] = 'Your information has been saved!';
 echo (json_encode($foo));
 ?>

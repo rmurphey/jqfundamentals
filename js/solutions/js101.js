@@ -50,15 +50,13 @@ myObject.property; // 'value'
 myObject.method(); // alerts 'hello'
 
 
-var MyThing = function() {
-	
-	return this;
-};
-
-
 /* functions */
 
 // defining a function
+function myFunction() {
+	// do stuff
+};
+
 var myFunction = function() {
 	// do stuff
 };
@@ -104,9 +102,9 @@ var myFunction = function() {
 alert(myClosedVariable); // error; myClosedVariable isn't defined outside the function 
 
 var myFunction = function() {
-	var myFn = function() {
+	function myFn() {
 		alert(myClosedVariable);
-	};
+	}
 	
 	var myClosedVariable = 'hello';
 	
@@ -116,5 +114,34 @@ var myFunction = function() {
 alert(myClosedVariable); // error; myClosedVariable isn't defined outside the function
 
 var f = myFunction(); // returns the function created inside myFunction
-f(); // this function still has access to myClosedVariable, because the function and the variable
-	 // were created in the same scope. this is an example of a closure.
+f(); 	// this function still has access to myClosedVariable, 
+		// because the function and the variable
+	 	// were created in the same scope. this is an example of a closure.
+	
+	
+/* another closure example */
+
+// this won't work as expected! all will alert '4'
+for (i=0; i<5; i++) {
+	$('p').appendTo('body').click(function() {
+		alert(i);
+	});
+}
+
+// this will work -- put the variable i inside a closure
+for (i=0; i<5; i++) {
+	(function(i){
+		$('p').appendTo('body').click(function() {
+			alert(i);
+		});
+	})(i);
+}
+
+// this will also work, and is a little more clear about what's going on
+var createFunction = function(i) {
+	return function() { alert(i); };
+};
+
+for (i=0; i<5; i++) {
+	$('p').appendTo('body').click(createFunction(i));
+}

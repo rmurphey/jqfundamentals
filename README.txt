@@ -67,6 +67,7 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
    * before, after
    * insertBefore, insertAfter
    * attr
+   * val
    * NOTE: add blocks of html all at once, not one element at a time
    * EXERCISE: make all links open in a new window
    * EXERCISE: create a table of contents for the page
@@ -79,7 +80,8 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
    * combination methods (hover, one, toggle)
    * bind and trigger
    * EXERCISE: make clicking on a headilne hide the next element
-   * EXERCISE: change the color of an element on hover
+   * EXERCISE: add/remove a class on an element on hover
+   * EXERCISE: use the label for an input as hint text; clear hint on focus
  * Effects
    * built-in effects
      * show/hide
@@ -95,9 +97,20 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
    * choosing a data type
    * POST vs. GET
    * convenience methods vs $.ajax method
+   * load, get, post
+   * $.ajax
+   * EXERCISE: use load to bring in part of a document
+   * EXERCISE: use $.ajax to load json for specials
+   * EXERCISE: serialize form data and send it to the server as a POST
  * Utility methods
-   * trim, inArray, extend, etc.
+   * trim
+   * inArray
+   * extend
+   * ... and more
  * Plugins
+   * Finding
+   * Using
+   * Writing
 
 = Reference Material =
 
