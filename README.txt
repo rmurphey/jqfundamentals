@@ -48,21 +48,47 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
  * Selectors
    * best practices
    * speed optimizations
+   * EXERCISE: get elements on the page
+   * find
+   * filter
+   * is
+   * .length
  * Chaining
    * getters and setters
+   * EXERCISE: switch the html of two elements
+ * CSS
+   * changing the style of elements
+   * why changing the style of elements via JS is a bad idea (use classes instead)
 
 == Part 3: Accomplishing things with jQuery ==
+ * Manipulating
+   * append, prepend, appendTo, prependTo
+   * remove, empty
+   * before, after
+   * insertBefore, insertAfter
+   * attr
+   * NOTE: add blocks of html all at once, not one element at a time
+   * EXERCISE: make all links open in a new window
+   * EXERCISE: create a table of contents for the page
+ * Traversing
+   * next/prev
+   * parents, closest, children, siblings
+   * EXERCISE: change the content of all the children of an element
  * Events
    * convenience methods (click, mouseover, mouseout, focus, blur, etc.)
    * combination methods (hover, one, toggle)
    * bind and trigger
- * Manipulating
-   * append, prepend, remove, empty, before, after, etc.
- * Traversing
-   * next, prev, parents, closest, siblings, etc.
+   * EXERCISE: make clicking on a headilne hide the next element
+   * EXERCISE: change the color of an element on hover
  * Effects
    * built-in effects
+     * show/hide
+     * fadeIn/fadeOut
+     * slideUp/slideDown
+     * toggle
    * custom animations
+   * EXERCISE: open/close a list when clicked
+   * EXERCISE: show a message on the screen, then fade it out
 
 == Part 4: XHR and other Goodies ==
  * XHR (AJAX)
