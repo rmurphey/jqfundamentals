@@ -10,7 +10,9 @@ var bim = foo && bar; // logical AND operator && returns the value of the last t
 
 if (foo) {
 	// do something if foo is true
-} else if (bar) {
+} else if (
+	bar && baz && bim
+) {
 	// do something if bar is true AND foo was false
 } else {
 	// do something if both foo and bar were false
@@ -36,13 +38,16 @@ foo.push('pear'); // add to an array when last index is not known
 foo.length; // 4 -- that's better
 foo; // ['apple', 'orange', 'banana', 'pear']
 
+var foo = {
+	bar : 'baz'
+};
 
 /* objects */
-
 var myObject = {
 	'property' : 'value',
 	'method' : function() {
 		alert('hello');
+		return 'hello';
 	}
 };
 
@@ -57,12 +62,35 @@ function myFunction() {
 	// do stuff
 };
 
-var myFunction = function() {
+var myFunction = function(a, b) {
 	// do stuff
+	return (a + b);
 };
+
+myFunction();
+ 
+var foo = 'hello';
+
+var myThing = (function() {
+	var myFn = function() {
+		alert(foo);
+	};
+	var foo = 'world';
+	return myFn;
+})();
+
+myThing();
+
 
 // functions can be created and run without ever naming them
 (function(arg) { alert(arg); })('hello'); // alerts 'hello'
+
+
+(function($) {
+	$('p').text('hello');
+})(jQuery);
+
+$('p').text('hello');
 
 // functions can receive 0 or more arguments;
 // these arguments can be anything, including other functions!
