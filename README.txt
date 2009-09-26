@@ -14,7 +14,7 @@ If you have questions about how to do this, please don't hesitate to contact me.
 == Getting the Code ==
 The code we'll be using in class is hosted in a public repository on Github: 
 
-http://github.com/rmurphey/jqfundamentals/tree/master
+http://github.com/rmurphey/jqfundamentals
 
 You can download a .zip or .tar file of the code, then uncompress it to use it on your server. (If you're git-inclined, then you can fork the repository instead, if you'd like.)
 
