@@ -18,8 +18,6 @@
 <body>
 	<h1>jQuery fundamentals exercises</h1>
 	
-	<h2>javascript 101</h2>
-	
 	<h2>selecting and traversing</h2>
 	<p>Files: sandbox.html, sandbox.js</p>
 	
@@ -58,11 +56,20 @@
 	
 	<ul>
 		<li>make it so that clicking on the h3 before the unordered list changes the color of the unordered list</li>
-		<li>make it so that clicking on a table row changes the color of the first cell in the row</li>
-		<li>make it so that clicking in the input fields changes their background color</li>
+		<li>make it so that clicking on a table row changes the color of the first cell in the row; clicking again should change it back</li>
+		<li>make it so that focusing on an input field changes its background color, and leaving the field changes it back (hint: use .focus() and .blur())</li>
+		<li>make it so that when a list item is mouseover'd/mouseout'd, a class is added/removed (hint: use hover())</li>
 	</ul>
 	
 	<h2>effects</h2>
+	
+	<h3>messages</h3>
+	<p>Files: sandbox.html, sandbox.js</p>
+	<ul>
+		<li>add a div containing a message to the top of the page on document ready</li>
+		<li>set the message to fade out after 5 seconds</li>
+		<li>set the message to slide up immediately if the user clicks on it</li>
+	</ul>
 
 	<h3>reveal</h3>
 	<p>Files: index.html, reveal.js</p>
@@ -71,6 +78,7 @@
 		<li>make it so that clicking on a headline in div#blog slides down the excerpt</li>
 		<li>make it so that clicking on another headline slides down its excerpt, and slides up any currently showing excerpt. (hint: use a class to mark the currently showing excerpt.)</li>
 	</ul>
+	
 	
 	<h2>summary exercise</h2>
 	<p>Files: index.html, slideshow.js</p>
@@ -86,6 +94,7 @@
 		</li>
 		<li>done already? try this:
 			<ul>
+				<li>change the animation to something that uses .animate()</li>
 				<li>add a counter to the slideshow, showing "image x of x"</li>
 				<li>add a play/pause button</li>
 				<li>add the ability to navigate through the slideshow</li>
@@ -114,7 +123,7 @@
 	<p>Files: menu.html, menus.js</p>
 	
 	<ul>
-		<li>there is a list item for each meal (lunch, dinner, brunch); create a container div at the end of each of these list items. this is where you'll put the html response to your ajax request</li>
+		<li>there is a list item for each type of meal (lunch, dinner, brunch); create a container div at the end of each of these list items. this is where you'll put the html response to your ajax request</li>
 		<li>bind an event to #menus a
 			<ul>
 				<li>this event will need to get the "hash" portion of the href attribute of the a that was clicked. hint:
@@ -128,6 +137,6 @@
 		</li>
 	</ul>
 
-
+	<small>Copyright &copy; 2009 Rebecca Murphey. All rights reserved.</small>
 </body>
 </html>

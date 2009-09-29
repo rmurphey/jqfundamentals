@@ -25,7 +25,7 @@ You'll want to have the following tools to make the most of the class:
  * The Firefox browser
  * The Firebug extension for Firefox
  * A plain text editor
- * An FTP or SSH client (if you're not using a local server)
+ * For the AJAX portions: An FTP or SSH client (if you're not using a local server)
 
 
 = Course Outline =
@@ -48,19 +48,20 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
  * Selectors
    * best practices
    * speed optimizations
-   * EXERCISE: get elements on the page
    * find
    * filter
    * is
    * .length
  * Chaining
    * getters and setters
-   * EXERCISE: switch the html of two elements
  * CSS
    * changing the style of elements
-   * why changing the style of elements via JS is a bad idea (use classes instead)
+   * changing the style of elements via JS is a bad idea (use classes instead)
 
 == Part 3: Accomplishing things with jQuery ==
+ * Traversing
+   * next/prev
+   * parents, closest, children, siblings
  * Manipulating
    * append, prepend, appendTo, prependTo
    * remove, empty
@@ -69,19 +70,10 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
    * attr
    * val
    * NOTE: add blocks of html all at once, not one element at a time
-   * EXERCISE: make all links open in a new window
-   * EXERCISE: create a table of contents for the page
- * Traversing
-   * next/prev
-   * parents, closest, children, siblings
-   * EXERCISE: change the content of all the children of an element
  * Events
    * convenience methods (click, mouseover, mouseout, focus, blur, etc.)
    * combination methods (hover, one, toggle)
    * bind and trigger
-   * EXERCISE: make clicking on a headilne hide the next element
-   * EXERCISE: add/remove a class on an element on hover
-   * EXERCISE: use the label for an input as hint text; clear hint on focus
  * Effects
    * built-in effects
      * show/hide
@@ -89,8 +81,6 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
      * slideUp/slideDown
      * toggle
    * custom animations
-   * EXERCISE: open/close a list when clicked
-   * EXERCISE: show a message on the screen, then fade it out
 
 == Part 4: XHR and other Goodies ==
  * XHR (AJAX)
@@ -99,9 +89,6 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
    * convenience methods vs $.ajax method
    * load, get, post
    * $.ajax
-   * EXERCISE: use load to bring in part of a document
-   * EXERCISE: use $.ajax to load json for specials
-   * EXERCISE: serialize form data and send it to the server as a POST
  * Utility methods
    * trim
    * inArray
