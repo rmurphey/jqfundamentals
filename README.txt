@@ -1,8 +1,10 @@
 = Welcome to jQuery Fundamentals! =
+
 Thanks for signing up for the jQuery Fundamentals class! In the interest of getting right to work when we meet, I've put together a few notes about things to do before the class. Your help in doing this housekeeping beforehand is much appreciated. 
 
 
 == Setting up a Server ==
+
 You'll need a server for the AJAX exercises we'll be doing in class, and you'll need to have it set up before you come to class so we can get right to work. You have a couple of options here:
 
  * Set up a server on your local machine, using tools such as MAMP or WAMP. If you're not familiar with these tools, they are fairly easy ways to get a server up and running on your computer, allowing you to access and modify all files locally.
@@ -12,6 +14,7 @@ If you have questions about how to do this, please don't hesitate to contact me.
 
 
 == Getting the Code ==
+
 The code we'll be using in class is hosted in a public repository on Github: 
 
 http://github.com/rmurphey/jqfundamentals
@@ -20,6 +23,7 @@ You can download a .zip or .tar file of the code, then uncompress it to use it o
 
 
 == Software ==
+
 You'll want to have the following tools to make the most of the class:
 
  * The Firefox browser
@@ -31,9 +35,12 @@ You'll want to have the following tools to make the most of the class:
 = Course Outline =
 
 == About the Instructor ==
+
 Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She is a regular contributor to JSMag, the magazine for JavaScript professionals; an active member of the jQuery community; and a contributor to an upcoming jQuery Cookbook from O'Reilly.
 
+
 == Part 1: JavaScript 101 ==
+
  * JavaScript vs. jQuery
    * DOM manipulation issues
    * Selection issues
@@ -44,21 +51,25 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
    * Booleans, strings, numbers, arrays, objects, and functions
    * Scope and closures
 
+
 == Part 2: jQuery Basics ==
+
  * Selectors
    * best practices
-   * speed optimizations
+   * optimizations
    * find
    * filter
-   * is
+   * is, not
    * .length
  * Chaining
-   * getters and setters
+   * getters vs. setters
  * CSS
    * changing the style of elements
    * changing the style of elements via JS is a bad idea (use classes instead)
 
+
 == Part 3: Accomplishing things with jQuery ==
+
  * Traversing
    * next/prev
    * parents, closest, children, siblings
@@ -69,7 +80,7 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
    * insertBefore, insertAfter
    * attr
    * val
-   * NOTE: add blocks of html all at once, not one element at a time
+   * creating new elements
  * Events
    * convenience methods (click, mouseover, mouseout, focus, blur, etc.)
    * combination methods (hover, one, toggle)
@@ -82,7 +93,9 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
      * toggle
    * custom animations
 
+
 == Part 4: XHR and other Goodies ==
+
  * XHR (AJAX)
    * choosing a data type
    * POST vs. GET
