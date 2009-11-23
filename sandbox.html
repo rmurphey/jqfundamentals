@@ -12,12 +12,16 @@
 	.pointer {
 		cursor:pointer;
 	}
+	
+	#myList li {
+		position:relative;
+	}
 	</style>
 	
 	<title>sandbox</title>
 	<link href="css/reset.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/sandbox.css" rel="stylesheet" type="text/css" media="all" />
-	
+
 </head>
 
 <body>
@@ -31,13 +35,17 @@
 	
 	<h3>Unordered List</h3>
 	<ul>
-		<li>List item 1</li>
-		<li class="bar">List item 2</li>
-		<li id="myListItem">List item 3</li>
-		<li>List item 4</li>
-		<li class="foo bar">List item 5</li>
-		<li>List item 6</li>
-		<li>List item 7</li>
+		<li>
+			<ul id="myList">
+				<li>List item 1</li>
+				<li class="bar">List item 2</li>
+				<li id="myListItem">List item 3</li>
+				<li>List item 4</li>
+				<li class="foo bar">List item 5</li>
+				<li>List item 6</li>
+				<li>List item 7</li>
+			</ul>
+		</li>
 	</ul>
 	
 	<form>

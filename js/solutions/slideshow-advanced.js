@@ -4,22 +4,17 @@ var slideshow = {
 	config : {
 		autoAdvance : true,
 		selector : '#hero',
-		container : '#main'
+		container : '#main',
+		interval : 5000
 	},
 	
-	init : function(config) {
+	init : function() {
 		
-		var config = config || {};
-		$.extend(slideshow.config, config);
-		
-		slideshow.$hero = $(slideshow.config.selector).prependTo(slideshow.config.container)
+		slideshow.$hero = $(slideshow.config.selector)
+			.prependTo(slideshow.config.container)
 			.addClass('js-slideshow');
+
 		slideshow.$items = slideshow.$hero.find('li').hide();
-		
-		slideshow.$items.each(function(i) {
-			$(this).data('number', i + 1);
-		});
-		
 		slideshow.totalItems = slideshow.$items.length;
 		
 		slideshow.createNav();
@@ -28,7 +23,10 @@ var slideshow = {
 		
 		if (slideshow.config.autoAdvance) {
 			slideshow.interval = 
-				setInterval(slideshow.showNext, 2000);
+				setInterval(
+					slideshow.showNext, 	
+					slideshow.config.interval
+				);
 		}
 	},
 	
@@ -39,8 +37,10 @@ var slideshow = {
 				clearInterval(slideshow.interval);
 				slideshow.showNext();
 			});
+
 		slideshow.$counter = $('<p></p>')
 			.insertAfter(slideshow.$hero);
+
 		slideshow.$prev = $('<p>Prev</p>')
 			.insertAfter(slideshow.$hero)
 			.click(function() {
@@ -58,7 +58,7 @@ var slideshow = {
 	},
 	
 	show : function($item) {
-		slideshow.hide($item.siblings());
+		$item.siblings().hide();
 		$item.fadeIn(500);
 		slideshow.updateCounter();
 	},
@@ -76,7 +76,7 @@ var slideshow = {
 		if ($current.next().length) {
 			return $current.next();
 		} else {
-			return slideshow.$items.filter(':first');
+			return slideshow.$items.eq(0);
 		}
 	},
 	
@@ -90,8 +90,8 @@ var slideshow = {
 	},
 	
 	updateCounter : function() {
-		var text = slideshow.getCurrentItem().data('number') 
-			+ ' of ' + slideshow.totalItems;
+		var num = slideshow.getCurrentItem().prevAll().length + 1;
+		var text = num + ' of ' + slideshow.totalItems;
 		slideshow.$counter.text(text);
 	}
 };

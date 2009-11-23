@@ -8,7 +8,7 @@ selecting and traversing exercises
 and remove the class module
  
 - get the h1
-- store its text in a variable
+- store its text in a variable (hint: text())
 - use the stored text as the text for the first
 list item
  
@@ -16,7 +16,8 @@ bonus points:
 - change the background color of *every other*
 table row (hint: use :odd or :even)
 */
- 
+
+
 /* 
 manipulation exercises
  

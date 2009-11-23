@@ -5,8 +5,8 @@ var bar = false;
 // lots of things are truthy: '0', 'any string', [] (an empty array), {} (an empty object), any non-zero number
 // lots of things are falsy: 0, '' (empty string), NaN, null, undefined
 
-var baz = foo || bar; // logical OR operator || returns the value of the first true comparator (false if none)
-var bim = foo && bar; // logical AND operator && returns the value of the last true comparator (false if none)
+var baz = foo || bar || bim || baz; // logical OR operator || returns the value of the first true comparator (false if none)
+var bim = foo && bar && bop && bip; // logical AND operator && returns the value of the last true comparator (false if none)
 
 if (foo) {
 	// do something if foo is true
@@ -20,7 +20,8 @@ if (foo) {
 
 
 /* strings and numbers */
-var foo = '1' + 2; // '12'
+var myNumber = '1';
+var foo = parseInt(myNumber) + 2; // 3
 var bar = 1 + 2; // 3
 
 
@@ -38,11 +39,13 @@ foo.push('pear'); // add to an array when last index is not known
 foo.length; // 4 -- that's better
 foo; // ['apple', 'orange', 'banana', 'pear']
 
+
 var foo = {
 	bar : 'baz'
 };
 
 /* objects */
+
 var myObject = {
 	'property' : 'value',
 	'method' : function() {
@@ -87,10 +90,8 @@ myThing();
 
 
 (function($) {
-	$('p').text('hello');
+	jQuery('p').text('hello');
 })(jQuery);
-
-$('p').text('hello');
 
 // functions can receive 0 or more arguments;
 // these arguments can be anything, including other functions!
@@ -123,9 +124,12 @@ f(); // alerts 'hello', then alerts 'world'
 
 // functions "close" their variables -- variables defined in a function
 // are only available to other objects and functions created inside the function
+
 var myFunction = function() {
 	var myClosedVariable = 'hello';
 };
+
+myFunction();
 
 alert(myClosedVariable); // error; myClosedVariable isn't defined outside the function 
 
@@ -151,7 +155,7 @@ f(); 	// this function still has access to myClosedVariable,
 
 // this won't work as expected! all will alert '4'
 for (i=0; i<5; i++) {
-	$('p').appendTo('body').click(function() {
+	$('<p>some text</p>').appendTo('body').click(function() {
 		alert(i);
 	});
 }
@@ -159,7 +163,8 @@ for (i=0; i<5; i++) {
 // this will work -- put the variable i inside a closure
 for (i=0; i<5; i++) {
 	(function(i){
-		$('p').appendTo('body').click(function() {
+		$('<p>some text</p>')
+		.appendTo('body').click(function() {
 			alert(i);
 		});
 	})(i);
@@ -171,5 +176,6 @@ var createFunction = function(i) {
 };
 
 for (i=0; i<5; i++) {
-	$('p').appendTo('body').click(createFunction(i));
+	$('<p>some text</p>')
+		.appendTo('body').click(createFunction(i));
 }
