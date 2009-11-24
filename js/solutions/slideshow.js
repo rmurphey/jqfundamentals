@@ -7,23 +7,14 @@ $(document).ready(function() {
 	var $counter = $('<div/>')
 		.insertAfter($slideshow);
 	
-	// get the items and figure out
-	// how many of them there are;
-	// we'll use this in the counter later
 	var $items = $slideshow.find('li').hide();
 	var total = $items.length;
 	
-	// the function to run when 
-	// an animation is complete
 	var callback = function() {
 		var $this = $(this);
 		
-		// figure out the position of
-		// the current item
 		var num = $this.prevAll().length + 1;
 		
-		// figure out which is the
-		// next item
 		var $next = $this.next().length ?
 			$this.next() : $items.eq(0);
 			
