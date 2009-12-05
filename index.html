@@ -11,32 +11,40 @@
 	<title>jQuery Fundamentals :: Home</title>
 	<link href="css/reset.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-
+	
+	<style>
+	#blog p { display: none; }
+	</style>
+	
 </head>
 
 <body>
 	<div id="header">
 		<div id="logo"><a href="index.html">jQuery Fundamentals</a></div>
 		<ul id="nav">
-			<li class="selected"><a href="index.html">Home</a></li>
-			<li><a href="menu.html">Menu</a></li>
-			<li><a href="takeout.html">Takeout</a></li>
-			<li><a href="blog.html">Blog</a>
+			<li class="selected"><a href="http://docs.jquery.com">jQuery Docs</a></li>
+			<li><a href="sandbox.html">Sandbox</a></li>
+			<li>Resources
 				<ul>
-					<li><a href="#">Random other thing</a></li>
-					<li><a href="#">Random other thing</a></li>
-					<li><a href="#">Random other thing</a></li>
+					<li><a href="http://groups.google.com/group/jquery-en">Google Group</a></li>
+					<li><a href="http://stackoverflow.com">Stack Overflow</a></li>
+					<li><a href="http://delicious.com/rdmey/jquery-class">Delicious Bookmarks</a></li>
 				</ul>
 			</li>
-			<li><a href="staff.html">Staff</a></li>
 		</ul>
 	</div>
-
+	
 	<div id="main">
+		<form id="search">
+			<label for="q">Enter search term</label>
+			<input type="text" name="q" class="input_text" />
+			<input type="submit" value="Go" />
+		</form>
+		
 		<h1>Eat here.</h1>
 		<p>Lorem ipsum dolor sit amet, <a href="foo.html">consectetur adipisicing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-		<ul id="hero">
+		<ul id="slideshow">
 			<li>
 				<h2>Fruit</h2>
 				<img src="images/fruit.jpg" alt="fruit" />
@@ -58,36 +66,24 @@
 			<h2>Blog</h2>
 			<ul>
 				<li>
-					<h3><a href="blog/post-1.php">Blog post 1</a></h3>
+					<h3><a href="blog.html#post1">Blog post 1</a></h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</li>
 				<li>
-					<h3><a href="blog/post-2.php">Blog post 2</a></h3>
+					<h3><a href="blog1.html#post2">Blog post 2</a></h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</li>
 				<li>
-					<h3><a href="blog/post-3.php">Blog post 3</a></h3>
+					<h3><a href="blog.html#post3">Blog post 3</a></h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</li>
 			</ul>
 		</div>
 		
-		<form id="search" method="GET" action="dummy.php">
-			<label for="search">Search for Something</label>
-			<input type="text" class="input_text" name="search" />
-			<input type="submit" class="input_submit" value="Go" />
-		</form>
-		
-		<form id="update_server" method="POST" action="dummy.php">
-			<label for="data">Enter some data</label>
-			<input type="text" class="input_text" name="data" />
-			<input type="submit" class="input_submit" value="Go" />
-		</form>
-		
 		<div class="module" id="specials">
 			<h2>Specials</h2>
 			<p>Choose the day of the week to see the specials:</p>
-			<form action="specials.php" method="get">
+			<form action="specials.html" method="get">
 				<ul>	
 					<li>
 						<select name="day">
@@ -102,11 +98,59 @@
 				</ul>
 			</form>
 		</div>
+
+		<table id="fruits">
+			<thead>
+				<tr>
+					<th>Apples</th>
+					<th>Oranges</th>
+					<th>Pears</th>
+					<th>Nectarines</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td id="myTableCell">2</td>
+					<td>3</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>6</td>
+					<td>4</td>
+					<td>8</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>7</td>
+					<td>5</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>20</td>
+					<td>30</td>
+					<td>10</td>
+					<td>100</td>
+				</tr>
+			</tbody>
+		</table>
+		
+
 	</div>
 	
 <script src="js/jquery-1.3.2.min.js"></script>
+<script src="js/sandbox.js"></script>
+<script src="js/solutions/tabs.js"></script>
+<!-- 
+<script src="js/solutions/tabs.js"></script>
+
+<script src="js/inputHint.js"></script>
+<script src="js/hoverClass.js"></script>
+<script src="js/navigation.js"></script>
 <script src="js/blog.js"></script>
 <script src="js/specials.js"></script>
-<script src="js/slideshow.js"></script>
+<script src="js/slideshow.js"></script> 
+-->
 </body>
 </html>

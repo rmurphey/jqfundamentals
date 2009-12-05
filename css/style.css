@@ -1,4 +1,12 @@
 /* general */
+.current {
+	color: red;
+}
+
+.hover {
+	color: blue;
+}
+
 h1 {
 	font-size: 250%;
 	margin: 5px 0 10px 0;
@@ -154,6 +162,8 @@ body {
 	position: relative;
 	height: 20px;
 	list-style-type: none;
+	color: #fff;
+	cursor: pointer;
 }
 
 #nav li.selected {
@@ -190,11 +200,11 @@ body {
 	margin: 0 0 10px 0;
 }
 
-#hero {
+#slideshow {
 	margin: 0;
 }
 
-#hero li {
+#slideshow li {
 	margin: 0 0 10px 0;
 	list-style-type: none;
 }
@@ -288,6 +298,10 @@ ul li.selected {
 	font-weight: bold;
 }
 
+#search {
+margin: 15px 0;
+}
+
 /* modal */
 #modal {
 	width: 500px;
@@ -309,4 +323,3 @@ ul li.selected {
 	z-index: 100;
 	
 }
-

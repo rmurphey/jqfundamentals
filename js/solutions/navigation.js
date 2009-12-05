@@ -1,22 +1,24 @@
 $(document).ready(function() {
 	$('#nav li')
+		// when a nav item is hovered,
+		// add a class to it and show
+		// any children ULs (dropdowns)
 		.hover(function() {
 			$(this)
 				.addClass('hover')
-				.find('ul').slideDown();
-
+				.find('ul').show();
 		}, function() {
-			$(this)
+			$(this) // list item that was clicked
 				.removeClass('hover')
-				.find('ul').slideUp();
+				.find('ul').hide();
 		})
+		
+		// make the nav items appear clickable
+		.css({'cursor':'pointer'})
+		
+		// make the nav items actually clickable
 		.click(function() {
-			var $li = $(this);
-
-			$('a', $li); // $li.find('a');
-
-			var href = $li.find('a').attr('href');
-			window.location.href = href;
-		})
-		.css({cursor:'pointer'});
+			window.location.href = 
+			$(this).find('a').attr('href');
+		});
 });
