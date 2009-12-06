@@ -1,249 +1,84 @@
-/*
-- get the third list item (hint: eq())
-- change its color to red
-- change the color of the rest of the list items to blue
-- *without doing another selection*, find the div.module and remove the class "module"
-*/
+/********************************
+ * Selecting					*
+ ********************************/
 
-$(document).ready(function() {
-	var $li = $('li').eq(2);
+// Get all of the div elements that have a class of "module"
+$('div.module');
 
-	$li.css('color', 'red')
-		.siblings()
-			.css('color', 'blue');
-			
-	$li.parent().prev() // div.module
-		.removeClass('module');
+// Come up with three selectors that you could use to get the third item in the #myList unordered list. 
+$('#myListItem'); 			// this one is best -- IDs are *always* the fastest selector
+$('#myList li:eq(3)');		// this one would be best if the list item didn't have an ID
+$('#myList #myListItem');	// this one is redundant
+
+// Get the label for the search input using an attribute selector. 
+$('label[for="q"]');
+
+// Figure out how many elements on the page are hidden (hint: .length). 
+$(':hidden').length;
+
+// Figure out how many image elements on the page have an alt attribute. 
+$('img[alt]').length;
+
+// Get all the odd table rows in the table body.
+$('#fruits tbody tr:odd');	
+// be sure to specify tbody, otherwise you'll get the tr in the thead too
+// note that we used the ID for the table to quickly localize the search
+
+
+
+/********************************
+ * Traversing					*
+ ********************************/
+
+// Get all the image elements on the page; log each image’s alt attribute.
+$('img').each(function(i) {
+	var $img = $(this);
+	console.log($img.attr('alt'));
 });
 
-/*	
-- get the h1
-- store its text in a variable
-- use the stored text as the text for the first list item
-*/
-$(document).ready(function() {
-	$('li:first').text( $('h1').text() );
-});
+// Get the search input text box, then traverse up to the form and add a class to the form that contains it.
+$('input[name="q"]').closest('form').addClass('foo');
 
-/*	
-bonus points:
-- change the background color of *every other* table row (hint: use :odd or :even)
-*/
-$(document).ready(function() {
-	$('tr:odd').css({ 'backgroundColor' : '#ccc' });
-});
+// Get the list item inside #myList that has a class of “current” and remove that class from it; add a class of “current” to the next list item.
+$('li.current')
+	.removeClass('current')
+	.next()
+		.addClass('current');
 
-/*
-example showing find() and not()
-*/
-$(document).ready(function() {
-	$('ul')
-		.addClass('rounded')
-		.find('li').not('.foo')
-			.css('color', 'blue');
-});
+// Get the select element inside #specials; traverse your way to the submit button.
+$('#specials select').parent().next().find('input.input_submit');
 
-/*
-playing with list items
-*/
-$(document).ready(function() {
-	var $firstListItem = $('li:first');
-	
-	$firstListItem
-	 	.addClass('current')
-	 	.siblings()
-	 	.removeClass('current');
-
-	var liColor = $('ul')
-		.css('border', '1px solid red')
-		.children()
-			.css('color', 'blue')
-			.css('color');
+// Get the first list item in the #slideshow element; add the class “current” to it, and then add a class of “disabled” to its sibling elements.
+$('#slideshow li:first')
+	.addClass('current')
+	.siblings()
+		.addClass('disabled');
 		
-	console.log(liColor); // 'blue'
-});
-
-$(document).ready(function() {
-	/* appending */
-	$('li')
-		.each(function(i) {
-			var $li = $(this);
-			$('<span/>')
-				.text(' number: ' + i)
-				.appendTo($li);
-		})
-		.append('<span> hello</span>');
-	
-	/* cloning and inserting */
-	$('li').each(function() {
-		var $li = $(this);
-		var $newLi = $li.clone();
 		
-		$newLi.text('new ' + $newLi.text());
-		
-		$newLi.insertAfter($li);
-	});
-	
-	var $newUl = $('ul').clone();
-	
-	$('<div/>')
-		.insertAfter('h1')
-		.append($newUl);
-	
-});
 
+/********************************
+ * Manipulation					*
+ ********************************/
 
-/*
-manipulation exercises
- 
-- add five new list items to the end of the unordered list (hint: for (i=0; i<5; i++) { ... } )
-*/
+// Add five new list items to the end of the unordered list (hint: for (i=0; i<5; i++) { ... }). 
+var $ul = $('#myList');
+for (i=0; i<5; i++) {
+	$('<li>List item ' + i + '</li>').appendTo($ul);
+}
 
-$(document).ready(function() {
-	var $ul = $('ul');
-	var myListItems = [];
+// Remove the odd list items (hint: .remove()). 
+$('#myList li:odd').remove();
 
-	for (var i=0; i<5; i++) {
-		// $ul.append('<li>this is my list item</li>');
-		var text = 'this is my list item #' + i;
-		myListItems.push('<li>' + text + '</li>');
-	}
+// Add another h2 and another paragraph to div.module. 
+$('div.module')
+	.append('<h2>new heading</h2>')
+	.append('<p>new paragraph</p>');
 
-	var myNewHtml = myListItems.join('');
-	$ul.append(myNewHtml);
-});
+// Add another option to the select element with a value of “Wednesday”.
+$('select').append('<option value="wednesday">Wednesday</option>');
 
+// Add a new div.module to the page after the existing one; put a copy of the existing unordered list inside it.
+var $ul = $('#myList');
+var $newDiv = $('<div class="module"/>');
 
-/* 
-- remove the odd list items (hint: .remove())
-*/
-$(document).ready(function() {
-	var $li = $('li:odd').remove();
-});
-
-/* 
-- add another h2 and another paragraph to div.module
-*/
-$(document).ready(function() {
-	var $module = $('div.module');
-
-	$module.append('<h2>new headline</h2>');
-	$module.append('<p>new paragraph</p>');
-});
-
-
-$(document).ready(function() {
-	/*
-	- add a new div.module to the page after the existing one; put a copy of the existing unordered list inside it.
-	*/
-	var $module = $('div.module');
-	var $newUl = $('ul').clone();
-	
-	var $newModule = $('<div/>')
-		.addClass('module')
-		.append($newUl)
-		.insertAfter($module);
-		
-	/* make list items clickable; mark the current one */
-	$('li').click(function() {
-		var $this = $(this);
-	
-		$this.siblings().removeClass('current');
-	
-		if ($this.hasClass('current')) {
-			$this.removeClass('current');
-		} else {
-			$this.addClass('current');
-		}
-	});
-});
-
-$(document).ready(function() {
-	/* toggle (event) */
-	$('td').toggle(
-		function() {
-			var $td = $(this);
-			$td.addClass('current');
-		},
-		function() {
-			var $td = $(this);
-			$td.removeClass('current');
-		}
-	);
-
-	/* mark a clicked <a>; log the href */
-	$('a').click(function(e) {
-		e.preventDefault();
-		
-		var $a = $(this);
-		$a.addClass('clicked');
-		
-		console.log($a.attr('href'));
-	});
-	
-	/* hover */
-	$('li').hover(
-		function() {
-			$(this).addClass('current');
-		}, 
-		function() {
-			$(this).removeClass('current');
-		}
-	);
-	
-	/* click on p, simulate click on <a> */
-	$('p:first').click(function(e) {
-  		var href = $(this).find('a').attr('href');
-		window.location.href = href;
-	});
-	
-	/* timeouts and intervals */
-	var myTimeout = setTimeout(function() {
-		alert('hi');
-	}, 5000);
-	
-	var myInterval = setInterval(function() {
-		console.log('hello');
-	}, 1000);
-
-	$('p').click(function() {
-		clearTimeout(myTimeout);
-		clearInterval(myInterval);
-	});
-
-	/* animation */
-	$('h1').next('p').hide();
-	
-	$('h1').click(function() {
-		$(this).next('p').slideToggle();
-	});
-	
-	$('div.module h2').toggle(
-		function() {
-			$(this).next().slideUp();
-		},
-		function() {
-			$(this).next().slideDown();
-		}
-	);
-	
-	$('div.module h2').click(function() {
-		$(this).next().slideToggle();
-	});
-	
-	$('ul li')
-		.css('position', 'relative')
-		.toggle(
-			function() {
-				$(this).animate({
-					left : '20px'
-				}, 500);
-			},
-			function() {
-				$(this).animate({
-					left : '0px'
-				}, 500);
-			}
-		);
-	
-});
+$newDiv.append($ul.clone().attr('id', '')).insertAfter('div.module:last');
