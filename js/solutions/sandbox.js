@@ -6,9 +6,15 @@
 $('div.module');
 
 // Come up with three selectors that you could use to get the third item in the #myList unordered list. 
-$('#myListItem'); 			// this one is best -- IDs are *always* the fastest selector
-$('#myList li:eq(3)');		// this one would be best if the list item didn't have an ID
-$('#myList #myListItem');	// this one is redundant
+
+$('#myListItem'); 			
+// this one is best -- IDs are *always* the fastest selector
+
+$('#myList li:eq(3)');		
+// this one would be best if the list item didn't have an ID
+
+$('#myList #myListItem');	
+// this one is redundant
 
 // Get the label for the search input using an attribute selector. 
 $('label[for="q"]');
@@ -60,7 +66,7 @@ $('#slideshow li:first')
  * Manipulation					*
  ********************************/
 
-// Add five new list items to the end of the unordered list (hint: for (i=0; i<5; i++) { ... }). 
+// Add five new list items to the end of the unordered list #myList 
 var $ul = $('#myList');
 for (i=0; i<5; i++) {
 	$('<li>List item ' + i + '</li>').appendTo($ul);
@@ -77,7 +83,8 @@ $('div.module')
 // Add another option to the select element with a value of “Wednesday”.
 $('select').append('<option value="wednesday">Wednesday</option>');
 
-// Add a new div.module to the page after the existing one; put a copy of the existing unordered list inside it.
+// Add a new div.module to the page after the last one; 
+// put a copy of one of the existing images inside of it
 var $ul = $('#myList');
 var $newDiv = $('<div class="module"/>');
 

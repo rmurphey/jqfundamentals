@@ -6,12 +6,13 @@ $(document).ready(function() {
 
 	$input
 		.val(hint)
+		.addClass('hint')
 		.focus(function() {
-			$input.val('');
+			$input.val('').removeClass('hint');
 		})
 		.blur(function() {
 			if (!$input.val()) {
-				$input.val(hint);
+				$input.val(hint).addClass('hint');
 			}
 		});
 });

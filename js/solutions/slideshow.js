@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	// move the slideshow up to the top
-	var $slideshow = $('#hero');
+	var $slideshow = $('#slideshow');
 	$slideshow.prependTo('#main');
 
 	// create the counter element

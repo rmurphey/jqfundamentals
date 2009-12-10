@@ -13,10 +13,11 @@ $(document).ready(function() {
 			.appendTo($nav);
 
 		$tab.click(function() {
-			$tab.addClass('current');
+			$tab.addClass('current').siblings().removeClass('current');
 			$module.show().siblings('.module').hide();
 		});
 	});
 	
 	$modules.eq(0).show();
+	$nav.find('li:first').addClass('current');
 });
