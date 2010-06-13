@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter>
+  <title>JavaScript Basics</title>
+
+  <section>
+    <title>Overview</title>
+
+    <para>jQuery is built on top of JavaScript, a rich and expressive language
+    in its own right. This section covers the basic concepts of JavaScript, as
+    well as some frequent pitfalls for people who have not used JavaScript
+    before. While it will be of particular value to people with no programming
+    experience, even people who have used other programming languages may
+    benefit from learning about some of the peculiarities of
+    JavaScript.</para>
+
+    <para>If you’re interested in learning more about the JavaScript language,
+    I highly recommend <citetitle>JavaScript: The Good Parts</citetitle> by
+    Douglas Crockford.</para>
+  </section>
+
+  <section>
+    <title>Syntax Basics</title>
+
+    <para>Understanding statements, variable naming, whitespace, and other
+    basic JavaScript syntax.</para>
+
+    <example id="javascript-basics.examples.variable-declaration">
+      <title>A simple variable declaration</title>
+
+      <programlisting>var foo = 'hello world';</programlisting>
+    </example>
+
+    <example>
+      <title>Whitespace has no meaning outside of quotation marks</title>
+
+      <para><programlisting>var foo =         'hello world';</programlisting></para>
+    </example>
+
+    <example>
+      <title>Parentheses indicate precedence</title>
+
+      <programlisting>2 * 3 + 5;    // returns 11; multiplication happens first
+2 * (3 + 5);  // returns 16; addition happens first</programlisting>
+    </example>
+
+    <example>
+      <title>Tabs enhance readability, but have no special meaning</title>
+
+      <para><programlisting>var foo = function() {
+    console.log('hello');
+};</programlisting></para>
+    </example>
+  </section>
+
+  <section>
+    <title>Operators</title>
+
+    <para>Operators allow you to manipulate values.</para>
+
+    <para><example>
+        <title>Concatenation</title>
+
+        <programlisting>var foo = 'hello';
+var bar = 'world';
+
+console.log(foo + ' ' + bar); // 'hello world'</programlisting>
+      </example><example>
+        <title>Multiplication and division</title>
+
+        <para><programlisting>2 * 3;
+2 / 3;</programlisting></para>
+      </example><example>
+        <title>Incrementing and decrementing</title>
+
+        <para><programlisting>var i = 1;
+
+var j = ++i;  // pre-increment:  j equals 2; i equals 2
+var k = i++;  // post-increment: k equals 2; i equals 3</programlisting></para>
+      </example></para>
+  </section>
+
+  <section>
+    <title>Numbers &amp; Strings</title>
+
+    <para>In JavaScript, numbers and strings will occasionally behave in ways
+    you might not expect.</para>
+
+    <example id="javascript-basics.examples.addition-concatenation">
+      <title>Addition vs. concatenation</title>
+
+      <para><programlisting>var foo = 1;
+var bar = '2';
+
+console.log(foo + bar);  // 12</programlisting></para>
+    </example>
+
+    <remark><xref
+    linkend="javascript-basics.examples.addition-concatenation" /> shows how
+    adding two numbers can have unexpected results if one of the numbers is a
+    string.</remark>
+
+    <example id="javascript-basics.examples.force-number">
+      <title>Forcing a string to act as a number</title>
+
+      <programlisting>var foo = 1;
+var bar = '2';
+
+console.log(foo + parseInt(bar));</programlisting>
+    </example>
+
+    <remark><xref linkend="javascript-basics.examples.force-number" /> shows
+    how to coerce a string back to a number using
+    <command>parseInt()</command>.</remark>
+  </section>
+</chapter>

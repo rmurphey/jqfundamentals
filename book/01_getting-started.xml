@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Getting Started</title>
+
+  <section>
+    <title>Getting the Code</title>
+
+    <para>The code we’ll be using in class is hosted <link
+    xlink:href="http://github.com/rmurphey/jqfundamentals">in a repository on
+    Github</link>. You can download a .zip or .tar file of the code, then
+    uncompress it to use it on your server. (If you’re git-inclined, you’re
+    welcome to fork the repository.)</para>
+  </section>
+
+  <section>
+    <title>Software</title>
+
+    <para>You'll want to have the following tools to make the most of the
+    class:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>The Firefox browser</para>
+      </listitem>
+
+      <listitem>
+        <para>The Firebug extension for Firefox</para>
+      </listitem>
+
+      <listitem>
+        <para>A plain text editor</para>
+      </listitem>
+
+      <listitem>
+        <para>For the Ajax portions: A local server (such as MAMP or WAMP), or
+        an FTP or SSH client to access a remote server.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section>
+    <title>Adding JavaScript to Your Page</title>
+
+    <para>JavaScript can be included inline or by including an external file
+    via a script tag. The order in which you include JavaScript is important:
+    dependencies must be included before the script that depends on them.
+    </para>
+
+    <para>For the sake of page performance, JavaScript should be included as
+    close to the end of your HTML as is practical. Multiple JavaScript files
+    should be combined for production use.</para>
+
+    <example>
+      <title>An example of inline Javascript</title>
+
+      <programlisting>&lt;script&gt;
+console.log('hello');
+&lt;/script&gt;</programlisting>
+    </example>
+
+    <example>
+      <title>An example of including external JavaScript</title>
+
+      <programlisting>&lt;script src='/js/jquery.js'&gt;&lt;/script&gt;</programlisting>
+    </example>
+  </section>
+
+  <section>
+    <title>JavaScript Debugging </title>
+
+    <para>A debugging tool is essential for JavaScript development. Firefox
+    provides a debugger via the Firebug extension; Safari and Chrome provide
+    built-in consoles. </para>
+
+    <para>Each console offers: </para>
+
+    <itemizedlist>
+      <listitem>
+        <para>single- and multi-line editors for experimenting with
+        JavaScript</para>
+      </listitem>
+
+      <listitem>
+        <para>an inspector for looking at the generated source of your
+        page</para>
+      </listitem>
+
+      <listitem>
+        <para>a Network or Resources view, to examine network requests</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>When you are writing JavaScript code, you can use the following
+    methods to send messages to the console: </para>
+
+    <itemizedlist>
+      <listitem>
+        <para><command>console.log()</command> for sending general log
+        messages </para>
+      </listitem>
+
+      <listitem>
+        <para><command>console.dir()</command> for logging a browseable object
+        </para>
+      </listitem>
+
+      <listitem>
+        <para><command>console.warn()</command> for logging warnings </para>
+      </listitem>
+
+      <listitem>
+        <para><command>console.error()</command> for logging error messages
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Other console methods are also available, though they may differ
+    from one browser to another. The consoles also provide the ability to set
+    break points and watch expressions in your code for debugging
+    purposes.</para>
+  </section>
+
+  <section>
+    <title>References</title>
+
+    <itemizedlist>
+      <listitem>
+        <para><link xlink:href="???">jQuery documentation</link></para>
+      </listitem>
+
+      <listitem>
+        <para><link xlink:href="http://forum.jquery.com/">jQuery
+        forum</link></para>
+      </listitem>
+
+      <listitem>
+        <para><link
+        xlink:href="http://delicious.com/rdmey/jquery-class">Delicious
+        bookmarks</link></para>
+      </listitem>
+
+      <listitem>
+        <para><link
+        xlink:href="http://docs.jquery.com/Discussion#Chat_.2F_IRC_Channel">#jquery
+        IRC channel on Freenode</link></para>
+      </listitem>
+    </itemizedlist>
+  </section>
+</chapter>
