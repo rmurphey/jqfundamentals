@@ -3,7 +3,7 @@ html {
 background: #000;
 }
 body {
-font-family: 'Crimson Text', Georgia, serif;
+font-family: Georgia, serif;
 margin: 0;
 width: 100%;
 background: #000033;
@@ -13,12 +13,12 @@ line-height: 1.5em;
 h1 {
 color: #003;
 letter-spacing: -2px;
-font-family: Molengo, Helvetica, sans-serif;
+font-family: Helvetica, sans-serif;
 }
 h2 {
 color: #003;
 letter-spacing: -1px;
-font-family: Molengo, Helvetica, sans-serif;
+font-family: Helvetica, sans-serif;
 }
 h2.title {
 font-size:2.8em;
@@ -29,7 +29,7 @@ font-size:2em;
 h3 {
 color: #003;
 letter-spacing: -1px;
-font-family: Molengo, Helvetica, sans-serif;
+font-family: Helvetica, sans-serif;
 }
 strong {
 color: #000;
@@ -83,7 +83,7 @@ border-bottom: 1em solid #E6E6FA;
 padding-left: 1em;
 }
 .example .title {
-font-family:Molengo;
+font-family:Helvetica;
 }
 
 
@@ -94,7 +94,7 @@ text-align: right;
 text-align: center;
 }
 .navheader, .navfooter {
-font-family:Molengo;
+font-family:Helvetica;
 font-weight:normal;
 font-size:80%;
 }
@@ -123,9 +123,13 @@ text-decoration: none;
 }
 .toc p,
 .list-of-examples p {
-font-size:3em;
-font-family:Molengo;
+font-size:2em;
+font-family:Helvetica;
 margin:0.8em 0 0.3em 0;
+}
+
+.part .toc p {
+font-size:1.2em;
 }
 
 p.title {
