@@ -9,8 +9,250 @@
   <title>Effects</title>
 
   <section>
-    <title></title>
+    <title>Overview</title>
 
-    <para></para>
+    <para>jQuery makes it trivial to add simple effects to your page. Effects
+    can use the built-in settings, or provide a customized duration. You can
+    also create custom animations of arbitrary CSS properties.</para>
+
+    <para>For complete details on jQuery effects, visit <link
+    xlink:href="http://api.jquery.com/category/effects/">http://api.jquery.com/category/effects/</link>.</para>
+  </section>
+
+  <section>
+    <title>Built-in Effects</title>
+
+    <para>Frequently used effects are built into jQuery as methods:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term>$.fn.show</term>
+
+        <listitem>
+          <para>Show the selected element.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>$.fn.hide</term>
+
+        <listitem>
+          <para>Hide the selected elements.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>$.fn.fadeIn</term>
+
+        <listitem>
+          <para>Animate the opacity of the selected elements to 100%.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>$.fn.fadeOut</term>
+
+        <listitem>
+          <para>Animate the opacity of the selected elements to 0%.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>$.fn.slideDown</term>
+
+        <listitem>
+          <para>Display the selected elements with a vertical sliding
+          motion.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>$.fn.slideUp</term>
+
+        <listitem>
+          <para>Hide the selected elements with a vertical sliding
+          motion.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>$.fn.slideToggle</term>
+
+        <listitem>
+          <para>Show or hide the selected elements with a vertical sliding
+          motion, depending on whether the elements are currently
+          visible.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <example>
+      <title>A basic use of a built-in effect</title>
+
+      <programlisting>$('h1').show();</programlisting>
+    </example>
+
+    <section>
+      <title>Changing the Duration of Built-in Effects</title>
+
+      <para>With the exception of <code>$.fn.show</code> and
+      <code>$.fn.hide</code>, all of the built-in methods are animated over
+      the course of 400ms by default. Changing the duration of an effect is
+      simple.</para>
+
+      <example>
+        <title>Setting the duration of an effect</title>
+
+        <programlisting>$('h1').fadeIn(300);      // fade in over 300ms
+$('h1').fadeOut('slow');  // using a built-in speed definition</programlisting>
+      </example>
+
+      <section>
+        <title>jQuery.fx.speeds</title>
+
+        <para>jQuery has an object at <code>jQuery.fx.speeds</code> that
+        contains the default speed, as well as settings for
+        <code>"slow"</code> and <code>"fast"</code>. </para>
+
+        <programlisting>speeds: {
+    slow: 600,
+    fast: 200,
+    // Default speed
+    _default: 400
+}</programlisting>
+
+        <para>It is possible to override or add to this object. For example,
+        you may want to change the default duration of effects, or you may
+        want to create your own effects speed.</para>
+
+        <example>
+          <title>Augmenting <code>jQuery.fx.speeds</code> with custom speed
+          definitions</title>
+
+          <para><programlisting>jQuery.fx.speeds.blazing = 100;
+jQuery.fx.speeds.turtle = 2000;</programlisting></para>
+        </example>
+      </section>
+    </section>
+
+    <section>
+      <title>Doing Something when an Effect is Done</title>
+
+      <para>Often, you'll want to run some code once an animation is done --
+      if you run it before the animation is done, it may affect the quality of
+      the animation, or it may remove elements that are part of the animation.
+      <termdef><firstterm>Callback functions</firstterm> provide a way to
+      register your interest in an event that will happen in the
+      future.</termdef> In this case, the event we'll be responding to is the
+      conclusion of the animation. Inside of the callback function, the
+      keyword <code>this</code> refers to the element that the effect was
+      called on; as we did inside of event handler functions, we can turn it
+      into a jQuery object via <code>$(this)</code>. </para>
+
+      <example>
+        <title>Running code when an animation is complete</title>
+
+        <para><programlisting>$('div.old').fadeOut(300, function() { $(this).remove(); }); </programlisting></para>
+      </example>
+    </section>
+  </section>
+
+  <section>
+    <title>Custom Effects with <code>$.fn.animate</code></title>
+
+    <para>jQuery makes it possible to animate arbitrary CSS properties via the
+    <code>$.fn.animate</code> method. The <code>$.fn.animate</code> method
+    lets you animate to a set value, or to a value relative to the current
+    value. </para>
+
+    <example>
+      <title>Custom effects with <code>$.fn.animate</code></title>
+
+      <programlisting>$('div.funtimes').animate(
+    {
+        left : "+=50",
+        opacity : 0.25
+    }, 
+    300, // duration
+    function() { console.log('done!'); // calback
+});</programlisting>
+    </example>
+
+    <note>
+      <para>Color-related properties cannot be animated with
+      <code>$.fn.animate</code> using jQuery out of the box. Color animations
+      can easily be accomplished by including the <link
+      xlink:href="http://plugins.jquery.com/files/jquery.color.js.txt">color
+      plugin</link>. We'll discuss using plugins later in the book.</para>
+    </note>
+
+    <section>
+      <title>Easing</title>
+
+      <para><termdef><firstterm>Easing</firstterm> describes the manner in
+      which an effect occurs -- whether the rate of change is steady, or
+      varies over the duration of the animation.</termdef> jQuery includes
+      only two methods of easing: swing and linear. If you want more natural
+      transitions in your animations, various easing plugins are available.
+      </para>
+
+      <para>As of jQuery 1.4, it is possible to do per-property easing when
+      using the $.fn.animate method. </para>
+
+      <example>
+        <title>Per-property easing</title>
+
+        <programlisting>$('div.funtimes').animate(
+    {
+        left : [ "+=50", "swing ],
+        opacity : [ 0.25, "linear" ]
+    },
+    300
+);</programlisting>
+      </example>
+
+      <para>For more details on easing options, see <link
+      xlink:href="http://api.jquery.com/animate/">http://api.jquery.com/animate/</link>.</para>
+    </section>
+  </section>
+
+  <section>
+    <title>Managing Effects</title>
+
+    <para>jQuery provides several tools for managing animations. </para>
+
+    <variablelist>
+      <varlistentry>
+        <term>$.fn.stop</term>
+
+        <listitem>
+          <para>Stop currently running animations on the selected
+          elements.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>$.fn.delay</term>
+
+        <listitem>
+          <para>Wait the specified number of milliseconds before running the
+          next animation.</para>
+
+          <programlisting>$('h1').show(300).delay(1000).hide(300);</programlisting>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>jQuery.fx.off</term>
+
+        <listitem>
+          <para>If this value is true, there will be no transition for
+          animations; elements will immediately be set to the target final
+          state instead. This can be especially useful when dealing with older
+          browsers; you also may want to provide the option to your
+          users.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </section>
 </chapter>
