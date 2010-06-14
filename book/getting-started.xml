@@ -49,8 +49,8 @@
 
     <para>JavaScript can be included inline or by including an external file
     via a script tag. The order in which you include JavaScript is important:
-    dependencies must be included before the script that depends on them.
-    </para>
+    dependencies must be included before the script that depends on
+    them.</para>
 
     <para>For the sake of page performance, JavaScript should be included as
     close to the end of your HTML as is practical. Multiple JavaScript files
@@ -72,13 +72,13 @@ console.log('hello');
   </section>
 
   <section>
-    <title>JavaScript Debugging </title>
+    <title>JavaScript Debugging</title>
 
     <para>A debugging tool is essential for JavaScript development. Firefox
     provides a debugger via the Firebug extension; Safari and Chrome provide
-    built-in consoles. </para>
+    built-in consoles.</para>
 
-    <para>Each console offers: </para>
+    <para>Each console offers:</para>
 
     <itemizedlist>
       <listitem>
@@ -97,26 +97,26 @@ console.log('hello');
     </itemizedlist>
 
     <para>When you are writing JavaScript code, you can use the following
-    methods to send messages to the console: </para>
+    methods to send messages to the console:</para>
 
     <itemizedlist>
       <listitem>
         <para><command>console.log()</command> for sending general log
-        messages </para>
+        messages</para>
       </listitem>
 
       <listitem>
-        <para><command>console.dir()</command> for logging a browseable object
-        </para>
+        <para><command>console.dir()</command> for logging a browseable
+        object</para>
       </listitem>
 
       <listitem>
-        <para><command>console.warn()</command> for logging warnings </para>
+        <para><command>console.warn()</command> for logging warnings</para>
       </listitem>
 
       <listitem>
-        <para><command>console.error()</command> for logging error messages
-        </para>
+        <para><command>console.error()</command> for logging error
+        messages</para>
       </listitem>
     </itemizedlist>
 
@@ -131,7 +131,8 @@ console.log('hello');
 
     <itemizedlist>
       <listitem>
-        <para><link xlink:href="???">jQuery documentation</link></para>
+        <para><link xlink:href="http://docs.jquery.org">jQuery
+        documentation</link></para>
       </listitem>
 
       <listitem>

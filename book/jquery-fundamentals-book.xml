@@ -6,23 +6,63 @@
       xmlns:m="http://www.w3.org/1998/Math/MathML"
       xmlns:html="http://www.w3.org/1999/xhtml"
       xmlns:db="http://docbook.org/ns/docbook">
+  <info>
+    <title>jQuery Fundamentals</title>
+
+    <author>
+      <personname>Rebecca Murphey</personname>
+    </author>
+
+    <legalnotice>
+      <para>Licensed by Rebecca Murphey under the <link
+      xlink:href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative
+      Commons Attribution-Share Alike 3.0 United States license</link>. You
+      are free to copy, distribute, transmit, and remix this work, provided
+      you attribute the work to Rebecca Murphey as the original author and
+      reference the GitHub repository for the work at
+      http://github.com/rmurphey/jqfundamentals. If you alter, transform, or
+      build upon this work, you may distribute the resulting work only under
+      the same, similar or a compatible license. Any of the above conditions
+      can be waived if you get permission from the copyright holder. For any
+      reuse or distribution, you must make clear to others the license terms
+      of this work. The best way to do this is with a link to
+      http://creativecommons.org/licenses/by-sa/3.0/us/.</para>
+    </legalnotice>
+
+    <copyright>
+      <year>2010 Rebecca Murphey</year>
+    </copyright>
+
+    <othercredit>
+      <orgname>http://github.com/rmurphey/jqfundamentals</orgname>
+    </othercredit>
+  </info>
+
   <part>
     <title>jQuery Fundamentals</title>
+
     <xi:include href="getting-started.xml" />
+
     <xi:include href="jquery-basics.xml" />
+
     <xi:include href="events.xml" />
+
     <xi:include href="effects.xml" />
+
     <xi:include href="jquery-core.xml" />
+
     <xi:include href="ajax.xml" />
   </part>
 
   <part>
     <title>JavaScript Primer</title>
+
     <xi:include href="javascript-basics.xml" />
   </part>
 
   <part>
     <title>Exercises</title>
+
     <xi:include href="exercises.xml" />
   </part>
 </book>

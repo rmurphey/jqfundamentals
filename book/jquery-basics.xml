@@ -9,8 +9,524 @@
   <title>jQuery Basics</title>
 
   <section>
-    <title></title>
+    <title>$(document).ready()</title>
 
-    <para></para>
+    <para>You cannot safely manipulate a page until the document is “ready.”
+    jQuery detects this state of readiness for you; code included inside
+    <code>$(document).ready()</code> will only run once the page is ready for
+    JavaScript code to execute.</para>
+
+    <example>
+      <title>A $(document).ready() block</title>
+
+      <programlisting>$(document).ready(function() {
+    console.log('ready!');
+});</programlisting>
+    </example>
+
+    <para>There is a shorthand for <code>$(document).ready()</code> that you
+    will sometimes see; however, I recommend against using it if you are
+    writing code that people who aren't experienced with jQuery may
+    see.</para>
+
+    <example>
+      <title>Shorthand for $(document).ready()</title>
+
+      <programlisting>$(function() {
+    console.log('ready!');
+});</programlisting>
+    </example>
+
+    <para>You can also passed a name function to
+    <code>$(document).ready()</code> instead of passing an anonymous
+    function.</para>
+
+    <example>
+      <title>Passing a named function instead of an anonymous function</title>
+
+      <programlisting>var readyFn = function() {
+    // code to run when the document is ready
+};
+
+
+$(document).ready(readyFn);</programlisting>
+    </example>
+  </section>
+
+  <section>
+    <title>Selecting Elements</title>
+
+    <para>The most basic concept of jQuery is to “select some elements and do
+    something with them.” jQuery supports most CSS3 selectors, as well as some
+    non-standard selectors. For a complete selector reference, visit <link
+    xlink:href="http://api.jquery.com/category/selectors/">http://api.jquery.com/category/selectors/</link>.</para>
+
+    <para>Following are a few examples of common selection techniques.</para>
+
+    <example>
+      <title>Selecting elements by ID</title>
+
+      <programlisting>$('#myId'); // note IDs must be unique per page</programlisting>
+    </example>
+
+    <example>
+      <title>Selecting elements by class name</title>
+
+      <programlisting>$('div.myClass'); // performance improves if you specify element type</programlisting>
+    </example>
+
+    <example>
+      <title>Selecting elements by attribute</title>
+
+      <para><programlisting>$('input[name=first_name]'); // beware, this can be very slow</programlisting></para>
+    </example>
+
+    <example>
+      <title>Selecting elements by compound CSS selector</title>
+
+      <programlisting>$('#contents ul.people li');</programlisting>
+    </example>
+
+    <example>
+      <title>Pseudo-selectors</title>
+
+      <programlisting>$('a.external:first'); 
+$('tr:odd');
+$('#myForm :input');   // select all input-like elements in a form
+$('div:visible');
+$('div:gt(2)');        // all except the first three divs
+$('div:animated');     // all currently animated divs</programlisting>
+    </example>
+
+    <note>
+      <para>Choosing good selectors is one of the most important things you
+      can do to improve the performance of your JavaScript. A little
+      specificity -- for example, including an element type such as
+      <code>div</code> when selecting elements by class name -- can go a long
+      way. Generally, any time you can give jQuery a hint about where it might
+      expect to find what you're looking for, you should. On the other hand,
+      too much specificity can be a bad thing. A selector such as
+      <code>#myTable thead tr th.special</code> is overkill if a selector such
+      as <code>#myTable th.special</code> will get you what you want.</para>
+    </note>
+
+    <section>
+      <title>Does My Selection Contain Any Elements?</title>
+
+      <para>Once you've made a selection, you'll often want to know whether
+      you have anything to work with. You may be inclined to try something
+      like:</para>
+
+      <programlisting>if ($('div.foo')) { ... }</programlisting>
+
+      <para>This won't work. When you make a selection using <code>$()</code>,
+      an object is always returned, and objects always evaluate to
+      <code>true</code>. Even if your selection doesn't contain any elements,
+      the code inside the <code>if</code> statement will still run.</para>
+
+      <para>Instead, you need to test the selection's length property, which
+      tells you how many elements were selected. If the answer is 0, the
+      length property will evaluate to false when used as a boolean
+      value.</para>
+
+      <example>
+        <title>Testing whether a selection contains elements</title>
+
+        <programlisting>if ($('div.foo').length) { ... }</programlisting>
+      </example>
+    </section>
+
+    <section>
+      <title>Saving Selections</title>
+
+      <para>Every time you make a selection, a lot of code runs, and jQuery
+      doesn't do caching of selections for you. If you've made a selection
+      that you might need to make again, you should save the selection in a
+      variable rather than making the selection repeatedly.</para>
+
+      <example xml:id="jquery-basics.examples.storing-selections">
+        <title>Storing selections in a variable</title>
+
+        <programlisting>var $divs = $('div');</programlisting>
+      </example>
+
+      <note>
+        <para>In <xref linkend="jquery-basics.examples.storing-selections" />,
+        the variable name begins with a dollar sign. Unlike in other
+        languages, there's nothing special about the dollar sign in JavaScript
+        -- it's just another character. We use it here to indicate that the
+        variable contains a jQuery object. This practice -- a sort of <link
+        xlink:href="http://en.wikipedia.org/wiki/Hungarian_notation">Hungarian
+        notation</link> -- is merely convention, and is not mandatory.</para>
+      </note>
+
+      <para>Once you've stored your selection, you can call jQuery methods on
+      the variable you stored it in just like you would have called them on
+      the original selection.</para>
+
+      <note>
+        <para>A selection only fetches the elements that are on the page when
+        you make the selection. If you add elements to the page later, you'll
+        have to repeat the selection or otherwise add them to the selection
+        stored in the variable. Stored selections don't magically update when
+        the DOM changes.</para>
+      </note>
+    </section>
+
+    <section>
+      <title>Refining &amp; Filtering Selections</title>
+
+      <para>Sometimes you have a selection that contains more than what you're
+      after; in this case, you may want to refine your selection. jQuery
+      offers several methods for zeroing in on exactly what you're
+      after.</para>
+
+      <example>
+        <title>Refining selections</title>
+
+        <programlisting>$('div.foo').has('p');          // div.foo elements that contain &lt;p&gt;'s
+$('h1').not('.bar');            // h1 elements that don't have a class of bar
+$('ul li').filter('.current');  // unordered list items with class of current
+$('ul li').first();             // just the first unordered list item
+$('ul li').eq(5);               // the fifth </programlisting>
+      </example>
+    </section>
+  </section>
+
+  <section>
+    <title>Working with Selections</title>
+
+    <para>Once you have a selection, you can call methods on the selection.
+    Methods generally come in two different flavors: getters and setters.
+    Getters return a property of the first selected element; setters set a
+    property on all selected elements.</para>
+
+    <section>
+      <title>Chaining</title>
+
+      <para>If you call a method on a selection and that method returns a
+      jQuery object, you can continue to call jQuery methods on the object
+      without pausing for a semicolon.</para>
+
+      <example>
+        <title>Chaining</title>
+
+        <programlisting>$('#content').find('h3').eq(2).html('new text for the third h3!');</programlisting>
+      </example>
+
+      <para>If you are writing a chain that includes several steps, you (and
+      the person who comes after you) may find your code more readable if you
+      break the chain over several lines.</para>
+
+      <example>
+        <title>Formatting chained code</title>
+
+        <programlisting>$('#content')
+    .find('h3')
+    .eq(2)
+    .html('new text for the third h3!');</programlisting>
+      </example>
+
+      <para>If you change your selection in the midst of a chain, jQuery
+      provides the <code>end</code> method to get you back to your original
+      selection.</para>
+
+      <example>
+        <title>Restoring your original selection using
+        <code>end</code></title>
+
+        <programlisting>$('#content')
+    .find('h3')
+    .eq(2)
+        .html('new text for the third h3!')
+    .end() // restores the selection to all h3's in #content
+    .eq(0)
+        .html('new text for the first h3!');</programlisting>
+      </example>
+
+      <note>
+        <para>Chaining is extraordinarily powerful, and it's a feature that
+        many libraries have adapted since it was made popular by jQuery.
+        However, it must be used with care. Extensive chaining can make code
+        extremely difficult to modify or debug. There is no hard-and-fast rule
+        to how long a chain should be -- just know that it is easy to get
+        carried away.</para>
+      </note>
+    </section>
+
+    <section>
+      <title>Getters &amp; Setters</title>
+
+      <para>jQuery “overloads” its methods, so the method used to set a value
+      generally has the same name as the method used to get a value.
+      <termdef>When a method is used to set a value, it is called a
+      <firstterm>setter</firstterm></termdef>. <termdef>When a method is used
+      to get (or read) a value, it is called a
+      <firstterm>getter</firstterm></termdef>. Setters affect all elements in
+      a selection; getters get the requested value only for the first element
+      in the selection.</para>
+
+      <example>
+        <title>The <code>html</code> method used as a setter</title>
+
+        <programlisting>$('h1').html('hello world');</programlisting>
+      </example>
+
+      <example>
+        <title>The html method used as a getter</title>
+
+        <para><programlisting>$('h1').html();</programlisting></para>
+      </example>
+
+      <para>Setters return a jQuery object, allowing you to continue to call
+      jQuery methods on your selection; getters return whatever they were
+      asked to get, meaning you cannot continue to call jQuery methods on the
+      value returned by the getter.</para>
+    </section>
+  </section>
+
+  <section>
+    <title>CSS, Styling, &amp; Dimensions</title>
+
+    <para>jQuery includes a handy way to get and set CSS properties of
+    elements.</para>
+
+    <note>
+      <para>CSS properties that normally include a hyphen need to be
+      <firstterm>camel cased</firstterm> in JavaScript. For example, the CSS
+      property <code>font-size</code> is expressed as <code>fontSize</code> in
+      JavaScript.</para>
+    </note>
+
+    <example>
+      <title>Getting CSS properties</title>
+
+      <programlisting>$('h1').css('fontSize'); // returns a string such as "19px"</programlisting>
+    </example>
+
+    <example>
+      <title>Setting CSS properties</title>
+
+      <programlisting>$('h1').css('fontSize', '100px'); // setting an individual property
+$('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple properties</programlisting>
+    </example>
+
+    <remark>Note the style of the argument we use on the second line -- it is
+    an object that contains multiple properties. This is a common way to pass
+    multiple arguments to a function, and many jQuery setter methods accept
+    objects to set mulitple values at once.</remark>
+
+    <section>
+      <title>Using CSS Classes for Styling</title>
+
+      <para>As a getter, the <code>css</code> method is valuable; however, it
+      should generally be avoided as a setter in production-ready code,
+      because you don't want presentational information in your JavaScript.
+      Instead, write CSS rules for classes that describe the various visual
+      states, and then simply change the class on the element you want to
+      affect.</para>
+
+      <example>
+        <title>Working with classes</title>
+
+        <programlisting>var $h1 = $('h1');
+
+$h1.addClass('big');
+$h1.removeClass('big');
+$h1.toggleClass('big');
+
+if ($h1.hasClass('big')) { ... }</programlisting>
+      </example>
+
+      <para>Classes can also be useful for storing state information about an
+      element, such as indicating that an element is selected.</para>
+    </section>
+
+    <section>
+      <title>Dimensions</title>
+
+      <para>jQuery offers a variety of methods for obtaining and modifying
+      dimenion and position information about an element.</para>
+
+      <para>The code in <xref linkend="jquery-basics.examples.dimensions" />
+      is just a very brief overview of the dimensions functionality in jQuery;
+      for complete details about jQuery dimension methods, visit <link
+      xlink:href="http://api.jquery.com/category/dimensions/">http://api.jquery.com/category/dimensions/</link>.</para>
+
+      <example xml:id="jquery-basics.examples.dimensions">
+        <title>Basic dimensions methods</title>
+
+        <para><programlisting>$('h1').width('50px');   // sets the width of all H1 elements
+$('h1').width();         // gets the width of the first H1
+
+$('h1').height('50px');  // sets the height of all H1 elements
+$('h1').height();        // gets the height of the first H1
+
+$('h1').position();      // returns an object containing position
+                         // information for the first H1 relative to
+                         // its "offset (positioned) parent"</programlisting></para>
+      </example>
+    </section>
+  </section>
+
+  <section>
+    <title>Attributes</title>
+
+    <para>An element's attributes can contain useful information for your
+    application, so it's important to be able to get and set them.</para>
+
+    <para>The <code>attr</code> method acts as both a getter and a setter. As
+    with the <code>css</code> method, <code>attr</code> as a setter can accept
+    either a key and a value, or an object containing one or more key/value
+    pairs.</para>
+
+    <example>
+      <title>Setting attributes</title>
+
+      <programlisting>$('a').attr('href', 'allMyHrefsAreTheSameNow.html');
+$('a').attr({ 
+    'title' : 'all titles are the same too!', 
+    'href' : 'somethingNew.html' 
+});</programlisting>
+    </example>
+
+    <remark>This time, we broke the object up into multiple lines. Remember,
+    whitespace doesn't matter in JavaScript, so you should feel free to use it
+    liberally to make your code more legible! You can use a minification tool
+    later to strip out unnecessary whitespace for production.</remark>
+
+    <example>
+      <title>Getting attributes</title>
+
+      <programlisting>$('a').attr('href');  // returns the href for the first a element in the document</programlisting>
+    </example>
+  </section>
+
+  <section>
+    <title>Traversing</title>
+
+    <para>Once you have a jQuery selection, you can find other elements using
+    your selection as a starting point.</para>
+
+    <para>For complete documentation of jQuery traversal methods, visit <link
+    xlink:href="http://api.jquery.com/category/traversing/">http://api.jquery.com/category/traversing/</link>.</para>
+
+    <note>
+      <para>Be cautious with traversing long distances in your documents --
+      complex traversal makes it imperative that your document's structure
+      remain the same, something that's difficult to guarantee even if you're
+      the one creating the whole application from server to client. One- or
+      two-step traversal is fine, but you generally want to avoid traversals
+      that take you from one container to another.</para>
+    </note>
+
+    <example>
+      <title>Traversal methods</title>
+
+      <programlisting>$('h1').next('p');
+$('div:visible').parent();
+$('input[name=first_name]').closest('form');
+$('#myList').children();
+$('li.selected').siblings();</programlisting>
+    </example>
+  </section>
+
+  <section>
+    <title>Manipulating</title>
+
+    <para>Once you've made a selection, you can move, remove, and clone
+    elements. You can also create new elements.</para>
+
+    <para>For complete documentation of jQuery manipulation methods, visit
+    <link
+    xlink:href="http://api.jquery.com/category/manipulation/">http://api.jquery.com/category/manipulation/</link>.</para>
+
+    <example>
+      <title>Moving, removing, and cloning elements</title>
+
+      <programlisting>$('div.panel').appendTo('#panels');
+$('div.newPanel').insertAfter('div.oldPanel');
+$('h1').remove();
+$('div.template').clone();</programlisting>
+    </example>
+
+    <section>
+      <title>Creating New Elements</title>
+
+      <para>jQuery offers a trivial and elegant way to create new elements
+      using the same <code>$()</code> method you use to make
+      selections.</para>
+
+      <example>
+        <title>Creating new elements</title>
+
+        <programlisting>$('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
+$('&lt;li class="new"&gt;new list item&lt;/p&gt;');</programlisting>
+      </example>
+
+      <example>
+        <title>Creating a new element with an attribute object</title>
+
+        <programlisting>$('&lt;p/&gt;', { 
+    text : 'This is a new paragraph',
+    'class' : 'new'
+});</programlisting>
+      </example>
+
+      <remark>Note that in the attributes object we included as the second
+      argument, the property name class is quoted, while the property name
+      text is not. Property names generally do not need to be quoted unless
+      they are reserved words (as class is in this case).</remark>
+
+      <para>When you create a new element, it is not immediately added to the
+      page. There are several ways to add an element to the page once it's
+      been created.</para>
+
+      <example>
+        <title>Getting a new element on to the page</title>
+
+        <programlisting>var $myNewElement = $('&lt;p&gt;New element&lt;/p&gt;');
+$myNewElement.appendTo('#content');
+
+$myNewElement.insertAfter('ul:last'); // this will remove the p from #content!
+$('ul').last().after($myNewElement.clone());  // clone the p so now we have 2</programlisting>
+      </example>
+
+      <remark>Strictly speaking, you don't have to store the created element
+      in a variable -- you could just call the method to add the element to
+      the page directly after the $(). However, most of the time you will want
+      a reference to the element you added, so you don't need to select it
+      later.</remark>
+
+      <para>You can even create an element as you're adding it to the page,
+      but note that in this case you don't get a reference to the newly
+      created element.</para>
+
+      <example>
+        <title>Creating and adding an element to the page at the same
+        time</title>
+
+        <programlisting>$('ul').append('&lt;li&gt;list item&lt;/li&gt;');</programlisting>
+      </example>
+
+      <note>
+        <para>The syntax for adding new elements to the page is so easy, it's
+        tempting to forget that there's a huge performance cost for adding to
+        the DOM repeatedly. If you are adding many elements to the same
+        container, you'll want to concatenate all the html into a single
+        string, and then append that string to the container instead of
+        appending the elements one at a time. You can use an array to gather
+        all the pieces together, then <code>join</code> them into a single
+        string for appending.</para>
+
+        <programlisting>var myItems = [], $myList = $('#myList');
+
+for (var i=0; i&lt;100; i++) {
+    myItems.push('&lt;li&gt;item ' + i + '&lt;/li&gt;');
+}
+
+$myList.append(myItems.join(''));</programlisting>
+      </note>
+    </section>
   </section>
 </chapter>
