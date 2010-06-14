@@ -119,7 +119,5 @@ Rebecca Murphey is a front-end architecture consultant based in Durham, NC. She 
  * Delicious bookmarks:		http://delicious.com/rdmey/jquery-class
 
 
-
-
 = Copyright Notice =
-All files in this repository are Copyright (c) 2009 Rebecca Murphey unless otherwise noted in the file. All rights reserved.
+Licensed by Rebecca Murphey under the <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States license</a>. You are free to copy, distribute, transmit, and remix this work, provided you attribute the work to Rebecca Murphey as the original author and reference the GitHub repository for the work at http://github.com/rmurphey/jqfundamentals. If you alter, transform, or build upon this work, you may distribute the resulting work only under the same, similar or a compatible license. Any of the above conditions can be waived if you get permission from the copyright holder. For any reuse or distribution, you must make clear to others the license terms of this work. The best way to do this is with a link to http://creativecommons.org/licenses/by-sa/3.0/us/.
