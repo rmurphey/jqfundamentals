@@ -195,8 +195,8 @@ foo &lt;= baz;   // returns true</programlisting></para>
     You should always use braces to mark the start and end of logical
     blocks.<footnote>
         <para>Strictly speaking, braces aren't required around single-line
-        <command>if</command> statements, but using them consistently, even
-        when they aren't strictly required, makes for vastly more readable
+        <code>if</code> statements, but using them consistently, even when
+        they aren't strictly required, makes for vastly more readable
         code.</para>
       </footnote></para>
 
@@ -560,11 +560,11 @@ var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]</programlistin
     <para>Objects contain one or more key-value pairs. The key portion can be
     any string; if the string contains spaces or is a reserved word, then it
     must be quoted. The value portion can be any type of value: a number, a
-    string, an array, a function, or even another object. </para>
+    string, an array, a function, or even another object.</para>
 
     <para><termdef>When one of these values is a function, it’s called a
     <firstterm>method</firstterm> of the object.</termdef> Otherwise, they are
-    called properties. </para>
+    called properties.</para>
 
     <para>As it turns out, nearly everything in JavaScript is an object —
     arrays, functions, numbers, even strings — and they all have properties
@@ -591,7 +591,7 @@ console.log(myObject.myName);   // logs 'Rebecca'</programlisting>
 
     <para>Functions contain blocks of code that need to be executed
     repeatedly. Functions can take zero or more arguments, and can optionally
-    return a value. </para>
+    return a value.</para>
 
     <para>Functions can be created in a variety of ways:</para>
 
@@ -746,7 +746,7 @@ if (myArray.push &amp;&amp; myArray.slice &amp;&amp; myArray.join) {
 }</programlisting>
     </example>
 
-    <para>jQuery offers utility methods to help you determine whether </para>
+    <para>jQuery offers utility methods to help you determine whether</para>
   </section>
 
   <section xml:id="javascript-basics.sections.scope">
@@ -761,7 +761,7 @@ if (myArray.push &amp;&amp; myArray.slice &amp;&amp; myArray.join) {
     function -- code outside of that function cannot access the variable. On
     the other hand, functions defined <emphasis>inside</emphasis> that
     function <emphasis>will</emphasis> have access to to the declared
-    variable. </para>
+    variable.</para>
 
     <para>Furthermore, variables that are declared inside a function without
     the <code>var</code> keyword are not local to the function -- JavaScript
