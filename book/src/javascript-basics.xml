@@ -222,7 +222,10 @@ if (bar) {
     <section id="javascript-basics.sections.truthy-falsy">
       <title>Truthy and Falsy Things</title>
 
-      <para>In order to</para>
+      <para>In order to use flow control successfully, it's important to
+      understand which kinds of values are "truthy" and which kinds of values
+      are "falsy." Sometimes, values that seem like they should evaluate one
+      way actually evaluate another.</para>
 
       <example>
         <title>Values that evaluate to <code>true</code></title>
@@ -653,7 +656,7 @@ greeting();</programlisting>
       </example>
     </section>
 
-    <section>
+    <section xml:id="javascript-basics.sections.self-executing-functions">
       <title>Self-Executing Anonymous Functions</title>
 
       <para>A common pattern in JavaScript is the self-executing anonymous
