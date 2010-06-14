@@ -9,6 +9,12 @@
   <part>
     <title>jQuery Fundamentals</title>
     <xi:include href="01_getting-started.xml" />
+    <xi:include href="02_jquery-basics.xml" />
+    <xi:include href="03_events.xml" />
+    <xi:include href="04_effects.xml" />
+    <xi:include href="05_jquery-core.xml" />
+    <xi:include href="06_ajax.xml" />
+    <xi:include href="07_plugins.xml" />
   </part>
 
   <part>
