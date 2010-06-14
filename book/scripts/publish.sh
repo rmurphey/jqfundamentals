@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input=jquery-fundamentals-book.xml
+input=docs/jquery-fundamentals-book.xml
 
 base=`pwd`
 
@@ -14,10 +14,10 @@ xslChunked=xsl/xhtml-chunked.xsl
 xslAllInOne=xsl/xhtml.xsl
 xslFO=xsl/fo.xsl
 fop=scripts/libs/fop
-outputAllInOne=pub/html/jquery-fundamentals-book.html
-outputChunked=pub/html/index.html
-outputFO=pub/fo/jquery-fundamentals-book.fo
-outputPDF=pub/pdf/jquery-fundamentals-book.pdf
+outputAllInOne=release/html/jquery-fundamentals-book.html
+outputChunked=release/html/index.html
+outputFO=release/fo/jquery-fundamentals-book.fo
+outputPDF=release/pdf/jquery-fundamentals-book.pdf
 
 if [ ! -f $xalan/xalan.jar ]; then
 	echo "Xalan not found. Run install script: ./scripts/install.sh"
@@ -29,25 +29,25 @@ if [ ! -f $xsl_template ]; then
 	exit
 fi
 
-if [ ! -d "pub" ]; then
-	mkdir pub
+if [ ! -d "release" ]; then
+	mkdir release
 fi
 
-if [ ! -d "pub/html" ]; then
-	mkdir pub/html
+if [ ! -d "release/html" ]; then
+	mkdir release/html
 fi
 
-if [ ! -d "pub/fo" ]; then
-	mkdir pub/fo
+if [ ! -d "release/fo" ]; then
+	mkdir release/fo
 fi
 
-if [ ! -d "pub/pdf" ]; then
-	mkdir pub/pdf
+if [ ! -d "release/pdf" ]; then
+	mkdir release/pdf
 fi
 
-#cp -Rf imgs pub/html
-cp style/* pub/html
-cp -Rf $xsl/images pub/html
+#cp -Rf imgs release/html
+cp style/* release/html
+cp -Rf $xsl/images release/html
 
 java \
 	-Djava.endorsed.dirs=$xalan  \
