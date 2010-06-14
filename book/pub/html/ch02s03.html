@@ -10,9 +10,9 @@
     .find('h3')
     .eq(2)
     .html('new text for the third h3!');</pre></div></div><br class="example-break" /><p>If you change your selection in the midst of a chain, jQuery
-      provides the <code class="code">end</code> method to get you back to your original
+      provides the <code class="code">$.fn.end</code> method to get you back to your original
       selection.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10151" /><p class="title"><b>Example 2.14. Restoring your original selection using
-        <code class="code">end</code></b></p><div class="example-contents"><pre class="programlisting">$('#content')
+        <code class="code">$.fn.end</code></b></p><div class="example-contents"><pre class="programlisting">$('#content')
     .find('h3')
     .eq(2)
         .html('new text for the third h3!')
@@ -30,7 +30,7 @@
       to get (or read) a value, it is called a
       <em class="firstterm">getter</em>]</span>. Setters affect all elements in
       a selection; getters get the requested value only for the first element
-      in the selection.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1016A" /><p class="title"><b>Example 2.15. The <code class="code">html</code> method used as a setter</b></p><div class="example-contents"><pre class="programlisting">$('h1').html('hello world');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10172" /><p class="title"><b>Example 2.16. The html method used as a getter</b></p><div class="example-contents"><pre class="programlisting">$('h1').html();</pre></div></div><br class="example-break" /><p>Setters return a jQuery object, allowing you to continue to call
+      in the selection.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1016A" /><p class="title"><b>Example 2.15. The <code class="code">$.fn.html</code> method used as a setter</b></p><div class="example-contents"><pre class="programlisting">$('h1').html('hello world');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10172" /><p class="title"><b>Example 2.16. The html method used as a getter</b></p><div class="example-contents"><pre class="programlisting">$('h1').html();</pre></div></div><br class="example-break" /><p>Setters return a jQuery object, allowing you to continue to call
       jQuery methods on your selection; getters return whatever they were
       asked to get, meaning you cannot continue to call jQuery methods on the
       value returned by the getter.</p></div></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch02s02.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch02.html">Up</a></td><td align="right"> <a accesskey="n" href="ch02s04.html">Next</a></td></tr><tr><td valign="top" align="left">Selecting Elements </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> CSS, Styling, &amp; Dimensions</td></tr></table></div></div></div></body></html>

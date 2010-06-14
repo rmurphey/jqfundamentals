@@ -228,12 +228,12 @@ $('ul li').eq(5);               // the fifth </programlisting>
       </example>
 
       <para>If you change your selection in the midst of a chain, jQuery
-      provides the <code>end</code> method to get you back to your original
+      provides the <code>$.fn.end</code> method to get you back to your original
       selection.</para>
 
       <example>
         <title>Restoring your original selection using
-        <code>end</code></title>
+        <code>$.fn.end</code></title>
 
         <programlisting>$('#content')
     .find('h3')
@@ -267,7 +267,7 @@ $('ul li').eq(5);               // the fifth </programlisting>
       in the selection.</para>
 
       <example>
-        <title>The <code>html</code> method used as a setter</title>
+        <title>The <code>$.fn.html</code> method used as a setter</title>
 
         <programlisting>$('h1').html('hello world');</programlisting>
       </example>
@@ -319,7 +319,7 @@ $('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple prop
     <section>
       <title>Using CSS Classes for Styling</title>
 
-      <para>As a getter, the <code>css</code> method is valuable; however, it
+      <para>As a getter, the <code>$.fn.css</code> method is valuable; however, it
       should generally be avoided as a setter in production-ready code,
       because you don't want presentational information in your JavaScript.
       Instead, write CSS rules for classes that describe the various visual
@@ -375,8 +375,8 @@ $('h1').position();      // returns an object containing position
     <para>An element's attributes can contain useful information for your
     application, so it's important to be able to get and set them.</para>
 
-    <para>The <code>attr</code> method acts as both a getter and a setter. As
-    with the <code>css</code> method, <code>attr</code> as a setter can accept
+    <para>The <code>$.fn.attr</code> method acts as both a getter and a setter. As
+    with the <code>$.fn.css</code> method, <code>$.fn.attr</code> as a setter can accept
     either a key and a value, or an object containing one or more key/value
     pairs.</para>
 

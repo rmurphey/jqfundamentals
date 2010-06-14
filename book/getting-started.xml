@@ -131,7 +131,7 @@ console.log('hello');
 
     <itemizedlist>
       <listitem>
-        <para><link xlink:href="http://docs.jquery.org">jQuery
+        <para><link xlink:href="http://api.jquery.com">jQuery
         documentation</link></para>
       </listitem>
 

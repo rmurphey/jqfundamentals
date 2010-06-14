@@ -7,7 +7,7 @@
 $('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple properties</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">Note the style of the argument we use on the second line -- it is
     an object that contains multiple properties. This is a common way to pass
     multiple arguments to a function, and many jQuery setter methods accept
-    objects to set mulitple values at once.</span></i></p><div class="section" title="Using CSS Classes for Styling"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10197" />Using CSS Classes for Styling</h3></div></div></div><p>As a getter, the <code class="code">css</code> method is valuable; however, it
+    objects to set mulitple values at once.</span></i></p><div class="section" title="Using CSS Classes for Styling"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10197" />Using CSS Classes for Styling</h3></div></div></div><p>As a getter, the <code class="code">$.fn.css</code> method is valuable; however, it
       should generally be avoided as a setter in production-ready code,
       because you don't want presentational information in your JavaScript.
       Instead, write CSS rules for classes that describe the various visual

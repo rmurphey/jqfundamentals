@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Triggering Event Handlers</title><link href="screen.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. Events" /><link rel="prev" href="ch03s03.html" title="Inside the Event Handling Function" /><link rel="next" href="ch03s05.html" title="Increasing Performance with Event Delegation" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Triggering Event Handlers</th></tr><tr><td align="left"><a accesskey="p" href="ch03s03.html">Prev</a> </td><th align="center" width="60%">Chapter 3. Events</th><td align="right"> <a accesskey="n" href="ch03s05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Triggering Event Handlers"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N102E0" />Triggering Event Handlers</h2></div></div></div><p>jQuery provides a way to trigger the event handlers bound to an
-    element without any user interaction via the <code class="code">trigger</code> method.
+    element without any user interaction via the <code class="code">$.fn.trigger</code> method.
     While this method has its uses, it should not be used simply to call a
     function that was bound as a click handler. Instead, you should store the
     function you want to call in a variable, and pass the variable name when
     you do your binding. Then, you can call the function itself whenever you
-    want, without the need for <code class="code">trigger</code>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N102EB" /><p class="title"><b>Example 3.9. Triggering an event handler the right way</b></p><div class="example-contents"><pre class="programlisting">var foo = function(e) { 
+    want, without the need for <code class="code">$.fn.trigger</code>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N102EB" /><p class="title"><b>Example 3.9. Triggering an event handler the right way</b></p><div class="example-contents"><pre class="programlisting">var foo = function(e) { 
     if (e) { 
         console.log(e); 
     } else {

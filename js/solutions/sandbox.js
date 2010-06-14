@@ -5,16 +5,20 @@
 // Get all of the div elements that have a class of "module"
 $('div.module');
 
+
+
 // Come up with three selectors that you could use to get the third item in the #myList unordered list. 
 
 $('#myListItem'); 			
 // this one is best -- IDs are *always* the fastest selector
 
-$('#myList li:eq(3)');		
+$('#myList li:eq(2)');		
 // this one would be best if the list item didn't have an ID
 
 $('#myList #myListItem');	
 // this one is redundant
+
+
 
 // Get the label for the search input using an attribute selector. 
 $('label[for="q"]');

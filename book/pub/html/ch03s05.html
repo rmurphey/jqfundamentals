@@ -6,24 +6,24 @@
     page, you can use event delegation. With event delegation, you bind your
     event to a container element, and then when the event occurs, you look to
     see which contained element it occurred on. If this sounds complicated,
-    luckily jQuery makes it easy with its <code class="code">live</code> and
-    <code class="code">delegate</code> methods.</p><p>While most people discover event delegation while dealing with
+    luckily jQuery makes it easy with its <code class="code">$.fn.live</code> and
+    <code class="code">$.fn.delegate</code> methods.</p><p>While most people discover event delegation while dealing with
     elements added to the page later, it has some performance benefits even if
     you never add more elements to the page. The time required to bind event
     handlers to hundreds of individual elements is non-trivial; if you have a
     large set of elements, you should consider delegating related events to a
-    container element.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The <code class="code">live</code> method was introduced in jQuery 1.3, and at
+    container element.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The <code class="code">$.fn.live</code> method was introduced in jQuery 1.3, and at
       that time only certain event types were supported. As of jQuery 1.4.2,
-      the <code class="code">delegate</code> method is available, and is the preferred
-      method.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10306" /><p class="title"><b>Example 3.10. Event delegation using <code class="code">delegate</code></b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList').delegate('li', 'click', function(e) {
+      the <code class="code">$.fn.delegate</code> method is available, and is the preferred
+      method.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10306" /><p class="title"><b>Example 3.10. Event delegation using <code class="code">$.fn.delegate</code></b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList').delegate('li', 'click', function(e) {
     var $myListItem = $(this);
     // ...
-});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1030D" /><p class="title"><b>Example 3.11. Event delegation using <code class="code">live</code></b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList li').live('click', function(e) {
+});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1030D" /><p class="title"><b>Example 3.11. Event delegation using <code class="code">$.fn.live</code></b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList li').live('click', function(e) {
     var $myListItem = $(this);
     // ...
 });</pre></div></div><br class="example-break" /><div class="section" title="Unbinding Delegated Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10314" />Unbinding Delegated Events</h3></div></div></div><p>If you need to remove delegated events, you can't simply unbind
-      them. Instead, use <code class="code">undelegate</code> for events connected with
-      <code class="code">delegate</code>, and <code class="code">die</code> for events connected with
-      <code class="code">live</code>. As with bind, you can optionally pass in the name of
+      them. Instead, use <code class="code">$.fn.undelegate</code> for events connected with
+      <code class="code">$.fn.delegate</code>, and <code class="code">$.fn.die</code> for events connected with
+      <code class="code">$.fn.live</code>. As with bind, you can optionally pass in the name of
       the bound function.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10325" /><p class="title"><b>Example 3.12. Unbinding delegated events</b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList').undelegate('li', 'click');
 $('#myUnorderedList li').die('click');</pre></div></div><br class="example-break" /></div></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch03s04.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch03.html">Up</a></td><td align="right"> <a accesskey="n" href="ch03s06.html">Next</a></td></tr><tr><td valign="top" align="left">Triggering Event Handlers </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Event Helpers</td></tr></table></div></div></div></body></html>
