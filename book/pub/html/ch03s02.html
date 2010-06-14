@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Connecting Events to Elements</title><link href="screen.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. Events" /><link rel="prev" href="ch03.html" title="Chapter 3. Events" /><link rel="next" href="ch03s03.html" title="Inside the Event Handling Function" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Connecting Events to Elements</th></tr><tr><td align="left"><a accesskey="p" href="ch03.html">Prev</a> </td><th align="center" width="60%">Chapter 3. Events</th><td align="right"> <a accesskey="n" href="ch03s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Connecting Events to Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10245" />Connecting Events to Elements</h2></div></div></div><p>jQuery offers convenience methods for most common events, and these
+    are the methods you will see used most often. These methods -- including
+    <code class="code">click</code>, <code class="code">focus</code>, <code class="code">blur</code>,
+    <code class="code">change</code>, etc. -- are shorthand for jQuery's <code class="code">bind</code>
+    method. The bind method is useful for binding the same hadler function to
+    multiple events, and is also used when you want to provide data to the
+    event hander, or when you are working with custom events.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10259" /><p class="title"><b>Example 3.1. Event binding using a convenience method</b></p><div class="example-contents"><pre class="programlisting">$('p').click(function() {
+    console.log('click');
+});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1025E" /><p class="title"><b>Example 3.2. Event biding using the <code class="code">bind</code> method</b></p><div class="example-contents"><pre class="programlisting">$('p').bind('click', function() {
+    console.log('click');
+});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10266" /><p class="title"><b>Example 3.3. Event binding using the <code class="code">bind</code> method with
+      data</b></p><div class="example-contents"><pre class="programlisting">$('input').bind(
+    'click change',  // bind to multiple events
+    { foo : 'bar' }, // pass in data
+
+    function(eventObject) {
+        console.log(eventObject.type, eventObject.data);
+    }
+);</pre></div></div><br class="example-break" /><div class="section" title="Connecting Events to Run Only Once"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1026F" />Connecting Events to Run Only Once</h3></div></div></div><p>Sometimes you need a particular handler to run only once -- after
+      that, you may want no handler to run, or you may want a different
+      handler to run. jQuery provides the <code class="code">one</code> method for this
+      purpose.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10277" /><p class="title"><b>Example 3.4. Switching handlers using the <code class="code">one</code> method</b></p><div class="example-contents"><pre class="programlisting">$('p').one('click', function() {
+    $(this).click(function() { console.log('You clicked this before!'); });
+});</pre></div></div><br class="example-break" /><p>The <code class="code">one</code> method is especially useful if you need to do
+      some complicated setup the first time an element is clicked, but not
+      subsequent times.</p></div><div class="section" title="Disconnecting Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10284" />Disconnecting Events</h3></div></div></div><p>To disconnect an event handler, you use the <code class="code">unbind</code>
+      method and pass in the event type to unbind. If you attached a named
+      function to the event, then you can isolate the unbinding to that named
+      function by passing it as the second argument.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1028C" /><p class="title"><b>Example 3.5. Unbinding all click handlers on a selection</b></p><div class="example-contents"><pre class="programlisting">$('p').unbind('click');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10292" /><p class="title"><b>Example 3.6. Unbinding a particular click handler</b></p><div class="example-contents"><pre class="programlisting">var foo = function() { console.log('foo'); };
+var bar = function() { console.log('bar'); };
+
+$('p').bind('click', foo).bind('click', bar);
+$('p').unbind('click', bar); // foo is still bound to the click event</pre></div></div><br class="example-break" /></div><div class="section" title="Namespacing Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10297" />Namespacing Events</h3></div></div></div><p>For complex applications and for plugins you share with others, it
+      can be useful to namespace your events so you don't unintentionally
+      disconnect events that you didn't or couldn't know about.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1029C" /><p class="title"><b>Example 3.7. Namespacing events</b></p><div class="example-contents"><pre class="programlisting">$('p').bind('click.myNamespace', function() { /* ... */ });
+$('p').unbind('click.myNamespace');
+$('p').unbind('.myNamespace'); // unbind all events in the namespace</pre></div></div><br class="example-break" /></div></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch03.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch03.html">Up</a></td><td align="right"> <a accesskey="n" href="ch03s03.html">Next</a></td></tr><tr><td valign="top" align="left">Chapter 3. Events </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Inside the Event Handling Function</td></tr></table></div></div></div></body></html>

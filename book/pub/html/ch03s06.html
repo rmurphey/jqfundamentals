@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Event Helpers</title><link href="screen.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. Events" /><link rel="prev" href="ch03s05.html" title="Increasing Performance with Event Delegation" /><link rel="next" href="ch04.html" title="Chapter 4. Effects" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Event Helpers</th></tr><tr><td align="left"><a accesskey="p" href="ch03s05.html">Prev</a> </td><th align="center" width="60%">Chapter 3. Events</th><td align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Event Helpers"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1032A" />Event Helpers</h2></div></div></div><p>jQuery offers two event-related helper functions that save you a few
+    keystrokes.</p><div class="section" title="hover"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1032F" /><code class="code">hover</code></h3></div></div></div><p>The <code class="code">hover</code> method lets you pass one or two functions
+      to be run when the <code class="code">mouseenter</code> and <code class="code">mouseleave</code>
+      events occur on an element. If you pass one function, it will be run for
+      both events; if you pass two functions, the first will run for
+      <code class="code">mouseenter</code>, and the second will run for
+      <code class="code">mouseleave</code>. </p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Prior to jQuery 1.4, the <code class="code">hover</code> method required two
+        functions.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1034A" /><p class="title"><b>Example 3.13. The hover helper function</b></p><div class="example-contents"><pre class="programlisting">$('#menu li').hover(function() { 
+    $(this).toggleClass('hover'); 
+});</pre></div></div><br class="example-break" /></div><div class="section" title="toggle"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1034F" /><code class="code">toggle</code></h3></div></div></div><p>Much like <code class="code">hover</code>, the <code class="code">toggle</code> method
+      receives two or more functions; each time the event occurs, the next
+      function in the list is called. Generally, <code class="code">toggle</code> is used
+      with just two functions, but technically you can use as many as you'd
+      like.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1035E" /><p class="title"><b>Example 3.14. The toggle helper function</b></p><div class="example-contents"><pre class="programlisting">$('p.expander').toggle(
+    function() {
+        $(this).prev().addClass('open');
+    },
+    function() {
+        $(this).prev().removeClass('open');
+    }
+);</pre></div></div><br class="example-break" /></div></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch03s05.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch03.html">Up</a></td><td align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr><tr><td valign="top" align="left">Increasing Performance with Event Delegation </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Chapter 4. Effects</td></tr></table></div></div></div></body></html>
