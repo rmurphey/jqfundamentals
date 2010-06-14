@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Testing Type</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch01.html" title="Chapter 1. JavaScript Basics" /><link rel="prev" href="ch01s09.html" title="Functions" /><link rel="next" href="ch01s11.html" title="Scope" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Testing Type</th></tr><tr><td align="left"><a accesskey="p" href="ch01s09.html">Prev</a> </td><th align="center" width="60%">Chapter 1. JavaScript Basics</th><td align="right"> <a accesskey="n" href="ch01s11.html">Next</a></td></tr></table><hr /></div><link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Testing Type"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10260" />Testing Type</h2></div></div></div><p>JavaScript offers a way to test the "type" of a variable. However,
+    the result can be confusing -- for example, the type of an Array is
+    "object".</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10265" /><p class="title"><b>Example 1.31. Testing the type of various variables</b></p><div class="example-contents"><pre class="programlisting">var myFunction = function() {
+    console.log('hello');
+};
+
+var myObject = {
+    foo : 'bar'
+};
+
+var myArray = [ 'a', 'b', 'c' ];
+
+var myString = 'hello';
+
+var myNumber = 3;
+
+typeof(myFunction);   // returns 'function'
+typeof(myObject);     // returns 'object'
+typeof(myArray);      // returns 'object' -- careful!
+typeof(myString);     // returns 'string';
+typeof(myNumber);     // returns 'number'
+
+if (myArray.push &amp;&amp; myArray.slice &amp;&amp; myArray.join) {
+    // probably an array
+    // (this is called "duck typing")
+}</pre></div></div><br class="example-break" /><p>jQuery offers utility methods to help you determine whether </p></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch01s09.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch01.html">Up</a></td><td align="right"> <a accesskey="n" href="ch01s11.html">Next</a></td></tr><tr><td valign="top" align="left">Functions </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Scope</td></tr></table></div></div></div></body></html>

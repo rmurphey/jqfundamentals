@@ -1,45 +1,163 @@
-/* -- Style for Recess DocBook -- */
-html { background: #000; }
-body { font-family: georgia, serif; margin: 0; width: 100%; background: #000033; font-size: 1em; line-height: 1.5em; }
-h1 { color: #003; letter-spacing: -2px; }
-h2 { color: #003; letter-spacing: -1px; }
-h3 { color: #003; letter-spacing: -1px; }
-strong { color: #000; font-weight: normal; background: #ffff66;}
+/* -- Style for jQuery Fundamentals DocBook HTML Output -- */
+html {
+background: #000;
+}
+body {
+font-family: 'Crimson Text', Georgia, serif;
+margin: 0;
+width: 100%;
+background: #000033;
+font-size: 1em;
+line-height: 1.5em;
+}
+h1 {
+color: #003;
+letter-spacing: -2px;
+font-family: Molengo, Helvetica, sans-serif;
+}
+h2 {
+color: #003;
+letter-spacing: -1px;
+font-family: Molengo, Helvetica, sans-serif;
+}
+h2.title {
+font-size:2.8em;
+}
+.section h2.title {
+font-size:2em;
+}
+h3 {
+color: #003;
+letter-spacing: -1px;
+font-family: Molengo, Helvetica, sans-serif;
+}
+strong {
+color: #000;
+font-weight: normal;
+background: #ffff66;
+}
 
-a { color: #000; text-decoration: none; }
-a[href]{ color: #000; text-decoration: underline; }
-a[href]:hover { text-decoration: none; border-bottom: 1px dotted; }
+a {
+color: #000;
+text-decoration: none;
+}
+a[href] {
+color: #000;
+text-decoration: underline;
+}
+a[href]:hover {
+text-decoration: none;
+border-bottom: 1px dotted;
+}
 
-img { border: 5px solid #eef; padding: 5px; }
-pre { font-size: 0.9em; }
+img {
+border: 5px solid #eef;
+padding: 5px;
+}
+pre {
+font-size: 0.9em;
+}
 
-.container { border-left: 5px solid #DDDDEE; border-right: 5px solid #DDDDEE; background: white; }
-.note { background: #9DEF1F; border: 5px solid #ADFF2F; padding: 1em 1em 0 1em; margin-bottom: 1em; margin-left: 2em; margin-right: 2em;}
-.titlepage { margin-top: 2em; }
+.container {
+border-left: 5px solid #DDDDEE;
+border-right: 5px solid #DDDDEE;
+background: white;
+}
+.note {
+background: #9DEF1F;
+border: 5px solid #ADFF2F;
+padding: 1em 1em 0 1em;
+margin-bottom: 1em;
+margin-left: 2em;
+margin-right: 2em;
+}
+.titlepage {
+margin-top: 2em;
+}
 
-.figure { }
-.example { border-left: 1em solid #E6E6FA; border-bottom: 1em solid #E6E6FA; padding-left: 1em; }
+.figure {
+}
+.example {
+border-left: 1em solid #E6E6FA;
+border-bottom: 1em solid #E6E6FA;
+padding-left: 1em;
+}
+.example .title {
+font-family:Molengo;
+}
 
-.navheader td[align="right"], .navfooter td[align="right"]  { text-align: right; }
-.navheader th[align="center"], .navfooter th[align="center"] { text-align: center; }
 
-.toc { font-size: 1.5em; font-weight: normal; }
-.toc dl dt { font-weight: normal; }
-.toc dl { font-size: 0.9em; margin-bottom: 0.5em; }
-.toc a { border-bottom: 1px dotted #DDDDEE; text-decoration: none;}
-.toc p { display: none; }
+.navheader td[align="right"], .navfooter td[align="right"] {
+text-align: right;
+}
+.navheader th[align="center"], .navfooter th[align="center"] {
+text-align: center;
+}
+.navheader, .navfooter {
+font-family:Molengo;
+font-weight:normal;
+font-size:80%;
+}
+.navheader th {
+font-weight:normal;
+}
 
-p.title { margin-bottom: 0; margin-top: 1em;}
+.toc, .list-of-examples {
+font-size: 1.5em;
+font-weight: normal;
+}
+.toc dl dt,
+.list-of-examples dl dt {
+font-weight: normal;
+margin:0 0 0.3em 0;
+}
+.toc dl,
+.list-of-examples dl {
+font-size: 0.9em;
+margin-bottom: 0.5em;
+}
+.toc a,
+.list-of-examples a {
+border-bottom: 1px dotted #DDDDEE;
+text-decoration: none;
+}
+.toc p,
+.list-of-examples p {
+font-size:3em;
+font-family:Molengo;
+margin:0.8em 0 0.3em 0;
+}
 
-code { font-family:"Courier New",Courier,mono; color: #008; font-size: 1.1em; }
-code.literal { color: green; }
-code.varname { color: maroon; }
-code.filename { color: maroon; }
+p.title {
+margin-bottom: 0;
+margin-top: 1em;
+}
+code.literal {
+color: green;
+}
+code.varname {
+color: maroon;
+}
+code.filename {
+color: maroon;
+}
 
-.hl-doccomment, .hl-doccomment a { color: grey; }
-.hl-keyword, .hl-keyword a { color: blue; }
-.hl-string, .hl-string a { color: green; }
-.hl-comment, .hl-comment a { color: grey; }
-.hl-directive, .hl-directive a { color: #800000; }
-.hl-attribute, .hl-attribute a { }
-.hl-value, .hl-value a { }
+.hl-doccomment, .hl-doccomment a {
+color: grey;
+}
+.hl-keyword, .hl-keyword a {
+color: blue;
+}
+.hl-string, .hl-string a {
+color: green;
+}
+.hl-comment, .hl-comment a {
+color: grey;
+}
+.hl-directive, .hl-directive a {
+color: #800000;
+}
+.hl-attribute, .hl-attribute a {
+}
+.hl-value, .hl-value a {
+}

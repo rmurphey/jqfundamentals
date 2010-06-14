@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Triggering Event Handlers</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch04.html" title="Chapter 4. Events" /><link rel="prev" href="ch04s03.html" title="Inside the Event Handling Function" /><link rel="next" href="ch04s05.html" title="Increasing Performance with Event Delegation" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Triggering Event Handlers</th></tr><tr><td align="left"><a accesskey="p" href="ch04s03.html">Prev</a> </td><th align="center" width="60%">Chapter 4. Events</th><td align="right"> <a accesskey="n" href="ch04s05.html">Next</a></td></tr></table><hr /></div><link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Triggering Event Handlers"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10592" />Triggering Event Handlers</h2></div></div></div><p>jQuery provides a way to trigger the event handlers bound to an
+    element without any user interaction via the <code class="code">$.fn.trigger</code> method.
+    While this method has its uses, it should not be used simply to call a
+    function that was bound as a click handler. Instead, you should store the
+    function you want to call in a variable, and pass the variable name when
+    you do your binding. Then, you can call the function itself whenever you
+    want, without the need for <code class="code">$.fn.trigger</code>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1059D" /><p class="title"><b>Example 4.9. Triggering an event handler the right way</b></p><div class="example-contents"><pre class="programlisting">var foo = function(e) { 
+    if (e) { 
+        console.log(e); 
+    } else {
+        console.log('this didn\'t come from an event!');
+    }
+};
+
+
+$('p').click(foo); 
+
+foo(); // instead of $('p').trigger('click')</pre></div></div><br class="example-break" /></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch04s03.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch04.html">Up</a></td><td align="right"> <a accesskey="n" href="ch04s05.html">Next</a></td></tr><tr><td valign="top" align="left">Inside the Event Handling Function </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Increasing Performance with Event Delegation</td></tr></table></div></div></div></body></html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head><title xmlns="http://www.w3.org/1999/xhtml">jQuery Fundamentals</title><link xmlns="http://www.w3.org/1999/xhtml" href="screen.css" rel="stylesheet" type="text/css" /><link xmlns="http://www.w3.org/1999/xhtml" href="style.css" rel="stylesheet" type="text/css" /><meta xmlns="http://www.w3.org/1999/xhtml" content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="book" title="jQuery Fundamentals"><div class="titlepage"><div><div><h1 class="title"><a id="N10001" />jQuery Fundamentals</h1></div><div><div class="author"><h3 class="author">Rebecca Murphey</h3></div></div><div><div class="othercredit"><h3 class="othercredit"><span class="orgname">http://github.com/rmurphey/jqfundamentals</span></h3></div></div><div><p class="copyright">Copyright © 2010 Rebecca Murphey </p></div><div><div class="legalnotice" title="Legal Notice"><a id="N10011" /><p>Licensed by Rebecca Murphey under the <a class="link" href="http://creativecommons.org/licenses/by-sa/3.0/us/" target="">Creative
+<html xmlns:xslthl="http://xslthl.sf.net"><head><title xmlns="http://www.w3.org/1999/xhtml">jQuery Fundamentals</title><link xmlns="http://www.w3.org/1999/xhtml" href="blueprint.css" rel="stylesheet" type="text/css" /><link xmlns="http://www.w3.org/1999/xhtml" href="style.css" rel="stylesheet" type="text/css" /><meta xmlns="http://www.w3.org/1999/xhtml" content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /></head><body><div class="container"><div class="span-18 push-3"><link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><div xmlns="http://www.w3.org/1999/xhtml" class="book" title="jQuery Fundamentals"><div class="titlepage"><div><div><h1 class="title"><a id="N10001" />jQuery Fundamentals</h1></div><div><div class="author"><h3 class="author">Rebecca Murphey</h3></div></div><div><div class="othercredit"><h3 class="othercredit"><span class="orgname">http://github.com/rmurphey/jqfundamentals</span></h3></div></div><div><p class="copyright">Copyright © 2010 Rebecca Murphey </p></div><div><div class="legalnotice" title="Legal Notice"><a id="N10011" /><p>Licensed by Rebecca Murphey under the <a class="link" href="http://creativecommons.org/licenses/by-sa/3.0/us/" target="">Creative
       Commons Attribution-Share Alike 3.0 United States license</a>. You
       are free to copy, distribute, transmit, and remix this work, provided
       you attribute the work to Rebecca Murphey as the original author and
@@ -10,348 +10,15 @@
       can be waived if you get permission from the copyright holder. For any
       reuse or distribution, you must make clear to others the license terms
       of this work. The best way to do this is with a link to
-      http://creativecommons.org/licenses/by-sa/3.0/us/.</p></div></div></div><hr /></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="part"><a href="#N1001E">I. jQuery Fundamentals</a></span></dt><dd><dl><dt><span class="chapter"><a href="#N10021">1. Getting Started</a></span></dt><dd><dl><dt><span class="section"><a href="#N1002D">Getting the Code</a></span></dt><dt><span class="section"><a href="#N10036">Software</a></span></dt><dt><span class="section"><a href="#N10048">Adding JavaScript to Your Page</a></span></dt><dt><span class="section"><a href="#N10059">JavaScript Debugging</a></span></dt><dt><span class="section"><a href="#N10083">References</a></span></dt></dl></dd><dt><span class="chapter"><a href="#N1009B">2. jQuery Basics</a></span></dt><dd><dl><dt><span class="section"><a href="#N100A7">$(document).ready()</a></span></dt><dt><span class="section"><a href="#N100C8">Selecting Elements</a></span></dt><dd><dl><dt><span class="section"><a href="#N100F9">Does My Selection Contain Any Elements?</a></span></dt><dt><span class="section"><a href="#N10112">Saving Selections</a></span></dt><dt><span class="section"><a href="#N1012C">Refining &amp; Filtering Selections</a></span></dt></dl></dd><dt><span class="section"><a href="#N10136">Working with Selections</a></span></dt><dd><dl><dt><span class="section"><a href="#N1013B">Chaining</a></span></dt><dt><span class="section"><a href="#N1015B">Getters &amp; Setters</a></span></dt></dl></dd><dt><span class="section"><a href="#N1017A">CSS, Styling, &amp; Dimensions</a></span></dt><dd><dl><dt><span class="section"><a href="#N10197">Using CSS Classes for Styling</a></span></dt><dt><span class="section"><a href="#N101A6">Dimensions</a></span></dt></dl></dd><dt><span class="section"><a href="#N101BB">Attributes</a></span></dt><dt><span class="section"><a href="#N101D7">Traversing</a></span></dt><dt><span class="section"><a href="#N101EA">Manipulating</a></span></dt><dd><dl><dt><span class="section"><a href="#N101FA">Creating New Elements</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#N10226">3. Events</a></span></dt><dd><dl><dt><span class="section"><a href="#N10232">Overview</a></span></dt><dt><span class="section"><a href="#N10245">Connecting Events to Elements</a></span></dt><dd><dl><dt><span class="section"><a href="#N1026F">Connecting Events to Run Only Once</a></span></dt><dt><span class="section"><a href="#N10284">Disconnecting Events</a></span></dt><dt><span class="section"><a href="#N10297">Namespacing Events</a></span></dt></dl></dd><dt><span class="section"><a href="#N102A1">Inside the Event Handling Function</a></span></dt><dt><span class="section"><a href="#N102E0">Triggering Event Handlers</a></span></dt><dt><span class="section"><a href="#N102F0">Increasing Performance with Event Delegation</a></span></dt><dd><dl><dt><span class="section"><a href="#N10314">Unbinding Delegated Events</a></span></dt></dl></dd><dt><span class="section"><a href="#N1032A">Event Helpers</a></span></dt><dd><dl><dt><span class="section"><a href="#N1032F"><code class="code">$.fn.hover</code></a></span></dt><dt><span class="section"><a href="#N1034F"><code class="code">$.fn.toggle</code></a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#N10363">4. Effects</a></span></dt><dd><dl><dt><span class="section"><a href="#N1036F" /></span></dt></dl></dd><dt><span class="chapter"><a href="#N10372">5. jQuery Core</a></span></dt><dd><dl><dt><span class="section"><a href="#N1037E" /></span></dt></dl></dd><dt><span class="chapter"><a href="#N10381">6. Ajax</a></span></dt><dd><dl><dt><span class="section"><a href="#N1038D" /></span></dt></dl></dd></dl></dd><dt><span class="part"><a href="#N10390">II. JavaScript Primer</a></span></dt><dd><dl><dt><span class="chapter"><a href="#N10393">7. JavaScript Basics</a></span></dt><dd><dl><dt><span class="section"><a href="#N1039F">Overview</a></span></dt><dt><span class="section"><a href="#N103A9">Syntax Basics</a></span></dt><dt><span class="section"><a href="#N103C5">Operators</a></span></dt><dd><dl><dt><span class="section"><a href="#N103C8">Basic Operators</a></span></dt><dt><span class="section"><a href="#N103DF">Operations on Numbers &amp; Strings</a></span></dt><dt><span class="section"><a href="#N103FE">Logical Operators</a></span></dt><dt><span class="section"><a href="#N10420">Comparison Operators</a></span></dt></dl></dd><dt><span class="section"><a href="#N1042F">Flow Control</a></span></dt><dd><dl><dt><span class="section"><a href="#javascript-basics.sections.truthy-falsy">Truthy and Falsy Things</a></span></dt></dl></dd><dt><span class="section"><a href="#N10453">Loops</a></span></dt><dt><span class="section"><a href="#N1046D">Reserved Words</a></span></dt><dt><span class="section"><a href="#N10553">Arrays</a></span></dt><dt><span class="section"><a href="#N1057C">Objects</a></span></dt><dt><span class="section"><a href="#N1058F">Functions</a></span></dt><dd><dl><dt><span class="section"><a href="#N105A6">Using Functions</a></span></dt><dt><span class="section"><a href="#N105B8">Self-Executing Anonymous Functions</a></span></dt><dt><span class="section"><a href="#N105C3">Functions as Arguments</a></span></dt></dl></dd><dt><span class="section"><a href="#N105D2">Testing Type</a></span></dt><dt><span class="section"><a href="#javascript-basics.sections.scope">Scope</a></span></dt><dt><span class="section"><a href="#N1060E">Closures</a></span></dt></dl></dd></dl></dd><dt><span class="part"><a href="#N10622">III. Exercises</a></span></dt><dd><dl><dt><span class="chapter"><a href="#N10625">8. Exercises</a></span></dt><dd><dl><dt><span class="section"><a href="#N10631" /></span></dt></dl></dd></dl></dd></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1.1. <a href="#N1004F">An example of inline Javascript</a></dt><dt>1.2. <a href="#N10054">An example of including external JavaScript</a></dt><dt>2.1. <a href="#N100AF">A $(document).ready() block</a></dt><dt>2.2. <a href="#N100B9">Shorthand for $(document).ready()</a></dt><dt>2.3. <a href="#N100C3">Passing a named function instead of an anonymous function</a></dt><dt>2.4. <a href="#N100D3">Selecting elements by ID</a></dt><dt>2.5. <a href="#N100D8">Selecting elements by class name</a></dt><dt>2.6. <a href="#N100DD">Selecting elements by attribute</a></dt><dt>2.7. <a href="#N100E3">Selecting elements by compound CSS selector</a></dt><dt>2.8. <a href="#N100E8">Pseudo-selectors</a></dt><dt>2.9. <a href="#N1010D">Testing whether a selection contains elements</a></dt><dt>2.10. <a href="#jquery-basics.examples.storing-selections">Storing selections in a variable</a></dt><dt>2.11. <a href="#N10131">Refining selections</a></dt><dt>2.12. <a href="#N10140">Chaining</a></dt><dt>2.13. <a href="#N10147">Formatting chained code</a></dt><dt>2.14. <a href="#N10151">Restoring your original selection using
-        <code class="code">$.fn.end</code></a></dt><dt>2.15. <a href="#N1016A">The <code class="code">$.fn.html</code> method used as a setter</a></dt><dt>2.16. <a href="#N10172">The html method used as a getter</a></dt><dt>2.17. <a href="#N1018B">Getting CSS properties</a></dt><dt>2.18. <a href="#N10190">Setting CSS properties</a></dt><dt>2.19. <a href="#N1019F">Working with classes</a></dt><dt>2.20. <a href="#jquery-basics.examples.dimensions">Basic dimensions methods</a></dt><dt>2.21. <a href="#N101CB">Setting attributes</a></dt><dt>2.22. <a href="#N101D2">Getting attributes</a></dt><dt>2.23. <a href="#N101E5">Traversal methods</a></dt><dt>2.24. <a href="#N101F5">Moving, removing, and cloning elements</a></dt><dt>2.25. <a href="#N10202">Creating new elements</a></dt><dt>2.26. <a href="#N10207">Creating a new element with an attribute object</a></dt><dt>2.27. <a href="#N10210">Getting a new element on to the page</a></dt><dt>2.28. <a href="#N10219">Creating and adding an element to the page at the same
-        time</a></dt><dt>3.1. <a href="#N10259">Event binding using a convenience method</a></dt><dt>3.2. <a href="#N1025E">Event biding using the <code class="code">$.fn.bind</code> method</a></dt><dt>3.3. <a href="#N10266">Event binding using the <code class="code">$.fn.bind</code> method with
-      data</a></dt><dt>3.4. <a href="#N10277">Switching handlers using the <code class="code">$.fn.one</code> method</a></dt><dt>3.5. <a href="#N1028C">Unbinding all click handlers on a selection</a></dt><dt>3.6. <a href="#N10292">Unbinding a particular click handler</a></dt><dt>3.7. <a href="#N1029C">Namespacing events</a></dt><dt>3.8. <a href="#N102DB">Preventing a link from being followed</a></dt><dt>3.9. <a href="#N102EB">Triggering an event handler the right way</a></dt><dt>3.10. <a href="#N10306">Event delegation using <code class="code">$.fn.delegate</code></a></dt><dt>3.11. <a href="#N1030D">Event delegation using <code class="code">$.fn.live</code></a></dt><dt>3.12. <a href="#N10325">Unbinding delegated events</a></dt><dt>3.13. <a href="#N1034A">The hover helper function</a></dt><dt>3.14. <a href="#N1035E">The toggle helper function</a></dt><dt>7.1. <a href="#javascript-basics.examples.variable-declaration">A simple variable declaration</a></dt><dt>7.2. <a href="#N103B4">Whitespace has no meaning outside of quotation marks</a></dt><dt>7.3. <a href="#N103BA">Parentheses indicate precedence</a></dt><dt>7.4. <a href="#N103BF">Tabs enhance readability, but have no special meaning</a></dt><dt>7.5. <a href="#N103CE">Concatenation</a></dt><dt>7.6. <a href="#N103D3">Multiplication and division</a></dt><dt>7.7. <a href="#N103D9">Incrementing and decrementing</a></dt><dt>7.8. <a href="#javascript-basics.examples.addition-concatenation">Addition vs. concatenation</a></dt><dt>7.9. <a href="#javascript-basics.examples.force-number">Forcing a string to act as a number</a></dt><dt>7.10. <a href="#javascript-basics.examples.and-or">Logical AND and OR operators</a></dt><dt>7.11. <a href="#N10425">Comparison Operators</a></dt><dt>7.12. <a href="#N1043A">Flow control</a></dt><dt>7.13. <a href="#N10445">Values that evaluate to <code class="code">true</code></a></dt><dt>7.14. <a href="#N1044C">Values that evaluate to <code class="code">false</code></a></dt><dt>7.15. <a href="#javascript-basics.examples.loops">Loops</a></dt><dt>7.16. <a href="#N10558">A simple array</a></dt><dt>7.17. <a href="#N1055D">Accessing array items by index</a></dt><dt>7.18. <a href="#N10562">Testing the size of an array</a></dt><dt>7.19. <a href="#javascript-basics.examples.change-array-value">Changing the value of an array item</a></dt><dt>7.20. <a href="#N10572">Adding elements to an array</a></dt><dt>7.21. <a href="#N10577">Working with arrays</a></dt><dt>7.22. <a href="#N1058A">Creating an "object literal"</a></dt><dt>7.23. <a href="#N10596">Function Declaration</a></dt><dt>7.24. <a href="#N1059B">Named Function Expression</a></dt><dt>7.25. <a href="#N105A9">A simple function</a></dt><dt>7.26. <a href="#N105AE">A function that returns a value</a></dt><dt>7.27. <a href="#N105B3">A function that returns another function</a></dt><dt>7.28. <a href="#javascript-basics.examples.self-executing">A self-executing anonymous function</a></dt><dt>7.29. <a href="#N105C8">Passing an anonymous function as an argument</a></dt><dt>7.30. <a href="#N105CD">Passing a named function as an argument</a></dt><dt>7.31. <a href="#N105D7">Testing the type of various variables</a></dt><dt>7.32. <a href="#N105F4">Functions have access to variables defined in the same
-      scope</a></dt><dt>7.33. <a href="#N105F9">Code outside the scope in which a variable was defined does not
-      have access to the variable</a></dt><dt>7.34. <a href="#N105FE">Variables with the same name can exist in different scopes with
-      different values</a></dt><dt>7.35. <a href="#javascript-basics.examples.scope-value-change">Functions can "see" changes in variable values after the function
-      is defined</a></dt><dt>7.36. <a href="#N10609">Scope insanity</a></dt><dt>7.37. <a href="#N10618">How to lock in the value of i?</a></dt><dt>7.38. <a href="#N1061D">Locking in the value of i with a closure</a></dt></dl></div><div class="part" title="Part I. jQuery Fundamentals"><div class="titlepage"><div><div><h1 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1001E" />Part I. jQuery Fundamentals</h1></div></div></div><div class="chapter" title="Chapter 1. Getting Started"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10021" />Chapter 1. Getting Started</h2></div></div></div><div class="section" title="Getting the Code"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1002D" />Getting the Code</h2></div></div></div><p>The code we’ll be using in class is hosted <a class="link" href="http://github.com/rmurphey/jqfundamentals" target="">in a repository on
-    Github</a>. You can download a .zip or .tar file of the code, then
-    uncompress it to use it on your server. (If you’re git-inclined, you’re
-    welcome to fork the repository.)</p></div><div class="section" title="Software"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10036" />Software</h2></div></div></div><p>You'll want to have the following tools to make the most of the
-    class:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p>The Firefox browser</p></li><li class="listitem"><p>The Firebug extension for Firefox</p></li><li class="listitem"><p>A plain text editor</p></li><li class="listitem"><p>For the Ajax portions: A local server (such as MAMP or WAMP), or
-        an FTP or SSH client to access a remote server.</p></li></ul></div></div><div class="section" title="Adding JavaScript to Your Page"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10048" />Adding JavaScript to Your Page</h2></div></div></div><p>JavaScript can be included inline or by including an external file
-    via a script tag. The order in which you include JavaScript is important:
-    dependencies must be included before the script that depends on
-    them.</p><p>For the sake of page performance, JavaScript should be included as
-    close to the end of your HTML as is practical. Multiple JavaScript files
-    should be combined for production use.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1004F" /><p class="title"><b>Example 1.1. An example of inline Javascript</b></p><div class="example-contents"><pre class="programlisting">&lt;script&gt;
-console.log('hello');
-&lt;/script&gt;</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10054" /><p class="title"><b>Example 1.2. An example of including external JavaScript</b></p><div class="example-contents"><pre class="programlisting">&lt;script src='/js/jquery.js'&gt;&lt;/script&gt;</pre></div></div><br class="example-break" /></div><div class="section" title="JavaScript Debugging"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10059" />JavaScript Debugging</h2></div></div></div><p>A debugging tool is essential for JavaScript development. Firefox
-    provides a debugger via the Firebug extension; Safari and Chrome provide
-    built-in consoles.</p><p>Each console offers:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p>single- and multi-line editors for experimenting with
-        JavaScript</p></li><li class="listitem"><p>an inspector for looking at the generated source of your
-        page</p></li><li class="listitem"><p>a Network or Resources view, to examine network requests</p></li></ul></div><p>When you are writing JavaScript code, you can use the following
-    methods to send messages to the console:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p><span class="command"><strong>console.log()</strong></span> for sending general log
-        messages</p></li><li class="listitem"><p><span class="command"><strong>console.dir()</strong></span> for logging a browseable
-        object</p></li><li class="listitem"><p><span class="command"><strong>console.warn()</strong></span> for logging warnings</p></li><li class="listitem"><p><span class="command"><strong>console.error()</strong></span> for logging error
-        messages</p></li></ul></div><p>Other console methods are also available, though they may differ
-    from one browser to another. The consoles also provide the ability to set
-    break points and watch expressions in your code for debugging
-    purposes.</p></div><div class="section" title="References"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10083" />References</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p><a class="link" href="http://api.jquery.com" target="">jQuery
-        documentation</a></p></li><li class="listitem"><p><a class="link" href="http://forum.jquery.com/" target="">jQuery
-        forum</a></p></li><li class="listitem"><p><a class="link" href="http://delicious.com/rdmey/jquery-class" target="">Delicious
-        bookmarks</a></p></li><li class="listitem"><p><a class="link" href="http://docs.jquery.com/Discussion#Chat_.2F_IRC_Channel" target="">#jquery
-        IRC channel on Freenode</a></p></li></ul></div></div></div><div class="chapter" title="Chapter 2. jQuery Basics"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1009B" />Chapter 2. jQuery Basics</h2></div></div></div><div class="section" title="$(document).ready()"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N100A7" />$(document).ready()</h2></div></div></div><p>You cannot safely manipulate a page until the document is “ready.”
-    jQuery detects this state of readiness for you; code included inside
-    <code class="code">$(document).ready()</code> will only run once the page is ready for
-    JavaScript code to execute.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100AF" /><p class="title"><b>Example 2.1. A $(document).ready() block</b></p><div class="example-contents"><pre class="programlisting">$(document).ready(function() {
-    console.log('ready!');
-});</pre></div></div><br class="example-break" /><p>There is a shorthand for <code class="code">$(document).ready()</code> that you
-    will sometimes see; however, I recommend against using it if you are
-    writing code that people who aren't experienced with jQuery may
-    see.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100B9" /><p class="title"><b>Example 2.2. Shorthand for $(document).ready()</b></p><div class="example-contents"><pre class="programlisting">$(function() {
-    console.log('ready!');
-});</pre></div></div><br class="example-break" /><p>You can also passed a name function to
-    <code class="code">$(document).ready()</code> instead of passing an anonymous
-    function.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100C3" /><p class="title"><b>Example 2.3. Passing a named function instead of an anonymous function</b></p><div class="example-contents"><pre class="programlisting">var readyFn = function() {
-    // code to run when the document is ready
-};
-
-
-$(document).ready(readyFn);</pre></div></div><br class="example-break" /></div><div class="section" title="Selecting Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N100C8" />Selecting Elements</h2></div></div></div><p>The most basic concept of jQuery is to “select some elements and do
-    something with them.” jQuery supports most CSS3 selectors, as well as some
-    non-standard selectors. For a complete selector reference, visit <a class="link" href="http://api.jquery.com/category/selectors/" target="">http://api.jquery.com/category/selectors/</a>.</p><p>Following are a few examples of common selection techniques.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100D3" /><p class="title"><b>Example 2.4. Selecting elements by ID</b></p><div class="example-contents"><pre class="programlisting">$('#myId'); // note IDs must be unique per page</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100D8" /><p class="title"><b>Example 2.5. Selecting elements by class name</b></p><div class="example-contents"><pre class="programlisting">$('div.myClass'); // performance improves if you specify element type</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100DD" /><p class="title"><b>Example 2.6. Selecting elements by attribute</b></p><div class="example-contents"><pre class="programlisting">$('input[name=first_name]'); // beware, this can be very slow</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100E3" /><p class="title"><b>Example 2.7. Selecting elements by compound CSS selector</b></p><div class="example-contents"><pre class="programlisting">$('#contents ul.people li');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100E8" /><p class="title"><b>Example 2.8. Pseudo-selectors</b></p><div class="example-contents"><pre class="programlisting">$('a.external:first'); 
-$('tr:odd');
-$('#myForm :input');   // select all input-like elements in a form
-$('div:visible');
-$('div:gt(2)');        // all except the first three divs
-$('div:animated');     // all currently animated divs</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Choosing good selectors is one of the most important things you
-      can do to improve the performance of your JavaScript. A little
-      specificity -- for example, including an element type such as
-      <code class="code">div</code> when selecting elements by class name -- can go a long
-      way. Generally, any time you can give jQuery a hint about where it might
-      expect to find what you're looking for, you should. On the other hand,
-      too much specificity can be a bad thing. A selector such as
-      <code class="code">#myTable thead tr th.special</code> is overkill if a selector such
-      as <code class="code">#myTable th.special</code> will get you what you want.</p></div><div class="section" title="Does My Selection Contain Any Elements?"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N100F9" />Does My Selection Contain Any Elements?</h3></div></div></div><p>Once you've made a selection, you'll often want to know whether
-      you have anything to work with. You may be inclined to try something
-      like:</p><pre class="programlisting">if ($('div.foo')) { ... }</pre><p>This won't work. When you make a selection using <code class="code">$()</code>,
-      an object is always returned, and objects always evaluate to
-      <code class="code">true</code>. Even if your selection doesn't contain any elements,
-      the code inside the <code class="code">if</code> statement will still run.</p><p>Instead, you need to test the selection's length property, which
-      tells you how many elements were selected. If the answer is 0, the
-      length property will evaluate to false when used as a boolean
-      value.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1010D" /><p class="title"><b>Example 2.9. Testing whether a selection contains elements</b></p><div class="example-contents"><pre class="programlisting">if ($('div.foo').length) { ... }</pre></div></div><br class="example-break" /></div><div class="section" title="Saving Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10112" />Saving Selections</h3></div></div></div><p>Every time you make a selection, a lot of code runs, and jQuery
-      doesn't do caching of selections for you. If you've made a selection
-      that you might need to make again, you should save the selection in a
-      variable rather than making the selection repeatedly.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="jquery-basics.examples.storing-selections" /><p class="title"><b>Example 2.10. Storing selections in a variable</b></p><div class="example-contents"><pre class="programlisting">var $divs = $('div');</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>In <a class="xref" href="#jquery-basics.examples.storing-selections" title="Example 2.10. Storing selections in a variable">Example 2.10, “Storing selections in a variable”</a>,
-        the variable name begins with a dollar sign. Unlike in other
-        languages, there's nothing special about the dollar sign in JavaScript
-        -- it's just another character. We use it here to indicate that the
-        variable contains a jQuery object. This practice -- a sort of <a class="link" href="http://en.wikipedia.org/wiki/Hungarian_notation" target="">Hungarian
-        notation</a> -- is merely convention, and is not mandatory.</p></div><p>Once you've stored your selection, you can call jQuery methods on
-      the variable you stored it in just like you would have called them on
-      the original selection.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>A selection only fetches the elements that are on the page when
-        you make the selection. If you add elements to the page later, you'll
-        have to repeat the selection or otherwise add them to the selection
-        stored in the variable. Stored selections don't magically update when
-        the DOM changes.</p></div></div><div class="section" title="Refining &amp; Filtering Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1012C" />Refining &amp; Filtering Selections</h3></div></div></div><p>Sometimes you have a selection that contains more than what you're
-      after; in this case, you may want to refine your selection. jQuery
-      offers several methods for zeroing in on exactly what you're
-      after.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10131" /><p class="title"><b>Example 2.11. Refining selections</b></p><div class="example-contents"><pre class="programlisting">$('div.foo').has('p');          // div.foo elements that contain &lt;p&gt;'s
-$('h1').not('.bar');            // h1 elements that don't have a class of bar
-$('ul li').filter('.current');  // unordered list items with class of current
-$('ul li').first();             // just the first unordered list item
-$('ul li').eq(5);               // the fifth </pre></div></div><br class="example-break" /></div></div><div class="section" title="Working with Selections"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10136" />Working with Selections</h2></div></div></div><p>Once you have a selection, you can call methods on the selection.
-    Methods generally come in two different flavors: getters and setters.
-    Getters return a property of the first selected element; setters set a
-    property on all selected elements.</p><div class="section" title="Chaining"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1013B" />Chaining</h3></div></div></div><p>If you call a method on a selection and that method returns a
-      jQuery object, you can continue to call jQuery methods on the object
-      without pausing for a semicolon.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10140" /><p class="title"><b>Example 2.12. Chaining</b></p><div class="example-contents"><pre class="programlisting">$('#content').find('h3').eq(2).html('new text for the third h3!');</pre></div></div><br class="example-break" /><p>If you are writing a chain that includes several steps, you (and
-      the person who comes after you) may find your code more readable if you
-      break the chain over several lines.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10147" /><p class="title"><b>Example 2.13. Formatting chained code</b></p><div class="example-contents"><pre class="programlisting">$('#content')
-    .find('h3')
-    .eq(2)
-    .html('new text for the third h3!');</pre></div></div><br class="example-break" /><p>If you change your selection in the midst of a chain, jQuery
-      provides the <code class="code">$.fn.end</code> method to get you back to your original
-      selection.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10151" /><p class="title"><b>Example 2.14. Restoring your original selection using
-        <code class="code">$.fn.end</code></b></p><div class="example-contents"><pre class="programlisting">$('#content')
-    .find('h3')
-    .eq(2)
-        .html('new text for the third h3!')
-    .end() // restores the selection to all h3's in #content
-    .eq(0)
-        .html('new text for the first h3!');</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Chaining is extraordinarily powerful, and it's a feature that
-        many libraries have adapted since it was made popular by jQuery.
-        However, it must be used with care. Extensive chaining can make code
-        extremely difficult to modify or debug. There is no hard-and-fast rule
-        to how long a chain should be -- just know that it is easy to get
-        carried away.</p></div></div><div class="section" title="Getters &amp; Setters"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1015B" />Getters &amp; Setters</h3></div></div></div><p>jQuery “overloads” its methods, so the method used to set a value
-      generally has the same name as the method used to get a value.
-      <span class="termdef">[Definition: When a method is used to set a value, it is called a
-      <em class="firstterm">setter</em>]</span>. <span class="termdef">[Definition: When a method is used
-      to get (or read) a value, it is called a
-      <em class="firstterm">getter</em>]</span>. Setters affect all elements in
-      a selection; getters get the requested value only for the first element
-      in the selection.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1016A" /><p class="title"><b>Example 2.15. The <code class="code">$.fn.html</code> method used as a setter</b></p><div class="example-contents"><pre class="programlisting">$('h1').html('hello world');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10172" /><p class="title"><b>Example 2.16. The html method used as a getter</b></p><div class="example-contents"><pre class="programlisting">$('h1').html();</pre></div></div><br class="example-break" /><p>Setters return a jQuery object, allowing you to continue to call
-      jQuery methods on your selection; getters return whatever they were
-      asked to get, meaning you cannot continue to call jQuery methods on the
-      value returned by the getter.</p></div></div><div class="section" title="CSS, Styling, &amp; Dimensions"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1017A" />CSS, Styling, &amp; Dimensions</h2></div></div></div><p>jQuery includes a handy way to get and set CSS properties of
-    elements.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>CSS properties that normally include a hyphen need to be
-      <em class="firstterm">camel cased</em> in JavaScript. For example, the CSS
-      property <code class="code">font-size</code> is expressed as <code class="code">fontSize</code> in
-      JavaScript.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1018B" /><p class="title"><b>Example 2.17. Getting CSS properties</b></p><div class="example-contents"><pre class="programlisting">$('h1').css('fontSize'); // returns a string such as "19px"</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10190" /><p class="title"><b>Example 2.18. Setting CSS properties</b></p><div class="example-contents"><pre class="programlisting">$('h1').css('fontSize', '100px'); // setting an individual property
-$('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple properties</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">Note the style of the argument we use on the second line -- it is
-    an object that contains multiple properties. This is a common way to pass
-    multiple arguments to a function, and many jQuery setter methods accept
-    objects to set mulitple values at once.</span></i></p><div class="section" title="Using CSS Classes for Styling"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10197" />Using CSS Classes for Styling</h3></div></div></div><p>As a getter, the <code class="code">$.fn.css</code> method is valuable; however, it
-      should generally be avoided as a setter in production-ready code,
-      because you don't want presentational information in your JavaScript.
-      Instead, write CSS rules for classes that describe the various visual
-      states, and then simply change the class on the element you want to
-      affect.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1019F" /><p class="title"><b>Example 2.19. Working with classes</b></p><div class="example-contents"><pre class="programlisting">var $h1 = $('h1');
-
-$h1.addClass('big');
-$h1.removeClass('big');
-$h1.toggleClass('big');
-
-if ($h1.hasClass('big')) { ... }</pre></div></div><br class="example-break" /><p>Classes can also be useful for storing state information about an
-      element, such as indicating that an element is selected.</p></div><div class="section" title="Dimensions"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N101A6" />Dimensions</h3></div></div></div><p>jQuery offers a variety of methods for obtaining and modifying
-      dimenion and position information about an element.</p><p>The code in <a class="xref" href="#jquery-basics.examples.dimensions" title="Example 2.20. Basic dimensions methods">Example 2.20, “Basic dimensions methods”</a>
-      is just a very brief overview of the dimensions functionality in jQuery;
-      for complete details about jQuery dimension methods, visit <a class="link" href="http://api.jquery.com/category/dimensions/" target="">http://api.jquery.com/category/dimensions/</a>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="jquery-basics.examples.dimensions" /><p class="title"><b>Example 2.20. Basic dimensions methods</b></p><div class="example-contents"><pre class="programlisting">$('h1').width('50px');   // sets the width of all H1 elements
-$('h1').width();         // gets the width of the first H1
-
-$('h1').height('50px');  // sets the height of all H1 elements
-$('h1').height();        // gets the height of the first H1
-
-$('h1').position();      // returns an object containing position
-                         // information for the first H1 relative to
-                         // its "offset (positioned) parent"</pre></div></div><br class="example-break" /></div></div><div class="section" title="Attributes"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N101BB" />Attributes</h2></div></div></div><p>An element's attributes can contain useful information for your
-    application, so it's important to be able to get and set them.</p><p>The <code class="code">$.fn.attr</code> method acts as both a getter and a setter. As
-    with the <code class="code">$.fn.css</code> method, <code class="code">$.fn.attr</code> as a setter can accept
-    either a key and a value, or an object containing one or more key/value
-    pairs.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101CB" /><p class="title"><b>Example 2.21. Setting attributes</b></p><div class="example-contents"><pre class="programlisting">$('a').attr('href', 'allMyHrefsAreTheSameNow.html');
-$('a').attr({ 
-    'title' : 'all titles are the same too!', 
-    'href' : 'somethingNew.html' 
-});</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">This time, we broke the object up into multiple lines. Remember,
-    whitespace doesn't matter in JavaScript, so you should feel free to use it
-    liberally to make your code more legible! You can use a minification tool
-    later to strip out unnecessary whitespace for production.</span></i></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101D2" /><p class="title"><b>Example 2.22. Getting attributes</b></p><div class="example-contents"><pre class="programlisting">$('a').attr('href');  // returns the href for the first a element in the document</pre></div></div><br class="example-break" /></div><div class="section" title="Traversing"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N101D7" />Traversing</h2></div></div></div><p>Once you have a jQuery selection, you can find other elements using
-    your selection as a starting point.</p><p>For complete documentation of jQuery traversal methods, visit <a class="link" href="http://api.jquery.com/category/traversing/" target="">http://api.jquery.com/category/traversing/</a>.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Be cautious with traversing long distances in your documents --
-      complex traversal makes it imperative that your document's structure
-      remain the same, something that's difficult to guarantee even if you're
-      the one creating the whole application from server to client. One- or
-      two-step traversal is fine, but you generally want to avoid traversals
-      that take you from one container to another.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101E5" /><p class="title"><b>Example 2.23. Traversal methods</b></p><div class="example-contents"><pre class="programlisting">$('h1').next('p');
-$('div:visible').parent();
-$('input[name=first_name]').closest('form');
-$('#myList').children();
-$('li.selected').siblings();</pre></div></div><br class="example-break" /></div><div class="section" title="Manipulating"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N101EA" />Manipulating</h2></div></div></div><p>Once you've made a selection, you can move, remove, and clone
-    elements. You can also create new elements.</p><p>For complete documentation of jQuery manipulation methods, visit
-    <a class="link" href="http://api.jquery.com/category/manipulation/" target="">http://api.jquery.com/category/manipulation/</a>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101F5" /><p class="title"><b>Example 2.24. Moving, removing, and cloning elements</b></p><div class="example-contents"><pre class="programlisting">$('div.panel').appendTo('#panels');
-$('div.newPanel').insertAfter('div.oldPanel');
-$('h1').remove();
-$('div.template').clone();</pre></div></div><br class="example-break" /><div class="section" title="Creating New Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N101FA" />Creating New Elements</h3></div></div></div><p>jQuery offers a trivial and elegant way to create new elements
-      using the same <code class="code">$()</code> method you use to make
-      selections.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10202" /><p class="title"><b>Example 2.25. Creating new elements</b></p><div class="example-contents"><pre class="programlisting">$('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
-$('&lt;li class="new"&gt;new list item&lt;/p&gt;');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10207" /><p class="title"><b>Example 2.26. Creating a new element with an attribute object</b></p><div class="example-contents"><pre class="programlisting">$('&lt;p/&gt;', { 
-    text : 'This is a new paragraph',
-    'class' : 'new'
-});</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">Note that in the attributes object we included as the second
-      argument, the property name class is quoted, while the property name
-      text is not. Property names generally do not need to be quoted unless
-      they are reserved words (as class is in this case).</span></i></p><p>When you create a new element, it is not immediately added to the
-      page. There are several ways to add an element to the page once it's
-      been created.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10210" /><p class="title"><b>Example 2.27. Getting a new element on to the page</b></p><div class="example-contents"><pre class="programlisting">var $myNewElement = $('&lt;p&gt;New element&lt;/p&gt;');
-$myNewElement.appendTo('#content');
-
-$myNewElement.insertAfter('ul:last'); // this will remove the p from #content!
-$('ul').last().after($myNewElement.clone());  // clone the p so now we have 2</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">Strictly speaking, you don't have to store the created element
-      in a variable -- you could just call the method to add the element to
-      the page directly after the $(). However, most of the time you will want
-      a reference to the element you added, so you don't need to select it
-      later.</span></i></p><p>You can even create an element as you're adding it to the page,
-      but note that in this case you don't get a reference to the newly
-      created element.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10219" /><p class="title"><b>Example 2.28. Creating and adding an element to the page at the same
-        time</b></p><div class="example-contents"><pre class="programlisting">$('ul').append('&lt;li&gt;list item&lt;/li&gt;');</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The syntax for adding new elements to the page is so easy, it's
-        tempting to forget that there's a huge performance cost for adding to
-        the DOM repeatedly. If you are adding many elements to the same
-        container, you'll want to concatenate all the html into a single
-        string, and then append that string to the container instead of
-        appending the elements one at a time. You can use an array to gather
-        all the pieces together, then <code class="code">join</code> them into a single
-        string for appending.</p><pre class="programlisting">var myItems = [], $myList = $('#myList');
-
-for (var i=0; i&lt;100; i++) {
-    myItems.push('&lt;li&gt;item ' + i + '&lt;/li&gt;');
-}
-
-$myList.append(myItems.join(''));</pre></div></div></div></div><div class="chapter" title="Chapter 3. Events"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10226" />Chapter 3. Events</h2></div></div></div><div class="section" title="Overview"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10232" />Overview</h2></div></div></div><p>jQuery provides simple methods for attaching event handlers to
-    selections. When an event occurs, the provided function is executed.
-    Inside the function, this refers to the element that was clicked. </p><p>For details on jQuery events, visit <a class="link" href="http://api.jquery.com/category/events/" target="">http://api.jquery.com/category/events/</a>.</p><p>The event handling function can receive an event object. This object
-    can be used to determine the nature of the event, and to prevent the
-    event’s default behavior. </p><p>For details on the event object, visit <a class="link" href="http://api.jquery.com/category/events/event-object/" target="">http://api.jquery.com/category/events/event-object/</a>.</p></div><div class="section" title="Connecting Events to Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10245" />Connecting Events to Elements</h2></div></div></div><p>jQuery offers convenience methods for most common events, and these
-    are the methods you will see used most often. These methods -- including
-    <code class="code">$.fn.click</code>, <code class="code">$.fn.focus</code>, <code class="code">$.fn.blur</code>,
-    <code class="code">$.fn.change</code>, etc. -- are shorthand for jQuery's <code class="code">$.fn.bind</code>
-    method. The bind method is useful for binding the same hadler function to
-    multiple events, and is also used when you want to provide data to the
-    event hander, or when you are working with custom events.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10259" /><p class="title"><b>Example 3.1. Event binding using a convenience method</b></p><div class="example-contents"><pre class="programlisting">$('p').click(function() {
-    console.log('click');
-});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1025E" /><p class="title"><b>Example 3.2. Event biding using the <code class="code">$.fn.bind</code> method</b></p><div class="example-contents"><pre class="programlisting">$('p').bind('click', function() {
-    console.log('click');
-});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10266" /><p class="title"><b>Example 3.3. Event binding using the <code class="code">$.fn.bind</code> method with
-      data</b></p><div class="example-contents"><pre class="programlisting">$('input').bind(
-    'click change',  // bind to multiple events
-    { foo : 'bar' }, // pass in data
-
-    function(eventObject) {
-        console.log(eventObject.type, eventObject.data);
-    }
-);</pre></div></div><br class="example-break" /><div class="section" title="Connecting Events to Run Only Once"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1026F" />Connecting Events to Run Only Once</h3></div></div></div><p>Sometimes you need a particular handler to run only once -- after
-      that, you may want no handler to run, or you may want a different
-      handler to run. jQuery provides the <code class="code">$.fn.one</code> method for this
-      purpose.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10277" /><p class="title"><b>Example 3.4. Switching handlers using the <code class="code">$.fn.one</code> method</b></p><div class="example-contents"><pre class="programlisting">$('p').one('click', function() {
-    $(this).click(function() { console.log('You clicked this before!'); });
-});</pre></div></div><br class="example-break" /><p>The <code class="code">$.fn.one</code> method is especially useful if you need to do
-      some complicated setup the first time an element is clicked, but not
-      subsequent times.</p></div><div class="section" title="Disconnecting Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10284" />Disconnecting Events</h3></div></div></div><p>To disconnect an event handler, you use the <code class="code">$.fn.unbind</code>
-      method and pass in the event type to unbind. If you attached a named
-      function to the event, then you can isolate the unbinding to that named
-      function by passing it as the second argument.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1028C" /><p class="title"><b>Example 3.5. Unbinding all click handlers on a selection</b></p><div class="example-contents"><pre class="programlisting">$('p').unbind('click');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10292" /><p class="title"><b>Example 3.6. Unbinding a particular click handler</b></p><div class="example-contents"><pre class="programlisting">var foo = function() { console.log('foo'); };
-var bar = function() { console.log('bar'); };
-
-$('p').bind('click', foo).bind('click', bar);
-$('p').unbind('click', bar); // foo is still bound to the click event</pre></div></div><br class="example-break" /></div><div class="section" title="Namespacing Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10297" />Namespacing Events</h3></div></div></div><p>For complex applications and for plugins you share with others, it
-      can be useful to namespace your events so you don't unintentionally
-      disconnect events that you didn't or couldn't know about.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1029C" /><p class="title"><b>Example 3.7. Namespacing events</b></p><div class="example-contents"><pre class="programlisting">$('p').bind('click.myNamespace', function() { /* ... */ });
-$('p').unbind('click.myNamespace');
-$('p').unbind('.myNamespace'); // unbind all events in the namespace</pre></div></div><br class="example-break" /></div></div><div class="section" title="Inside the Event Handling Function"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N102A1" />Inside the Event Handling Function</h2></div></div></div><p>As mentioned in the overview, the event handling function receives
-    an event object, which contains many properties and methods. The event
-    object is most commonly used to prevent the default action of the event
-    via the preventDefault method. However, the event object contains a number
-    of other useful properties and methods, including:</p><div class="variablelist"><dl><dt><span class="term">pageX, pageY</span></dt><dd><p>The mouse position at the time the event occurred, relative to
-          the top left of the page.</p></dd><dt><span class="term">type</span></dt><dd><p>The type of the event (e.g. "click").</p></dd><dt><span class="term">which</span></dt><dd><p>The button or key that was pressed.</p></dd><dt><span class="term">data</span></dt><dd><p>Any data that was passed in when the event was bound.</p></dd><dt><span class="term">target</span></dt><dd><p>The DOM element that initiated the event.</p></dd><dt><span class="term">preventDefault()</span></dt><dd><p>Prevent the default action of the event (e.g. following a
-          link).</p></dd><dt><span class="term">stopPropagation()</span></dt><dd><p>Stop the event from bubbling up to other elements.</p></dd></dl></div><p>In addition to the event object, the event handling function also
-    has access to the DOM element that the handler was bound to via the
-    keyword <code class="code">this</code>. To turn the DOM element into a jQuery object
-    that we can use jQuery methods on, we simply do <code class="code">$(this)</code>,
-    often following this idiom:</p><pre class="programlisting">var $this = $(this);</pre><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N102DB" /><p class="title"><b>Example 3.8. Preventing a link from being followed</b></p><div class="example-contents"><pre class="programlisting">$('a').click(function(e) {
-    var $this = $(this);
-    if ($this.attr('href').match('evil')) {
-        e.preventDefault();
-        $this.addClass('evil');
-    }
-});</pre></div></div><br class="example-break" /></div><div class="section" title="Triggering Event Handlers"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N102E0" />Triggering Event Handlers</h2></div></div></div><p>jQuery provides a way to trigger the event handlers bound to an
-    element without any user interaction via the <code class="code">$.fn.trigger</code> method.
-    While this method has its uses, it should not be used simply to call a
-    function that was bound as a click handler. Instead, you should store the
-    function you want to call in a variable, and pass the variable name when
-    you do your binding. Then, you can call the function itself whenever you
-    want, without the need for <code class="code">$.fn.trigger</code>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N102EB" /><p class="title"><b>Example 3.9. Triggering an event handler the right way</b></p><div class="example-contents"><pre class="programlisting">var foo = function(e) { 
-    if (e) { 
-        console.log(e); 
-    } else {
-        console.log('this didn\'t come from an event!');
-    }
-};
-
-
-$('p').click(foo); 
-
-foo(); // instead of $('p').trigger('click')</pre></div></div><br class="example-break" /></div><div class="section" title="Increasing Performance with Event Delegation"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N102F0" />Increasing Performance with Event Delegation</h2></div></div></div><p>You'll frequently use jQuery to add new elements to the page, and
-    when you do, you may need to bind events to those new elements -- events
-    you already bound to similar elements that were on the page originally.
-    Instead of repeating your event binding every time you add elements to the
-    page, you can use event delegation. With event delegation, you bind your
-    event to a container element, and then when the event occurs, you look to
-    see which contained element it occurred on. If this sounds complicated,
-    luckily jQuery makes it easy with its <code class="code">$.fn.live</code> and
-    <code class="code">$.fn.delegate</code> methods.</p><p>While most people discover event delegation while dealing with
-    elements added to the page later, it has some performance benefits even if
-    you never add more elements to the page. The time required to bind event
-    handlers to hundreds of individual elements is non-trivial; if you have a
-    large set of elements, you should consider delegating related events to a
-    container element.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The <code class="code">$.fn.live</code> method was introduced in jQuery 1.3, and at
-      that time only certain event types were supported. As of jQuery 1.4.2,
-      the <code class="code">$.fn.delegate</code> method is available, and is the preferred
-      method.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10306" /><p class="title"><b>Example 3.10. Event delegation using <code class="code">$.fn.delegate</code></b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList').delegate('li', 'click', function(e) {
-    var $myListItem = $(this);
-    // ...
-});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1030D" /><p class="title"><b>Example 3.11. Event delegation using <code class="code">$.fn.live</code></b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList li').live('click', function(e) {
-    var $myListItem = $(this);
-    // ...
-});</pre></div></div><br class="example-break" /><div class="section" title="Unbinding Delegated Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10314" />Unbinding Delegated Events</h3></div></div></div><p>If you need to remove delegated events, you can't simply unbind
-      them. Instead, use <code class="code">$.fn.undelegate</code> for events connected with
-      <code class="code">$.fn.delegate</code>, and <code class="code">$.fn.die</code> for events connected with
-      <code class="code">$.fn.live</code>. As with bind, you can optionally pass in the name of
-      the bound function.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10325" /><p class="title"><b>Example 3.12. Unbinding delegated events</b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList').undelegate('li', 'click');
-$('#myUnorderedList li').die('click');</pre></div></div><br class="example-break" /></div></div><div class="section" title="Event Helpers"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1032A" />Event Helpers</h2></div></div></div><p>jQuery offers two event-related helper functions that save you a few
-    keystrokes.</p><div class="section" title="$.fn.hover"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1032F" /><code class="code">$.fn.hover</code></h3></div></div></div><p>The <code class="code">$.fn.hover</code> method lets you pass one or two functions
-      to be run when the <code class="code">mouseenter</code> and <code class="code">mouseleave</code>
-      events occur on an element. If you pass one function, it will be run for
-      both events; if you pass two functions, the first will run for
-      <code class="code">mouseenter</code>, and the second will run for
-      <code class="code">mouseleave</code>. </p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Prior to jQuery 1.4, the <code class="code">$.fn.hover</code> method required two
-        functions.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1034A" /><p class="title"><b>Example 3.13. The hover helper function</b></p><div class="example-contents"><pre class="programlisting">$('#menu li').hover(function() { 
-    $(this).toggleClass('hover'); 
-});</pre></div></div><br class="example-break" /></div><div class="section" title="$.fn.toggle"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1034F" /><code class="code">$.fn.toggle</code></h3></div></div></div><p>Much like <code class="code">$.fn.hover</code>, the <code class="code">$.fn.toggle</code> method
-      receives two or more functions; each time the event occurs, the next
-      function in the list is called. Generally, <code class="code">$.fn.toggle</code> is used
-      with just two functions, but technically you can use as many as you'd
-      like.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1035E" /><p class="title"><b>Example 3.14. The toggle helper function</b></p><div class="example-contents"><pre class="programlisting">$('p.expander').toggle(
-    function() {
-        $(this).prev().addClass('open');
-    },
-    function() {
-        $(this).prev().removeClass('open');
-    }
-);</pre></div></div><br class="example-break" /></div></div></div><div class="chapter" title="Chapter 4. Effects"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10363" />Chapter 4. Effects</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1036F" /></h2></div></div></div><p /></div></div><div class="chapter" title="Chapter 5. jQuery Core"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10372" />Chapter 5. jQuery Core</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1037E" /></h2></div></div></div><p /></div></div><div class="chapter" title="Chapter 6. Ajax"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10381" />Chapter 6. Ajax</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1038D" /></h2></div></div></div><p /></div></div></div><div class="part" title="Part II. JavaScript Primer"><div class="titlepage"><div><div><h1 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10390" />Part II. JavaScript Primer</h1></div></div></div><div class="chapter" title="Chapter 7. JavaScript Basics"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10393" />Chapter 7. JavaScript Basics</h2></div></div></div><div class="section" title="Overview"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1039F" />Overview</h2></div></div></div><p>jQuery is built on top of JavaScript, a rich and expressive language
+      http://creativecommons.org/licenses/by-sa/3.0/us/.</p></div></div></div><hr /></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="part"><a href="#N1001E">I. JavaScript Primer</a></span></dt><dd><dl><dt><span class="chapter"><a href="#N10021">1. JavaScript Basics</a></span></dt><dd><dl><dt><span class="section"><a href="#N1002D">Overview</a></span></dt><dt><span class="section"><a href="#N10037">Syntax Basics</a></span></dt><dt><span class="section"><a href="#N10053">Operators</a></span></dt><dd><dl><dt><span class="section"><a href="#N10056">Basic Operators</a></span></dt><dt><span class="section"><a href="#N1006D">Operations on Numbers &amp; Strings</a></span></dt><dt><span class="section"><a href="#N1008C">Logical Operators</a></span></dt><dt><span class="section"><a href="#N100AE">Comparison Operators</a></span></dt></dl></dd><dt><span class="section"><a href="#N100BD">Flow Control</a></span></dt><dd><dl><dt><span class="section"><a href="#javascript-basics.sections.truthy-falsy">Truthy and Falsy Things</a></span></dt></dl></dd><dt><span class="section"><a href="#N100E1">Loops</a></span></dt><dt><span class="section"><a href="#N100FB">Reserved Words</a></span></dt><dt><span class="section"><a href="#N101E1">Arrays</a></span></dt><dt><span class="section"><a href="#N1020A">Objects</a></span></dt><dt><span class="section"><a href="#N1021D">Functions</a></span></dt><dd><dl><dt><span class="section"><a href="#N10234">Using Functions</a></span></dt><dt><span class="section"><a href="#N10246">Self-Executing Anonymous Functions</a></span></dt><dt><span class="section"><a href="#N10251">Functions as Arguments</a></span></dt></dl></dd><dt><span class="section"><a href="#N10260">Testing Type</a></span></dt><dt><span class="section"><a href="#javascript-basics.sections.scope">Scope</a></span></dt><dt><span class="section"><a href="#N1029C">Closures</a></span></dt></dl></dd></dl></dd><dt><span class="part"><a href="#N102B0">II. jQuery Fundamentals</a></span></dt><dd><dl><dt><span class="chapter"><a href="#N102B3">2. Welcome</a></span></dt><dd><dl><dt><span class="section"><a href="#N102C5">Getting the Code</a></span></dt><dt><span class="section"><a href="#N102CE">Software</a></span></dt><dt><span class="section"><a href="#N102E0">Adding JavaScript to Your Page</a></span></dt><dt><span class="section"><a href="#N102F1">JavaScript Debugging</a></span></dt><dt><span class="section"><a href="#N1031B">Conventions used in this book</a></span></dt><dt><span class="section"><a href="#N10330">References</a></span></dt></dl></dd><dt><span class="chapter"><a href="#N1034D">3. jQuery Basics</a></span></dt><dd><dl><dt><span class="section"><a href="#N10359">$(document).ready()</a></span></dt><dt><span class="section"><a href="#N1037A">Selecting Elements</a></span></dt><dd><dl><dt><span class="section"><a href="#N103AB">Does My Selection Contain Any Elements?</a></span></dt><dt><span class="section"><a href="#N103C4">Saving Selections</a></span></dt><dt><span class="section"><a href="#N103DE">Refining &amp; Filtering Selections</a></span></dt></dl></dd><dt><span class="section"><a href="#N103E8">Working with Selections</a></span></dt><dd><dl><dt><span class="section"><a href="#N103ED">Chaining</a></span></dt><dt><span class="section"><a href="#N1040D">Getters &amp; Setters</a></span></dt></dl></dd><dt><span class="section"><a href="#N1042C">CSS, Styling, &amp; Dimensions</a></span></dt><dd><dl><dt><span class="section"><a href="#N10449">Using CSS Classes for Styling</a></span></dt><dt><span class="section"><a href="#N10458">Dimensions</a></span></dt></dl></dd><dt><span class="section"><a href="#N1046D">Attributes</a></span></dt><dt><span class="section"><a href="#N10489">Traversing</a></span></dt><dt><span class="section"><a href="#N1049C">Manipulating</a></span></dt><dd><dl><dt><span class="section"><a href="#N104AC">Creating New Elements</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#N104D8">4. Events</a></span></dt><dd><dl><dt><span class="section"><a href="#N104E4">Overview</a></span></dt><dt><span class="section"><a href="#N104F7">Connecting Events to Elements</a></span></dt><dd><dl><dt><span class="section"><a href="#N10521">Connecting Events to Run Only Once</a></span></dt><dt><span class="section"><a href="#N10536">Disconnecting Events</a></span></dt><dt><span class="section"><a href="#N10549">Namespacing Events</a></span></dt></dl></dd><dt><span class="section"><a href="#N10553">Inside the Event Handling Function</a></span></dt><dt><span class="section"><a href="#N10592">Triggering Event Handlers</a></span></dt><dt><span class="section"><a href="#N105A2">Increasing Performance with Event Delegation</a></span></dt><dd><dl><dt><span class="section"><a href="#N105C6">Unbinding Delegated Events</a></span></dt></dl></dd><dt><span class="section"><a href="#N105DC">Event Helpers</a></span></dt><dd><dl><dt><span class="section"><a href="#N105E1"><code class="code">$.fn.hover</code></a></span></dt><dt><span class="section"><a href="#N10601"><code class="code">$.fn.toggle</code></a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#N10615">5. Effects</a></span></dt><dd><dl><dt><span class="section"><a href="#N10621">Overview</a></span></dt><dt><span class="section"><a href="#N1062C">Built-in Effects</a></span></dt><dd><dl><dt><span class="section"><a href="#N10661">Changing the Duration of Built-in Effects</a></span></dt><dt><span class="section"><a href="#N1068C">Doing Something when an Effect is Done</a></span></dt></dl></dd><dt><span class="section"><a href="#N106A2">Custom Effects with <code class="code">$.fn.animate</code></a></span></dt><dd><dl><dt><span class="section"><a href="#N106C0">Easing</a></span></dt></dl></dd><dt><span class="section"><a href="#N106D6">Managing Effects</a></span></dt></dl></dd><dt><span class="chapter"><a href="#N106F0">6. jQuery Core</a></span></dt><dd><dl><dt><span class="section"><a href="#N106FC" /></span></dt></dl></dd><dt><span class="chapter"><a href="#N106FF">7. Ajax</a></span></dt><dd><dl><dt><span class="section"><a href="#N1070B" /></span></dt></dl></dd></dl></dd><dt><span class="part"><a href="#N1070E">III. Exercises</a></span></dt><dd><dl><dt><span class="chapter"><a href="#N10711">8. Exercises</a></span></dt><dd><dl><dt><span class="section"><a href="#N1071D" /></span></dt></dl></dd></dl></dd></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>1.1. <a href="#javascript-basics.examples.variable-declaration">A simple variable declaration</a></dt><dt>1.2. <a href="#N10042">Whitespace has no meaning outside of quotation marks</a></dt><dt>1.3. <a href="#N10048">Parentheses indicate precedence</a></dt><dt>1.4. <a href="#N1004D">Tabs enhance readability, but have no special meaning</a></dt><dt>1.5. <a href="#N1005C">Concatenation</a></dt><dt>1.6. <a href="#N10061">Multiplication and division</a></dt><dt>1.7. <a href="#N10067">Incrementing and decrementing</a></dt><dt>1.8. <a href="#javascript-basics.examples.addition-concatenation">Addition vs. concatenation</a></dt><dt>1.9. <a href="#javascript-basics.examples.force-number">Forcing a string to act as a number</a></dt><dt>1.10. <a href="#javascript-basics.examples.and-or">Logical AND and OR operators</a></dt><dt>1.11. <a href="#N100B3">Comparison Operators</a></dt><dt>1.12. <a href="#N100C8">Flow control</a></dt><dt>1.13. <a href="#N100D3">Values that evaluate to <code class="code">true</code></a></dt><dt>1.14. <a href="#N100DA">Values that evaluate to <code class="code">false</code></a></dt><dt>1.15. <a href="#javascript-basics.examples.loops">Loops</a></dt><dt>1.16. <a href="#N101E6">A simple array</a></dt><dt>1.17. <a href="#N101EB">Accessing array items by index</a></dt><dt>1.18. <a href="#N101F0">Testing the size of an array</a></dt><dt>1.19. <a href="#javascript-basics.examples.change-array-value">Changing the value of an array item</a></dt><dt>1.20. <a href="#N10200">Adding elements to an array</a></dt><dt>1.21. <a href="#N10205">Working with arrays</a></dt><dt>1.22. <a href="#N10218">Creating an "object literal"</a></dt><dt>1.23. <a href="#N10224">Function Declaration</a></dt><dt>1.24. <a href="#N10229">Named Function Expression</a></dt><dt>1.25. <a href="#N10237">A simple function</a></dt><dt>1.26. <a href="#N1023C">A function that returns a value</a></dt><dt>1.27. <a href="#N10241">A function that returns another function</a></dt><dt>1.28. <a href="#javascript-basics.examples.self-executing">A self-executing anonymous function</a></dt><dt>1.29. <a href="#N10256">Passing an anonymous function as an argument</a></dt><dt>1.30. <a href="#N1025B">Passing a named function as an argument</a></dt><dt>1.31. <a href="#N10265">Testing the type of various variables</a></dt><dt>1.32. <a href="#N10282">Functions have access to variables defined in the same
+      scope</a></dt><dt>1.33. <a href="#N10287">Code outside the scope in which a variable was defined does not
+      have access to the variable</a></dt><dt>1.34. <a href="#N1028C">Variables with the same name can exist in different scopes with
+      different values</a></dt><dt>1.35. <a href="#javascript-basics.examples.scope-value-change">Functions can "see" changes in variable values after the function
+      is defined</a></dt><dt>1.36. <a href="#N10297">Scope insanity</a></dt><dt>1.37. <a href="#N102A6">How to lock in the value of i?</a></dt><dt>1.38. <a href="#N102AB">Locking in the value of i with a closure</a></dt><dt>2.1. <a href="#N102E7">An example of inline Javascript</a></dt><dt>2.2. <a href="#N102EC">An example of including external JavaScript</a></dt><dt>2.3. <a href="#N10326">Example of an example</a></dt><dt>3.1. <a href="#N10361">A $(document).ready() block</a></dt><dt>3.2. <a href="#N1036B">Shorthand for $(document).ready()</a></dt><dt>3.3. <a href="#N10375">Passing a named function instead of an anonymous function</a></dt><dt>3.4. <a href="#N10385">Selecting elements by ID</a></dt><dt>3.5. <a href="#N1038A">Selecting elements by class name</a></dt><dt>3.6. <a href="#N1038F">Selecting elements by attribute</a></dt><dt>3.7. <a href="#N10395">Selecting elements by compound CSS selector</a></dt><dt>3.8. <a href="#N1039A">Pseudo-selectors</a></dt><dt>3.9. <a href="#N103BF">Testing whether a selection contains elements</a></dt><dt>3.10. <a href="#jquery-basics.examples.storing-selections">Storing selections in a variable</a></dt><dt>3.11. <a href="#N103E3">Refining selections</a></dt><dt>3.12. <a href="#N103F2">Chaining</a></dt><dt>3.13. <a href="#N103F9">Formatting chained code</a></dt><dt>3.14. <a href="#N10403">Restoring your original selection using
+        <code class="code">$.fn.end</code></a></dt><dt>3.15. <a href="#N1041C">The <code class="code">$.fn.html</code> method used as a setter</a></dt><dt>3.16. <a href="#N10424">The html method used as a getter</a></dt><dt>3.17. <a href="#N1043D">Getting CSS properties</a></dt><dt>3.18. <a href="#N10442">Setting CSS properties</a></dt><dt>3.19. <a href="#N10451">Working with classes</a></dt><dt>3.20. <a href="#jquery-basics.examples.dimensions">Basic dimensions methods</a></dt><dt>3.21. <a href="#N1047D">Setting attributes</a></dt><dt>3.22. <a href="#N10484">Getting attributes</a></dt><dt>3.23. <a href="#N10497">Traversal methods</a></dt><dt>3.24. <a href="#N104A7">Moving, removing, and cloning elements</a></dt><dt>3.25. <a href="#N104B4">Creating new elements</a></dt><dt>3.26. <a href="#N104B9">Creating a new element with an attribute object</a></dt><dt>3.27. <a href="#N104C2">Getting a new element on to the page</a></dt><dt>3.28. <a href="#N104CB">Creating and adding an element to the page at the same
+        time</a></dt><dt>4.1. <a href="#N1050B">Event binding using a convenience method</a></dt><dt>4.2. <a href="#N10510">Event biding using the <code class="code">$.fn.bind</code> method</a></dt><dt>4.3. <a href="#N10518">Event binding using the <code class="code">$.fn.bind</code> method with
+      data</a></dt><dt>4.4. <a href="#N10529">Switching handlers using the <code class="code">$.fn.one</code> method</a></dt><dt>4.5. <a href="#N1053E">Unbinding all click handlers on a selection</a></dt><dt>4.6. <a href="#N10544">Unbinding a particular click handler</a></dt><dt>4.7. <a href="#N1054E">Namespacing events</a></dt><dt>4.8. <a href="#N1058D">Preventing a link from being followed</a></dt><dt>4.9. <a href="#N1059D">Triggering an event handler the right way</a></dt><dt>4.10. <a href="#N105B8">Event delegation using <code class="code">$.fn.delegate</code></a></dt><dt>4.11. <a href="#N105BF">Event delegation using <code class="code">$.fn.live</code></a></dt><dt>4.12. <a href="#N105D7">Unbinding delegated events</a></dt><dt>4.13. <a href="#N105FC">The hover helper function</a></dt><dt>4.14. <a href="#N10610">The toggle helper function</a></dt><dt>5.1. <a href="#N1065C">A basic use of a built-in effect</a></dt><dt>5.2. <a href="#N1066C">Setting the duration of an effect</a></dt><dt>5.3. <a href="#N10683">Augmenting <code class="code">jQuery.fx.speeds</code> with custom speed
+          definitions</a></dt><dt>5.4. <a href="#N1069C">Running code when an animation is complete</a></dt><dt>5.5. <a href="#N106AF">Custom effects with <code class="code">$.fn.animate</code></a></dt><dt>5.6. <a href="#N106CB">Per-property easing</a></dt></dl></div><div class="part" title="Part I. JavaScript Primer"><div class="titlepage"><div><div><h1 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1001E" />Part I. JavaScript Primer</h1></div></div></div><div class="chapter" title="Chapter 1. JavaScript Basics"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10021" />Chapter 1. JavaScript Basics</h2></div></div></div><div class="section" title="Overview"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1002D" />Overview</h2></div></div></div><p>jQuery is built on top of JavaScript, a rich and expressive language
     in its own right. This section covers the basic concepts of JavaScript, as
     well as some frequent pitfalls for people who have not used JavaScript
     before. While it will be of particular value to people with no programming
@@ -359,32 +26,32 @@ $('#myUnorderedList li').die('click');</pre></div></div><br class="example-break
     benefit from learning about some of the peculiarities of
     JavaScript.</p><p>If you’re interested in learning more about the JavaScript language,
     I highly recommend <em class="citetitle">JavaScript: The Good Parts</em> by
-    Douglas Crockford.</p></div><div class="section" title="Syntax Basics"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N103A9" />Syntax Basics</h2></div></div></div><p>Understanding statements, variable naming, whitespace, and other
-    basic JavaScript syntax.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.variable-declaration" /><p class="title"><b>Example 7.1. A simple variable declaration</b></p><div class="example-contents"><pre class="programlisting">var foo = 'hello world';</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103B4" /><p class="title"><b>Example 7.2. Whitespace has no meaning outside of quotation marks</b></p><div class="example-contents"><pre class="programlisting">var foo =         'hello world';</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103BA" /><p class="title"><b>Example 7.3. Parentheses indicate precedence</b></p><div class="example-contents"><pre class="programlisting">2 * 3 + 5;    // returns 11; multiplication happens first
-2 * (3 + 5);  // returns 16; addition happens first</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103BF" /><p class="title"><b>Example 7.4. Tabs enhance readability, but have no special meaning</b></p><div class="example-contents"><pre class="programlisting">var foo = function() {
+    Douglas Crockford.</p></div><div class="section" title="Syntax Basics"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10037" />Syntax Basics</h2></div></div></div><p>Understanding statements, variable naming, whitespace, and other
+    basic JavaScript syntax.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.variable-declaration" /><p class="title"><b>Example 1.1. A simple variable declaration</b></p><div class="example-contents"><pre class="programlisting">var foo = 'hello world';</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10042" /><p class="title"><b>Example 1.2. Whitespace has no meaning outside of quotation marks</b></p><div class="example-contents"><pre class="programlisting">var foo =         'hello world';</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10048" /><p class="title"><b>Example 1.3. Parentheses indicate precedence</b></p><div class="example-contents"><pre class="programlisting">2 * 3 + 5;    // returns 11; multiplication happens first
+2 * (3 + 5);  // returns 16; addition happens first</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1004D" /><p class="title"><b>Example 1.4. Tabs enhance readability, but have no special meaning</b></p><div class="example-contents"><pre class="programlisting">var foo = function() {
     console.log('hello');
-};</pre></div></div><br class="example-break" /></div><div class="section" title="Operators"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N103C5" />Operators</h2></div></div></div><div class="section" title="Basic Operators"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N103C8" />Basic Operators</h3></div></div></div><p>Basic operators allow you to manipulate values.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103CE" /><p class="title"><b>Example 7.5. Concatenation</b></p><div class="example-contents"><pre class="programlisting">var foo = 'hello';
+};</pre></div></div><br class="example-break" /></div><div class="section" title="Operators"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10053" />Operators</h2></div></div></div><div class="section" title="Basic Operators"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10056" />Basic Operators</h3></div></div></div><p>Basic operators allow you to manipulate values.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1005C" /><p class="title"><b>Example 1.5. Concatenation</b></p><div class="example-contents"><pre class="programlisting">var foo = 'hello';
 var bar = 'world';
 
-console.log(foo + ' ' + bar); // 'hello world'</pre></div></div><p><br class="example-break" /></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103D3" /><p class="title"><b>Example 7.6. Multiplication and division</b></p><div class="example-contents"><pre class="programlisting">2 * 3;
-2 / 3;</pre></div></div><p><br class="example-break" /></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103D9" /><p class="title"><b>Example 7.7. Incrementing and decrementing</b></p><div class="example-contents"><pre class="programlisting">var i = 1;
+console.log(foo + ' ' + bar); // 'hello world'</pre></div></div><p><br class="example-break" /></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10061" /><p class="title"><b>Example 1.6. Multiplication and division</b></p><div class="example-contents"><pre class="programlisting">2 * 3;
+2 / 3;</pre></div></div><p><br class="example-break" /></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10067" /><p class="title"><b>Example 1.7. Incrementing and decrementing</b></p><div class="example-contents"><pre class="programlisting">var i = 1;
 
 var j = ++i;  // pre-increment:  j equals 2; i equals 2
-var k = i++;  // post-increment: k equals 2; i equals 3</pre></div></div><p><br class="example-break" /></p></div><div class="section" title="Operations on Numbers &amp; Strings"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N103DF" />Operations on Numbers &amp; Strings</h3></div></div></div><p>In JavaScript, numbers and strings will occasionally behave in
-      ways you might not expect.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.addition-concatenation" /><p class="title"><b>Example 7.8. Addition vs. concatenation</b></p><div class="example-contents"><p>
+var k = i++;  // post-increment: k equals 2; i equals 3</pre></div></div><p><br class="example-break" /></p></div><div class="section" title="Operations on Numbers &amp; Strings"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1006D" />Operations on Numbers &amp; Strings</h3></div></div></div><p>In JavaScript, numbers and strings will occasionally behave in
+      ways you might not expect.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.addition-concatenation" /><p class="title"><b>Example 1.8. Addition vs. concatenation</b></p><div class="example-contents"><p>
           </p><pre class="programlisting">var foo = 1;
 var bar = '2';
 
 console.log(foo + bar);  // 12</pre><p>
-        </p></div></div><br class="example-break" /><p class="remark"><i><span class="remark"><a class="xref" href="#javascript-basics.examples.addition-concatenation" title="Example 7.8. Addition vs. concatenation">Example 7.8, “Addition vs. concatenation”</a> shows how
+        </p></div></div><br class="example-break" /><p class="remark"><i><span class="remark"><a class="xref" href="#javascript-basics.examples.addition-concatenation" title="Example 1.8. Addition vs. concatenation">Example 1.8, “Addition vs. concatenation”</a> shows how
       adding two numbers can have unexpected results if one of the numbers is
-      a string.</span></i></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.force-number" /><p class="title"><b>Example 7.9. Forcing a string to act as a number</b></p><div class="example-contents"><pre class="programlisting">var foo = 1;
+      a string.</span></i></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.force-number" /><p class="title"><b>Example 1.9. Forcing a string to act as a number</b></p><div class="example-contents"><pre class="programlisting">var foo = 1;
 var bar = '2';
 
-console.log(foo + parseInt(bar));</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark"><a class="xref" href="#javascript-basics.examples.force-number" title="Example 7.9. Forcing a string to act as a number">Example 7.9, “Forcing a string to act as a number”</a> shows
+console.log(foo + parseInt(bar));</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark"><a class="xref" href="#javascript-basics.examples.force-number" title="Example 1.9. Forcing a string to act as a number">Example 1.9, “Forcing a string to act as a number”</a> shows
       how to coerce a string back to a number using
-      <span class="command"><strong>parseInt()</strong></span>.</span></i></p></div><div class="section" title="Logical Operators"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N103FE" />Logical Operators</h3></div></div></div><p>Logical operators allow you to evaluate a series of comparators
-      using AND and OR operations.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.and-or" /><p class="title"><b>Example 7.10. Logical AND and OR operators</b></p><div class="example-contents"><pre class="programlisting">var foo = 1;
+      <span class="command"><strong>parseInt()</strong></span>.</span></i></p></div><div class="section" title="Logical Operators"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1008C" />Logical Operators</h3></div></div></div><p>Logical operators allow you to evaluate a series of comparators
+      using AND and OR operations.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.and-or" /><p class="title"><b>Example 1.10. Logical AND and OR operators</b></p><div class="example-contents"><pre class="programlisting">var foo = 1;
 var bar = 0;
 var baz = 2;
 
@@ -393,15 +60,15 @@ bar || foo;   // returns 1, which is true
 
 foo &amp;&amp; bar;   // returns 0, which is false
 foo &amp;&amp; baz;   // returns 2, which is true
-baz &amp;&amp; foo;   // returns 1, which is true</pre></div></div><p><br class="example-break" /></p><p>Though it may not be clear from <a class="xref" href="#javascript-basics.examples.and-or" title="Example 7.10. Logical AND and OR operators">Example 7.10, “Logical AND and OR operators”</a>, the <code class="code">||</code>
+baz &amp;&amp; foo;   // returns 1, which is true</pre></div></div><p><br class="example-break" /></p><p>Though it may not be clear from <a class="xref" href="#javascript-basics.examples.and-or" title="Example 1.10. Logical AND and OR operators">Example 1.10, “Logical AND and OR operators”</a>, the <code class="code">||</code>
       operator returns the value of the first truthy comparator, or false if
       no comparator is truthy. The <code class="code">&amp;&amp;</code> operator returns
       the value of the last false comparator, or the value of the last
       comparator if all values are truthy. Essentially, both operators return
       the first value that proves them true or false.</p><p>Be sure to consult <a class="xref" href="#javascript-basics.sections.truthy-falsy" title="Truthy and Falsy Things">the section called “Truthy and Falsy Things”</a> for more details on
       which values evaluate to <code class="code">true</code> and which evaluate to
-      <code class="code">false</code>.</p></div><div class="section" title="Comparison Operators"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10420" />Comparison Operators</h3></div></div></div><p>Comparison operators allow you to test whether values are
-      equivalent or whether values are identical.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10425" /><p class="title"><b>Example 7.11. Comparison Operators</b></p><div class="example-contents"><pre class="programlisting">var foo = 1;
+      <code class="code">false</code>.</p></div><div class="section" title="Comparison Operators"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N100AE" />Comparison Operators</h3></div></div></div><p>Comparison operators allow you to test whether values are
+      equivalent or whether values are identical.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100B3" /><p class="title"><b>Example 1.11. Comparison Operators</b></p><div class="example-contents"><pre class="programlisting">var foo = 1;
 var bar = 0;
 var baz = '1';
 var bim = 2;
@@ -416,9 +83,9 @@ foo === parseInt(baz);   // returns true
 
 foo &gt; bim;    // returns false
 bim &gt; baz;    // returns true
-foo &lt;= baz;   // returns true</pre></div></div><br class="example-break" /></div></div><div class="section" title="Flow Control"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1042F" />Flow Control</h2></div></div></div><p>Flow control lets you run a block of code under certain conditions.
+foo &lt;= baz;   // returns true</pre></div></div><br class="example-break" /></div></div><div class="section" title="Flow Control"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N100BD" />Flow Control</h2></div></div></div><p>Flow control lets you run a block of code under certain conditions.
     You should always use braces to mark the start and end of logical
-    blocks.<sup>[<a href="#ftn.N10434" id="N10434" class="footnote">1</a>]</sup></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1043A" /><p class="title"><b>Example 7.12. Flow control</b></p><div class="example-contents"><pre class="programlisting">var foo = true;
+    blocks.<sup>[<a href="#ftn.N100C2" id="N100C2" class="footnote">1</a>]</sup></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100C8" /><p class="title"><b>Example 1.12. Flow control</b></p><div class="example-contents"><pre class="programlisting">var foo = true;
 var bar = false;
 
 if (foo) {
@@ -431,41 +98,41 @@ if (bar) {
     // this code will run
 } else {
     // this code would run if foo and bar were both false
-}</pre></div></div><br class="example-break" /><div class="section" title="Truthy and Falsy Things"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.sections.truthy-falsy" />Truthy and Falsy Things</h3></div></div></div><p>In order to</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10445" /><p class="title"><b>Example 7.13. Values that evaluate to <code class="code">true</code></b></p><div class="example-contents"><pre class="programlisting">'0'; 
+}</pre></div></div><br class="example-break" /><div class="section" title="Truthy and Falsy Things"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.sections.truthy-falsy" />Truthy and Falsy Things</h3></div></div></div><p>In order to</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100D3" /><p class="title"><b>Example 1.13. Values that evaluate to <code class="code">true</code></b></p><div class="example-contents"><pre class="programlisting">'0'; 
 'any string';
 [];  // an empty array
 {};  // an empty object
-1;   // any non-zero number</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1044C" /><p class="title"><b>Example 7.14. Values that evaluate to <code class="code">false</code></b></p><div class="example-contents"><pre class="programlisting">0;
+1;   // any non-zero number</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N100DA" /><p class="title"><b>Example 1.14. Values that evaluate to <code class="code">false</code></b></p><div class="example-contents"><pre class="programlisting">0;
 '';  // an empty string
 NaN; // JavaScript's "not-a-number" variable
 null;
-undefined;  // be careful -- undefined can be redefined!</pre></div></div><br class="example-break" /></div></div><div class="section" title="Loops"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10453" />Loops</h2></div></div></div><p>Loops let you run a block of code a certain number of times.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.loops" /><p class="title"><b>Example 7.15. Loops</b></p><div class="example-contents"><pre class="programlisting">// logs 'try 1', 'try 2', ..., 'try 5'
+undefined;  // be careful -- undefined can be redefined!</pre></div></div><br class="example-break" /></div></div><div class="section" title="Loops"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N100E1" />Loops</h2></div></div></div><p>Loops let you run a block of code a certain number of times.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.loops" /><p class="title"><b>Example 1.15. Loops</b></p><div class="example-contents"><pre class="programlisting">// logs 'try 1', 'try 2', ..., 'try 5'
 for (var i=0; i&lt;5; i++) {
     console.log('try ' + i);
-}</pre></div></div><p><br class="example-break" /><em><span class="remark">Note that in <a class="xref" href="#javascript-basics.examples.loops" title="Example 7.15. Loops">Example 7.15, “Loops”</a> we use the keyword
+}</pre></div></div><p><br class="example-break" /><em><span class="remark">Note that in <a class="xref" href="#javascript-basics.examples.loops" title="Example 1.15. Loops">Example 1.15, “Loops”</a> we use the keyword
     <span class="token">var</span> before the variable name <code class="varname">i</code>. This
     "scopes" the variable <code class="varname">i</code> to the loop block. We'll
-    discuss scope in depth later in this chapter.</span></em></p></div><div class="section" title="Reserved Words"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1046D" />Reserved Words</h2></div></div></div><p>JavaScript has a number of “reserved words,” or words that have
+    discuss scope in depth later in this chapter.</span></em></p></div><div class="section" title="Reserved Words"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N100FB" />Reserved Words</h2></div></div></div><p>JavaScript has a number of “reserved words,” or words that have
     special meaning in the language. You should avoid using these words in
-    your code except when using them with their intended meaning.</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p><code class="code">break</code></p></li><li class="listitem"><p><code class="code">case</code></p></li><li class="listitem"><p><code class="code">catch</code></p></li><li class="listitem"><p><code class="code">continue</code></p></li><li class="listitem"><p><code class="code">default</code></p></li><li class="listitem"><p><code class="code">delete</code></p></li><li class="listitem"><p><code class="code">do</code></p></li><li class="listitem"><p><code class="code">else</code></p></li><li class="listitem"><p><code class="code">finally</code></p></li><li class="listitem"><p><code class="code">for</code></p></li><li class="listitem"><p><code class="code">function</code></p></li><li class="listitem"><p><code class="code">if</code></p></li><li class="listitem"><p><code class="code">in</code></p></li><li class="listitem"><p><code class="code">instanceof</code></p></li><li class="listitem"><p><code class="code">new</code></p></li><li class="listitem"><p><code class="code">return</code></p></li><li class="listitem"><p><code class="code">switch</code></p></li><li class="listitem"><p><code class="code">this</code></p></li><li class="listitem"><p><code class="code">throw</code></p></li><li class="listitem"><p><code class="code">try</code></p></li><li class="listitem"><p><code class="code">typeof</code></p></li><li class="listitem"><p><code class="code">var</code></p></li><li class="listitem"><p><code class="code">void</code></p></li><li class="listitem"><p><code class="code">while</code></p></li><li class="listitem"><p><code class="code">with</code></p></li><li class="listitem"><p><code class="code">abstract</code></p></li><li class="listitem"><p><code class="code">boolean</code></p></li><li class="listitem"><p><code class="code">byte</code></p></li><li class="listitem"><p><code class="code">char</code></p></li><li class="listitem"><p><code class="code">class</code></p></li><li class="listitem"><p><code class="code">const</code></p></li><li class="listitem"><p><code class="code">debugger</code></p></li><li class="listitem"><p><code class="code">double</code></p></li><li class="listitem"><p><code class="code">enum</code></p></li><li class="listitem"><p><code class="code">export</code></p></li><li class="listitem"><p><code class="code">extends</code></p></li><li class="listitem"><p><code class="code">final</code></p></li><li class="listitem"><p><code class="code">float</code></p></li><li class="listitem"><p><code class="code">goto</code></p></li><li class="listitem"><p><code class="code">implements</code></p></li><li class="listitem"><p><code class="code">import</code></p></li><li class="listitem"><p><code class="code">int</code></p></li><li class="listitem"><p><code class="code">interface</code></p></li><li class="listitem"><p><code class="code">long</code></p></li><li class="listitem"><p><code class="code">native</code></p></li><li class="listitem"><p><code class="code">package</code></p></li><li class="listitem"><p><code class="code">private</code></p></li><li class="listitem"><p><code class="code">protected</code></p></li><li class="listitem"><p><code class="code">public</code></p></li><li class="listitem"><p><code class="code">short</code></p></li><li class="listitem"><p><code class="code">static</code></p></li><li class="listitem"><p><code class="code">super</code></p></li><li class="listitem"><p><code class="code">synchronized</code></p></li><li class="listitem"><p><code class="code">throws</code></p></li><li class="listitem"><p><code class="code">transient</code></p></li><li class="listitem"><p><code class="code">volatile</code></p></li></ul></div></div><div class="section" title="Arrays"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10553" />Arrays</h2></div></div></div><p>Arrays are zero-indexed lists of values. They are a handy way to
+    your code except when using them with their intended meaning.</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p><code class="code">break</code></p></li><li class="listitem"><p><code class="code">case</code></p></li><li class="listitem"><p><code class="code">catch</code></p></li><li class="listitem"><p><code class="code">continue</code></p></li><li class="listitem"><p><code class="code">default</code></p></li><li class="listitem"><p><code class="code">delete</code></p></li><li class="listitem"><p><code class="code">do</code></p></li><li class="listitem"><p><code class="code">else</code></p></li><li class="listitem"><p><code class="code">finally</code></p></li><li class="listitem"><p><code class="code">for</code></p></li><li class="listitem"><p><code class="code">function</code></p></li><li class="listitem"><p><code class="code">if</code></p></li><li class="listitem"><p><code class="code">in</code></p></li><li class="listitem"><p><code class="code">instanceof</code></p></li><li class="listitem"><p><code class="code">new</code></p></li><li class="listitem"><p><code class="code">return</code></p></li><li class="listitem"><p><code class="code">switch</code></p></li><li class="listitem"><p><code class="code">this</code></p></li><li class="listitem"><p><code class="code">throw</code></p></li><li class="listitem"><p><code class="code">try</code></p></li><li class="listitem"><p><code class="code">typeof</code></p></li><li class="listitem"><p><code class="code">var</code></p></li><li class="listitem"><p><code class="code">void</code></p></li><li class="listitem"><p><code class="code">while</code></p></li><li class="listitem"><p><code class="code">with</code></p></li><li class="listitem"><p><code class="code">abstract</code></p></li><li class="listitem"><p><code class="code">boolean</code></p></li><li class="listitem"><p><code class="code">byte</code></p></li><li class="listitem"><p><code class="code">char</code></p></li><li class="listitem"><p><code class="code">class</code></p></li><li class="listitem"><p><code class="code">const</code></p></li><li class="listitem"><p><code class="code">debugger</code></p></li><li class="listitem"><p><code class="code">double</code></p></li><li class="listitem"><p><code class="code">enum</code></p></li><li class="listitem"><p><code class="code">export</code></p></li><li class="listitem"><p><code class="code">extends</code></p></li><li class="listitem"><p><code class="code">final</code></p></li><li class="listitem"><p><code class="code">float</code></p></li><li class="listitem"><p><code class="code">goto</code></p></li><li class="listitem"><p><code class="code">implements</code></p></li><li class="listitem"><p><code class="code">import</code></p></li><li class="listitem"><p><code class="code">int</code></p></li><li class="listitem"><p><code class="code">interface</code></p></li><li class="listitem"><p><code class="code">long</code></p></li><li class="listitem"><p><code class="code">native</code></p></li><li class="listitem"><p><code class="code">package</code></p></li><li class="listitem"><p><code class="code">private</code></p></li><li class="listitem"><p><code class="code">protected</code></p></li><li class="listitem"><p><code class="code">public</code></p></li><li class="listitem"><p><code class="code">short</code></p></li><li class="listitem"><p><code class="code">static</code></p></li><li class="listitem"><p><code class="code">super</code></p></li><li class="listitem"><p><code class="code">synchronized</code></p></li><li class="listitem"><p><code class="code">throws</code></p></li><li class="listitem"><p><code class="code">transient</code></p></li><li class="listitem"><p><code class="code">volatile</code></p></li></ul></div></div><div class="section" title="Arrays"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N101E1" />Arrays</h2></div></div></div><p>Arrays are zero-indexed lists of values. They are a handy way to
     store a set of related items of the same type (such as strings), though in
     reality, an array can include multiple types of items, including other
-    arrays.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10558" /><p class="title"><b>Example 7.16. A simple array</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'hello', 'world' ];</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1055D" /><p class="title"><b>Example 7.17. Accessing array items by index</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'hello', 'world', 'foo', 'bar' ];
-console.log(myArray[3]);   // logs 'bar'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10562" /><p class="title"><b>Example 7.18. Testing the size of an array</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'hello', 'world' ];
-console.log(myArray.length);   // logs 2</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.change-array-value" /><p class="title"><b>Example 7.19. Changing the value of an array item</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'hello', 'world' ];
+    arrays.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101E6" /><p class="title"><b>Example 1.16. A simple array</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'hello', 'world' ];</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101EB" /><p class="title"><b>Example 1.17. Accessing array items by index</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'hello', 'world', 'foo', 'bar' ];
+console.log(myArray[3]);   // logs 'bar'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101F0" /><p class="title"><b>Example 1.18. Testing the size of an array</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'hello', 'world' ];
+console.log(myArray.length);   // logs 2</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.change-array-value" /><p class="title"><b>Example 1.19. Changing the value of an array item</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'hello', 'world' ];
 myArray[1] = 'changed';</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">While it's possible to change the value of an array item as shown
-    in <a class="xref" href="#javascript-basics.examples.change-array-value" title="Example 7.19. Changing the value of an array item">Example 7.19, “Changing the value of an array item”</a>, it's
-    generally not advised.</span></i></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10572" /><p class="title"><b>Example 7.20. Adding elements to an array</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'hello', 'world' ];
-myArray.push('new');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10577" /><p class="title"><b>Example 7.21. Working with arrays</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'h', 'e', 'l', 'l', 'o' ];
+    in <a class="xref" href="#javascript-basics.examples.change-array-value" title="Example 1.19. Changing the value of an array item">Example 1.19, “Changing the value of an array item”</a>, it's
+    generally not advised.</span></i></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10200" /><p class="title"><b>Example 1.20. Adding elements to an array</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'hello', 'world' ];
+myArray.push('new');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10205" /><p class="title"><b>Example 1.21. Working with arrays</b></p><div class="example-contents"><pre class="programlisting">var myArray = [ 'h', 'e', 'l', 'l', 'o' ];
 var myString = myArray.join('');   // 'hello'
-var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]</pre></div></div><br class="example-break" /></div><div class="section" title="Objects"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1057C" />Objects</h2></div></div></div><p>Objects contain one or more key-value pairs. The key portion can be
+var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]</pre></div></div><br class="example-break" /></div><div class="section" title="Objects"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1020A" />Objects</h2></div></div></div><p>Objects contain one or more key-value pairs. The key portion can be
     any string; if the string contains spaces or is a reserved word, then it
     must be quoted. The value portion can be any type of value: a number, a
     string, an array, a function, or even another object. </p><p><span class="termdef">[Definition: When one of these values is a function, it’s called a
     <em class="firstterm">method</em> of the object.]</span> Otherwise, they are
     called properties. </p><p>As it turns out, nearly everything in JavaScript is an object —
     arrays, functions, numbers, even strings — and they all have properties
-    and methods.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1058A" /><p class="title"><b>Example 7.22. Creating an "object literal"</b></p><div class="example-contents"><pre class="programlisting">var myObject = {
+    and methods.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10218" /><p class="title"><b>Example 1.22. Creating an "object literal"</b></p><div class="example-contents"><pre class="programlisting">var myObject = {
     sayHello : function() {
         console.log('hello');
     },
@@ -474,47 +141,47 @@ var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]</pre></div></d
 };
 
 myObject.sayHello();            // logs 'hello'
-console.log(myObject.myName);   // logs 'Rebecca'</pre></div></div><br class="example-break" /></div><div class="section" title="Functions"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1058F" />Functions</h2></div></div></div><p>Functions contain blocks of code that need to be executed
+console.log(myObject.myName);   // logs 'Rebecca'</pre></div></div><br class="example-break" /></div><div class="section" title="Functions"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1021D" />Functions</h2></div></div></div><p>Functions contain blocks of code that need to be executed
     repeatedly. Functions can take zero or more arguments, and can optionally
-    return a value. </p><p>Functions can be created in a variety of ways:</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10596" /><p class="title"><b>Example 7.23. Function Declaration</b></p><div class="example-contents"><pre class="programlisting">function foo() { /* do something */ }</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1059B" /><p class="title"><b>Example 7.24. Named Function Expression</b></p><div class="example-contents"><pre class="programlisting">var foo = function() { /* do something */ }</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">I prefer the named function expression method of setting a
+    return a value. </p><p>Functions can be created in a variety of ways:</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10224" /><p class="title"><b>Example 1.23. Function Declaration</b></p><div class="example-contents"><pre class="programlisting">function foo() { /* do something */ }</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10229" /><p class="title"><b>Example 1.24. Named Function Expression</b></p><div class="example-contents"><pre class="programlisting">var foo = function() { /* do something */ }</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">I prefer the named function expression method of setting a
     function's name, for some rather <a class="link" href="http://yura.thinkweb2.com/named-function-expressions/" target="">in-depth
     and technical reasons</a>. You are likely to see both methods used in
-    others' JavaScript code.</span></i></p><div class="section" title="Using Functions"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105A6" />Using Functions</h3></div></div></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105A9" /><p class="title"><b>Example 7.25. A simple function</b></p><div class="example-contents"><pre class="programlisting">var greet = function(person, greeting) {
+    others' JavaScript code.</span></i></p><div class="section" title="Using Functions"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10234" />Using Functions</h3></div></div></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10237" /><p class="title"><b>Example 1.25. A simple function</b></p><div class="example-contents"><pre class="programlisting">var greet = function(person, greeting) {
     var text = greeting + ', ' + person;
     console.log(text);
 };
 
 
-greet('Rebecca', 'Hello');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105AE" /><p class="title"><b>Example 7.26. A function that returns a value</b></p><div class="example-contents"><pre class="programlisting">var greet = function(person, greeting) {
+greet('Rebecca', 'Hello');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1023C" /><p class="title"><b>Example 1.26. A function that returns a value</b></p><div class="example-contents"><pre class="programlisting">var greet = function(person, greeting) {
     var text = greeting + ', ' + person;
     return text;
 };
 
-console.log(greet('Rebecca','hello'));</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105B3" /><p class="title"><b>Example 7.27. A function that returns another function</b></p><div class="example-contents"><pre class="programlisting">var greet = function(person, greeting) {
+console.log(greet('Rebecca','hello'));</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10241" /><p class="title"><b>Example 1.27. A function that returns another function</b></p><div class="example-contents"><pre class="programlisting">var greet = function(person, greeting) {
     var text = greeting + ', ' + person;
     return function() { console.log(text); };
 };
 
 
 var greeting = greet('Rebecca', 'Hello');
-greeting();</pre></div></div><br class="example-break" /></div><div class="section" title="Self-Executing Anonymous Functions"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105B8" />Self-Executing Anonymous Functions</h3></div></div></div><p>A common pattern in JavaScript is the self-executing anonymous
+greeting();</pre></div></div><br class="example-break" /></div><div class="section" title="Self-Executing Anonymous Functions"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10246" />Self-Executing Anonymous Functions</h3></div></div></div><p>A common pattern in JavaScript is the self-executing anonymous
       function. This pattern creates a function expression and then
       immediately executes the function. This pattern is extremely useful for
       cases where you want to avoid polluting the global namespace with your
       code -- no variables declared inside of the function are visible outside
-      of it.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.self-executing" /><p class="title"><b>Example 7.28. A self-executing anonymous function</b></p><div class="example-contents"><pre class="programlisting">(function(){
+      of it.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.self-executing" /><p class="title"><b>Example 1.28. A self-executing anonymous function</b></p><div class="example-contents"><pre class="programlisting">(function(){
     var foo = 'Hello world';
 })();
 
 
-console.log(foo);   // undefined!</pre></div></div><br class="example-break" /></div><div class="section" title="Functions as Arguments"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105C3" />Functions as Arguments</h3></div></div></div><p>In JavaScript, functions are "first-class citizens" -- they can be
+console.log(foo);   // undefined!</pre></div></div><br class="example-break" /></div><div class="section" title="Functions as Arguments"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10251" />Functions as Arguments</h3></div></div></div><p>In JavaScript, functions are "first-class citizens" -- they can be
       assigned to variables or passed to other functions as arguments. Passing
-      functions as arguments is an extremely common idiom in jQuery.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105C8" /><p class="title"><b>Example 7.29. Passing an anonymous function as an argument</b></p><div class="example-contents"><pre class="programlisting">var myFn = function(fn) {
+      functions as arguments is an extremely common idiom in jQuery.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10256" /><p class="title"><b>Example 1.29. Passing an anonymous function as an argument</b></p><div class="example-contents"><pre class="programlisting">var myFn = function(fn) {
     var result = fn();
     console.log(result);
 };
 
-myFn(function() { return 'hello world'; });   // logs 'hello world'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105CD" /><p class="title"><b>Example 7.30. Passing a named function as an argument</b></p><div class="example-contents"><pre class="programlisting">var myFn = function(fn) {
+myFn(function() { return 'hello world'; });   // logs 'hello world'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1025B" /><p class="title"><b>Example 1.30. Passing a named function as an argument</b></p><div class="example-contents"><pre class="programlisting">var myFn = function(fn) {
     var result = fn();
     console.log(result);
 };
@@ -523,9 +190,9 @@ var myOtherFn = function() {
     return 'hello world';
 };
 
-myFn(myOtherFn);   // logs 'hello world'</pre></div></div><br class="example-break" /></div></div><div class="section" title="Testing Type"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105D2" />Testing Type</h2></div></div></div><p>JavaScript offers a way to test the "type" of a variable. However,
+myFn(myOtherFn);   // logs 'hello world'</pre></div></div><br class="example-break" /></div></div><div class="section" title="Testing Type"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10260" />Testing Type</h2></div></div></div><p>JavaScript offers a way to test the "type" of a variable. However,
     the result can be confusing -- for example, the type of an Array is
-    "object".</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105D7" /><p class="title"><b>Example 7.31. Testing the type of various variables</b></p><div class="example-contents"><pre class="programlisting">var myFunction = function() {
+    "object".</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10265" /><p class="title"><b>Example 1.31. Testing the type of various variables</b></p><div class="example-contents"><pre class="programlisting">var myFunction = function() {
     console.log('hello');
 };
 
@@ -560,7 +227,7 @@ if (myArray.push &amp;&amp; myArray.slice &amp;&amp; myArray.join) {
     will traverse the scope chain all the way up to the window scope to find
     where the variable was previously defined. If the variable wasn't
     previously defined, it will be defined in the global scope, which can have
-    extremely unexpected consequences;</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105F4" /><p class="title"><b>Example 7.32. Functions have access to variables defined in the same
+    extremely unexpected consequences;</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10282" /><p class="title"><b>Example 1.32. Functions have access to variables defined in the same
       scope</b></p><div class="example-contents"><pre class="programlisting">var foo = 'hello';
 
 var sayHello = function() {
@@ -568,14 +235,14 @@ var sayHello = function() {
 };
 
 sayHello();         // logs 'hello'
-console.log(foo);   // also logs 'hello'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105F9" /><p class="title"><b>Example 7.33. Code outside the scope in which a variable was defined does not
+console.log(foo);   // also logs 'hello'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10287" /><p class="title"><b>Example 1.33. Code outside the scope in which a variable was defined does not
       have access to the variable</b></p><div class="example-contents"><pre class="programlisting">var sayHello = function() {
     var foo = 'hello';
     console.log(foo);
 };
 
 sayHello();         // logs 'hello'
-console.log(foo);   // doesn't log anything</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105FE" /><p class="title"><b>Example 7.34. Variables with the same name can exist in different scopes with
+console.log(foo);   // doesn't log anything</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1028C" /><p class="title"><b>Example 1.34. Variables with the same name can exist in different scopes with
       different values</b></p><div class="example-contents"><pre class="programlisting">var foo = 'world';
 
 var sayHello = function() {
@@ -584,7 +251,7 @@ var sayHello = function() {
 };
 
 sayHello();         // logs 'hello'
-console.log(foo);   // logs 'world'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.scope-value-change" /><p class="title"><b>Example 7.35. Functions can "see" changes in variable values after the function
+console.log(foo);   // logs 'world'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.scope-value-change" /><p class="title"><b>Example 1.35. Functions can "see" changes in variable values after the function
       is defined</b></p><div class="example-contents"><pre class="programlisting">var myFunction = function() {
     var foo = 'hello';
 
@@ -598,7 +265,7 @@ console.log(foo);   // logs 'world'</pre></div></div><br class="example-break" /
 };
 
 var f = myFunction();
-f();  // logs 'world' -- uh oh</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10609" /><p class="title"><b>Example 7.36. Scope insanity</b></p><div class="example-contents"><pre class="programlisting">// a self-executing anonymous function
+f();  // logs 'world' -- uh oh</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10297" /><p class="title"><b>Example 1.36. Scope insanity</b></p><div class="example-contents"><pre class="programlisting">// a self-executing anonymous function
 (function() {
     var baz = 1;
     var bim = function() { alert(baz); };
@@ -614,28 +281,441 @@ bar();  // bar is defined outside of the anonymous function
         // outside of the function does not
 
 bim();  // bim is not defined outside of the anonymous function,
-        // so this will result in an error</pre></div></div><br class="example-break" /></div><div class="section" title="Closures"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1060E" />Closures</h2></div></div></div><p>Closures are an extension of the concept of scope — functions have
+        // so this will result in an error</pre></div></div><br class="example-break" /></div><div class="section" title="Closures"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1029C" />Closures</h2></div></div></div><p>Closures are an extension of the concept of scope — functions have
     access to variables that were available in the scope where the function
     was created. If that’s confusing, don’t worry: closures are generally best
-    understood by example.</p><p>In <a class="xref" href="#javascript-basics.examples.scope-value-change" title="Example 7.35. Functions can &quot;see&quot; changes in variable values after the function is defined">Example 7.35, “Functions can "see" changes in variable values after the function
+    understood by example.</p><p>In <a class="xref" href="#javascript-basics.examples.scope-value-change" title="Example 1.35. Functions can &quot;see&quot; changes in variable values after the function is defined">Example 1.35, “Functions can "see" changes in variable values after the function
       is defined”</a>
     we saw how functions have access to changing variable values. The same
     sort of behavior exists with functions defined within loops -- the
     function "sees" the change in the variable's value even after the function
-    is defined, resulting in all clicks alerting 4.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10618" /><p class="title"><b>Example 7.37. How to lock in the value of i?</b></p><div class="example-contents"><pre class="programlisting">/* this won't behave as we want it to; */
+    is defined, resulting in all clicks alerting 4.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N102A6" /><p class="title"><b>Example 1.37. How to lock in the value of i?</b></p><div class="example-contents"><pre class="programlisting">/* this won't behave as we want it to; */
 /* every click will alert 4 */
 for (var i=0; i&lt;5; i++) {
     $('&lt;p&gt;click me&lt;/p&gt;').appendTo('body').click(function() {
         alert(i);
     });
-}</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1061D" /><p class="title"><b>Example 7.38. Locking in the value of i with a closure</b></p><div class="example-contents"><pre class="programlisting">/* fix: “close” the value of i inside createFunction, so it won't change */
+}</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N102AB" /><p class="title"><b>Example 1.38. Locking in the value of i with a closure</b></p><div class="example-contents"><pre class="programlisting">/* fix: “close” the value of i inside createFunction, so it won't change */
 var createFunction = function(i) {
     return function() { alert(i); };
 };
 
 for (var i=0; i&lt;5; i++) {
     $('p').appendTo('body').click(createFunction(i));
-}</pre></div></div><br class="example-break" /></div><div class="footnotes"><br /><hr /><div class="footnote"><p><sup>[<a href="#N10434" id="ftn.N10434" class="para">1</a>] </sup>Strictly speaking, braces aren't required around single-line
+}</pre></div></div><br class="example-break" /></div><div class="footnotes"><br /><hr /><div class="footnote"><p><sup>[<a href="#N100C2" id="ftn.N100C2" class="para">1</a>] </sup>Strictly speaking, braces aren't required around single-line
         <span class="command"><strong>if</strong></span> statements, but using them consistently, even
         when they aren't strictly required, makes for vastly more readable
-        code.</p></div></div></div></div><div class="part" title="Part III. Exercises"><div class="titlepage"><div><div><h1 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10622" />Part III. Exercises</h1></div></div></div><div class="chapter" title="Chapter 8. Exercises"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10625" />Chapter 8. Exercises</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10631" /></h2></div></div></div><p /></div></div></div></div></div></div></body></html>
+        code.</p></div></div></div></div><div class="part" title="Part II. jQuery Fundamentals"><div class="titlepage"><div><div><h1 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N102B0" />Part II. jQuery Fundamentals</h1></div></div></div><div class="chapter" title="Chapter 2. Welcome"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N102B3" />Chapter 2. Welcome</h2></div></div></div><p>jQuery is fast becoming a must-have skill for front-end developers.
+  The purpose of this class is to give you an overview of the jQuery
+  JavaScript library; at the end of the class, you should be able to complete
+  basic tasks using jQuery, and have a solid basis from which to continue your
+  learning. </p><p>This book contains more information than we can possibly cover during
+  the class, and so it is meant as a references more than a syllabus. You’re
+  encouraged to continue working through the information and exercises once
+  the class is complete if you want to broaden your knowledge of jQuery.
+  </p><p>This is a hands-on class. We will spend a bit of time covering a
+  concept, and then you’ll have the chance to work on an exercise related to
+  the concept. Some of the exercises may seem trivial; others may be downright
+  daunting. In either case, there is no grade; the goal is simply to get you
+  comfortable working your way through problems you’ll commonly be called upon
+  to solve using jQuery. Example solutions to all of the exercises are
+  included in the sample code. </p><div class="section" title="Getting the Code"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N102C5" />Getting the Code</h2></div></div></div><p>The code we’ll be using in this book is hosted <a class="link" href="http://github.com/rmurphey/jqfundamentals" target="">in a repository on
+    Github</a>. You can download a .zip or .tar file of the code, then
+    uncompress it to use it on your server. (If you’re git-inclined, you’re
+    welcome to clone or fork the repository.)</p></div><div class="section" title="Software"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N102CE" />Software</h2></div></div></div><p>You'll want to have the following tools to make the most of the
+    class:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p>The Firefox browser</p></li><li class="listitem"><p>The Firebug extension for Firefox</p></li><li class="listitem"><p>A plain text editor</p></li><li class="listitem"><p>For the Ajax portions: A local server (such as MAMP or WAMP), or
+        an FTP or SSH client to access a remote server.</p></li></ul></div></div><div class="section" title="Adding JavaScript to Your Page"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N102E0" />Adding JavaScript to Your Page</h2></div></div></div><p>JavaScript can be included inline or by including an external file
+    via a script tag. The order in which you include JavaScript is important:
+    dependencies must be included before the script that depends on
+    them.</p><p>For the sake of page performance, JavaScript should be included as
+    close to the end of your HTML as is practical. Multiple JavaScript files
+    should be combined for production use.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N102E7" /><p class="title"><b>Example 2.1. An example of inline Javascript</b></p><div class="example-contents"><pre class="programlisting">&lt;script&gt;
+console.log('hello');
+&lt;/script&gt;</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N102EC" /><p class="title"><b>Example 2.2. An example of including external JavaScript</b></p><div class="example-contents"><pre class="programlisting">&lt;script src='/js/jquery.js'&gt;&lt;/script&gt;</pre></div></div><br class="example-break" /></div><div class="section" title="JavaScript Debugging"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N102F1" />JavaScript Debugging</h2></div></div></div><p>A debugging tool is essential for JavaScript development. Firefox
+    provides a debugger via the Firebug extension; Safari and Chrome provide
+    built-in consoles.</p><p>Each console offers:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p>single- and multi-line editors for experimenting with
+        JavaScript</p></li><li class="listitem"><p>an inspector for looking at the generated source of your
+        page</p></li><li class="listitem"><p>a Network or Resources view, to examine network requests</p></li></ul></div><p>When you are writing JavaScript code, you can use the following
+    methods to send messages to the console:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p><span class="command"><strong>console.log()</strong></span> for sending general log
+        messages</p></li><li class="listitem"><p><span class="command"><strong>console.dir()</strong></span> for logging a browseable
+        object</p></li><li class="listitem"><p><span class="command"><strong>console.warn()</strong></span> for logging warnings</p></li><li class="listitem"><p><span class="command"><strong>console.error()</strong></span> for logging error
+        messages</p></li></ul></div><p>Other console methods are also available, though they may differ
+    from one browser to another. The consoles also provide the ability to set
+    break points and watch expressions in your code for debugging
+    purposes.</p></div><div class="section" title="Conventions used in this book"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1031B" />Conventions used in this book</h2></div></div></div><p>Methods that can be called on jQuery objects will be referred to as
+    <code class="code">$.fn.methodName</code>. Methods that exist in the jQuery namespace
+    but that cannot be called on jQuery objects will be referred to as
+    <code class="code">$.methodName</code>. </p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10326" /><p class="title"><b>Example 2.3. Example of an example</b></p><div class="example-contents"><pre class="programlisting">// code examples will appear like this</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">Remarks about an example will appear like this.</span></i></p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Notes about a topic will appear like this.</p></div></div><div class="section" title="References"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10330" />References</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p><a class="link" href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js" target="">The jQuery
+        source</a></p></li><li class="listitem"><p><a class="link" href="http://api.jquery.com" target="">jQuery
+        documentation</a></p></li><li class="listitem"><p><a class="link" href="http://forum.jquery.com/" target="">jQuery
+        forum</a></p></li><li class="listitem"><p><a class="link" href="http://delicious.com/rdmey/jquery-class" target="">Delicious
+        bookmarks</a></p></li><li class="listitem"><p><a class="link" href="http://docs.jquery.com/Discussion#Chat_.2F_IRC_Channel" target="">#jquery
+        IRC channel on Freenode</a></p></li></ul></div></div></div><div class="chapter" title="Chapter 3. jQuery Basics"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1034D" />Chapter 3. jQuery Basics</h2></div></div></div><div class="section" title="$(document).ready()"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10359" />$(document).ready()</h2></div></div></div><p>You cannot safely manipulate a page until the document is “ready.”
+    jQuery detects this state of readiness for you; code included inside
+    <code class="code">$(document).ready()</code> will only run once the page is ready for
+    JavaScript code to execute.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10361" /><p class="title"><b>Example 3.1. A $(document).ready() block</b></p><div class="example-contents"><pre class="programlisting">$(document).ready(function() {
+    console.log('ready!');
+});</pre></div></div><br class="example-break" /><p>There is a shorthand for <code class="code">$(document).ready()</code> that you
+    will sometimes see; however, I recommend against using it if you are
+    writing code that people who aren't experienced with jQuery may
+    see.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1036B" /><p class="title"><b>Example 3.2. Shorthand for $(document).ready()</b></p><div class="example-contents"><pre class="programlisting">$(function() {
+    console.log('ready!');
+});</pre></div></div><br class="example-break" /><p>You can also passed a name function to
+    <code class="code">$(document).ready()</code> instead of passing an anonymous
+    function.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10375" /><p class="title"><b>Example 3.3. Passing a named function instead of an anonymous function</b></p><div class="example-contents"><pre class="programlisting">var readyFn = function() {
+    // code to run when the document is ready
+};
+
+
+$(document).ready(readyFn);</pre></div></div><br class="example-break" /></div><div class="section" title="Selecting Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1037A" />Selecting Elements</h2></div></div></div><p>The most basic concept of jQuery is to “select some elements and do
+    something with them.” jQuery supports most CSS3 selectors, as well as some
+    non-standard selectors. For a complete selector reference, visit <a class="link" href="http://api.jquery.com/category/selectors/" target="">http://api.jquery.com/category/selectors/</a>.</p><p>Following are a few examples of common selection techniques.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10385" /><p class="title"><b>Example 3.4. Selecting elements by ID</b></p><div class="example-contents"><pre class="programlisting">$('#myId'); // note IDs must be unique per page</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1038A" /><p class="title"><b>Example 3.5. Selecting elements by class name</b></p><div class="example-contents"><pre class="programlisting">$('div.myClass'); // performance improves if you specify element type</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1038F" /><p class="title"><b>Example 3.6. Selecting elements by attribute</b></p><div class="example-contents"><pre class="programlisting">$('input[name=first_name]'); // beware, this can be very slow</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10395" /><p class="title"><b>Example 3.7. Selecting elements by compound CSS selector</b></p><div class="example-contents"><pre class="programlisting">$('#contents ul.people li');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1039A" /><p class="title"><b>Example 3.8. Pseudo-selectors</b></p><div class="example-contents"><pre class="programlisting">$('a.external:first'); 
+$('tr:odd');
+$('#myForm :input');   // select all input-like elements in a form
+$('div:visible');
+$('div:gt(2)');        // all except the first three divs
+$('div:animated');     // all currently animated divs</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Choosing good selectors is one of the most important things you
+      can do to improve the performance of your JavaScript. A little
+      specificity -- for example, including an element type such as
+      <code class="code">div</code> when selecting elements by class name -- can go a long
+      way. Generally, any time you can give jQuery a hint about where it might
+      expect to find what you're looking for, you should. On the other hand,
+      too much specificity can be a bad thing. A selector such as
+      <code class="code">#myTable thead tr th.special</code> is overkill if a selector such
+      as <code class="code">#myTable th.special</code> will get you what you want.</p></div><div class="section" title="Does My Selection Contain Any Elements?"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N103AB" />Does My Selection Contain Any Elements?</h3></div></div></div><p>Once you've made a selection, you'll often want to know whether
+      you have anything to work with. You may be inclined to try something
+      like:</p><pre class="programlisting">if ($('div.foo')) { ... }</pre><p>This won't work. When you make a selection using <code class="code">$()</code>,
+      an object is always returned, and objects always evaluate to
+      <code class="code">true</code>. Even if your selection doesn't contain any elements,
+      the code inside the <code class="code">if</code> statement will still run.</p><p>Instead, you need to test the selection's length property, which
+      tells you how many elements were selected. If the answer is 0, the
+      length property will evaluate to false when used as a boolean
+      value.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103BF" /><p class="title"><b>Example 3.9. Testing whether a selection contains elements</b></p><div class="example-contents"><pre class="programlisting">if ($('div.foo').length) { ... }</pre></div></div><br class="example-break" /></div><div class="section" title="Saving Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N103C4" />Saving Selections</h3></div></div></div><p>Every time you make a selection, a lot of code runs, and jQuery
+      doesn't do caching of selections for you. If you've made a selection
+      that you might need to make again, you should save the selection in a
+      variable rather than making the selection repeatedly.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="jquery-basics.examples.storing-selections" /><p class="title"><b>Example 3.10. Storing selections in a variable</b></p><div class="example-contents"><pre class="programlisting">var $divs = $('div');</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>In <a class="xref" href="#jquery-basics.examples.storing-selections" title="Example 3.10. Storing selections in a variable">Example 3.10, “Storing selections in a variable”</a>,
+        the variable name begins with a dollar sign. Unlike in other
+        languages, there's nothing special about the dollar sign in JavaScript
+        -- it's just another character. We use it here to indicate that the
+        variable contains a jQuery object. This practice -- a sort of <a class="link" href="http://en.wikipedia.org/wiki/Hungarian_notation" target="">Hungarian
+        notation</a> -- is merely convention, and is not mandatory.</p></div><p>Once you've stored your selection, you can call jQuery methods on
+      the variable you stored it in just like you would have called them on
+      the original selection.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>A selection only fetches the elements that are on the page when
+        you make the selection. If you add elements to the page later, you'll
+        have to repeat the selection or otherwise add them to the selection
+        stored in the variable. Stored selections don't magically update when
+        the DOM changes.</p></div></div><div class="section" title="Refining &amp; Filtering Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N103DE" />Refining &amp; Filtering Selections</h3></div></div></div><p>Sometimes you have a selection that contains more than what you're
+      after; in this case, you may want to refine your selection. jQuery
+      offers several methods for zeroing in on exactly what you're
+      after.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103E3" /><p class="title"><b>Example 3.11. Refining selections</b></p><div class="example-contents"><pre class="programlisting">$('div.foo').has('p');          // div.foo elements that contain &lt;p&gt;'s
+$('h1').not('.bar');            // h1 elements that don't have a class of bar
+$('ul li').filter('.current');  // unordered list items with class of current
+$('ul li').first();             // just the first unordered list item
+$('ul li').eq(5);               // the fifth </pre></div></div><br class="example-break" /></div></div><div class="section" title="Working with Selections"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N103E8" />Working with Selections</h2></div></div></div><p>Once you have a selection, you can call methods on the selection.
+    Methods generally come in two different flavors: getters and setters.
+    Getters return a property of the first selected element; setters set a
+    property on all selected elements.</p><div class="section" title="Chaining"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N103ED" />Chaining</h3></div></div></div><p>If you call a method on a selection and that method returns a
+      jQuery object, you can continue to call jQuery methods on the object
+      without pausing for a semicolon.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103F2" /><p class="title"><b>Example 3.12. Chaining</b></p><div class="example-contents"><pre class="programlisting">$('#content').find('h3').eq(2).html('new text for the third h3!');</pre></div></div><br class="example-break" /><p>If you are writing a chain that includes several steps, you (and
+      the person who comes after you) may find your code more readable if you
+      break the chain over several lines.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103F9" /><p class="title"><b>Example 3.13. Formatting chained code</b></p><div class="example-contents"><pre class="programlisting">$('#content')
+    .find('h3')
+    .eq(2)
+    .html('new text for the third h3!');</pre></div></div><br class="example-break" /><p>If you change your selection in the midst of a chain, jQuery
+      provides the <code class="code">$.fn.end</code> method to get you back to your original
+      selection.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10403" /><p class="title"><b>Example 3.14. Restoring your original selection using
+        <code class="code">$.fn.end</code></b></p><div class="example-contents"><pre class="programlisting">$('#content')
+    .find('h3')
+    .eq(2)
+        .html('new text for the third h3!')
+    .end() // restores the selection to all h3's in #content
+    .eq(0)
+        .html('new text for the first h3!');</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Chaining is extraordinarily powerful, and it's a feature that
+        many libraries have adapted since it was made popular by jQuery.
+        However, it must be used with care. Extensive chaining can make code
+        extremely difficult to modify or debug. There is no hard-and-fast rule
+        to how long a chain should be -- just know that it is easy to get
+        carried away.</p></div></div><div class="section" title="Getters &amp; Setters"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1040D" />Getters &amp; Setters</h3></div></div></div><p>jQuery “overloads” its methods, so the method used to set a value
+      generally has the same name as the method used to get a value.
+      <span class="termdef">[Definition: When a method is used to set a value, it is called a
+      <em class="firstterm">setter</em>]</span>. <span class="termdef">[Definition: When a method is used
+      to get (or read) a value, it is called a
+      <em class="firstterm">getter</em>]</span>. Setters affect all elements in
+      a selection; getters get the requested value only for the first element
+      in the selection.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1041C" /><p class="title"><b>Example 3.15. The <code class="code">$.fn.html</code> method used as a setter</b></p><div class="example-contents"><pre class="programlisting">$('h1').html('hello world');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10424" /><p class="title"><b>Example 3.16. The html method used as a getter</b></p><div class="example-contents"><pre class="programlisting">$('h1').html();</pre></div></div><br class="example-break" /><p>Setters return a jQuery object, allowing you to continue to call
+      jQuery methods on your selection; getters return whatever they were
+      asked to get, meaning you cannot continue to call jQuery methods on the
+      value returned by the getter.</p></div></div><div class="section" title="CSS, Styling, &amp; Dimensions"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1042C" />CSS, Styling, &amp; Dimensions</h2></div></div></div><p>jQuery includes a handy way to get and set CSS properties of
+    elements.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>CSS properties that normally include a hyphen need to be
+      <em class="firstterm">camel cased</em> in JavaScript. For example, the CSS
+      property <code class="code">font-size</code> is expressed as <code class="code">fontSize</code> in
+      JavaScript.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1043D" /><p class="title"><b>Example 3.17. Getting CSS properties</b></p><div class="example-contents"><pre class="programlisting">$('h1').css('fontSize'); // returns a string such as "19px"</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10442" /><p class="title"><b>Example 3.18. Setting CSS properties</b></p><div class="example-contents"><pre class="programlisting">$('h1').css('fontSize', '100px'); // setting an individual property
+$('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple properties</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">Note the style of the argument we use on the second line -- it is
+    an object that contains multiple properties. This is a common way to pass
+    multiple arguments to a function, and many jQuery setter methods accept
+    objects to set mulitple values at once.</span></i></p><div class="section" title="Using CSS Classes for Styling"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10449" />Using CSS Classes for Styling</h3></div></div></div><p>As a getter, the <code class="code">$.fn.css</code> method is valuable; however, it
+      should generally be avoided as a setter in production-ready code,
+      because you don't want presentational information in your JavaScript.
+      Instead, write CSS rules for classes that describe the various visual
+      states, and then simply change the class on the element you want to
+      affect.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10451" /><p class="title"><b>Example 3.19. Working with classes</b></p><div class="example-contents"><pre class="programlisting">var $h1 = $('h1');
+
+$h1.addClass('big');
+$h1.removeClass('big');
+$h1.toggleClass('big');
+
+if ($h1.hasClass('big')) { ... }</pre></div></div><br class="example-break" /><p>Classes can also be useful for storing state information about an
+      element, such as indicating that an element is selected.</p></div><div class="section" title="Dimensions"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10458" />Dimensions</h3></div></div></div><p>jQuery offers a variety of methods for obtaining and modifying
+      dimenion and position information about an element.</p><p>The code in <a class="xref" href="#jquery-basics.examples.dimensions" title="Example 3.20. Basic dimensions methods">Example 3.20, “Basic dimensions methods”</a>
+      is just a very brief overview of the dimensions functionality in jQuery;
+      for complete details about jQuery dimension methods, visit <a class="link" href="http://api.jquery.com/category/dimensions/" target="">http://api.jquery.com/category/dimensions/</a>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="jquery-basics.examples.dimensions" /><p class="title"><b>Example 3.20. Basic dimensions methods</b></p><div class="example-contents"><pre class="programlisting">$('h1').width('50px');   // sets the width of all H1 elements
+$('h1').width();         // gets the width of the first H1
+
+$('h1').height('50px');  // sets the height of all H1 elements
+$('h1').height();        // gets the height of the first H1
+
+$('h1').position();      // returns an object containing position
+                         // information for the first H1 relative to
+                         // its "offset (positioned) parent"</pre></div></div><br class="example-break" /></div></div><div class="section" title="Attributes"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1046D" />Attributes</h2></div></div></div><p>An element's attributes can contain useful information for your
+    application, so it's important to be able to get and set them.</p><p>The <code class="code">$.fn.attr</code> method acts as both a getter and a setter. As
+    with the <code class="code">$.fn.css</code> method, <code class="code">$.fn.attr</code> as a setter can accept
+    either a key and a value, or an object containing one or more key/value
+    pairs.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1047D" /><p class="title"><b>Example 3.21. Setting attributes</b></p><div class="example-contents"><pre class="programlisting">$('a').attr('href', 'allMyHrefsAreTheSameNow.html');
+$('a').attr({ 
+    'title' : 'all titles are the same too!', 
+    'href' : 'somethingNew.html' 
+});</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">This time, we broke the object up into multiple lines. Remember,
+    whitespace doesn't matter in JavaScript, so you should feel free to use it
+    liberally to make your code more legible! You can use a minification tool
+    later to strip out unnecessary whitespace for production.</span></i></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10484" /><p class="title"><b>Example 3.22. Getting attributes</b></p><div class="example-contents"><pre class="programlisting">$('a').attr('href');  // returns the href for the first a element in the document</pre></div></div><br class="example-break" /></div><div class="section" title="Traversing"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10489" />Traversing</h2></div></div></div><p>Once you have a jQuery selection, you can find other elements using
+    your selection as a starting point.</p><p>For complete documentation of jQuery traversal methods, visit <a class="link" href="http://api.jquery.com/category/traversing/" target="">http://api.jquery.com/category/traversing/</a>.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Be cautious with traversing long distances in your documents --
+      complex traversal makes it imperative that your document's structure
+      remain the same, something that's difficult to guarantee even if you're
+      the one creating the whole application from server to client. One- or
+      two-step traversal is fine, but you generally want to avoid traversals
+      that take you from one container to another.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10497" /><p class="title"><b>Example 3.23. Traversal methods</b></p><div class="example-contents"><pre class="programlisting">$('h1').next('p');
+$('div:visible').parent();
+$('input[name=first_name]').closest('form');
+$('#myList').children();
+$('li.selected').siblings();</pre></div></div><br class="example-break" /></div><div class="section" title="Manipulating"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1049C" />Manipulating</h2></div></div></div><p>Once you've made a selection, you can move, remove, and clone
+    elements. You can also create new elements.</p><p>For complete documentation of jQuery manipulation methods, visit
+    <a class="link" href="http://api.jquery.com/category/manipulation/" target="">http://api.jquery.com/category/manipulation/</a>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N104A7" /><p class="title"><b>Example 3.24. Moving, removing, and cloning elements</b></p><div class="example-contents"><pre class="programlisting">$('div.panel').appendTo('#panels');
+$('div.newPanel').insertAfter('div.oldPanel');
+$('h1').remove();
+$('div.template').clone();</pre></div></div><br class="example-break" /><div class="section" title="Creating New Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N104AC" />Creating New Elements</h3></div></div></div><p>jQuery offers a trivial and elegant way to create new elements
+      using the same <code class="code">$()</code> method you use to make
+      selections.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N104B4" /><p class="title"><b>Example 3.25. Creating new elements</b></p><div class="example-contents"><pre class="programlisting">$('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
+$('&lt;li class="new"&gt;new list item&lt;/p&gt;');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N104B9" /><p class="title"><b>Example 3.26. Creating a new element with an attribute object</b></p><div class="example-contents"><pre class="programlisting">$('&lt;p/&gt;', { 
+    text : 'This is a new paragraph',
+    'class' : 'new'
+});</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">Note that in the attributes object we included as the second
+      argument, the property name class is quoted, while the property name
+      text is not. Property names generally do not need to be quoted unless
+      they are reserved words (as class is in this case).</span></i></p><p>When you create a new element, it is not immediately added to the
+      page. There are several ways to add an element to the page once it's
+      been created.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N104C2" /><p class="title"><b>Example 3.27. Getting a new element on to the page</b></p><div class="example-contents"><pre class="programlisting">var $myNewElement = $('&lt;p&gt;New element&lt;/p&gt;');
+$myNewElement.appendTo('#content');
+
+$myNewElement.insertAfter('ul:last'); // this will remove the p from #content!
+$('ul').last().after($myNewElement.clone());  // clone the p so now we have 2</pre></div></div><br class="example-break" /><p class="remark"><i><span class="remark">Strictly speaking, you don't have to store the created element
+      in a variable -- you could just call the method to add the element to
+      the page directly after the $(). However, most of the time you will want
+      a reference to the element you added, so you don't need to select it
+      later.</span></i></p><p>You can even create an element as you're adding it to the page,
+      but note that in this case you don't get a reference to the newly
+      created element.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N104CB" /><p class="title"><b>Example 3.28. Creating and adding an element to the page at the same
+        time</b></p><div class="example-contents"><pre class="programlisting">$('ul').append('&lt;li&gt;list item&lt;/li&gt;');</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The syntax for adding new elements to the page is so easy, it's
+        tempting to forget that there's a huge performance cost for adding to
+        the DOM repeatedly. If you are adding many elements to the same
+        container, you'll want to concatenate all the html into a single
+        string, and then append that string to the container instead of
+        appending the elements one at a time. You can use an array to gather
+        all the pieces together, then <code class="code">join</code> them into a single
+        string for appending.</p><pre class="programlisting">var myItems = [], $myList = $('#myList');
+
+for (var i=0; i&lt;100; i++) {
+    myItems.push('&lt;li&gt;item ' + i + '&lt;/li&gt;');
+}
+
+$myList.append(myItems.join(''));</pre></div></div></div></div><div class="chapter" title="Chapter 4. Events"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N104D8" />Chapter 4. Events</h2></div></div></div><div class="section" title="Overview"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N104E4" />Overview</h2></div></div></div><p>jQuery provides simple methods for attaching event handlers to
+    selections. When an event occurs, the provided function is executed.
+    Inside the function, this refers to the element that was clicked. </p><p>For details on jQuery events, visit <a class="link" href="http://api.jquery.com/category/events/" target="">http://api.jquery.com/category/events/</a>.</p><p>The event handling function can receive an event object. This object
+    can be used to determine the nature of the event, and to prevent the
+    event’s default behavior. </p><p>For details on the event object, visit <a class="link" href="http://api.jquery.com/category/events/event-object/" target="">http://api.jquery.com/category/events/event-object/</a>.</p></div><div class="section" title="Connecting Events to Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N104F7" />Connecting Events to Elements</h2></div></div></div><p>jQuery offers convenience methods for most common events, and these
+    are the methods you will see used most often. These methods -- including
+    <code class="code">$.fn.click</code>, <code class="code">$.fn.focus</code>, <code class="code">$.fn.blur</code>,
+    <code class="code">$.fn.change</code>, etc. -- are shorthand for jQuery's <code class="code">$.fn.bind</code>
+    method. The bind method is useful for binding the same hadler function to
+    multiple events, and is also used when you want to provide data to the
+    event hander, or when you are working with custom events.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1050B" /><p class="title"><b>Example 4.1. Event binding using a convenience method</b></p><div class="example-contents"><pre class="programlisting">$('p').click(function() {
+    console.log('click');
+});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10510" /><p class="title"><b>Example 4.2. Event biding using the <code class="code">$.fn.bind</code> method</b></p><div class="example-contents"><pre class="programlisting">$('p').bind('click', function() {
+    console.log('click');
+});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10518" /><p class="title"><b>Example 4.3. Event binding using the <code class="code">$.fn.bind</code> method with
+      data</b></p><div class="example-contents"><pre class="programlisting">$('input').bind(
+    'click change',  // bind to multiple events
+    { foo : 'bar' }, // pass in data
+
+    function(eventObject) {
+        console.log(eventObject.type, eventObject.data);
+    }
+);</pre></div></div><br class="example-break" /><div class="section" title="Connecting Events to Run Only Once"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10521" />Connecting Events to Run Only Once</h3></div></div></div><p>Sometimes you need a particular handler to run only once -- after
+      that, you may want no handler to run, or you may want a different
+      handler to run. jQuery provides the <code class="code">$.fn.one</code> method for this
+      purpose.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10529" /><p class="title"><b>Example 4.4. Switching handlers using the <code class="code">$.fn.one</code> method</b></p><div class="example-contents"><pre class="programlisting">$('p').one('click', function() {
+    $(this).click(function() { console.log('You clicked this before!'); });
+});</pre></div></div><br class="example-break" /><p>The <code class="code">$.fn.one</code> method is especially useful if you need to do
+      some complicated setup the first time an element is clicked, but not
+      subsequent times.</p></div><div class="section" title="Disconnecting Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10536" />Disconnecting Events</h3></div></div></div><p>To disconnect an event handler, you use the <code class="code">$.fn.unbind</code>
+      method and pass in the event type to unbind. If you attached a named
+      function to the event, then you can isolate the unbinding to that named
+      function by passing it as the second argument.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1053E" /><p class="title"><b>Example 4.5. Unbinding all click handlers on a selection</b></p><div class="example-contents"><pre class="programlisting">$('p').unbind('click');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10544" /><p class="title"><b>Example 4.6. Unbinding a particular click handler</b></p><div class="example-contents"><pre class="programlisting">var foo = function() { console.log('foo'); };
+var bar = function() { console.log('bar'); };
+
+$('p').bind('click', foo).bind('click', bar);
+$('p').unbind('click', bar); // foo is still bound to the click event</pre></div></div><br class="example-break" /></div><div class="section" title="Namespacing Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10549" />Namespacing Events</h3></div></div></div><p>For complex applications and for plugins you share with others, it
+      can be useful to namespace your events so you don't unintentionally
+      disconnect events that you didn't or couldn't know about.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1054E" /><p class="title"><b>Example 4.7. Namespacing events</b></p><div class="example-contents"><pre class="programlisting">$('p').bind('click.myNamespace', function() { /* ... */ });
+$('p').unbind('click.myNamespace');
+$('p').unbind('.myNamespace'); // unbind all events in the namespace</pre></div></div><br class="example-break" /></div></div><div class="section" title="Inside the Event Handling Function"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10553" />Inside the Event Handling Function</h2></div></div></div><p>As mentioned in the overview, the event handling function receives
+    an event object, which contains many properties and methods. The event
+    object is most commonly used to prevent the default action of the event
+    via the preventDefault method. However, the event object contains a number
+    of other useful properties and methods, including:</p><div class="variablelist"><dl><dt><span class="term">pageX, pageY</span></dt><dd><p>The mouse position at the time the event occurred, relative to
+          the top left of the page.</p></dd><dt><span class="term">type</span></dt><dd><p>The type of the event (e.g. "click").</p></dd><dt><span class="term">which</span></dt><dd><p>The button or key that was pressed.</p></dd><dt><span class="term">data</span></dt><dd><p>Any data that was passed in when the event was bound.</p></dd><dt><span class="term">target</span></dt><dd><p>The DOM element that initiated the event.</p></dd><dt><span class="term">preventDefault()</span></dt><dd><p>Prevent the default action of the event (e.g. following a
+          link).</p></dd><dt><span class="term">stopPropagation()</span></dt><dd><p>Stop the event from bubbling up to other elements.</p></dd></dl></div><p>In addition to the event object, the event handling function also
+    has access to the DOM element that the handler was bound to via the
+    keyword <code class="code">this</code>. To turn the DOM element into a jQuery object
+    that we can use jQuery methods on, we simply do <code class="code">$(this)</code>,
+    often following this idiom:</p><pre class="programlisting">var $this = $(this);</pre><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1058D" /><p class="title"><b>Example 4.8. Preventing a link from being followed</b></p><div class="example-contents"><pre class="programlisting">$('a').click(function(e) {
+    var $this = $(this);
+    if ($this.attr('href').match('evil')) {
+        e.preventDefault();
+        $this.addClass('evil');
+    }
+});</pre></div></div><br class="example-break" /></div><div class="section" title="Triggering Event Handlers"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10592" />Triggering Event Handlers</h2></div></div></div><p>jQuery provides a way to trigger the event handlers bound to an
+    element without any user interaction via the <code class="code">$.fn.trigger</code> method.
+    While this method has its uses, it should not be used simply to call a
+    function that was bound as a click handler. Instead, you should store the
+    function you want to call in a variable, and pass the variable name when
+    you do your binding. Then, you can call the function itself whenever you
+    want, without the need for <code class="code">$.fn.trigger</code>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1059D" /><p class="title"><b>Example 4.9. Triggering an event handler the right way</b></p><div class="example-contents"><pre class="programlisting">var foo = function(e) { 
+    if (e) { 
+        console.log(e); 
+    } else {
+        console.log('this didn\'t come from an event!');
+    }
+};
+
+
+$('p').click(foo); 
+
+foo(); // instead of $('p').trigger('click')</pre></div></div><br class="example-break" /></div><div class="section" title="Increasing Performance with Event Delegation"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105A2" />Increasing Performance with Event Delegation</h2></div></div></div><p>You'll frequently use jQuery to add new elements to the page, and
+    when you do, you may need to bind events to those new elements -- events
+    you already bound to similar elements that were on the page originally.
+    Instead of repeating your event binding every time you add elements to the
+    page, you can use event delegation. With event delegation, you bind your
+    event to a container element, and then when the event occurs, you look to
+    see which contained element it occurred on. If this sounds complicated,
+    luckily jQuery makes it easy with its <code class="code">$.fn.live</code> and
+    <code class="code">$.fn.delegate</code> methods.</p><p>While most people discover event delegation while dealing with
+    elements added to the page later, it has some performance benefits even if
+    you never add more elements to the page. The time required to bind event
+    handlers to hundreds of individual elements is non-trivial; if you have a
+    large set of elements, you should consider delegating related events to a
+    container element.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The <code class="code">$.fn.live</code> method was introduced in jQuery 1.3, and at
+      that time only certain event types were supported. As of jQuery 1.4.2,
+      the <code class="code">$.fn.delegate</code> method is available, and is the preferred
+      method.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105B8" /><p class="title"><b>Example 4.10. Event delegation using <code class="code">$.fn.delegate</code></b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList').delegate('li', 'click', function(e) {
+    var $myListItem = $(this);
+    // ...
+});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105BF" /><p class="title"><b>Example 4.11. Event delegation using <code class="code">$.fn.live</code></b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList li').live('click', function(e) {
+    var $myListItem = $(this);
+    // ...
+});</pre></div></div><br class="example-break" /><div class="section" title="Unbinding Delegated Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105C6" />Unbinding Delegated Events</h3></div></div></div><p>If you need to remove delegated events, you can't simply unbind
+      them. Instead, use <code class="code">$.fn.undelegate</code> for events connected with
+      <code class="code">$.fn.delegate</code>, and <code class="code">$.fn.die</code> for events connected with
+      <code class="code">$.fn.live</code>. As with bind, you can optionally pass in the name of
+      the bound function.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105D7" /><p class="title"><b>Example 4.12. Unbinding delegated events</b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList').undelegate('li', 'click');
+$('#myUnorderedList li').die('click');</pre></div></div><br class="example-break" /></div></div><div class="section" title="Event Helpers"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105DC" />Event Helpers</h2></div></div></div><p>jQuery offers two event-related helper functions that save you a few
+    keystrokes.</p><div class="section" title="$.fn.hover"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105E1" /><code class="code">$.fn.hover</code></h3></div></div></div><p>The <code class="code">$.fn.hover</code> method lets you pass one or two functions
+      to be run when the <code class="code">mouseenter</code> and <code class="code">mouseleave</code>
+      events occur on an element. If you pass one function, it will be run for
+      both events; if you pass two functions, the first will run for
+      <code class="code">mouseenter</code>, and the second will run for
+      <code class="code">mouseleave</code>. </p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Prior to jQuery 1.4, the <code class="code">$.fn.hover</code> method required two
+        functions.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105FC" /><p class="title"><b>Example 4.13. The hover helper function</b></p><div class="example-contents"><pre class="programlisting">$('#menu li').hover(function() { 
+    $(this).toggleClass('hover'); 
+});</pre></div></div><br class="example-break" /></div><div class="section" title="$.fn.toggle"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10601" /><code class="code">$.fn.toggle</code></h3></div></div></div><p>Much like <code class="code">$.fn.hover</code>, the <code class="code">$.fn.toggle</code> method
+      receives two or more functions; each time the event occurs, the next
+      function in the list is called. Generally, <code class="code">$.fn.toggle</code> is used
+      with just two functions, but technically you can use as many as you'd
+      like.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10610" /><p class="title"><b>Example 4.14. The toggle helper function</b></p><div class="example-contents"><pre class="programlisting">$('p.expander').toggle(
+    function() {
+        $(this).prev().addClass('open');
+    },
+    function() {
+        $(this).prev().removeClass('open');
+    }
+);</pre></div></div><br class="example-break" /></div></div></div><div class="chapter" title="Chapter 5. Effects"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10615" />Chapter 5. Effects</h2></div></div></div><div class="section" title="Overview"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10621" />Overview</h2></div></div></div><p>jQuery makes it trivial to add simple effects to your page. Effects
+    can use the built-in settings, or provide a customized duration. You can
+    also create custom animations of arbitrary CSS properties.</p><p>For complete details on jQuery effects, visit <a class="link" href="http://api.jquery.com/category/effects/" target="">http://api.jquery.com/category/effects/</a>.</p></div><div class="section" title="Built-in Effects"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1062C" />Built-in Effects</h2></div></div></div><p>Frequently used effects are built into jQuery as methods:</p><div class="variablelist"><dl><dt><span class="term">$.fn.show</span></dt><dd><p>Show the selected element.</p></dd><dt><span class="term">$.fn.hide</span></dt><dd><p>Hide the selected elements.</p></dd><dt><span class="term">$.fn.fadeIn</span></dt><dd><p>Animate the opacity of the selected elements to 100%.</p></dd><dt><span class="term">$.fn.fadeOut</span></dt><dd><p>Animate the opacity of the selected elements to 0%.</p></dd><dt><span class="term">$.fn.slideDown</span></dt><dd><p>Display the selected elements with a vertical sliding
+          motion.</p></dd><dt><span class="term">$.fn.slideUp</span></dt><dd><p>Hide the selected elements with a vertical sliding
+          motion.</p></dd><dt><span class="term">$.fn.slideToggle</span></dt><dd><p>Show or hide the selected elements with a vertical sliding
+          motion, depending on whether the elements are currently
+          visible.</p></dd></dl></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1065C" /><p class="title"><b>Example 5.1. A basic use of a built-in effect</b></p><div class="example-contents"><pre class="programlisting">$('h1').show();</pre></div></div><br class="example-break" /><div class="section" title="Changing the Duration of Built-in Effects"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10661" />Changing the Duration of Built-in Effects</h3></div></div></div><p>With the exception of <code class="code">$.fn.show</code> and
+      <code class="code">$.fn.hide</code>, all of the built-in methods are animated over
+      the course of 400ms by default. Changing the duration of an effect is
+      simple.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1066C" /><p class="title"><b>Example 5.2. Setting the duration of an effect</b></p><div class="example-contents"><pre class="programlisting">$('h1').fadeIn(300);      // fade in over 300ms
+$('h1').fadeOut('slow');  // using a built-in speed definition</pre></div></div><br class="example-break" /><div class="section" title="jQuery.fx.speeds"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10671" />jQuery.fx.speeds</h4></div></div></div><p>jQuery has an object at <code class="code">jQuery.fx.speeds</code> that
+        contains the default speed, as well as settings for
+        <code class="code">"slow"</code> and <code class="code">"fast"</code>. </p><pre class="programlisting">speeds: {
+    slow: 600,
+    fast: 200,
+    // Default speed
+    _default: 400
+}</pre><p>It is possible to override or add to this object. For example,
+        you may want to change the default duration of effects, or you may
+        want to create your own effects speed.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10683" /><p class="title"><b>Example 5.3. Augmenting <code class="code">jQuery.fx.speeds</code> with custom speed
+          definitions</b></p><div class="example-contents"><pre class="programlisting">jQuery.fx.speeds.blazing = 100;
+jQuery.fx.speeds.turtle = 2000;</pre></div></div><br class="example-break" /></div></div><div class="section" title="Doing Something when an Effect is Done"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1068C" />Doing Something when an Effect is Done</h3></div></div></div><p>Often, you'll want to run some code once an animation is done --
+      if you run it before the animation is done, it may affect the quality of
+      the animation, or it may remove elements that are part of the animation.
+      <span class="termdef">[Definition: <em class="firstterm">Callback functions</em> provide a way to
+      register your interest in an event that will happen in the
+      future.]</span> In this case, the event we'll be responding to is the
+      conclusion of the animation. Inside of the callback function, the
+      keyword <code class="code">this</code> refers to the element that the effect was
+      called on; as we did inside of event handler functions, we can turn it
+      into a jQuery object via <code class="code">$(this)</code>. </p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1069C" /><p class="title"><b>Example 5.4. Running code when an animation is complete</b></p><div class="example-contents"><pre class="programlisting">$('div.old').fadeOut(300, function() { $(this).remove(); }); </pre></div></div><br class="example-break" /></div></div><div class="section" title="Custom Effects with $.fn.animate"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N106A2" />Custom Effects with <code class="code">$.fn.animate</code></h2></div></div></div><p>jQuery makes it possible to animate arbitrary CSS properties via the
+    <code class="code">$.fn.animate</code> method. The <code class="code">$.fn.animate</code> method
+    lets you animate to a set value, or to a value relative to the current
+    value. </p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N106AF" /><p class="title"><b>Example 5.5. Custom effects with <code class="code">$.fn.animate</code></b></p><div class="example-contents"><pre class="programlisting">$('div.funtimes').animate(
+    {
+        left : "+=50",
+        opacity : 0.25
+    }, 
+    300, // duration
+    function() { console.log('done!'); // calback
+});</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Color-related properties cannot be animated with
+      <code class="code">$.fn.animate</code> using jQuery out of the box. Color animations
+      can easily be accomplished by including the <a class="link" href="http://plugins.jquery.com/files/jquery.color.js.txt" target="">color
+      plugin</a>. We'll discuss using plugins later in the book.</p></div><div class="section" title="Easing"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N106C0" />Easing</h3></div></div></div><p><span class="termdef">[Definition: <em class="firstterm">Easing</em> describes the manner in
+      which an effect occurs -- whether the rate of change is steady, or
+      varies over the duration of the animation.]</span> jQuery includes
+      only two methods of easing: swing and linear. If you want more natural
+      transitions in your animations, various easing plugins are available.
+      </p><p>As of jQuery 1.4, it is possible to do per-property easing when
+      using the $.fn.animate method. </p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N106CB" /><p class="title"><b>Example 5.6. Per-property easing</b></p><div class="example-contents"><pre class="programlisting">$('div.funtimes').animate(
+    {
+        left : [ "+=50", "swing ],
+        opacity : [ 0.25, "linear" ]
+    },
+    300
+);</pre></div></div><br class="example-break" /><p>For more details on easing options, see <a class="link" href="http://api.jquery.com/animate/" target="">http://api.jquery.com/animate/</a>.</p></div></div><div class="section" title="Managing Effects"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N106D6" />Managing Effects</h2></div></div></div><p>jQuery provides several tools for managing animations. </p><div class="variablelist"><dl><dt><span class="term">$.fn.stop</span></dt><dd><p>Stop currently running animations on the selected
+          elements.</p></dd><dt><span class="term">$.fn.delay</span></dt><dd><p>Wait the specified number of milliseconds before running the
+          next animation.</p><pre class="programlisting">$('h1').show(300).delay(1000).hide(300);</pre></dd><dt><span class="term">jQuery.fx.off</span></dt><dd><p>If this value is true, there will be no transition for
+          animations; elements will immediately be set to the target final
+          state instead. This can be especially useful when dealing with older
+          browsers; you also may want to provide the option to your
+          users.</p></dd></dl></div></div></div><div class="chapter" title="Chapter 6. jQuery Core"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N106F0" />Chapter 6. jQuery Core</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N106FC" /></h2></div></div></div><p /></div></div><div class="chapter" title="Chapter 7. Ajax"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N106FF" />Chapter 7. Ajax</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1070B" /></h2></div></div></div><p /></div></div></div><div class="part" title="Part III. Exercises"><div class="titlepage"><div><div><h1 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1070E" />Part III. Exercises</h1></div></div></div><div class="chapter" title="Chapter 8. Exercises"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10711" />Chapter 8. Exercises</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1071D" /></h2></div></div></div><p /></div></div></div></div></div></div></body></html>
