@@ -8,13 +8,12 @@
       xmlns:db="http://docbook.org/ns/docbook">
   <part>
     <title>jQuery Fundamentals</title>
-    <xi:include href="01_getting-started.xml" />
-    <xi:include href="02_jquery-basics.xml" />
-    <xi:include href="03_events.xml" />
-    <xi:include href="04_effects.xml" />
-    <xi:include href="05_jquery-core.xml" />
-    <xi:include href="06_ajax.xml" />
-    <xi:include href="07_plugins.xml" />
+    <xi:include href="getting-started.xml" />
+    <xi:include href="jquery-basics.xml" />
+    <xi:include href="events.xml" />
+    <xi:include href="effects.xml" />
+    <xi:include href="jquery-core.xml" />
+    <xi:include href="ajax.xml" />
   </part>
 
   <part>
