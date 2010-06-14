@@ -39,6 +39,12 @@
   </info>
 
   <part>
+    <title>JavaScript Primer</title>
+
+    <xi:include href="javascript-basics.xml" />
+  </part>
+
+  <part>
     <title>jQuery Fundamentals</title>
 
     <xi:include href="getting-started.xml" />
@@ -52,12 +58,6 @@
     <xi:include href="jquery-core.xml" />
 
     <xi:include href="ajax.xml" />
-  </part>
-
-  <part>
-    <title>JavaScript Primer</title>
-
-    <xi:include href="javascript-basics.xml" />
   </part>
 
   <part>
