@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Manipulating Elements</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="prev" href="ch03s06.html" title="Traversing" /><link rel="next" href="ch03s08.html" title="Exercises" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Manipulating Elements</th></tr><tr><td align="left"><a accesskey="p" href="ch03s06.html">Prev</a> </td><th align="center" width="60%">Chapter 3. jQuery Basics</th><td align="right"> <a accesskey="n" href="ch03s08.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Manipulating Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10560" />Manipulating Elements</h2></div></div></div><p>Once you've made a selection, the fun begins. You can change, move,
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Manipulating Elements</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="prev" href="ch03s06.html" title="Traversing" /><link rel="next" href="ch03s08.html" title="Exercises" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Manipulating Elements</th></tr><tr><td align="left"><a accesskey="p" href="ch03s06.html">Prev</a> </td><th align="center" width="60%">Chapter 3. jQuery Basics</th><td align="right"> <a accesskey="n" href="ch03s08.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Manipulating Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105A2" />Manipulating Elements</h2></div></div></div><p>Once you've made a selection, the fun begins. You can change, move,
     remove, and clone elements. You can also create new elements via a simple
     syntax.</p><p>For complete documentation of jQuery manipulation methods, visit
-    <a class="link" href="http://api.jquery.com/category/manipulation/" target="">http://api.jquery.com/category/manipulation/</a>.</p><div class="section" title="Getting and Setting Information about Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1056B" />Getting and Setting Information about Elements</h3></div></div></div><p>There are any number of ways you can change an existing element.
+    <a class="link" href="http://api.jquery.com/category/manipulation/" target="">http://api.jquery.com/category/manipulation/</a>.</p><div class="section" title="Getting and Setting Information about Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105AD" />Getting and Setting Information about Elements</h3></div></div></div><p>There are any number of ways you can change an existing element.
       Among the most common tasks you'll perform is changing the inner HTML or
       attribute of an element. jQuery offers simple, cross-browser methods for
       these sorts of manipulations. You can also get information about
@@ -20,8 +20,8 @@
             selection as an integer.</p></dd><dt><span class="term">$.fn.height</span></dt><dd><p>Get or set the height in pixels of the first element in the
             selection as an integer.</p></dd><dt><span class="term">$.fn.position</span></dt><dd><p>Get an object with position information for the first
             element in the selection, relative to its first positioned
-            ancestor. <span class="emphasis"><em>This is a getter only.</em></span></p></dd><dt><span class="term">$.fn.val</span></dt><dd><p>Get or set the value of form elements.</p></dd></dl></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105A9" /><p class="title"><b>Example 3.26. Changing the HTML of an element</b></p><div class="example-contents"><pre class="programlisting">$('#myDiv p:first')
-    .html('New &lt;strong&gt;first&lt;/strong&gt; paragraph!');</pre></div></div><br class="example-break" /></div><div class="section" title="Moving, Copying, and Removing Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105AE" />Moving, Copying, and Removing Elements</h3></div></div></div><p>There are a variety of ways to move elements around the DOM;
+            ancestor. <span class="emphasis"><em>This is a getter only.</em></span></p></dd><dt><span class="term">$.fn.val</span></dt><dd><p>Get or set the value of form elements.</p></dd></dl></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105EB" /><p class="title"><b>Example 3.26. Changing the HTML of an element</b></p><div class="example-contents"><pre class="programlisting">$('#myDiv p:first')
+    .html('New &lt;strong&gt;first&lt;/strong&gt; paragraph!');</pre></div></div><br class="example-break" /></div><div class="section" title="Moving, Copying, and Removing Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105F0" />Moving, Copying, and Removing Elements</h3></div></div></div><p>There are a variety of ways to move elements around the DOM;
       generally, there are two approaches:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p>Place the selected element(s) relative to another
           element</p></li><li class="listitem"><p>Place an element relative to the selected element(s)</p></li></ul></div><p>For example, jQuery provides <code class="code">$.fn.insertAfter</code> and
       <code class="code">$.fn.after</code>. The <code class="code">$.fn.insertAfter</code> method places
@@ -39,7 +39,7 @@
       returns the element(s) you're placing. In this case,
       <code class="code">$.fn.insertAfter</code>, <code class="code">$.fn.insertBefore</code>,
       <code class="code">$.fn.appendTo</code>, and <code class="code">$.fn.prependTo</code> will be your
-      tools of choice.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105E8" /><p class="title"><b>Example 3.27. Moving elements using different approaches</b></p><div class="example-contents"><pre class="programlisting">// make the first list item the last list item
+      tools of choice.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1062A" /><p class="title"><b>Example 3.27. Moving elements using different approaches</b></p><div class="example-contents"><pre class="programlisting">// make the first list item the last list item
 var $li = $('#myList li:first').appendTo('#myList');
 
 // another approach to the same problem
@@ -48,11 +48,11 @@ $('#myList').append($('#myList li:first'));
 // note that there's no way to access the
 // list item that we moved, as this returns
 // the list itself
-</pre></div></div><br class="example-break" /><div class="section" title="Cloning Elements"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N105ED" />Cloning Elements</h4></div></div></div><p>When you use methods such as $.fn.appendTo, you are moving the
+</pre></div></div><br class="example-break" /><div class="section" title="Cloning Elements"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1062F" />Cloning Elements</h4></div></div></div><p>When you use methods such as $.fn.appendTo, you are moving the
         element; sometimes you want to make a copy of the element instead. In
-        this case, you'll need to use $.fn.clone first.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N105F2" /><p class="title"><b>Example 3.28. Making a copy of an element</b></p><div class="example-contents"><pre class="programlisting">// copy the first list item to the end of the list
+        this case, you'll need to use $.fn.clone first.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10634" /><p class="title"><b>Example 3.28. Making a copy of an element</b></p><div class="example-contents"><pre class="programlisting">// copy the first list item to the end of the list
 $('#myList li:first').clone().appendTo('#myList');</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>If you need to copy related data and events, be sure to pass
-          <code class="code">true</code> as an argument to <code class="code">$.fn.clone</code>.</p></div></div><div class="section" title="Removing Elements"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10600" />Removing Elements</h4></div></div></div><p>There are two ways to remove elements from the page:
+          <code class="code">true</code> as an argument to <code class="code">$.fn.clone</code>.</p></div></div><div class="section" title="Removing Elements"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10642" />Removing Elements</h4></div></div></div><p>There are two ways to remove elements from the page:
         <code class="code">$.fn.remove</code> and <code class="code">$.fn.detach</code>. You'll use
         <code class="code">$.fn.remove</code> when you want to permanently remove the
         selection from the page; while the method does return the removed
@@ -68,10 +68,10 @@ $('#myList li:first').clone().appendTo('#myList');</pre></div></div><br class="e
           done. This saves you from expensive "DOM touches" while maintaining
           the element's data and events.</p></div><p>If you want to leave the element on the page but simply want to
         remove its contents, you can use <code class="code">$.fn.empty</code> to dispose of
-        the element's inner HTML.</p></div></div><div class="section" title="Creating New Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10624" />Creating New Elements</h3></div></div></div><p>jQuery offers a trivial and elegant way to create new elements
+        the element's inner HTML.</p></div></div><div class="section" title="Creating New Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10666" />Creating New Elements</h3></div></div></div><p>jQuery offers a trivial and elegant way to create new elements
       using the same <code class="code">$()</code> method you use to make
-      selections.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1062C" /><p class="title"><b>Example 3.29. Creating new elements</b></p><div class="example-contents"><pre class="programlisting">$('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
-$('&lt;li class="new"&gt;new list item&lt;/p&gt;');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10631" /><p class="title"><b>Example 3.30. Creating a new element with an attribute object</b></p><div class="example-contents"><pre class="programlisting">$('&lt;a/&gt;', { 
+      selections.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1066E" /><p class="title"><b>Example 3.29. Creating new elements</b></p><div class="example-contents"><pre class="programlisting">$('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
+$('&lt;li class="new"&gt;new list item&lt;/p&gt;');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10673" /><p class="title"><b>Example 3.30. Creating a new element with an attribute object</b></p><div class="example-contents"><pre class="programlisting">$('&lt;a/&gt;', { 
     html : 'This is a &lt;strong&gt;new&lt;/strong&gt; link',
     'class' : 'new',
     href : 'foo.html'
@@ -80,7 +80,7 @@ $('&lt;li class="new"&gt;new list item&lt;/p&gt;');</pre></div></div><br class="
       text and href are not. Property names generally do not need to be quoted
       unless they are reserved words (as class is in this case).</span></i></p><p>When you create a new element, it is not immediately added to the
       page. There are several ways to add an element to the page once it's
-      been created.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1063A" /><p class="title"><b>Example 3.31. Getting a new element on to the page</b></p><div class="example-contents"><pre class="programlisting">var $myNewElement = $('&lt;p&gt;New element&lt;/p&gt;');
+      been created.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1067C" /><p class="title"><b>Example 3.31. Getting a new element on to the page</b></p><div class="example-contents"><pre class="programlisting">var $myNewElement = $('&lt;p&gt;New element&lt;/p&gt;');
 $myNewElement.appendTo('#content');
 
 $myNewElement.insertAfter('ul:last'); // this will remove the p from #content!
@@ -90,7 +90,7 @@ $('ul').last().after($myNewElement.clone());  // clone the p so now we have 2</p
       a reference to the element you added, so you don't need to select it
       later.</span></i></p><p>You can even create an element as you're adding it to the page,
       but note that in this case you don't get a reference to the newly
-      created element.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10643" /><p class="title"><b>Example 3.32. Creating and adding an element to the page at the same
+      created element.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10685" /><p class="title"><b>Example 3.32. Creating and adding an element to the page at the same
         time</b></p><div class="example-contents"><pre class="programlisting">$('ul').append('&lt;li&gt;list item&lt;/li&gt;');</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The syntax for adding new elements to the page is so easy, it's
         tempting to forget that there's a huge performance cost for adding to
         the DOM repeatedly. If you are adding many elements to the same
@@ -104,12 +104,12 @@ for (var i=0; i&lt;100; i++) {
     myItems.push('&lt;li&gt;item ' + i + '&lt;/li&gt;');
 }
 
-$myList.append(myItems.join(''));</pre></div></div><div class="section" title="Manipulating Attributes"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10650" />Manipulating Attributes</h3></div></div></div><p>jQuery's attribute manipulation capabilities are extensive. Basic
+$myList.append(myItems.join(''));</pre></div></div><div class="section" title="Manipulating Attributes"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10692" />Manipulating Attributes</h3></div></div></div><p>jQuery's attribute manipulation capabilities are extensive. Basic
       changes are simple, but the $.fn.attr method also allows for more
-      complex manipulations.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10655" /><p class="title"><b>Example 3.33. Manipulating a single attribute</b></p><div class="example-contents"><pre class="programlisting">$('#myDiv a:first').attr('href', 'newDestination.html');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1065A" /><p class="title"><b>Example 3.34. Manipulating multiple attributes</b></p><div class="example-contents"><pre class="programlisting">$('#myDiv a:first').attr({
+      complex manipulations.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10697" /><p class="title"><b>Example 3.33. Manipulating a single attribute</b></p><div class="example-contents"><pre class="programlisting">$('#myDiv a:first').attr('href', 'newDestination.html');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1069C" /><p class="title"><b>Example 3.34. Manipulating multiple attributes</b></p><div class="example-contents"><pre class="programlisting">$('#myDiv a:first').attr({
     href : 'newDestination.html',
     rel : 'super-special'
-});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1065F" /><p class="title"><b>Example 3.35. Using a function to determine an attribute's new value</b></p><div class="example-contents"><pre class="programlisting">$('#myDiv a:first').attr({
+});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N106A1" /><p class="title"><b>Example 3.35. Using a function to determine an attribute's new value</b></p><div class="example-contents"><pre class="programlisting">$('#myDiv a:first').attr({
     rel : 'super-special',
     href : function() { 
         return '/new/' + $(this).attr('href');

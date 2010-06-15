@@ -38,7 +38,7 @@ $(document).ready(function() {
 				return;
 			}
 			
-			$.ajax(specials.getAjaxConfig);
+			$.ajax(specials.getAjaxConfig());
 		},
 		
 		handleChange : function(e) {

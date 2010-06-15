@@ -11,7 +11,7 @@
     will traverse the scope chain all the way up to the window scope to find
     where the variable was previously defined. If the variable wasn't
     previously defined, it will be defined in the global scope, which can have
-    extremely unexpected consequences;</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10345" /><p class="title"><b>Example 2.32. Functions have access to variables defined in the same
+    extremely unexpected consequences;</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10387" /><p class="title"><b>Example 2.34. Functions have access to variables defined in the same
       scope</b></p><div class="example-contents"><pre class="programlisting">var foo = 'hello';
 
 var sayHello = function() {
@@ -19,14 +19,14 @@ var sayHello = function() {
 };
 
 sayHello();         // logs 'hello'
-console.log(foo);   // also logs 'hello'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1034A" /><p class="title"><b>Example 2.33. Code outside the scope in which a variable was defined does not
+console.log(foo);   // also logs 'hello'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1038C" /><p class="title"><b>Example 2.35. Code outside the scope in which a variable was defined does not
       have access to the variable</b></p><div class="example-contents"><pre class="programlisting">var sayHello = function() {
     var foo = 'hello';
     console.log(foo);
 };
 
 sayHello();         // logs 'hello'
-console.log(foo);   // doesn't log anything</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1034F" /><p class="title"><b>Example 2.34. Variables with the same name can exist in different scopes with
+console.log(foo);   // doesn't log anything</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10391" /><p class="title"><b>Example 2.36. Variables with the same name can exist in different scopes with
       different values</b></p><div class="example-contents"><pre class="programlisting">var foo = 'world';
 
 var sayHello = function() {
@@ -35,7 +35,7 @@ var sayHello = function() {
 };
 
 sayHello();         // logs 'hello'
-console.log(foo);   // logs 'world'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.scope-value-change" /><p class="title"><b>Example 2.35. Functions can "see" changes in variable values after the function
+console.log(foo);   // logs 'world'</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.scope-value-change" /><p class="title"><b>Example 2.37. Functions can "see" changes in variable values after the function
       is defined</b></p><div class="example-contents"><pre class="programlisting">var myFunction = function() {
     var foo = 'hello';
 
@@ -49,7 +49,7 @@ console.log(foo);   // logs 'world'</pre></div></div><br class="example-break" /
 };
 
 var f = myFunction();
-f();  // logs 'world' -- uh oh</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1035A" /><p class="title"><b>Example 2.36. Scope insanity</b></p><div class="example-contents"><pre class="programlisting">// a self-executing anonymous function
+f();  // logs 'world' -- uh oh</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1039C" /><p class="title"><b>Example 2.38. Scope insanity</b></p><div class="example-contents"><pre class="programlisting">// a self-executing anonymous function
 (function() {
     var baz = 1;
     var bim = function() { alert(baz); };

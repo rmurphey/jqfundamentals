@@ -178,7 +178,7 @@ var bar = baz || createBar();</programlisting>
       equivalent or whether values are identical.</para>
 
       <example>
-        <title>Comparison Operators</title>
+        <title>Comparison operators</title>
 
         <para><programlisting>var foo = 1;
 var bar = 0;
@@ -201,16 +201,12 @@ foo &lt;= baz;   // returns true</programlisting></para>
   </section>
 
   <section>
-    <title>Flow Control</title>
+    <title>Conditional Code</title>
 
-    <para>Flow control lets you run a block of code under certain conditions.
-    You should always use braces to mark the start and end of logical
-    blocks.<footnote>
-        <para>Strictly speaking, braces aren't required around single-line
-        <code>if</code> statements, but using them consistently, even when
-        they aren't strictly required, makes for vastly more readable
-        code.</para>
-      </footnote></para>
+    <para>Sometimes you only want to run a block of code under certain
+    conditions. Flow control — via <code>if</code>, <code>else if</code>, and
+    <code>else</code> blocks — lets you run code only under certain
+    conditions. </para>
 
     <example>
       <title>Flow control</title>
@@ -218,7 +214,8 @@ foo &lt;= baz;   // returns true</programlisting></para>
       <programlisting>var foo = true;
 var bar = false;
 
-if (foo) {
+if (bar) {
+    // this code will never run
     console.log('hello!');
 }
 
@@ -230,6 +227,16 @@ if (bar) {
     // this code would run if foo and bar were both false
 }</programlisting>
     </example>
+
+    <note>
+      <para>While curly braces aren't strictly required around single-line
+      <code>if</code> statements, using them consistently, even when they
+      aren't strictly required, makes for vastly more readable code.</para>
+    </note>
+
+    <para>Be mindful not to define functions with the same name multiple times
+    within separate <code>if</code>/<code>else</code> blocks, as doing so may
+    not have the expected result.</para>
 
     <section id="javascript-basics.sections.truthy-falsy">
       <title>Truthy and Falsy Things</title>
@@ -258,6 +265,85 @@ NaN; // JavaScript's "not-a-number" variable
 null;
 undefined;  // be careful -- undefined can be redefined!</programlisting>
       </example>
+    </section>
+
+    <section>
+      <title>Conditional Variable Assignment with The Ternary Operator</title>
+
+      <para>Sometimes you want to set a variable to a value depending on some
+      condition. You could use an <code>if</code>/<code>else</code> statement,
+      but in many cases the ternary operator is more convenient. <termdef>The
+      <firstterm>ternary operator</firstterm> tests a condition; if the
+      condition is true, it returns a certain value, otherwise it returns a
+      different value.</termdef></para>
+
+      <example>
+        <title>The ternary operator</title>
+
+        <programlisting>// set foo to 1 if bar is true;
+// otherwise, set foo to 0
+var foo = bar ? 1 : 0;</programlisting>
+      </example>
+
+      <para>While the ternary operator can be used without assigning the
+      return value to a variable, this is generally discouraged.</para>
+    </section>
+
+    <section>
+      <title>Switch Statements</title>
+
+      <para>Rather than using a series of if/else if/else blocks, sometimes it
+      can be useful to use a switch statement instead.
+      <termdef><firstterm>Switch statements</firstterm> look at the value of a
+      variable or expression, and run different blocks of code depending on
+      the value.</termdef></para>
+
+      <example>
+        <title>A switch statement</title>
+
+        <programlisting>switch (foo) {
+
+    case 'bar':
+        alert('the value was bar -- yay!');
+    break;
+
+    case 'baz':
+        alert('boo baz :(');
+    break;
+
+    default:
+        alert('everything else is just ok');
+    break;
+
+}</programlisting>
+      </example>
+
+      <para>Switch statements have somewhat fallen out of favor in JavaScript,
+      because often the same behavior can be accomplished by creating an obect
+      that has more potential for reuse, testing, etc. For example:</para>
+
+      <programlisting>var stuffToDo = {
+    'bar' : function() { 
+        alert('the value was bar -- yay!');
+    },
+
+    'baz' : function() { 
+        alert('boo baz :(');
+    },
+
+    'default' : function() { 
+        alert('everything else is just ok');
+    }
+};
+
+if (stuffToDo[foo]) {
+    stuffToDo[foo]();
+} else {
+    stuffToDo['default']();
+}</programlisting>
+
+      <para>We'll look at objects in greater depth later in this
+      chapter.</para>
     </section>
   </section>
 
@@ -599,6 +685,11 @@ var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]</programlistin
 myObject.sayHello();            // logs 'hello'
 console.log(myObject.myName);   // logs 'Rebecca'</programlisting>
     </example>
+
+    <para>Object literals can be extremely useful for code organization; for
+    more information, read <link
+    xlink:href="http://blog.rebeccamurphey.com/2009/10/15/using-objects-to-organize-your-code/">Using
+    Objects to Organize Your Code</link> by Rebecca Murphey.</para>
   </section>
 
   <section>
