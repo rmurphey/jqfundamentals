@@ -165,3 +165,8 @@ color: #800000;
 }
 .hl-value, .hl-value a {
 }
+.copyright {
+	font-family:Helvetica, Arial, sans-serif;
+	font-size:80%;
+	font-style:italic;
+}

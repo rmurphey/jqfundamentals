@@ -19,6 +19,17 @@
  part      toc,title,example,title
  reference toc,title
 </xsl:param>
+
+<xsl:template name="user.footer.content">
+  <hr/>
+  <p class="copyright">Copyright <a>
+    <xsl:attribute name="href">http://www.rebeccamurphey.com</xsl:attribute>
+    Rebecca Murphey</a>, released under the 
+  <a>
+    <xsl:attribute name="href">http://creativecommons.org/licenses/by-sa/3.0/us/</xsl:attribute>
+	Creative Commons Attribution-Share Alike 3.0 United States license</a>.
+  </p>
+</xsl:template>
 	
 <xsl:param name="html.stylesheet">blueprint.css style.css</xsl:param>
 
