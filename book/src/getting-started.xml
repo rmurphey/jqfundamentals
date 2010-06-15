@@ -12,13 +12,13 @@
   The purpose of this class is to give you an overview of the jQuery
   JavaScript library; at the end of the class, you should be able to complete
   basic tasks using jQuery, and have a solid basis from which to continue your
-  learning. </para>
+  learning.</para>
 
   <para>This book contains more information than we can possibly cover during
   the class, and so it is meant as a references more than a syllabus. You’re
   encouraged to continue working through the information and exercises once
-  the class is complete if you want to broaden your knowledge of jQuery.
-  </para>
+  the class is complete if you want to broaden your knowledge of
+  jQuery.</para>
 
   <para>This is a hands-on class. We will spend a bit of time covering a
   concept, and then you’ll have the chance to work on an exercise related to
@@ -26,7 +26,7 @@
   daunting. In either case, there is no grade; the goal is simply to get you
   comfortable working your way through problems you’ll commonly be called upon
   to solve using jQuery. Example solutions to all of the exercises are
-  included in the sample code. </para>
+  included in the sample code.</para>
 
   <section>
     <title>Getting the Code</title>
@@ -152,7 +152,7 @@ console.log('hello');
     <para>Methods that can be called on jQuery objects will be referred to as
     <code>$.fn.methodName</code>. Methods that exist in the jQuery namespace
     but that cannot be called on jQuery objects will be referred to as
-    <code>$.methodName</code>. </para>
+    <code>$.methodName</code>.</para>
 
     <example>
       <title>Example of an example</title>
@@ -172,10 +172,11 @@ console.log('hello');
 
     <itemizedlist>
       <listitem>
-        <para><link xlink:href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js">The jQuery
-        source</link></para>
+        <para><link
+        xlink:href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js">The
+        jQuery source</link></para>
       </listitem>
-	
+
       <listitem>
         <para><link xlink:href="http://api.jquery.com">jQuery
         documentation</link></para>

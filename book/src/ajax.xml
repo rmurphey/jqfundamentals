@@ -49,7 +49,7 @@
 
       <para>The two most common “methods” for sending a request to a server
       are GET and POST. It’s important to understand the proper application of
-      each. </para>
+      each.</para>
 
       <para>The GET method should be used for non-destructive operations —
       that is, operations where you are only “getting” data from the server,
@@ -57,7 +57,7 @@
       service might be a GET request. GET requests may be cached by the
       browser, which can lead to unpredictable behavior if you are not
       expecting it. GET requests generally send all of their data in a query
-      string. </para>
+      string.</para>
 
       <para>The POST method should be used for destructive operations — that
       is, operations where you are changing data on the server. For example, a
@@ -72,7 +72,7 @@
       <para>jQuery generally requires some instruction as to the type of data
       you expect to get back from an Ajax request; in some cases the data type
       is specified by the method name, and in other cases it is provided as
-      part of a configuration object. There are several options: </para>
+      part of a configuration object. There are several options:</para>
 
       <variablelist>
         <varlistentry>
@@ -160,14 +160,14 @@ console.log(response);</programlisting>
       <para>In general, Ajax requests are limited to the same protocol (http
       or https), the same port, and the same domain as the page making the
       request. This limitation does not apply to scripts that are loaded via
-      jQuery's Ajax methods. </para>
+      jQuery's Ajax methods.</para>
 
       <para>The other exception is requests targeted at a JSONP service on
       another domain. In the case of JSONP, the provider of the service has
       agreed to respond to your request with a script that can be loaded into
       the page using a <code>&lt;script&gt;</code> tag, thus avoiding the
       same-origin limitation; that script will include the data you requested,
-      wrapped in a callback function you provide. </para>
+      wrapped in a callback function you provide.</para>
     </section>
 
     <section>
@@ -308,7 +308,7 @@ console.log(response);</programlisting>
               (i.e. what <code>this</code> will mean inside the callback
               function(s)). By default, <code>this</code> inside the callback
               function(s) refers to the object originally passed to
-              <code>$.ajax</code>. </para>
+              <code>$.ajax</code>.</para>
             </listitem>
           </varlistentry>
 
@@ -328,7 +328,7 @@ console.log(response);</programlisting>
             <listitem>
               <para>The type of data you expect back from the server. By
               default, jQuery will look at the MIME type of the response if no
-              dataType is specified. </para>
+              dataType is specified.</para>
             </listitem>
           </varlistentry>
 
@@ -423,7 +423,7 @@ console.log(response);</programlisting>
           <term>$.get</term>
 
           <listitem>
-            <para>Perform a GET request to the provided URL. </para>
+            <para>Perform a GET request to the provided URL.</para>
           </listitem>
         </varlistentry>
 
@@ -487,7 +487,7 @@ console.log(response);</programlisting>
             <para>A callback function to run if the request succeeds.
             Optional. The function receives the response data (converted to a
             JavaScript object if the data type was JSON), as well as the text
-            status of the request and the raw request object. </para>
+            status of the request and the raw request object.</para>
           </listitem>
         </varlistentry>
 
@@ -565,7 +565,7 @@ $.getJSON('/details.php', function(resp) {
     than trying to roll your own solution for anything remotely complex. That
     said, there are a two jQuery methods you should know that relate to form
     processing in jQuery: <code>$.fn.serialize</code> and
-    <code>$.fn.serializeArray</code>. </para>
+    <code>$.fn.serializeArray</code>.</para>
 
     <example>
       <title>Turning form data into a query string</title>
@@ -595,7 +595,7 @@ $.getJSON('/details.php', function(resp) {
     predefined API. A particularly great source of JSONP-formatted data is the
     <link xlink:href="http://developer.yahoo.com/yql/console/">Yahoo! Query
     Language</link>, which we'll use in the following example to fetch news
-    about cats. </para>
+    about cats.</para>
 
     <example>
       <title>Using YQL and JSONP</title>
@@ -647,4 +647,18 @@ $.getJSON('/details.php', function(resp) {
     .ajaxStop(function() { $(this).hide(); });</programlisting>
     </example>
   </section>
+
+  <simplesect>
+    <title>Exercises</title>
+
+    <itemizedlist>
+        <listitem>
+          <para><xref linkend="exercises.sections.ajax" /></para>
+        </listitem>
+
+        <listitem>
+          <para><xref linkend="exercises.sections.json" /></para>
+        </listitem>
+    </itemizedlist>
+  </simplesect>
 </chapter>

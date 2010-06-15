@@ -44,6 +44,8 @@
     </othercredit>
   </info>
 
+  <xi:include href="getting-started.xml" />
+
   <part>
     <title>JavaScript Primer</title>
 
@@ -52,8 +54,6 @@
 
   <part>
     <title>jQuery Fundamentals</title>
-
-    <xi:include href="getting-started.xml" />
 
     <xi:include href="jquery-basics.xml" />
 
@@ -70,6 +70,7 @@
 
   <part>
 	<title>Specialized Topics</title>
+  </part>
 	
   <part>
     <title>Exercises</title>
