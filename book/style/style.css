@@ -170,3 +170,21 @@ color: #800000;
 	font-size:80%;
 	font-style:italic;
 }
+
+.sidebar {
+	font-family:Helvetica;
+	padding:10px 10px 5px 10px;
+	border: 5px solid #ADFF2F;
+}
+
+.sidebar p {
+	font-size:80%;
+	margin-bottom:0.5em;
+	line-height:1.3em;
+}
+
+.sidebar p.title {
+	margin:0 0 0.5em 0;
+	font-size:120%;
+	font-weight:normal;
+}

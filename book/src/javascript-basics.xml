@@ -101,14 +101,9 @@ var k = i++;  // post-increment: k equals 2; i equals 3</programlisting></para>
           <programlisting>var foo = 1;
 var bar = '2';
 
-console.log(foo + bar);  // 12</programlisting>
+console.log(foo + bar);  // 12. uh oh</programlisting>
         </para>
       </example>
-
-      <remark><xref
-      linkend="javascript-basics.examples.addition-concatenation" /> shows how
-      adding two numbers can have unexpected results if one of the numbers is
-      a string.</remark>
 
       <example id="javascript-basics.examples.force-number">
         <title>Forcing a string to act as a number</title>
@@ -116,12 +111,9 @@ console.log(foo + bar);  // 12</programlisting>
         <programlisting>var foo = 1;
 var bar = '2';
 
+// coerce the string to a number
 console.log(foo + parseInt(bar));</programlisting>
       </example>
-
-      <remark><xref linkend="javascript-basics.examples.force-number" /> shows
-      how to coerce a string back to a number using
-      <command>parseInt()</command>.</remark>
     </section>
 
     <section>
@@ -157,6 +149,26 @@ baz &amp;&amp; foo;   // returns 1, which is true</programlisting>
       linkend="javascript-basics.sections.truthy-falsy" /> for more details on
       which values evaluate to <code>true</code> and which evaluate to
       <code>false</code>.</para>
+
+      <note>
+        <para>You'll sometimes see developers use these logical operators for
+        flow control instead of using <code>if</code> statements. For
+        example:</para>
+
+        <programlisting>// do something with foo if foo is truthy
+foo &amp;&amp; doSomething(foo);
+
+// set bar to baz if baz is truthy;
+// otherwise, set it to the return
+// value of createBar()
+var bar = baz || createBar();</programlisting>
+
+        <para>This style is quite elegant and pleasantly terse; that said, it
+        can be really hard to read, especially for beginners. I bring it up
+        here so you'll recognize it in code you read, but I don't recommend
+        using it until you're extremely comfortable with what it means and how
+        you can expect it to behave.</para>
+      </note>
     </section>
 
     <section>
@@ -873,7 +885,7 @@ bim();  // bim is not defined outside of the anonymous function,
     is defined, resulting in all clicks alerting 4.</para>
 
     <example>
-      <title>How to lock in the value of i?</title>
+      <title>How to lock in the value of <code>i</code>?</title>
 
       <programlisting>/* this won't behave as we want it to; */
 /* every click will alert 4 */
@@ -885,7 +897,7 @@ for (var i=0; i&lt;5; i++) {
     </example>
 
     <example>
-      <title>Locking in the value of i with a closure</title>
+      <title>Locking in the value of <code>i</code> with a closure</title>
 
       <programlisting>/* fix: “close” the value of i inside createFunction, so it won't change */
 var createFunction = function(i) {

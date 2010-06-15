@@ -121,22 +121,21 @@ console.log('hello');
 
     <itemizedlist>
       <listitem>
-        <para><command>console.log()</command> for sending general log
+        <para><code>console.log()</code> for sending general log
         messages</para>
       </listitem>
 
       <listitem>
-        <para><command>console.dir()</command> for logging a browseable
+        <para><code>console.dir()</code> for logging a browseable
         object</para>
       </listitem>
 
       <listitem>
-        <para><command>console.warn()</command> for logging warnings</para>
+        <para><code>console.warn()</code> for logging warnings</para>
       </listitem>
 
       <listitem>
-        <para><command>console.error()</command> for logging error
-        messages</para>
+        <para><code>console.error()</code> for logging error messages</para>
       </listitem>
     </itemizedlist>
 

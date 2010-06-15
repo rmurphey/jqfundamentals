@@ -98,17 +98,37 @@ $('div:gt(2)');        // all except the first three divs
 $('div:animated');     // all currently animated divs</programlisting>
     </example>
 
-    <note>
-      <para>Choosing good selectors is one of the most important things you
-      can do to improve the performance of your JavaScript. A little
-      specificity -- for example, including an element type such as
-      <code>div</code> when selecting elements by class name -- can go a long
-      way. Generally, any time you can give jQuery a hint about where it might
-      expect to find what you're looking for, you should. On the other hand,
-      too much specificity can be a bad thing. A selector such as
-      <code>#myTable thead tr th.special</code> is overkill if a selector such
-      as <code>#myTable th.special</code> will get you what you want.</para>
-    </note>
+    <sidebar>
+      <title>Choosing Selectors</title>
+
+      <para>Choosing good selectors is one way to improve the performance of
+      your JavaScript. A little specificity — for example, including an
+      element type such as <code>div</code> when selecting elements by class
+      name — can go a long way. Generally, any time you can give jQuery a hint
+      about where it might expect to find what you're looking for, you should.
+      On the other hand, too much specificity can be a bad thing. A selector
+      such as <code>#myTable thead tr th.special</code> is overkill if a
+      selector such as <code>#myTable th.special</code> will get you what you
+      want.</para>
+
+      <para>jQuery offers many attribute-based selectors, allowing you to make
+      selections based on the content of arbitrary attributes using simplified
+      regular expressions. </para>
+
+      <programlisting>// find all &lt;a&gt;s whose rel attribute
+// ends with "thinger"
+$("a[rel$='thinger']");</programlisting>
+
+      <para>While these can be useful in a pinch, they can also be extremely
+      slow — I once wrote an attribute-based selector that locked up my page
+      for multiple seconds. Wherever possible, make your selections using IDs,
+      class names, and tag names.</para>
+
+      <para>Want to know more? <link
+      xlink:href="http://paulirish.com/perf">Paul Irish has a great
+      presentation about improving performance in JavaScript</link>, with
+      several slides focused specifically on selector performance.</para>
+    </sidebar>
 
     <section>
       <title>Does My Selection Contain Any Elements?</title>
