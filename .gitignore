@@ -2,3 +2,4 @@ outline.txt
 book/scripts/lib*
 book/*.xml~
 book/pub/fo/jquery-fundamentals-book.fo
+old/*
