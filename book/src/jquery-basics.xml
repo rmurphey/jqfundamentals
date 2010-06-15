@@ -37,7 +37,7 @@
 });</programlisting>
     </example>
 
-    <para>You can also passed a name function to
+    <para>You can also passed a named function to
     <code>$(document).ready()</code> instead of passing an anonymous
     function.</para>
 
@@ -113,7 +113,7 @@ $('div:animated');     // all currently animated divs</programlisting>
 
       <para>jQuery offers many attribute-based selectors, allowing you to make
       selections based on the content of arbitrary attributes using simplified
-      regular expressions. </para>
+      regular expressions.</para>
 
       <programlisting>// find all &lt;a&gt;s whose rel attribute
 // ends with "thinger"
