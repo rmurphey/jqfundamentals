@@ -1,8 +1,6 @@
 (function($) {
 	$.fn.stripe = function(color) {
-		var $table = this;
-		$table.find('tbody tr:odd td').css('backgroundColor', color);
-		return $table;
+		return this.find('tbody tr:odd td').css('backgroundColor', color);
 	};
 })(jQuery);
 

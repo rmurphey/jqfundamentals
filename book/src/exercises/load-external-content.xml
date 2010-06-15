@@ -15,25 +15,27 @@
 
   <orderedlist>
     <listitem>
-      <para>Create a target div after the headline for each blog post.</para>
+      <para>Create a target div after the headline for each blog post and
+      store a reference to it on the headline element using
+      <code>$.fn.data</code>.</para>
     </listitem>
 
     <listitem>
-      <para>Use the <code>$.fn.load</code> method to load
-      <filename>/exercises/data/blog.html</filename>; use a selector to
-      indicate which elements you need from the file for the given post, and
-      load them into the target div.</para>
+      <para>Bind a click event to the headline that will use the
+      <code>$.fn.load</code> method to load the appropriate content from
+      <filename>/exercises/data/blog.html</filename> into the target div.
+      Don't forget to prevent the default action of the click event.</para>
     </listitem>
   </orderedlist>
 
   <para>Note that each blog headline in index.html includes a link to the
   post. You'll need to leverage the href of that link to get the proper
   content from blog.html. Once you have the href, here's one way to process it
-  into an ID:</para>
+  into an ID that you can use as a selector in <code>$.fn.load</code>:</para>
 
   <programlisting>var href = 'blog.html#post1';
 var tempArray = href.split('#');
-var id = tempArray[1];</programlisting>
+var id = '#' + tempArray[1];</programlisting>
 
   <para>Remember to make liberal use of <code>console.log</code> to make sure
   you're on the right path!</para>
