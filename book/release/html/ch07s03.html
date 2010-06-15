@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>jQuery's Ajax-Related Methods</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch07.html" title="Chapter 7. Ajax" /><link rel="prev" href="ch07s02.html" title="Key Concepts" /><link rel="next" href="ch07s04.html" title="Ajax and Forms" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">jQuery's Ajax-Related Methods</th></tr><tr><td align="left"><a accesskey="p" href="ch07s02.html">Prev</a> </td><th align="center" width="60%">Chapter 7. Ajax</th><td align="right"> <a accesskey="n" href="ch07s04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="jQuery's Ajax-Related Methods"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10AD3" />jQuery's Ajax-Related Methods</h2></div></div></div><p>While jQuery does offer many Ajax-related convenience methods, the
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>jQuery's Ajax-Related Methods</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch07.html" title="Chapter 7. Ajax" /><link rel="prev" href="ch07s02.html" title="Key Concepts" /><link rel="next" href="ch07s04.html" title="Ajax and Forms" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">jQuery's Ajax-Related Methods</th></tr><tr><td align="left"><a accesskey="p" href="ch07s02.html">Prev</a> </td><th align="center" width="60%">Chapter 7. Ajax</th><td align="right"> <a accesskey="n" href="ch07s04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="jQuery's Ajax-Related Methods"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10B0D" />jQuery's Ajax-Related Methods</h2></div></div></div><p>While jQuery does offer many Ajax-related convenience methods, the
     core <code class="code">$.ajax</code> method is at the heart of all of them, and
     understanding it is imperative. We'll review it first, and then touch
     briefly on the convenience methods.</p><p class="remark"><i><span class="remark">I generally use the $.ajax method and do not use convenience
     methods. As you'll see, it offers features that the convenience methods do
-    not, and its syntax is more easily understandable, in my opinion.</span></i></p><div class="section" title="$.ajax"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10ADD" />$.ajax</h3></div></div></div><p>jQuery’s core <code class="code">$.ajax</code> method is a powerful and
+    not, and its syntax is more easily understandable, in my opinion.</span></i></p><div class="section" title="$.ajax"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10B17" />$.ajax</h3></div></div></div><p>jQuery’s core <code class="code">$.ajax</code> method is a powerful and
       straightforward way of creating Ajax requests. It takes a configuration
       object that contains all the instructions jQuery requires to complete
       the request. The <code class="code">$.ajax</code> method is particularly valuable
       because it offers the ability to specify both success and failure
       callbacks. Also, its ability to take a configuration object that can be
       defined separately makes it easier to write reusable code. For complete
-      documentation of the configuration options, visit <a class="link" href="http://api.jquery.com/jQuery.ajax/" target="">http://api.jquery.com/jQuery.ajax/</a>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10AEC" /><p class="title"><b>Example 7.1. Using the core $.ajax method</b></p><div class="example-contents"><pre class="programlisting">$.ajax({
+      documentation of the configuration options, visit <a class="link" href="http://api.jquery.com/jQuery.ajax/" target="">http://api.jquery.com/jQuery.ajax/</a>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10B26" /><p class="title"><b>Example 7.1. Using the core $.ajax method</b></p><div class="example-contents"><pre class="programlisting">$.ajax({
     // the URL for the request
     url : 'post.php',
 
@@ -51,7 +51,7 @@
         requests, make sure your server is sending back the data type you're
         asking for, and verify that the Content-type header is accurate for
         the data type. For example, for JSON data, the Content-type header
-        should be <code class="code">application/json</code>.</p></div><div class="section" title="$.ajax Options"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10AFA" /><code class="code">$.ajax</code> Options</h4></div></div></div><p>There are many, many options for the $.ajax method, which is
+        should be <code class="code">application/json</code>.</p></div><div class="section" title="$.ajax Options"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10B34" /><code class="code">$.ajax</code> Options</h4></div></div></div><p>There are many, many options for the $.ajax method, which is
         part of its power. For a complete list of options, visit <a class="link" href="http://api.jquery.com/jQuery.ajax/" target="">http://api.jquery.com/jQuery.ajax/</a>;
         here are several that you will use frequently:</p><div class="variablelist"><dl><dt><span class="term">async</span></dt><dd><p>Set to <code class="code">false</code> if the request should be sent
               synchronously. Defaults to <code class="code">true</code>. Note that if you
@@ -81,7 +81,7 @@
               "GET". Other request types, such as "PUT" and "DELETE" can be
               used, but they may not be supported by all browsers.</p></dd><dt><span class="term">url</span></dt><dd><p>The URL for the request.</p></dd></dl></div><p>The <code class="code">url</code> option is the only required property of the
         <code class="code">$.ajax</code> configuration object; all other properties are
-        optional.</p></div></div><div class="section" title="Convenience Methods"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10B75" />Convenience Methods</h3></div></div></div><p>If you don't need the extensive configurability of
+        optional.</p></div></div><div class="section" title="Convenience Methods"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10BAF" />Convenience Methods</h3></div></div></div><p>If you don't need the extensive configurability of
       <code class="code">$.ajax</code>, and you don't care about handling errors, the Ajax
       convenience functions provided by jQuery can be useful, terse ways to
       accomplish Ajax requests. These methods are just "wrappers" around the
@@ -96,7 +96,7 @@
             JavaScript object if the data type was JSON), as well as the text
             status of the request and the raw request object.</p></dd><dt><span class="term">data type</span></dt><dd><p>The type of data you expect back from the server.
             Optional.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This option is only applicable for methods that don't
-              already specify the data type in their name.</p></div></dd></dl></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10BC5" /><p class="title"><b>Example 7.2. Using jQuery's Ajax convenience methods</b></p><div class="example-contents"><pre class="programlisting">// get plain text or html
+              already specify the data type in their name.</p></div></dd></dl></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10BFF" /><p class="title"><b>Example 7.2. Using jQuery's Ajax convenience methods</b></p><div class="example-contents"><pre class="programlisting">// get plain text or html
 $.get('/users.php', { userId : 1234 }, function(resp) {
     console.log(resp);
 });
@@ -111,12 +111,12 @@ $.getJSON('/details.php', function(resp) {
     $.each(resp, function(k, v) {
         console.log(k + ' : ' + v);
     });
-});</pre></div></div><br class="example-break" /></div><div class="section" title="$.fn.load"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10BCB" /><code class="code">$.fn.load</code></h3></div></div></div><p>The <code class="code">$.fn.load</code> method is unique among jQuery’s Ajax
+});</pre></div></div><br class="example-break" /></div><div class="section" title="$.fn.load"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10C05" /><code class="code">$.fn.load</code></h3></div></div></div><p>The <code class="code">$.fn.load</code> method is unique among jQuery’s Ajax
       methods in that it is called on a selection. The <code class="code">$.fn.load</code>
       method fetches HTML from a URL, and uses the returned HTML to populate
       the selected element(s). In addition to providing a URL to the method,
       you can optionally provide a selector; jQuery will fetch only the
-      matching content from the returned HTML.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10BD7" /><p class="title"><b>Example 7.3. Using <code class="code">$.fn.load</code> to populate an element</b></p><div class="example-contents"><pre class="programlisting">$('#newContent').load('/foo.html');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10BDF" /><p class="title"><b>Example 7.4. Using <code class="code">$.fn.load</code> to populate an element based on a
+      matching content from the returned HTML.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10C11" /><p class="title"><b>Example 7.3. Using <code class="code">$.fn.load</code> to populate an element</b></p><div class="example-contents"><pre class="programlisting">$('#newContent').load('/foo.html');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10C19" /><p class="title"><b>Example 7.4. Using <code class="code">$.fn.load</code> to populate an element based on a
         selector</b></p><div class="example-contents"><pre class="programlisting">$('#newContent').load('/foo.html <span class="bold"><strong>#myDiv h1:first</strong></span>', function(html) {
   alert('Content updated!');
 });</pre></div></div><br class="example-break" /></div></div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">

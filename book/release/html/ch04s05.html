@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Increasing Performance with Event Delegation</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch04.html" title="Chapter 4. Events" /><link rel="prev" href="ch04s04.html" title="Triggering Event Handlers" /><link rel="next" href="ch04s06.html" title="Event Helpers" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Increasing Performance with Event Delegation</th></tr><tr><td align="left"><a accesskey="p" href="ch04s04.html">Prev</a> </td><th align="center" width="60%">Chapter 4. Events</th><td align="right"> <a accesskey="n" href="ch04s06.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Increasing Performance with Event Delegation"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10707" />Increasing Performance with Event Delegation</h2></div></div></div><p>You'll frequently use jQuery to add new elements to the page, and
-    when you do, you may need to bind events to those new elements -- events
-    you already bound to similar elements that were on the page originally.
-    Instead of repeating your event binding every time you add elements to the
-    page, you can use event delegation. With event delegation, you bind your
-    event to a container element, and then when the event occurs, you look to
-    see which contained element it occurred on. If this sounds complicated,
-    luckily jQuery makes it easy with its <code class="code">$.fn.live</code> and
-    <code class="code">$.fn.delegate</code> methods.</p><p>While most people discover event delegation while dealing with
-    elements added to the page later, it has some performance benefits even if
-    you never add more elements to the page. The time required to bind event
-    handlers to hundreds of individual elements is non-trivial; if you have a
-    large set of elements, you should consider delegating related events to a
-    container element.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The <code class="code">$.fn.live</code> method was introduced in jQuery 1.3, and at
-      that time only certain event types were supported. As of jQuery 1.4.2,
-      the <code class="code">$.fn.delegate</code> method is available, and is the preferred
-      method.</p></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1071D" /><p class="title"><b>Example 4.10. Event delegation using <code class="code">$.fn.delegate</code></b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList').delegate('li', 'click', function(e) {
-    var $myListItem = $(this);
-    // ...
-});</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10724" /><p class="title"><b>Example 4.11. Event delegation using <code class="code">$.fn.live</code></b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList li').live('click', function(e) {
-    var $myListItem = $(this);
-    // ...
-});</pre></div></div><br class="example-break" /><div class="section" title="Unbinding Delegated Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1072B" />Unbinding Delegated Events</h3></div></div></div><p>If you need to remove delegated events, you can't simply unbind
-      them. Instead, use <code class="code">$.fn.undelegate</code> for events connected with
-      <code class="code">$.fn.delegate</code>, and <code class="code">$.fn.die</code> for events connected with
-      <code class="code">$.fn.live</code>. As with bind, you can optionally pass in the name of
-      the bound function.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1073C" /><p class="title"><b>Example 4.12. Unbinding delegated events</b></p><div class="example-contents"><pre class="programlisting">$('#myUnorderedList').undelegate('li', 'click');
-$('#myUnorderedList li').die('click');</pre></div></div><br class="example-break" /></div></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch04s04.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch04.html">Up</a></td><td align="right"> <a accesskey="n" href="ch04s06.html">Next</a></td></tr><tr><td valign="top" align="left">Triggering Event Handlers </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Event Helpers</td></tr></table></div></div></div></body></html>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Avoiding Conflicts with Other Libraries</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch04.html" title="Chapter 4. jQuery Core" /><link rel="prev" href="ch04s04.html" title="Feature &amp; Browser Detection" /><link rel="next" href="ch05.html" title="Chapter 5. Events" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Avoiding Conflicts with Other Libraries</th></tr><tr><td align="left"><a accesskey="p" href="ch04s04.html">Prev</a> </td><th align="center" width="60%">Chapter 4. jQuery Core</th><td align="right"> <a accesskey="n" href="ch05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Avoiding Conflicts with Other Libraries"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10789" />Avoiding Conflicts with Other Libraries</h2></div></div></div><p>If you are using another JavaScript library that uses the
+    <code class="code">$</code> variable, you can run into conflicts with jQuery. In order
+    to avoid these conflicts, you need to put jQuery in no-conflict mode
+    immediately after it is loaded onto the page and before you attempt to use
+    jQuery in your page.</p><p>When you put jQuery into no-conflict mode, you have the option of
+    assigning a variable name to replace <code class="code">$</code>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10796" /><p class="title"><b>Example 4.3. Putting jQuery into no-conflict mode</b></p><div class="example-contents"><pre class="programlisting">&lt;script src="prototype.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.js"&gt;&lt;/script&gt;
+&lt;script&gt;var $j = jQuery.noConflict();&lt;/script&gt;</pre></div></div><br class="example-break" /><p>You can continue to use the standard <code class="code">$</code> by wrapping your
+    code in a self-executing anonymous function; this is a standard pattern
+    for plugin authoring, where the author cannot know whether another library
+    will have taken over the <code class="code">$</code>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N107A3" /><p class="title"><b>Example 4.4. Using the $ inside a self-executing anonymous function</b></p><div class="example-contents"><pre class="programlisting">&lt;script src="prototype.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+jQuery.noConflict();
+
+(function($) {
+   // your code here, using the $
+})(jQuery);
+&lt;/script&gt;</pre></div></div><br class="example-break" /></div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
+    Rebecca Murphey</a>, released under the 
+  <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
+	Creative Commons Attribution-Share Alike 3.0 United States license</a>.
+  </p><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch04s04.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch04.html">Up</a></td><td align="right"> <a accesskey="n" href="ch05.html">Next</a></td></tr><tr><td valign="top" align="left">Feature &amp; Browser Detection </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Chapter 5. Events</td></tr></table></div></div></div></body></html>
