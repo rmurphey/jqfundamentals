@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+	    <title>Write a Table-Striping Plugin</title>
+
+	    <para>Open the file /exercises/index.html in your browser. Use the file
+	    /exercises/js/tablePlugin.js. Your task is to write a plugin called
+	    "stripe" that you can call on any table element. When the plugin is called
+	    on a table element, it should change the color of odd rows in the table
+	    body to a user-specified color.</para>
+
+	    <programlisting>$('#myTable').stripe('#cccccc');</programlisting>
+
+	    <para>Don't forget to return the table so other methods can be chained
+	    after the plugin!</para>
+</section>

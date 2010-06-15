@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Utility Methods</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch06.html" title="Chapter 6. jQuery Core" /><link rel="prev" href="ch06.html" title="Chapter 6. jQuery Core" /><link rel="next" href="ch06s03.html" title="Feature &amp; Browser Detection" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Utility Methods</th></tr><tr><td align="left"><a accesskey="p" href="ch06.html">Prev</a> </td><th align="center" width="60%">Chapter 6. jQuery Core</th><td align="right"> <a accesskey="n" href="ch06s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Utility Methods"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1073F" />Utility Methods</h2></div></div></div><p>jQuery offers several utility methods in the <code class="code">$</code>
-    namespace. These methods are helpful for accomplishing routine programming
-    tasks. Below are examples of a few of the utility methods; for a complete
-    reference on jQuery utility methods, visit <a class="link" href="http://api.jquery.com/category/utilities/" target="">http://api.jquery.com/category/utilities/</a>.</p><div class="variablelist"><dl><dt><span class="term">$.trim</span></dt><dd><p>Removes leading and trailing whitespace.</p><pre class="programlisting">$.trim('    lots of extra whitespace    ');
-// returns 'lots of extra whitespace'</pre></dd><dt><span class="term">$.each</span></dt><dd><p>Iterates over arrays and objects.</p><pre class="programlisting">$.each([ 'foo', 'bar', 'baz' ], function(idx, val) {
-    console.log('element ' + idx + 'is ' + val);
-});
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Built-in Effects</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch06.html" title="Chapter 6. Effects" /><link rel="prev" href="ch06.html" title="Chapter 6. Effects" /><link rel="next" href="ch06s03.html" title="Custom Effects with $.fn.animate" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Built-in Effects</th></tr><tr><td align="left"><a accesskey="p" href="ch06.html">Prev</a> </td><th align="center" width="60%">Chapter 6. Effects</th><td align="right"> <a accesskey="n" href="ch06s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Built-in Effects"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10909" />Built-in Effects</h2></div></div></div><p>Frequently used effects are built into jQuery as methods:</p><div class="variablelist"><dl><dt><span class="term">$.fn.show</span></dt><dd><p>Show the selected element.</p></dd><dt><span class="term">$.fn.hide</span></dt><dd><p>Hide the selected elements.</p></dd><dt><span class="term">$.fn.fadeIn</span></dt><dd><p>Animate the opacity of the selected elements to 100%.</p></dd><dt><span class="term">$.fn.fadeOut</span></dt><dd><p>Animate the opacity of the selected elements to 0%.</p></dd><dt><span class="term">$.fn.slideDown</span></dt><dd><p>Display the selected elements with a vertical sliding
+          motion.</p></dd><dt><span class="term">$.fn.slideUp</span></dt><dd><p>Hide the selected elements with a vertical sliding
+          motion.</p></dd><dt><span class="term">$.fn.slideToggle</span></dt><dd><p>Show or hide the selected elements with a vertical sliding
+          motion, depending on whether the elements are currently
+          visible.</p></dd></dl></div><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10939" /><p class="title"><b>Example 6.1. A basic use of a built-in effect</b></p><div class="example-contents"><pre class="programlisting">$('h1').show();</pre></div></div><br class="example-break" /><div class="section" title="Changing the Duration of Built-in Effects"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1093E" />Changing the Duration of Built-in Effects</h3></div></div></div><p>With the exception of <code class="code">$.fn.show</code> and
+      <code class="code">$.fn.hide</code>, all of the built-in methods are animated over
+      the course of 400ms by default. Changing the duration of an effect is
+      simple.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10949" /><p class="title"><b>Example 6.2. Setting the duration of an effect</b></p><div class="example-contents"><pre class="programlisting">$('h1').fadeIn(300);      // fade in over 300ms
+$('h1').fadeOut('slow');  // using a built-in speed definition</pre></div></div><br class="example-break" /><div class="section" title="jQuery.fx.speeds"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N1094E" />jQuery.fx.speeds</h4></div></div></div><p>jQuery has an object at <code class="code">jQuery.fx.speeds</code> that
+        contains the default speed, as well as settings for
+        <code class="code">"slow"</code> and <code class="code">"fast"</code>.</p><pre class="programlisting">speeds: {
+    slow: 600,
+    fast: 200,
+    // Default speed
+    _default: 400
+}</pre><p>It is possible to override or add to this object. For example,
+        you may want to change the default duration of effects, or you may
+        want to create your own effects speed.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10960" /><p class="title"><b>Example 6.3. Augmenting <code class="code">jQuery.fx.speeds</code> with custom speed
+          definitions</b></p><div class="example-contents"><pre class="programlisting">jQuery.fx.speeds.blazing = 100;
+jQuery.fx.speeds.turtle = 2000;</pre></div></div><br class="example-break" /></div></div><div class="section" title="Doing Something when an Effect is Done"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10969" />Doing Something when an Effect is Done</h3></div></div></div><p>Often, you'll want to run some code once an animation is done --
+      if you run it before the animation is done, it may affect the quality of
+      the animation, or it may remove elements that are part of the animation.
+      <span class="termdef">[Definition: <em class="firstterm">Callback functions</em> provide a way to
+      register your interest in an event that will happen in the
+      future.]</span> In this case, the event we'll be responding to is the
+      conclusion of the animation. Inside of the callback function, the
+      keyword <code class="code">this</code> refers to the element that the effect was
+      called on; as we did inside of event handler functions, we can turn it
+      into a jQuery object via <code class="code">$(this)</code>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10979" /><p class="title"><b>Example 6.4. Running code when an animation is complete</b></p><div class="example-contents"><pre class="programlisting">$('div.old').fadeOut(300, function() { $(this).remove(); }); </pre></div></div><br class="example-break" /><p>Note that if your selection doesn't return any elements, your
+      callback will never run! You can solve this problem by testing whether
+      your selection returned any elements; if not, you can just run the
+      callback immediately.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10981" /><p class="title"><b>Example 6.5. Run a callback even if there were no elements to
+        animate</b></p><div class="example-contents"><pre class="programlisting">var $thing = $('#nonexistent');
 
-$.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
-    console.log(k + ' : ' + v);
-});</pre></dd><dt><span class="term">$.inArray</span></dt><dd><p>Returns a value's index in an array, or -1 if the value is not
-          in the array.</p><pre class="programlisting">var myArray = [ 1, 2, 3, 5 ];
+var cb = function() {
+    console.log('done!');
+};
 
-if ($.inArray(4, myArray) !== -1) {
-    console.log('found it!');
-}</pre></dd><dt><span class="term">$.extend</span></dt><dd><p>Changes the properties of the first object using the
-          properties of subsequent objects.</p><pre class="programlisting">var firstObject = { foo : 'bar', a : 'b' };
-var secondObject = { foo : 'baz' };
-
-var newObject = $.extend(firstObject, secondObject);
-console.log(firstObject.foo); // 'baz'
-console.log(newObject.foo);   // 'baz'</pre><p>If you don't want to change any of the objects you pass to
-          <code class="code">$.extend</code>, pass an empty object as the first
-          argument.</p><pre class="programlisting">var firstObject = { foo : 'bar', a : 'b' };
-var secondObject = { foo : 'baz' };
-
-var newObject = $.extend({}, firstObject, secondObject);
-console.log(firstObject.foo); // 'bar'
-console.log(newObject.foo);   // 'baz'</pre></dd></dl></div></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch06.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch06.html">Up</a></td><td align="right"> <a accesskey="n" href="ch06s03.html">Next</a></td></tr><tr><td valign="top" align="left">Chapter 6. jQuery Core </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Feature &amp; Browser Detection</td></tr></table></div></div></div></body></html>
+if ($thing.length) {
+    $thing.fadeIn(300, cb);
+} else {
+    cb();
+}</pre></div></div><br class="example-break" /></div></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch06.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch06.html">Up</a></td><td align="right"> <a accesskey="n" href="ch06s03.html">Next</a></td></tr><tr><td valign="top" align="left">Chapter 6. Effects </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Custom Effects with <code class="code">$.fn.animate</code></td></tr></table></div></div></div></body></html>

@@ -648,17 +648,12 @@ $.getJSON('/details.php', function(resp) {
     </example>
   </section>
 
-  <simplesect>
+  <section>
     <title>Exercises</title>
 
-    <itemizedlist>
-        <listitem>
-          <para><xref linkend="exercises.sections.ajax" /></para>
-        </listitem>
+    <xi:include href="exercises/load-external-content.xml"
+                xpointer="element(/1)" />
 
-        <listitem>
-          <para><xref linkend="exercises.sections.json" /></para>
-        </listitem>
-    </itemizedlist>
-  </simplesect>
+    <xi:include href="exercises/load-json.xml" xpointer="element(/1)" />
+  </section>
 </chapter>

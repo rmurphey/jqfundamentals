@@ -277,4 +277,14 @@ if ($thing.length) {
       </varlistentry>
     </variablelist>
   </section>
+
+  <section>
+    <title>Exercises</title>
+
+    <xi:include href="exercises/reveal-hidden-text.xml" xpointer="element(/1)" />
+
+    <xi:include href="exercises/dropdown-menus.xml" xpointer="element(/1)" />
+
+    <xi:include href="exercises/slideshow.xml" xpointer="element(/1)" />
+  </section>
 </chapter>

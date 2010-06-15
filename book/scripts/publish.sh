@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input=docs/jquery-fundamentals-book.xml
+input=src/jquery-fundamentals-book.xml
 
 base=`pwd`
 
@@ -75,9 +75,6 @@ java \
     -param highlight.xslthl.config "file://$absolute/scripts/libs/xslthl/highlighters/xslthl-config.xml" \
     -param highlight.source 1
     
-:'
-#lets skip fop stuff for now
-
 java \
 	-Djava.endorsed.dirs=$xalan  \
     -cp "$xalan/xalan.jar;$xalan/xml-apis.jar;$xalan/xercesImpl.jar;$xsl/extensions/xalan27.jar;$xslthlJar" \
@@ -100,4 +97,3 @@ java \
 cd $base
 
 #rm -rf $fop/imgs
-'

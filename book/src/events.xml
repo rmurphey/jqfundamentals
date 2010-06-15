@@ -13,14 +13,14 @@
 
     <para>jQuery provides simple methods for attaching event handlers to
     selections. When an event occurs, the provided function is executed.
-    Inside the function, this refers to the element that was clicked. </para>
+    Inside the function, this refers to the element that was clicked.</para>
 
     <para>For details on jQuery events, visit <link
     xlink:href="http://api.jquery.com/category/events/">http://api.jquery.com/category/events/</link>.</para>
 
     <para>The event handling function can receive an event object. This object
     can be used to determine the nature of the event, and to prevent the
-    event’s default behavior. </para>
+    event’s default behavior.</para>
 
     <para>For details on the event object, visit <link
     xlink:href="http://api.jquery.com/category/events/event-object/">http://api.jquery.com/category/events/event-object/</link>.</para>
@@ -32,10 +32,11 @@
     <para>jQuery offers convenience methods for most common events, and these
     are the methods you will see used most often. These methods -- including
     <code>$.fn.click</code>, <code>$.fn.focus</code>, <code>$.fn.blur</code>,
-    <code>$.fn.change</code>, etc. -- are shorthand for jQuery's <code>$.fn.bind</code>
-    method. The bind method is useful for binding the same hadler function to
-    multiple events, and is also used when you want to provide data to the
-    event hander, or when you are working with custom events.</para>
+    <code>$.fn.change</code>, etc. -- are shorthand for jQuery's
+    <code>$.fn.bind</code> method. The bind method is useful for binding the
+    same hadler function to multiple events, and is also used when you want to
+    provide data to the event hander, or when you are working with custom
+    events.</para>
 
     <example>
       <title>Event binding using a convenience method</title>
@@ -72,29 +73,31 @@
 
       <para>Sometimes you need a particular handler to run only once -- after
       that, you may want no handler to run, or you may want a different
-      handler to run. jQuery provides the <code>$.fn.one</code> method for this
-      purpose.</para>
+      handler to run. jQuery provides the <code>$.fn.one</code> method for
+      this purpose.</para>
 
       <example>
-        <title>Switching handlers using the <code>$.fn.one</code> method</title>
+        <title>Switching handlers using the <code>$.fn.one</code>
+        method</title>
 
         <programlisting>$('p').one('click', function() {
     $(this).click(function() { console.log('You clicked this before!'); });
 });</programlisting>
       </example>
 
-      <para>The <code>$.fn.one</code> method is especially useful if you need to do
-      some complicated setup the first time an element is clicked, but not
-      subsequent times.</para>
+      <para>The <code>$.fn.one</code> method is especially useful if you need
+      to do some complicated setup the first time an element is clicked, but
+      not subsequent times.</para>
     </section>
 
     <section>
       <title>Disconnecting Events</title>
 
-      <para>To disconnect an event handler, you use the <code>$.fn.unbind</code>
-      method and pass in the event type to unbind. If you attached a named
-      function to the event, then you can isolate the unbinding to that named
-      function by passing it as the second argument.</para>
+      <para>To disconnect an event handler, you use the
+      <code>$.fn.unbind</code> method and pass in the event type to unbind. If
+      you attached a named function to the event, then you can isolate the
+      unbinding to that named function by passing it as the second
+      argument.</para>
 
       <example>
         <title>Unbinding all click handlers on a selection</title>
@@ -224,12 +227,12 @@ $('p').unbind('.myNamespace'); // unbind all events in the namespace</programlis
     <title>Triggering Event Handlers</title>
 
     <para>jQuery provides a way to trigger the event handlers bound to an
-    element without any user interaction via the <code>$.fn.trigger</code> method.
-    While this method has its uses, it should not be used simply to call a
-    function that was bound as a click handler. Instead, you should store the
-    function you want to call in a variable, and pass the variable name when
-    you do your binding. Then, you can call the function itself whenever you
-    want, without the need for <code>$.fn.trigger</code>.</para>
+    element without any user interaction via the <code>$.fn.trigger</code>
+    method. While this method has its uses, it should not be used simply to
+    call a function that was bound as a click handler. Instead, you should
+    store the function you want to call in a variable, and pass the variable
+    name when you do your binding. Then, you can call the function itself
+    whenever you want, without the need for <code>$.fn.trigger</code>.</para>
 
     <example>
       <title>Triggering an event handler the right way</title>
@@ -270,10 +273,10 @@ foo(); // instead of $('p').trigger('click')</programlisting>
     container element.</para>
 
     <note>
-      <para>The <code>$.fn.live</code> method was introduced in jQuery 1.3, and at
-      that time only certain event types were supported. As of jQuery 1.4.2,
-      the <code>$.fn.delegate</code> method is available, and is the preferred
-      method.</para>
+      <para>The <code>$.fn.live</code> method was introduced in jQuery 1.3,
+      and at that time only certain event types were supported. As of jQuery
+      1.4.2, the <code>$.fn.delegate</code> method is available, and is the
+      preferred method.</para>
     </note>
 
     <example>
@@ -298,10 +301,10 @@ foo(); // instead of $('p').trigger('click')</programlisting>
       <title>Unbinding Delegated Events</title>
 
       <para>If you need to remove delegated events, you can't simply unbind
-      them. Instead, use <code>$.fn.undelegate</code> for events connected with
-      <code>$.fn.delegate</code>, and <code>$.fn.die</code> for events connected with
-      <code>$.fn.live</code>. As with bind, you can optionally pass in the name of
-      the bound function.</para>
+      them. Instead, use <code>$.fn.undelegate</code> for events connected
+      with <code>$.fn.delegate</code>, and <code>$.fn.die</code> for events
+      connected with <code>$.fn.live</code>. As with bind, you can optionally
+      pass in the name of the bound function.</para>
 
       <example>
         <title>Unbinding delegated events</title>
@@ -321,16 +324,16 @@ $('#myUnorderedList li').die('click');</programlisting>
     <section>
       <title><code>$.fn.hover</code></title>
 
-      <para>The <code>$.fn.hover</code> method lets you pass one or two functions
-      to be run when the <code>mouseenter</code> and <code>mouseleave</code>
-      events occur on an element. If you pass one function, it will be run for
-      both events; if you pass two functions, the first will run for
-      <code>mouseenter</code>, and the second will run for
-      <code>mouseleave</code>. </para>
+      <para>The <code>$.fn.hover</code> method lets you pass one or two
+      functions to be run when the <code>mouseenter</code> and
+      <code>mouseleave</code> events occur on an element. If you pass one
+      function, it will be run for both events; if you pass two functions, the
+      first will run for <code>mouseenter</code>, and the second will run for
+      <code>mouseleave</code>.</para>
 
       <note>
-        <para>Prior to jQuery 1.4, the <code>$.fn.hover</code> method required two
-        functions.</para>
+        <para>Prior to jQuery 1.4, the <code>$.fn.hover</code> method required
+        two functions.</para>
       </note>
 
       <example>
@@ -345,11 +348,11 @@ $('#myUnorderedList li').die('click');</programlisting>
     <section>
       <title><code>$.fn.toggle</code></title>
 
-      <para>Much like <code>$.fn.hover</code>, the <code>$.fn.toggle</code> method
-      receives two or more functions; each time the event occurs, the next
-      function in the list is called. Generally, <code>$.fn.toggle</code> is used
-      with just two functions, but technically you can use as many as you'd
-      like.</para>
+      <para>Much like <code>$.fn.hover</code>, the <code>$.fn.toggle</code>
+      method receives two or more functions; each time the event occurs, the
+      next function in the list is called. Generally, <code>$.fn.toggle</code>
+      is used with just two functions, but technically you can use as many as
+      you'd like.</para>
 
       <example>
         <title>The toggle helper function</title>
@@ -364,5 +367,13 @@ $('#myUnorderedList li').die('click');</programlisting>
 );</programlisting>
       </example>
     </section>
+  </section>
+
+  <section>
+    <title>Exercises</title>
+
+    <xi:include href="exercises/input-hint.xml" xpointer="element(/1)" />
+
+    <xi:include href="exercises/tabbed-navigation.xml" xpointer="element(/1)" />
   </section>
 </chapter>

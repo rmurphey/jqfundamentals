@@ -9,24 +9,6 @@
 <xsl:import href="../scripts/libs/docbook-xsl/highlighting/common.xsl"/>
 <xsl:import href="../scripts/libs/docbook-xsl/xhtml-1_1/highlight.xsl"/>
 
-<xsl:template name="user.header.content">
-  <link>
-    <xsl:attribute name="href">http://fonts.googleapis.com/css?family=Crimson+Text</xsl:attribute>
-    <xsl:attribute name="rel">stylesheet</xsl:attribute>
-    <xsl:attribute name="type">text/css</xsl:attribute>
-  </link>
-  <link>
-    <xsl:attribute name="href">http://fonts.googleapis.com/css?family=Molengo</xsl:attribute>
-    <xsl:attribute name="rel">stylesheet</xsl:attribute>
-    <xsl:attribute name="type">text/css</xsl:attribute>
-  </link>
-  <link>
-    <xsl:attribute name="href">http://fonts.googleapis.com/css?family=Inconsolata</xsl:attribute>
-    <xsl:attribute name="rel">stylesheet</xsl:attribute>
-    <xsl:attribute name="type">text/css</xsl:attribute>
-  </link>
-</xsl:template>
-
 <xsl:param name="html.stylesheet">blueprint.css style.css</xsl:param>
 
 <xsl:param name="generate.toc">

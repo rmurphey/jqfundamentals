@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+	    <title>Create a Slideshow</title>
+
+	    <para>Open the file <filename>/exercises/index.html</filename> in your
+	    browser. Use the file <filename>/exercises/js/slideshow.js</filename>.
+	    Your task is to take a plain semantic HTML page and enhance it with
+	    JavaScript by adding a slideshow.</para>
+
+	    <orderedlist>
+	      <listitem>
+	        <para>Move the #slideshow element to the top of the body.</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Write code to cycle through the list items inside the element;
+	        fade one in, display it for a few seconds, then fade it out and fade
+	        in the next one.</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>When you get to the end of the list, start again at the
+	        beginning.</para>
+	      </listitem>
+	    </orderedlist>
+
+	    <para>For an extra challenge, create a navigation area under the slideshow
+	    that shows how many images there are and which image you're currently
+	    viewing.</para>
+</section>

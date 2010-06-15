@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>JavaScript Debugging</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch02.html" title="Chapter 2. Welcome" /><link rel="prev" href="ch02s03.html" title="Adding JavaScript to Your Page" /><link rel="next" href="ch02s05.html" title="Conventions used in this book" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">JavaScript Debugging</th></tr><tr><td align="left"><a accesskey="p" href="ch02s03.html">Prev</a> </td><th align="center" width="60%">Chapter 2. Welcome</th><td align="right"> <a accesskey="n" href="ch02s05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="JavaScript Debugging"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10304" />JavaScript Debugging</h2></div></div></div><p>A debugging tool is essential for JavaScript development. Firefox
-    provides a debugger via the Firebug extension; Safari and Chrome provide
-    built-in consoles.</p><p>Each console offers:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p>single- and multi-line editors for experimenting with
-        JavaScript</p></li><li class="listitem"><p>an inspector for looking at the generated source of your
-        page</p></li><li class="listitem"><p>a Network or Resources view, to examine network requests</p></li></ul></div><p>When you are writing JavaScript code, you can use the following
-    methods to send messages to the console:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p><span class="command"><strong>console.log()</strong></span> for sending general log
-        messages</p></li><li class="listitem"><p><span class="command"><strong>console.dir()</strong></span> for logging a browseable
-        object</p></li><li class="listitem"><p><span class="command"><strong>console.warn()</strong></span> for logging warnings</p></li><li class="listitem"><p><span class="command"><strong>console.error()</strong></span> for logging error
-        messages</p></li></ul></div><p>Other console methods are also available, though they may differ
-    from one browser to another. The consoles also provide the ability to set
-    break points and watch expressions in your code for debugging
-    purposes.</p></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch02s03.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch02.html">Up</a></td><td align="right"> <a accesskey="n" href="ch02s05.html">Next</a></td></tr><tr><td valign="top" align="left">Adding JavaScript to Your Page </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Conventions used in this book</td></tr></table></div></div></div></body></html>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Flow Control</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch02.html" title="Chapter 2. JavaScript Basics" /><link rel="prev" href="ch02s03.html" title="Operators" /><link rel="next" href="ch02s05.html" title="Loops" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Flow Control</th></tr><tr><td align="left"><a accesskey="p" href="ch02s03.html">Prev</a> </td><th align="center" width="60%">Chapter 2. JavaScript Basics</th><td align="right"> <a accesskey="n" href="ch02s05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Flow Control"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10166" />Flow Control</h2></div></div></div><p>Flow control lets you run a block of code under certain conditions.
+    You should always use braces to mark the start and end of logical
+    blocks.<sup>[<a href="#ftn.N1016B" id="N1016B" class="footnote">1</a>]</sup></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10171" /><p class="title"><b>Example 2.12. Flow control</b></p><div class="example-contents"><pre class="programlisting">var foo = true;
+var bar = false;
+
+if (foo) {
+    console.log('hello!');
+}
+
+if (bar) {
+    // this code won't run
+} else if (foo) {
+    // this code will run
+} else {
+    // this code would run if foo and bar were both false
+}</pre></div></div><br class="example-break" /><div class="section" title="Truthy and Falsy Things"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.sections.truthy-falsy" />Truthy and Falsy Things</h3></div></div></div><p>In order to use flow control successfully, it's important to
+      understand which kinds of values are "truthy" and which kinds of values
+      are "falsy." Sometimes, values that seem like they should evaluate one
+      way actually evaluate another.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1017C" /><p class="title"><b>Example 2.13. Values that evaluate to <code class="code">true</code></b></p><div class="example-contents"><pre class="programlisting">'0'; 
+'any string';
+[];  // an empty array
+{};  // an empty object
+1;   // any non-zero number</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10183" /><p class="title"><b>Example 2.14. Values that evaluate to <code class="code">false</code></b></p><div class="example-contents"><pre class="programlisting">0;
+'';  // an empty string
+NaN; // JavaScript's "not-a-number" variable
+null;
+undefined;  // be careful -- undefined can be redefined!</pre></div></div><br class="example-break" /></div><div class="footnotes"><br /><hr /><div class="footnote"><p><sup>[<a href="#N1016B" id="ftn.N1016B" class="para">1</a>] </sup>Strictly speaking, braces aren't required around single-line
+        <code class="code">if</code> statements, but using them consistently, even when
+        they aren't strictly required, makes for vastly more readable
+        code.</p></div></div></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch02s03.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch02.html">Up</a></td><td align="right"> <a accesskey="n" href="ch02s05.html">Next</a></td></tr><tr><td valign="top" align="left">Operators </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Loops</td></tr></table></div></div></div></body></html>

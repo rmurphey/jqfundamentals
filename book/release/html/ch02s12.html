@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Closures</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch02.html" title="Chapter 2. JavaScript Basics" /><link rel="prev" href="ch02s11.html" title="Scope" /><link rel="next" href="ch03.html" title="Chapter 3. jQuery Basics" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Closures</th></tr><tr><td align="left"><a accesskey="p" href="ch02s11.html">Prev</a> </td><th align="center" width="60%">Chapter 2. JavaScript Basics</th><td align="right"> <a accesskey="n" href="ch03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Closures"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10346" />Closures</h2></div></div></div><p>Closures are an extension of the concept of scope — functions have
+    access to variables that were available in the scope where the function
+    was created. If that’s confusing, don’t worry: closures are generally best
+    understood by example.</p><p>In <a class="xref" href="ch02s11.html#javascript-basics.examples.scope-value-change" title="Example 2.35. Functions can &quot;see&quot; changes in variable values after the function is defined">Example 2.35, “Functions can "see" changes in variable values after the function
+      is defined”</a>
+    we saw how functions have access to changing variable values. The same
+    sort of behavior exists with functions defined within loops -- the
+    function "sees" the change in the variable's value even after the function
+    is defined, resulting in all clicks alerting 4.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10350" /><p class="title"><b>Example 2.37. How to lock in the value of i?</b></p><div class="example-contents"><pre class="programlisting">/* this won't behave as we want it to; */
+/* every click will alert 4 */
+for (var i=0; i&lt;5; i++) {
+    $('&lt;p&gt;click me&lt;/p&gt;').appendTo('body').click(function() {
+        alert(i);
+    });
+}</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10355" /><p class="title"><b>Example 2.38. Locking in the value of i with a closure</b></p><div class="example-contents"><pre class="programlisting">/* fix: “close” the value of i inside createFunction, so it won't change */
+var createFunction = function(i) {
+    return function() { alert(i); };
+};
+
+for (var i=0; i&lt;5; i++) {
+    $('p').appendTo('body').click(createFunction(i));
+}</pre></div></div><br class="example-break" /></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch02s11.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch02.html">Up</a></td><td align="right"> <a accesskey="n" href="ch03.html">Next</a></td></tr><tr><td valign="top" align="left">Scope </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Chapter 3. jQuery Basics</td></tr></table></div></div></div></body></html>

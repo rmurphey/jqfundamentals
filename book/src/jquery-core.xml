@@ -12,18 +12,18 @@
     <title><code>$</code> vs <code>$()</code></title>
 
     <para>Until now, we’ve been dealing entirely with methods that are called
-    on a jQuery object. For example: </para>
+    on a jQuery object. For example:</para>
 
     <programlisting>$('h1').remove();</programlisting>
 
     <para>Most jQuery methods are called on jQuery objects as shown above;
     these methods are said to be part of the <code>$.fn</code> namespace, or
-    the “jQuery prototype,” and are best thought of as jQuery object methods.
-    </para>
+    the “jQuery prototype,” and are best thought of as jQuery object
+    methods.</para>
 
     <para>However, there are several methods that do not act on a selection;
     these methods are said to be part of the jQuery namespace, and are best
-    thought of as core jQuery methods. </para>
+    thought of as core jQuery methods.</para>
 
     <para>This distinction can be incredibly confusing to new jQuery users.
     Here’s what you need to remember:</para>
@@ -43,8 +43,8 @@
       </listitem>
     </itemizedlist>
 
-    <para> There are a few cases where object methods and core methods have
-    the same names, such as <code>$.each</code> and <code>$.fn.each</code>. In
+    <para>There are a few cases where object methods and core methods have the
+    same names, such as <code>$.each</code> and <code>$.fn.each</code>. In
     these cases, be extremely careful when reading the documentation that you
     are exploring the correct method.</para>
   </section>
@@ -83,6 +83,11 @@
 $.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
     console.log(k + ' : ' + v);
 });</programlisting>
+
+          <note>
+            <para>There is also a method <code>$.fn.each</code>, which is used
+            for iterating over a selection of elements. </para>
+          </note>
         </listitem>
       </varlistentry>
 
@@ -135,20 +140,19 @@ console.log(newObject.foo);   // 'baz'</programlisting>
 
     <para>Although jQuery eliminates most JavaScript browser quirks, there are
     still occasions when your code needs to know about the browser
-    environment. </para>
+    environment.</para>
 
     <para>jQuery offers the <code>$.support</code> object, as well as the
     deprecated <code>$.browser</code> object, for this purpose. For complete
     documentation on these objects, visit <link
     xlink:href="http://api.jquery.com/jQuery.support/">http://api.jquery.com/jQuery.support/</link>
     and <link
-    xlink:href="http://api.jquery.com/jQuery.browser/">http://api.jquery.com/jQuery.browser/</link>.
-    </para>
+    xlink:href="http://api.jquery.com/jQuery.browser/">http://api.jquery.com/jQuery.browser/</link>.</para>
 
     <para>The <code>$.support</code> object is dedicated to determining what
     features a browser supports; it is recommended as a more “future-proof”
-    method of customizing your JavaScript for different browser environments.
-    </para>
+    method of customizing your JavaScript for different browser
+    environments.</para>
 
     <para>The <code>$.browser</code> object was deprecated in favor of the
     <code>$.support</code> object, but it will not be removed from jQuery
@@ -163,10 +167,10 @@ console.log(newObject.foo);   // 'baz'</programlisting>
     <code>$</code> variable, you can run into conflicts with jQuery. In order
     to avoid these conflicts, you need to put jQuery in no-conflict mode
     immediately after it is loaded onto the page and before you attempt to use
-    jQuery in your page. </para>
+    jQuery in your page.</para>
 
     <para>When you put jQuery into no-conflict mode, you have the option of
-    assigning a variable name to replace <code>$</code>. </para>
+    assigning a variable name to replace <code>$</code>.</para>
 
     <example>
       <title>Putting jQuery into no-conflict mode</title>

@@ -909,23 +909,15 @@ $('#myDiv a:first').attr('href', function() {
 });</programlisting>
       </example>
     </section>
+  </section>
 
-    <simplesect>
-      <title>Exercises</title>
+  <section>
+    <title>Exercises</title>
 
-      <itemizedlist>
-        <listitem>
-          <para><xref linkend="exercises.sections.selecting" /></para>
-        </listitem>
+    <xi:include href="exercises/selecting.xml" xpointer="element(/1)" />
 
-        <listitem>
-          <para><xref linkend="exercises.sections.traversing" /></para>
-        </listitem>
+    <xi:include href="exercises/traversing.xml" xpointer="element(/1)" />
 
-        <listitem>
-          <para><xref linkend="exercises.sections.manipulating" /></para>
-        </listitem>
-      </itemizedlist>
-    </simplesect>
+    <xi:include href="exercises/manipulating.xml" xpointer="element(/1)" />
   </section>
 </chapter>
