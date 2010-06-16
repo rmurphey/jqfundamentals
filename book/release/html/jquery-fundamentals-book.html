@@ -452,7 +452,7 @@ for (var i=0; i&lt;5; i++) {
     writing code that people who aren't experienced with jQuery may
     see.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103D9" /><p class="title"><b>Example 3.2. Shorthand for $(document).ready()</b></p><div class="example-contents"><pre class="programlisting">$(function() {
     console.log('ready!');
-});</pre></div></div><br class="example-break" /><p>You can also passed a name function to
+});</pre></div></div><br class="example-break" /><p>You can also passed a named function to
     <code class="code">$(document).ready()</code> instead of passing an anonymous
     function.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N103E3" /><p class="title"><b>Example 3.3. Passing a named function instead of an anonymous function</b></p><div class="example-contents"><pre class="programlisting">var readyFn = function() {
     // code to run when the document is ready
@@ -476,7 +476,7 @@ $('div:animated');     // all currently animated divs</pre></div></div><br class
       selector such as <code class="code">#myTable th.special</code> will get you what you
       want.</p><p>jQuery offers many attribute-based selectors, allowing you to make
       selections based on the content of arbitrary attributes using simplified
-      regular expressions. </p><pre class="programlisting">// find all &lt;a&gt;s whose rel attribute
+      regular expressions.</p><pre class="programlisting">// find all &lt;a&gt;s whose rel attribute
 // ends with "thinger"
 $("a[rel$='thinger']");</pre><p>While these can be useful in a pinch, they can also be extremely
       slow — I once wrote an attribute-based selector that locked up my page
