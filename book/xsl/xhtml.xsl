@@ -5,9 +5,9 @@
  	version="1.0"> 
 
 
-<xsl:import href="../scripts/libs/docbook-xsl-ns-1.75.0/xhtml-1_1/docbook.xsl"/>
-<xsl:import href="../scripts/libs/docbook-xsl-ns-1.75.0/highlighting/common.xsl"/>
-<xsl:import href="../scripts/libs/docbook-xsl-ns-1.75.0/xhtml-1_1/highlight.xsl"/>
+<xsl:import href="../scripts/libs/docbook-xsl/docbook-xsl-1.75.2/xhtml-1_1/docbook.xsl"/>
+<xsl:import href="../scripts/libs/docbook-xsl/docbook-xsl-1.75.2/highlighting/common.xsl"/>
+<xsl:import href="../scripts/libs/docbook-xsl/docbook-xsl-1.75.2/xhtml-1_1/highlight.xsl"/>
 
 <xsl:param name="html.stylesheet">blueprint.css style.css</xsl:param>
 

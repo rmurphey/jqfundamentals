@@ -31,14 +31,14 @@ fi
 # DocBook NS XSL Stylesheets
 if [ ! -f docbook-xsl.zip ]; then
 	echo "Downloading and extracting DocBook XSL NS"
-	curl -o docbook-xsl.zip http://voxel.dl.sourceforge.net/sourceforge/docbook/docbook-xsl-ns-1.75.0.zip
+	wget -O docbook-xsl.zip http://sourceforge.net/projects/docbook/files/docbook-xsl/1.75.2/docbook-xsl-1.75.2.zip/download
 	unzip docbook-xsl.zip -d docbook-xsl
 fi
 
 # XSL Syntax Highlight
 if [ ! -f xslthl.zip ]; then
 	echo "Downloading and extracting XSLT Syntax Highlighting"
-	curl -o xslthl.zip http://voxel.dl.sourceforge.net/sourceforge/xslthl/xslthl-2.0.1.zip
+	wget -O xslthl.zip http://sourceforge.net/projects/xslthl/files/xslthl/2.0.2/xslthl-2.0.2.zip/download
 	unzip xslthl.zip -d xslthl
 fi
 
