@@ -208,7 +208,7 @@ $("a[rel$='thinger']");</programlisting>
 $('h1').not('.bar');            // h1 elements that don't have a class of bar
 $('ul li').filter('.current');  // unordered list items with class of current
 $('ul li').first();             // just the first unordered list item
-$('ul li').eq(5);               // the fifth </programlisting>
+$('ul li').eq(5);               // the sixth </programlisting>
       </example>
     </section>
 
