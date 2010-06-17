@@ -112,8 +112,16 @@ console.log(foo + bar);  // 12. uh oh</programlisting>
 var bar = '2';
 
 // coerce the string to a number
-console.log(foo + parseInt(bar));</programlisting>
+console.log(foo + Number(bar));</programlisting>
       </example>
+      
+      <para>The Number constructor, when called as a function (like above) will have the effect of casting its argument into a number. You could also use the unary plus operator, which does the same thing:</para>
+      
+        <programlisting>
+// coerce the string to a number (using a unary-plus operator)
+console.log(foo + +bar);</programlisting>
+      </example>
+      
     </section>
 
     <section>
