@@ -7,9 +7,9 @@ base=`pwd`
 # Next is a hack for cross-platform win/linux absolute file for Java
 absolute=`echo $base | sed 's|/\([a-z]\)/|/\1:/|'`
 
-xalan=scripts/libs/xalan-j_2_7_1
-xslthlJar=scripts/libs/xslthl-2.0.1.jar
-xsl=scripts/libs/docbook-xsl-ns-1.75.0
+xalan=scripts/libs/xalan/xalan-j_2_7_1
+xslthlJar=scripts/libs/xslthl/xslthl-2.0.2.jar
+xsl=scripts/libs/docbook-xsl/docbook-xsl-1.75.2
 
 xslChunked=xsl/xhtml-chunked.xsl
 xslAllInOne=xsl/xhtml.xsl
@@ -50,7 +50,7 @@ java \
     -xsl $xslChunked  \
 	-param keep.relative.image.uris 0 \
     -param use.extensions 1 \
-    -param highlight.xslthl.config "file://$absolute/scripts/libs/highlighters/xslthl-config.xml" \
+    -param highlight.xslthl.config "file://$absolute/scripts/libs/xslthl/highlighters/xslthl-config.xml" \
     -param highlight.source 1
 
 #all-in-one html
@@ -64,6 +64,6 @@ java \
     -xsl $xslAllInOne  \
 	-param keep.relative.image.uris 0 \
     -param use.extensions 1 \
-    -param highlight.xslthl.config "file://$absolute/scripts/libs/highlighters/xslthl-config.xml" \
+    -param highlight.xslthl.config "file://$absolute/scripts/libs/xslthl/highlighters/xslthl-config.xml" \
     -param highlight.source 1
     
