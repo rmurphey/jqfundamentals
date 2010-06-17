@@ -44,9 +44,9 @@
     <example>
       <title>Passing a named function instead of an anonymous function</title>
 
-      <programlisting>var readyFn = function() {
+      <programlisting>function readyFn() {
     // code to run when the document is ready
-};
+}
 
 
 $(document).ready(readyFn);</programlisting>
