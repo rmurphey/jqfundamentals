@@ -1,7 +1,7 @@
 # jQuery Fundamentals Training Material #
 This repository contains evolving source material for my jQuery Fundamentals class, including exercises, solutions, and a web-based book. 
 
-If you're looking for the latest release of the book, download the [latest tag](http://github.com/rmurphey/jqfundamentals/downloads) and navigate to /book/release/html/. 
+If you're looking for the latest release of the book, download the [most recent tag tag](http://github.com/rmurphey/jqfundamentals/downloads) and navigate to /book/release/html/. 
 
 ## Contributing ##
 I have released this material under the Creative Commons Attribution-Share Alike 3.0 US license because I am eager to see other people contribute to it. Pull requests are welcome and encouraged!
