@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Conditional Code</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch02.html" title="Chapter 2. JavaScript Basics" /><link rel="prev" href="ch02s03.html" title="Operators" /><link rel="next" href="ch02s05.html" title="Loops" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Conditional Code</th></tr><tr><td align="left"><a accesskey="p" href="ch02s03.html">Prev</a> </td><th align="center" width="60%">Chapter 2. JavaScript Basics</th><td align="right"> <a accesskey="n" href="ch02s05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Conditional Code"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10181" />Conditional Code</h2></div></div></div><p>Sometimes you only want to run a block of code under certain
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Conditional Code</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch02.html" title="Chapter 2. JavaScript Basics" /><link rel="prev" href="ch02s03.html" title="Operators" /><link rel="next" href="ch02s05.html" title="Loops" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Conditional Code</th></tr><tr><td align="left"><a accesskey="p" href="ch02s03.html">Prev</a> </td><th align="center" width="60%">Chapter 2. JavaScript Basics</th><td align="right"> <a accesskey="n" href="ch02s05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Conditional Code"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10184" />Conditional Code</h2></div></div></div><p>Sometimes you only want to run a block of code under certain
     conditions. Flow control — via <code class="code">if</code>, <code class="code">else if</code>, and
     <code class="code">else</code> blocks — lets you run code only under certain
-    conditions. </p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1018F" /><p class="title"><b>Example 2.12. Flow control</b></p><div class="example-contents"><pre class="programlisting">var foo = true;
+    conditions. </p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10192" /><p class="title"><b>Example 2.12. Flow control</b></p><div class="example-contents"><pre class="programlisting">var foo = true;
 var bar = false;
 
 if (bar) {
@@ -23,27 +23,27 @@ if (bar) {
     not have the expected result.</p><div class="section" title="Truthy and Falsy Things"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.sections.truthy-falsy" />Truthy and Falsy Things</h3></div></div></div><p>In order to use flow control successfully, it's important to
       understand which kinds of values are "truthy" and which kinds of values
       are "falsy." Sometimes, values that seem like they should evaluate one
-      way actually evaluate another.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101A8" /><p class="title"><b>Example 2.13. Values that evaluate to <code class="code">true</code></b></p><div class="example-contents"><pre class="programlisting">'0'; 
+      way actually evaluate another.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101AB" /><p class="title"><b>Example 2.13. Values that evaluate to <code class="code">true</code></b></p><div class="example-contents"><pre class="programlisting">'0'; 
 'any string';
 [];  // an empty array
 {};  // an empty object
-1;   // any non-zero number</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101AF" /><p class="title"><b>Example 2.14. Values that evaluate to <code class="code">false</code></b></p><div class="example-contents"><pre class="programlisting">0;
+1;   // any non-zero number</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101B2" /><p class="title"><b>Example 2.14. Values that evaluate to <code class="code">false</code></b></p><div class="example-contents"><pre class="programlisting">0;
 '';  // an empty string
 NaN; // JavaScript's "not-a-number" variable
 null;
-undefined;  // be careful -- undefined can be redefined!</pre></div></div><br class="example-break" /></div><div class="section" title="Conditional Variable Assignment with The Ternary Operator"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N101B6" />Conditional Variable Assignment with The Ternary Operator</h3></div></div></div><p>Sometimes you want to set a variable to a value depending on some
+undefined;  // be careful -- undefined can be redefined!</pre></div></div><br class="example-break" /></div><div class="section" title="Conditional Variable Assignment with The Ternary Operator"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N101B9" />Conditional Variable Assignment with The Ternary Operator</h3></div></div></div><p>Sometimes you want to set a variable to a value depending on some
       condition. You could use an <code class="code">if</code>/<code class="code">else</code> statement,
       but in many cases the ternary operator is more convenient. <span class="termdef">[Definition: The
       <em class="firstterm">ternary operator</em> tests a condition; if the
       condition is true, it returns a certain value, otherwise it returns a
-      different value.]</span></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101C6" /><p class="title"><b>Example 2.15. The ternary operator</b></p><div class="example-contents"><pre class="programlisting">// set foo to 1 if bar is true;
+      different value.]</span></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101C9" /><p class="title"><b>Example 2.15. The ternary operator</b></p><div class="example-contents"><pre class="programlisting">// set foo to 1 if bar is true;
 // otherwise, set foo to 0
 var foo = bar ? 1 : 0;</pre></div></div><br class="example-break" /><p>While the ternary operator can be used without assigning the
-      return value to a variable, this is generally discouraged.</p></div><div class="section" title="Switch Statements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N101CD" />Switch Statements</h3></div></div></div><p>Rather than using a series of if/else if/else blocks, sometimes it
+      return value to a variable, this is generally discouraged.</p></div><div class="section" title="Switch Statements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N101D0" />Switch Statements</h3></div></div></div><p>Rather than using a series of if/else if/else blocks, sometimes it
       can be useful to use a switch statement instead.
       <span class="termdef">[Definition: <em class="firstterm">Switch statements</em> look at the value of a
       variable or expression, and run different blocks of code depending on
-      the value.]</span></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101D6" /><p class="title"><b>Example 2.16. A switch statement</b></p><div class="example-contents"><pre class="programlisting">switch (foo) {
+      the value.]</span></p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N101D9" /><p class="title"><b>Example 2.16. A switch statement</b></p><div class="example-contents"><pre class="programlisting">switch (foo) {
 
     case 'bar':
         alert('the value was bar -- yay!');

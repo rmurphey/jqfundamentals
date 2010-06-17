@@ -51,14 +51,19 @@
     </copyright>
 
     <othercredit>
-      <orgname><link xlink:href="http://http://github.com/rmurphey/jqfundamentals">http://github.com/rmurphey/jqfundamentals</link></orgname>
+      <orgname><link xlink:href="http://github.com/rmurphey/jqfundamentals">http://github.com/rmurphey/jqfundamentals</link></orgname>
     </othercredit>
   </info>
 
   <xi:include href="getting-started.xml" />
 
+	<part>
+		<title>JavaScript 101</title>
     <xi:include href="javascript-basics.xml" />
+	</part>
 
+	<part>
+		<title>jQuery: Basic Concepts</title>
     <xi:include href="jquery-basics.xml" />
 
     <xi:include href="jquery-core.xml" />
@@ -70,5 +75,11 @@
     <xi:include href="ajax.xml" />
 
     <xi:include href="plugins.xml" />
+	</part>
+	
+	<part>
+		<title>jQuery: Advanced Concepts</title>
+		<para>This section is a work in progress.</para>
+	</part>
 
 </book>
