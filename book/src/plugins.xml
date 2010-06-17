@@ -60,11 +60,13 @@
       <title>Creating a plugin to add and remove a class on hover</title>
 
       <programlisting>// defining the plugin
-$.fn.hoverClass = function(c) {
-    return this.hover(
-        function() { $(this).toggleClass(c); }
-    );
-};
+(function($){
+    $.fn.hoverClass = function(c) {
+        return this.hover(
+            function() { $(this).toggleClass(c); }
+        );
+    };
+}(jQuery);
 
 // using the plugin
 $('li').hoverClass('hover');</programlisting>
