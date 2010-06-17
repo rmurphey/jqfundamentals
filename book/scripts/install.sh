@@ -5,10 +5,10 @@
 # Prerequisites:
 #	Java
 
-if [ ! -d "./libs" ]; then
-	mkdir "libs"
+if [ ! -d "./scripts/libs" ]; then
+	mkdir "scripts/libs"
 fi
-cd libs
+cd scripts/libs
 
 # Install necessary components for Docbook Publishing
 #	1) Xalan

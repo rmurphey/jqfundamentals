@@ -4,9 +4,9 @@ base=`pwd`
 
 absolute=`echo $base | sed 's|/\([a-z]\)/|/\1:/|'`
 
-xalan=scripts/libs/xalan
-xslthlJar=scripts/libs/xslthl/xslthl-2.0.1.jar
-xsl=scripts/libs/docbook-xsl
+xalan=scripts/libs/xalan-j_2_7_1
+xslthlJar=scripts/libs/xslthl-2.0.1.jar
+xsl=scripts/libs/docbook-xsl-ns-1.75.0
 xslFO=xsl/fo.xsl
 fop=scripts/libs/fop
 outputFO=release/fo/jquery-fundamentals-book.fo
@@ -34,7 +34,7 @@ java \
     -out $outputFO  \
     -xsl $xslFO  \
     -param use.extensions 1 \
-    -param highlight.xslthl.config "file://$absolute/scripts/libs/xslthl/highlighters/xslthl-config.xml" \
+    -param highlight.xslthl.config "file://$absolute/scripts/libs/highlighters/xslthl-config.xml" \
     -param highlight.source 1
 
 #cp -Rf imgs $fop
@@ -48,4 +48,3 @@ java \
 cd $base
 
 #rm -rf $fop/imgs
-

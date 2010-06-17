@@ -4,9 +4,9 @@
 	xmlns:xslthl="http://xslthl.sf.net"
  	version="1.0"> 
 
-<xsl:import href="../scripts/libs/docbook-xsl/xhtml-1_1/chunk.xsl"/>
-<xsl:import href="../scripts/libs/docbook-xsl/highlighting/common.xsl"/>
-<xsl:import href="../scripts/libs/docbook-xsl/xhtml-1_1/highlight.xsl"/>
+<xsl:import href="../scripts/libs/docbook-xsl-ns-1.75.0/xhtml-1_1/chunk.xsl"/>
+<xsl:import href="../scripts/libs/docbook-xsl-ns-1.75.0/highlighting/common.xsl"/>
+<xsl:import href="../scripts/libs/docbook-xsl-ns-1.75.0/xhtml-1_1/highlight.xsl"/>
 
 <xsl:param name="html.stylesheet">blueprint.css style.css</xsl:param>
 
@@ -29,6 +29,17 @@
     <xsl:attribute name="href">http://creativecommons.org/licenses/by-sa/3.0/us/</xsl:attribute>
 	Creative Commons Attribution-Share Alike 3.0 United States license</a>.
   </p>
+  <script><![CDATA[
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-143877-4']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+  ]]></script>
 </xsl:template>
 	
 <xsl:param name="html.stylesheet">blueprint.css style.css</xsl:param>
