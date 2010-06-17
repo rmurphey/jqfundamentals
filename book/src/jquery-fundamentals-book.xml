@@ -82,6 +82,7 @@
 		<para>This section is a work in progress.</para>
 
 		<xi:include href="code-organization.xml" />
+		<xi:include href="performance.xml" />
 	</part>
 
 </book>
