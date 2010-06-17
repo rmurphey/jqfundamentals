@@ -117,8 +117,10 @@ console.log(foo + Number(bar));</programlisting>
       
       <para>The Number constructor, when called as a function (like above) will have the effect of casting its argument into a number. You could also use the unary plus operator, which does the same thing:</para>
       
+      <example id="javascript-basics.examples.force-number">
+        <title>Forcing a string to act as a number (using the unary-plus operator)</title>
+
         <programlisting>
-// coerce the string to a number (using a unary-plus operator)
 console.log(foo + +bar);</programlisting>
       </example>
       
