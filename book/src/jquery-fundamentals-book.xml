@@ -80,6 +80,8 @@
 	<part>
 		<title>jQuery: Advanced Concepts</title>
 		<para>This section is a work in progress.</para>
+
+		<xi:include href="code-organization.xml" />
 	</part>
 
 </book>
