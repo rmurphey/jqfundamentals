@@ -6,6 +6,12 @@ If you're looking for the latest release of the book, download the [most recent 
 ## Contributing ##
 I have released this material under the Creative Commons Attribution-Share Alike 3.0 US license because I am eager to see other people contribute to it. Pull requests are welcome and encouraged!
 
+The content of the book is written in [DocBook 5.0](http://www.docbook.org/), which is slightly painful to write in due to the lack of good free XML editors, but which generates all sorts of outputs, including HTML and PDF. I used the free version of [XMLEditor](http://www.xmlmind.com/xmleditor/) to generate the chapter files. 
+
+If you're interested in contributing but don't want to deal with DocBook, let me know and we can work something out. Also, if you have existing content that you think would be good to include in the book, let me know that too! You will, of course, be credited for any contributions.
+
+Following is a to-do list for the book and the project.
+
 ### TODO ###
 
 #### Book Chapters ####

@@ -64,6 +64,7 @@
 
     function(eventObject) {
         console.log(eventObject.type, eventObject.data);
+        // logs event type, then { foo : 'bar' }
     }
 );</programlisting></para>
     </example>

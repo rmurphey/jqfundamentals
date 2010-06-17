@@ -139,11 +139,11 @@ baz &amp;&amp; foo;   // returns 1, which is true</programlisting>
 
       <para>Though it may not be clear from <xref
       linkend="javascript-basics.examples.and-or" />, the <code>||</code>
-      operator returns the value of the first truthy comparator, or false if
-      no comparator is truthy. The <code>&amp;&amp;</code> operator returns
-      the value of the last false comparator, or the value of the last
-      comparator if all values are truthy. Essentially, both operators return
-      the first value that proves them true or false.</para>
+      operator returns the value of the first truthy comparator, or the last
+      falsy comparator. The <code>&amp;&amp;</code> operator returns the value
+      of the first false comparator, or the value of the last comparator if
+      all values are truthy. Essentially, both operators return the first
+      value that proves them true or false.</para>
 
       <para>Be sure to consult <xref
       linkend="javascript-basics.sections.truthy-falsy" /> for more details on
@@ -206,7 +206,7 @@ foo &lt;= baz;   // returns true</programlisting></para>
     <para>Sometimes you only want to run a block of code under certain
     conditions. Flow control — via <code>if</code>, <code>else if</code>, and
     <code>else</code> blocks — lets you run code only under certain
-    conditions. </para>
+    conditions.</para>
 
     <example>
       <title>Flow control</title>

@@ -27,11 +27,11 @@ bar || foo;   // returns 1, which is true
 foo &amp;&amp; bar;   // returns 0, which is false
 foo &amp;&amp; baz;   // returns 2, which is true
 baz &amp;&amp; foo;   // returns 1, which is true</pre></div></div><p><br class="example-break" /></p><p>Though it may not be clear from <a class="xref" href="ch02s03.html#javascript-basics.examples.and-or" title="Example 2.10. Logical AND and OR operators">Example 2.10, “Logical AND and OR operators”</a>, the <code class="code">||</code>
-      operator returns the value of the first truthy comparator, or false if
-      no comparator is truthy. The <code class="code">&amp;&amp;</code> operator returns
-      the value of the last false comparator, or the value of the last
-      comparator if all values are truthy. Essentially, both operators return
-      the first value that proves them true or false.</p><p>Be sure to consult <a class="xref" href="ch02s04.html#javascript-basics.sections.truthy-falsy" title="Truthy and Falsy Things">the section called “Truthy and Falsy Things”</a> for more details on
+      operator returns the value of the first truthy comparator, or the last
+      falsy comparator. The <code class="code">&amp;&amp;</code> operator returns the value
+      of the first false comparator, or the value of the last comparator if
+      all values are truthy. Essentially, both operators return the first
+      value that proves them true or false.</p><p>Be sure to consult <a class="xref" href="ch02s04.html#javascript-basics.sections.truthy-falsy" title="Truthy and Falsy Things">the section called “Truthy and Falsy Things”</a> for more details on
       which values evaluate to <code class="code">true</code> and which evaluate to
       <code class="code">false</code>.</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>You'll sometimes see developers use these logical operators for
         flow control instead of using <code class="code">if</code> statements. For
