@@ -71,7 +71,7 @@ $('#myList li:first').clone().appendTo('#myList');</pre></div></div><br class="e
         the element's inner HTML.</p></div></div><div class="section" title="Creating New Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10676" />Creating New Elements</h3></div></div></div><p>jQuery offers a trivial and elegant way to create new elements
       using the same <code class="code">$()</code> method you use to make
       selections.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1067E" /><p class="title"><b>Example 3.29. Creating new elements</b></p><div class="example-contents"><pre class="programlisting">$('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
-$('&lt;li class="new"&gt;new list item&lt;/p&gt;');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10683" /><p class="title"><b>Example 3.30. Creating a new element with an attribute object</b></p><div class="example-contents"><pre class="programlisting">$('&lt;a/&gt;', { 
+$('&lt;li class="new"&gt;new list item&lt;/li&gt;');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10683" /><p class="title"><b>Example 3.30. Creating a new element with an attribute object</b></p><div class="example-contents"><pre class="programlisting">$('&lt;a/&gt;', { 
     html : 'This is a &lt;strong&gt;new&lt;/strong&gt; link',
     'class' : 'new',
     href : 'foo.html'

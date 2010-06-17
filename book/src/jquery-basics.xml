@@ -823,7 +823,7 @@ $('#myList li:first').clone().appendTo('#myList');</programlisting>
         <title>Creating new elements</title>
 
         <programlisting>$('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
-$('&lt;li class="new"&gt;new list item&lt;/p&gt;');</programlisting>
+$('&lt;li class="new"&gt;new list item&lt;/li&gt;');</programlisting>
       </example>
 
       <example>
