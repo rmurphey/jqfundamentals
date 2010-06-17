@@ -39,11 +39,13 @@
         </listitem>
 
         <listitem>
-          <para>Units of functionality should be loosely coupled — a unit of
-          functionality should be able to exist on its own, and communication
-          between units should be handled via a messaging system such as
-          custom events or pub/sub. Stay away from direct communication
-          between units of functionality whenever possible. </para>
+          <para>Units of functionality should be <link
+          xlink:href="http://en.wikipedia.org/wiki/Loose_coupling">loosely
+          coupled</link> — a unit of functionality should be able to exist on
+          its own, and communication between units should be handled via a
+          messaging system such as custom events or pub/sub. Stay away from
+          direct communication between units of functionality whenever
+          possible. </para>
         </listitem>
 
         <listitem>
@@ -166,7 +168,7 @@ $(document).ready(function() {
 
     createContainer : function() {
         var $i = $(this),
-            $c = myFeature.$container.clone()
+            $c = myFeature.config.$container.clone()
                      .appendTo($i);
 
         $i.data('container', $c);
@@ -283,6 +285,65 @@ feature.sayPrivateThing();
       variable names, it can give you private variables and functions while
       exposing a limited API consisting of the returned object's properties
       and methods.</para>
+
+      <example>
+        <title>Using the module pattern for a jQuery feature</title>
+
+        <programlisting>$(document).ready(function() {
+    var myFeature = (function() {
+        
+        var $items = $('#myFeature li'),
+            $container = $('&lt;div class="container"&gt;&lt;/div&gt;'),
+            $currentItem,
+
+            urlBase = '/foo.php?item=',
+            
+            createContainer = function() {
+                var $i = $(this),
+                    $c = $container.clone().appendTo($i);
+
+                $i.data('container', $c);
+            },
+            
+            buildUrl = function() {
+                return urlBase + $currentItem.attr('id');
+            },
+            
+            showItem = function() {
+                var $currentItem = $(this);
+                getContent(showContent);
+            },
+            
+            showItemByIndex = function(idx) {
+                $.proxy(showItem, $items.get(idx));
+            },
+            
+            getContent = function(callback) {
+                $currentItem.data('container').load(buildUrl(), callback);
+            },
+            
+            showContent = function() {
+                $currentItem.data('container').show();
+                hideContent();
+            },
+            
+            hideContent = function() {
+                $currentItem.siblings()
+                    .each(function() { 
+                        $(this).data('container').hide(); 
+                });
+            };
+
+        config.$items
+            .each(createContainer)
+            .click(showItem);
+            
+        return { showItemByIndex : showItemByIndex };
+    })();
+    
+    myFeature.showItemByIndex(0);
+});</programlisting>
+      </example>
     </section>
 
     <section>
