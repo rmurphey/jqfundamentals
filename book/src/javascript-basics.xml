@@ -212,7 +212,7 @@ foo &lt;= baz;   // returns true</programlisting></para>
     <title>Conditional Code</title>
 
     <para>Sometimes you only want to run a block of code under certain
-    conditions. Flow control — via <code>if</code>, <code>else if</code>, and
+    conditions. Flow control — via <code>if</code> and
     <code>else</code> blocks — lets you run code only under certain
     conditions.</para>
 
@@ -229,10 +229,12 @@ if (bar) {
 
 if (bar) {
     // this code won't run
-} else if (foo) {
-    // this code will run
 } else {
-    // this code would run if foo and bar were both false
+    if (foo) {
+        // this code will run
+    } else {
+        // this code would run if foo and bar were both false
+    }
 }</programlisting>
     </example>
 
