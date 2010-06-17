@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Code Organization</title>
+
+  <section>
+    <title>Overview</title>
+
+    <para>When you move beyond adding simple enhancements to your website with
+    jQuery and start building full-blown client-side applications, you need to
+    start thinking about how to organize your code. In this chapter, we'll
+    take a look at code organization patterns you can use in your jQuery
+    application and explore why code organization is important.</para>
+  </section>
+</chapter>
