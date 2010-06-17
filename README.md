@@ -8,12 +8,17 @@ I have released this material under the Creative Commons Attribution-Share Alike
 
 ### TODO ###
 
+#### Book Chapters ####
 *	Writing testable code
 *	Unit testing with QUnit
 *	Performance best practices (refer to http://paulirish.com/perf)
 * 	Plugin authoring
 * 	Build tools & dependency management [RequireJS](http://requirejs.org/)
 *	Custom Events
+
+#### General ####
+*	The PDF output is decent but has issues. If you're interested in solving them, please do :) For now I consider it good enough, though.
+*	Also, since I write JavaScript, not shell scripts, the shell scripts for generating the HTML and PDF could undoubtedly be improved if you're so inclined, especially because there's some duplication between them.
 
 ## Using This Material ##
 Per the license, you are welcome to use this material; if you're using it to teach a class, I'd love for you to let me know about it.
