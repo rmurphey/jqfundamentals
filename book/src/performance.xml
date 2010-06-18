@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Performance Best Practices</title>
+
+  <para>This chapter covers a number of jQuery and JavaScript best practices,
+  in no particular order. Many of the best practices in this chapter are based
+  on the <link xlink:href="http://paulirish.com/perf">jQuery Anti-Patterns for
+  Performance</link> presentation by Paul Irish. </para>
+
+  <sect1>
+    <title>Cache length during loops</title>
+
+    <para>In a for loop, don't access the length property of an array every
+    time; cache it beforehand.</para>
+
+    <programlisting>var myLength = myArray.length;
+
+for (var i = 0; i &lt; myLength; i++) {
+    // do stuff
+}</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Append new content outside of a loop</title>
+
+    <para>Touching the DOM comes at a cost; if you're adding a lot of elements
+    to the DOM, do it all at once, not one at a time.</para>
+
+    <programlisting>// this is bad
+$.each(myArray, function(i, item) {
+   var newListItem = '&lt;li&gt;' + item + '&lt;/li&gt;';
+   $('#ballers').append(newListItem);
+});
+
+// better: do this
+var frag = document.createDocumentFragment();
+
+$.each(myArray, function(i, item) {
+    var newListItem = '&lt;li&gt;' + item + '&lt;/li&gt;';
+    frag.appendChild(newListItem);
+});
+$('#ballers')[0].appendChild(frag);
+
+// or do this
+var myHtml = '';
+
+$.each(myArray, function(i, item) {
+    html += '&lt;li&gt;' + item + '&lt;/li&gt;';
+});
+$('#ballers').html(myHtml);</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Keep things DRY</title>
+
+    <para>Don't repeat yourself; if you're repeating yourself, you're doing it
+    wrong.</para>
+
+    <programlisting>// BAD
+if ($eventfade.data('currently') != 'showing') {
+    $eventfade.stop();
+}
+
+if ($eventhover.data('currently') != 'showing') {
+    $eventhover.stop();
+}
+
+if ($spans.data('currently') != 'showing') {
+    $spans.stop();
+}
+
+// GOOD!
+var $elems = [$eventfade, $eventhover, $spans];
+$.each($elems, function(i,elem) {
+    if (elem.data('currently') != 'showing') {
+        elem.stop();
+    }
+});</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Beware anonymous functions</title>
+
+    <para>Anonymous functions bound everywhere are a pain. They're difficult
+    to debug, maintain, and reuse.</para>
+
+    <programlisting>$(document).ready(function() {
+    $('#magic').click(function(e) {
+        $('#yayeffects').slideUp(function() {
+            // ...
+        });
+    });
+
+    $('#happiness').load(url + ' #unicorns', function() {
+        // ...
+    });
+});</programlisting>
+  </sect1>
+</chapter>
