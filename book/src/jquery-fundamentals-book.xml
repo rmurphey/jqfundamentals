@@ -78,8 +78,7 @@
     <xi:include href="ajax.xml" />
 
     <xi:include href="plugins.xml" />
-  </part>
-
+	</part>
   <part>
     <title>Advanced Topics</title>
 
@@ -90,5 +89,7 @@
       xlink:href="http://github.com/rmurphey/jqfundamentals">http://github.com/rmurphey/jqfundamentals</link>
       to contribute!</para>
     </article>
+
+	<xi:include href="performance.xml" />
   </part>
 </book>
