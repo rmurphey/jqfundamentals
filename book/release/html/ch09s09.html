@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Load External Content</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch09.html" title="Chapter 9. Exercises" /><link rel="prev" href="ch09s08.html" title="Create a Slideshow" /><link rel="next" href="ch09s10.html" title="Load Content Using JSON" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Load External Content</th></tr><tr><td align="left"><a accesskey="p" href="ch09s08.html">Prev</a> </td><th align="center" width="60%">Chapter 9. Exercises</th><td align="right"> <a accesskey="n" href="ch09s10.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Load External Content"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10E13" />Load External Content</h2></div></div></div><p>Open the file <code class="filename">/exercises/index.html</code> in your
-  browser. Use the file <code class="filename">/exercises/js/load.js</code>. Your task
-  is to load the content of a blog item when a user clicks on the title of the
-  item.</p><div class="orderedlist"><ol class="orderedlist"><li class="listitem"><p>Create a target div after the headline for each blog post.</p></li><li class="listitem"><p>Use the <code class="code">$.fn.load</code> method to load
-      <code class="filename">/exercises/data/blog.html</code>; use a selector to
-      indicate which elements you need from the file for the given post, and
-      load them into the target div.</p></li></ol></div><p>Note that each blog headline in index.html includes a link to the
-  post. You'll need to leverage the href of that link to get the proper
-  content from blog.html. Once you have the href, here's one way to process it
-  into an ID:</p><pre class="programlisting">var href = 'blog.html#post1';
-var tempArray = href.split('#');
-var id = tempArray[1];</pre><p>Remember to make liberal use of <code class="code">console.log</code> to make sure
-  you're on the right path!</p></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch09s08.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch09.html">Up</a></td><td align="right"> <a accesskey="n" href="ch09s10.html">Next</a></td></tr><tr><td valign="top" align="left">Create a Slideshow </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Load Content Using JSON</td></tr></table></div></div></div></body></html>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Use $.data Instead of $.fn.data</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch09.html" title="Chapter 9. Performance Best Practices" /><link rel="prev" href="ch09s08.html" title="Use Stylesheets for Changing CSS on Many Elements" /><link rel="next" href="ch09s10.html" title="Don't Act on Absent Elements" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Use <code class="code">$.data</code> Instead of <code class="code">$.fn.data</code></th></tr><tr><td align="left"><a accesskey="p" href="ch09s08.html">Prev</a> </td><th align="center" width="60%">Chapter 9. Performance Best Practices</th><td align="right"> <a accesskey="n" href="ch09s10.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="sect1" title="Use $.data Instead of $.fn.data"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2154D" />Use <code class="code">$.data</code> Instead of <code class="code">$.fn.data</code></h2></div></div></div>
+    
+
+    <p>Using $.data on a DOM element instead of calling $.fn.data on a
+    jQuery selection can be up to 10 times faster. Be sure you understand the
+    difference between a DOM element and a jQuery selection before doing this,
+    though.</p>
+
+    <pre class="programlisting">// regular 
+$(elem).data(key,value);&#8232;&#8232;
+
+// 10x faster
+&#8232;$.data(elem,key,value);</pre>
+  </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
+    Rebecca Murphey</a>, released under the 
+  <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
+	Creative Commons Attribution-Share Alike 3.0 United States license</a>.
+  </p><script>
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-143877-4']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch09s08.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch09.html">Up</a></td><td align="right"> <a accesskey="n" href="ch09s10.html">Next</a></td></tr><tr><td valign="top" align="left">Use Stylesheets for Changing CSS on Many Elements </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Don't Act on Absent Elements</td></tr></table></div></div></div></body></html>
