@@ -845,6 +845,9 @@ myFn(myOtherFn);   // logs 'hello world'</programlisting>
     <para>JavaScript offers a way to test the "type" of a variable. However,
     the result can be confusing -- for example, the type of an Array is
     "object".</para>
+    
+    <para>It's common practice to use the <code>typeof</code> operator when
+    trying to determining the type of a specific value.</para>
 
     <example>
       <title>Testing the type of various variables</title>
@@ -863,22 +866,30 @@ var myString = 'hello';
 
 var myNumber = 3;
 
-typeof(myFunction);   // returns 'function'
-typeof(myObject);     // returns 'object'
-typeof(myArray);      // <emphasis role="bold">returns 'object' -- careful!</emphasis>
-typeof(myString);     // returns 'string';
-typeof(myNumber);     // returns 'number'
+typeof myFunction;   // returns 'function'
+typeof myObject;     // returns 'object'
+typeof myArray;      // <emphasis role="bold">returns 'object' -- careful!</emphasis>
+typeof myString;     // returns 'string';
+typeof myNumber;     // returns 'number'
 
-typeof(null);         // <emphasis role="bold">returns 'object' -- careful!</emphasis>
+typeof null;         // <emphasis role="bold">returns 'object' -- careful!</emphasis>
 
 
 if (myArray.push &amp;&amp; myArray.slice &amp;&amp; myArray.join) {
     // probably an array
     // (this is called "duck typing")
+}
+
+if (Object.prototype.toString.call(myArray) === '[object Array]') {
+    // Definitely an array!
+    // This is widely considered as the most rebust way
+    // to determine if a specific value is an Array.
 }</programlisting>
     </example>
 
-    <para>jQuery offers utility methods to help you determine whether</para>
+    <para>jQuery offers utility methods to help you determine the type of an
+    arbitrary value. These will be covered later.</para>
+    
   </section>
 
   <section xml:id="javascript-basics.sections.scope">
