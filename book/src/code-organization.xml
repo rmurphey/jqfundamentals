@@ -28,7 +28,14 @@
         <listitem>
           <para>Your code should be divided into units of functionality —
           modules, services, etc. Avoid the temptation to have all of your
-          code in one huge $(document).ready() block.</para>
+          code in one huge <code>$(document).ready()</code> block. This
+          concept, loosely, is known as encapsulation.</para>
+        </listitem>
+
+        <listitem>
+          <para>Don't repeat yourself. Identify similarities among pieces of
+          functionality, and use inheritance techniques to avoid repetitive
+          code.</para>
         </listitem>
 
         <listitem>
@@ -47,18 +54,6 @@
           direct communication between units of functionality whenever
           possible.</para>
         </listitem>
-
-        <listitem>
-          <para>Units of functionality should be divided into small methods
-          that do exactly one thing. If your methods are more than a few lines
-          long, you may need to consider refactoring.</para>
-        </listitem>
-
-        <listitem>
-          <para>Configuration options for your units of functionality — URLs,
-          strings, timeouts, etc. — should be set in properties or a
-          configuration object, not scattered throughout the code.</para>
-        </listitem>
       </itemizedlist>
 
       <para>The concept of loose coupling can be especially troublesome to
@@ -72,7 +67,7 @@
 
     <para>The first step to code organization is separating pieces of your
     application into distinct pieces; sometimes, even just this effort is
-    sufficient to lend </para>
+    sufficient to lend</para>
 
     <section>
       <title>The Object Literal</title>
@@ -374,18 +369,35 @@ feature.sayPrivateThing();
     <title>Inheritance</title>
 
     <para>Object literals and the module pattern, on their own, create only a
-    single instance of the enclosed functionality. Sometimes there are many
-    examples of essentially the same functionality on your page — for example,
-    maybe there are a list of people on your page, and there is a set of
-    behavior associated with each person — and you need a way to create
-    multiple instances of a feature.</para>
+    single instance of the enclosed functionality. Sometimes essentially the
+    same functionality exists several times throughout your code — for
+    example, maybe there are a list of people on your page, and there is a set
+    of behavior associated with each person. In these cases, you need a way to
+    create multiple instances of a feature and to share code across similar
+    features.</para>
 
-    <para></para>
-
-    <example>
-      <title>Prototypal inheritance</title>
+    <section>
+      <title>Prototypal Inheritance</title>
 
       <para></para>
-    </example>
+    </section>
+
+    <section>
+      <title>Classical Inheritance</title>
+
+      <para></para>
+    </section>
+  </section>
+
+  <section>
+    <title>It's Not All About the DOM</title>
+
+    <para></para>
+  </section>
+
+  <section>
+    <title>Communication Between Components</title>
+
+    <para></para>
   </section>
 </chapter>
