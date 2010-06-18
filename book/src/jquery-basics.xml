@@ -37,7 +37,7 @@
 });</programlisting>
     </example>
 
-    <para>You can also passed a named function to
+    <para>You can also pass a named function to
     <code>$(document).ready()</code> instead of passing an anonymous
     function.</para>
 
