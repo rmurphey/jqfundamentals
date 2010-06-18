@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Avoiding Conflicts with Other Libraries</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch04.html" title="Chapter 4. jQuery Core" /><link rel="prev" href="ch04s04.html" title="Feature &amp; Browser Detection" /><link rel="next" href="ch05.html" title="Chapter 5. Events" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Avoiding Conflicts with Other Libraries</th></tr><tr><td align="left"><a accesskey="p" href="ch04s04.html">Prev</a> </td><th align="center" width="60%">Chapter 4. jQuery Core</th><td align="right"> <a accesskey="n" href="ch05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Avoiding Conflicts with Other Libraries"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N107DB" />Avoiding Conflicts with Other Libraries</h2></div></div></div><p>If you are using another JavaScript library that uses the
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Avoiding Conflicts with Other Libraries</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch04.html" title="Chapter 4. jQuery Core" /><link rel="prev" href="ch04s04.html" title="Feature &amp; Browser Detection" /><link rel="next" href="ch05.html" title="Chapter 5. Events" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Avoiding Conflicts with Other Libraries</th></tr><tr><td align="left"><a accesskey="p" href="ch04s04.html">Prev</a> </td><th align="center" width="60%">Chapter 4. jQuery Core</th><td align="right"> <a accesskey="n" href="ch05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Avoiding Conflicts with Other Libraries"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20C49" />Avoiding Conflicts with Other Libraries</h2></div></div></div>
+    
+
+    <p>If you are using another JavaScript library that uses the
     <code class="code">$</code> variable, you can run into conflicts with jQuery. In order
     to avoid these conflicts, you need to put jQuery in no-conflict mode
     immediately after it is loaded onto the page and before you attempt to use
-    jQuery in your page.</p><p>When you put jQuery into no-conflict mode, you have the option of
-    assigning a variable name to replace <code class="code">$</code>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N107E8" /><p class="title"><b>Example 4.3. Putting jQuery into no-conflict mode</b></p><div class="example-contents"><pre class="programlisting">&lt;script src="prototype.js"&gt;&lt;/script&gt;
+    jQuery in your page.</p>
+
+    <p>When you put jQuery into no-conflict mode, you have the option of
+    assigning a variable name to replace <code class="code">$</code>.</p>
+
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20C5A" /><p class="title"><b>Example 4.3. Putting jQuery into no-conflict mode</b></p><div class="example-contents">
+      
+
+      <pre class="programlisting">&lt;script src="prototype.js"&gt;&lt;/script&gt;
 &lt;script src="jquery.js"&gt;&lt;/script&gt;
-&lt;script&gt;var $j = jQuery.noConflict();&lt;/script&gt;</pre></div></div><br class="example-break" /><p>You can continue to use the standard <code class="code">$</code> by wrapping your
+&lt;script&gt;var $j = jQuery.noConflict();&lt;/script&gt;</pre>
+    </div></div><br class="example-break" />
+
+    <p>You can continue to use the standard <code class="code">$</code> by wrapping your
     code in a self-executing anonymous function; this is a standard pattern
     for plugin authoring, where the author cannot know whether another library
-    will have taken over the <code class="code">$</code>.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N107F5" /><p class="title"><b>Example 4.4. Using the $ inside a self-executing anonymous function</b></p><div class="example-contents"><pre class="programlisting">&lt;script src="prototype.js"&gt;&lt;/script&gt;
+    will have taken over the <code class="code">$</code>.</p>
+
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20C6C" /><p class="title"><b>Example 4.4. Using the $ inside a self-executing anonymous function</b></p><div class="example-contents">
+      
+
+      <pre class="programlisting">&lt;script src="prototype.js"&gt;&lt;/script&gt;
 &lt;script src="jquery.js"&gt;&lt;/script&gt;
 &lt;script&gt;
 jQuery.noConflict();
@@ -17,7 +35,9 @@ jQuery.noConflict();
 (function($) {
    // your code here, using the $
 })(jQuery);
-&lt;/script&gt;</pre></div></div><br class="example-break" /></div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
+&lt;/script&gt;</pre>
+    </div></div><br class="example-break" />
+  </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
     Rebecca Murphey</a>, released under the 
   <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
 	Creative Commons Attribution-Share Alike 3.0 United States license</a>.

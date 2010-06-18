@@ -29,7 +29,7 @@ Following is a to-do list for the book and the project.
 ## Using This Material ##
 Per the license, you are welcome to use this material; if you're using it to teach a class, I'd love for you to let me know about it.
 
-## Generating the HTML and PDF ##
+## Generating the HTML ##
 From the /book directory, run
 
 `./scripts/install.sh`

@@ -1,39 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Working with Selections</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="prev" href="ch03s02.html" title="Selecting Elements" /><link rel="next" href="ch03s04.html" title="CSS, Styling, &amp; Dimensions" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Working with Selections</th></tr><tr><td align="left"><a accesskey="p" href="ch03s02.html">Prev</a> </td><th align="center" width="60%">Chapter 3. jQuery Basics</th><td align="right"> <a accesskey="n" href="ch03s04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Working with Selections"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N104F1" />Working with Selections</h2></div></div></div><p>Once you have a selection, you can call methods on the selection.
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Working with Selections</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="prev" href="ch03s02.html" title="Selecting Elements" /><link rel="next" href="ch03s04.html" title="CSS, Styling, &amp; Dimensions" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Working with Selections</th></tr><tr><td align="left"><a accesskey="p" href="ch03s02.html">Prev</a> </td><th align="center" width="60%">Chapter 3. jQuery Basics</th><td align="right"> <a accesskey="n" href="ch03s04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Working with Selections"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N207F0" />Working with Selections</h2></div></div></div>
+    
+
+    <p>Once you have a selection, you can call methods on the selection.
     Methods generally come in two different flavors: getters and setters.
     Getters return a property of the first selected element; setters set a
-    property on all selected elements.</p><div class="section" title="Chaining"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N104F6" />Chaining</h3></div></div></div><p>If you call a method on a selection and that method returns a
+    property on all selected elements.</p>
+
+    <div class="section" title="Chaining"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N207F8" />Chaining</h3></div></div></div>
+      
+
+      <p>If you call a method on a selection and that method returns a
       jQuery object, you can continue to call jQuery methods on the object
-      without pausing for a semicolon.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N104FB" /><p class="title"><b>Example 3.13. Chaining</b></p><div class="example-contents"><pre class="programlisting">$('#content').find('h3').eq(2).html('new text for the third h3!');</pre></div></div><br class="example-break" /><p>If you are writing a chain that includes several steps, you (and
+      without pausing for a semicolon.</p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20800" /><p class="title"><b>Example 3.13. Chaining</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">$('#content').find('h3').eq(2).html('new text for the third h3!');</pre>
+      </div></div><br class="example-break" />
+
+      <p>If you are writing a chain that includes several steps, you (and
       the person who comes after you) may find your code more readable if you
-      break the chain over several lines.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10502" /><p class="title"><b>Example 3.14. Formatting chained code</b></p><div class="example-contents"><pre class="programlisting">$('#content')
+      break the chain over several lines.</p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2080C" /><p class="title"><b>Example 3.14. Formatting chained code</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">$('#content')
     .find('h3')
     .eq(2)
-    .html('new text for the third h3!');</pre></div></div><br class="example-break" /><p>If you change your selection in the midst of a chain, jQuery
+    .html('new text for the third h3!');</pre>
+      </div></div><br class="example-break" />
+
+      <p>If you change your selection in the midst of a chain, jQuery
       provides the <code class="code">$.fn.end</code> method to get you back to your
-      original selection.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1050C" /><p class="title"><b>Example 3.15. Restoring your original selection using
-        <code class="code">$.fn.end</code></b></p><div class="example-contents"><pre class="programlisting">$('#content')
+      original selection.</p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2081B" /><p class="title"><b>Example 3.15. Restoring your original selection using
+        <code class="code">$.fn.end</code></b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">$('#content')
     .find('h3')
     .eq(2)
         .html('new text for the third h3!')
     .end() // restores the selection to all h3's in #content
     .eq(0)
-        .html('new text for the first h3!');</pre></div></div><br class="example-break" /><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Chaining is extraordinarily powerful, and it's a feature that
+        .html('new text for the first h3!');</pre>
+      </div></div><br class="example-break" />
+
+      <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+        <p>Chaining is extraordinarily powerful, and it's a feature that
         many libraries have adapted since it was made popular by jQuery.
         However, it must be used with care. Extensive chaining can make code
         extremely difficult to modify or debug. There is no hard-and-fast rule
         to how long a chain should be -- just know that it is easy to get
-        carried away.</p></div></div><div class="section" title="Getters &amp; Setters"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10516" />Getters &amp; Setters</h3></div></div></div><p>jQuery “overloads” its methods, so the method used to set a value
+        carried away.</p>
+      </div>
+    </div>
+
+    <div class="section" title="Getters &amp; Setters"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2082D" />Getters &amp; Setters</h3></div></div></div>
+      
+
+      <p>jQuery “overloads” its methods, so the method used to set a value
       generally has the same name as the method used to get a value.
       <span class="termdef">[Definition: When a method is used to set a value, it is called a
       <em class="firstterm">setter</em>]</span>. <span class="termdef">[Definition: When a method is used
       to get (or read) a value, it is called a
       <em class="firstterm">getter</em>]</span>. Setters affect all elements in
       a selection; getters get the requested value only for the first element
-      in the selection.</p><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N10525" /><p class="title"><b>Example 3.16. The <code class="code">$.fn.html</code> method used as a setter</b></p><div class="example-contents"><pre class="programlisting">$('h1').html('hello world');</pre></div></div><br class="example-break" /><div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N1052D" /><p class="title"><b>Example 3.17. The html method used as a getter</b></p><div class="example-contents"><pre class="programlisting">$('h1').html();</pre></div></div><br class="example-break" /><p>Setters return a jQuery object, allowing you to continue to call
+      in the selection.</p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2083F" /><p class="title"><b>Example 3.16. The <code class="code">$.fn.html</code> method used as a setter</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">$('h1').html('hello world');</pre>
+      </div></div><br class="example-break" />
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2084B" /><p class="title"><b>Example 3.17. The html method used as a getter</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">$('h1').html();</pre>
+      </div></div><br class="example-break" />
+
+      <p>Setters return a jQuery object, allowing you to continue to call
       jQuery methods on your selection; getters return whatever they were
       asked to get, meaning you cannot continue to call jQuery methods on the
-      value returned by the getter.</p></div></div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
+      value returned by the getter.</p>
+    </div>
+  </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
     Rebecca Murphey</a>, released under the 
   <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
 	Creative Commons Attribution-Share Alike 3.0 United States license</a>.
