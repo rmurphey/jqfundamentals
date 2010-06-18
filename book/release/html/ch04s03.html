@@ -1,50 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Data Methods</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch04.html" title="Chapter 4. jQuery Core" /><link rel="prev" href="ch04s02.html" title="Utility Methods" /><link rel="next" href="ch04s04.html" title="Feature &amp; Browser Detection" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Data Methods</th></tr><tr><td align="left"><a accesskey="p" href="ch04s02.html">Prev</a> </td><th align="center" width="60%">Chapter 4. jQuery Core</th><td align="right"> <a accesskey="n" href="ch04s04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Data Methods"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20BEE" />Data Methods</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Checking types</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch04.html" title="Chapter 4. jQuery Core" /><link rel="prev" href="ch04s02.html" title="Utility Methods" /><link rel="next" href="ch04s04.html" title="Data Methods" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Checking types</th></tr><tr><td align="left"><a accesskey="p" href="ch04s02.html">Prev</a> </td><th align="center" width="60%">Chapter 4. jQuery Core</th><td align="right"> <a accesskey="n" href="ch04s04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Checking types"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20C12" />Checking types</h2></div></div></div>
     
 
-    <p>As your work with jQuery progresses, you'll find that there's often
-    data about an element that you want to store with the element. In plain
-    JavaScript, you might do this by adding a property to the DOM element, but
-    you'd have to deal with memory leaks in some browsers. jQuery offers a
-    straightforward way to store data related to an element, and it manages
-    the memory issues for you.</p>
-
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20BF6" /><p class="title"><b>Example 4.1. Storing and retrieving data related to an element</b></p><div class="example-contents">
+    <p>As mentioned in the "JavaScript basics" section, jQuery offers
+    a few basic utility methods for determining the type of a specific
+    value.</p>
+    
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20C1A" /><p class="title"><b>Example 4.1. Checking the type of an arbitrary value</b></p><div class="example-contents">
       
 
-      <pre class="programlisting">$('#myDiv').data('keyName', { foo : 'bar' });
-$('#myDiv').data('keyName'); // { foo : 'bar' }</pre>
+      <pre class="programlisting">var myValue = [1, 2, 3];
+
+// Using JavaScript's typeof operator to test for primative types
+typeof myValue == 'string'; // false
+typeof myValue == 'number'; // false
+typeof myValue == 'undefined'; // false
+typeof myValue == 'boolean'; // false
+
+// Using strict equality operator to check for null
+myValue === null; // false
+
+// Using jQuery's methods to check for non-primative types
+jQuery.isFunction(myValue); // false
+jQuery.isPlainObject(myValue); // false
+jQuery.isArray(myValue); // true</pre>
     </div></div><br class="example-break" />
-
-    <p>You can store any kind of data on an element, and it's hard to
-    overstate the importance of this when you get into complex application
-    development. For the purposes of this class, we'll mostly use
-    <code class="code">$.fn.data</code> to store references to other elements. </p>
-
-    <p>For example, we may want to establish a relationship between a list
-    item and a div that's inside of it. We could establish this relationship
-    every single time we interact with the list item, but a better solution
-    would be to establish the relationship once, and then store a pointer to
-    the div on the list item using <code class="code">$.fn.data</code>:</p>
-
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20C0B" /><p class="title"><b>Example 4.2. Storing a relationship between elements using
-      <code class="code">$.fn.data</code></b></p><div class="example-contents">
-      
-
-      <pre class="programlisting">$('#myList li').each(function() {
-    var $li = $(this), $div = $li.find('div.content');
-    $li.data('contentDiv', $div);
-});
-
-// later, we don't have to find the div again;
-// we can just read it from the list item's data
-var $firstLi = $('#myList li:first');
-$firstLi.data('contentDiv').html('new content');</pre>
-    </div></div><br class="example-break" />
-
-    <p>In addition to passing <code class="code">$.fn.data</code> a single key-value
-    pair to store data, you can also pass an object containing one or more
-    pairs.</p>
+    
   </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
     Rebecca Murphey</a>, released under the 
   <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
@@ -59,4 +40,4 @@ $firstLi.data('contentDiv').html('new content');</pre>
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
-  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch04s02.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch04.html">Up</a></td><td align="right"> <a accesskey="n" href="ch04s04.html">Next</a></td></tr><tr><td valign="top" align="left">Utility Methods </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Feature &amp; Browser Detection</td></tr></table></div></div></div></body></html>
+  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch04s02.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch04.html">Up</a></td><td align="right"> <a accesskey="n" href="ch04s04.html">Next</a></td></tr><tr><td valign="top" align="left">Utility Methods </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Data Methods</td></tr></table></div></div></div></body></html>

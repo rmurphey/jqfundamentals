@@ -54,6 +54,12 @@
       <orgname><link
       xlink:href="http://github.com/rmurphey/jqfundamentals">http://github.com/rmurphey/jqfundamentals</link></orgname>
     </othercredit>
+
+    <othercredit>
+      <orgname>With contributions by James Padolsey, Paul Irish, and others.
+      See the GitHub repository for a complete history of
+      contributions.</orgname>
+    </othercredit>
   </info>
 
   <xi:include href="getting-started.xml" />
@@ -78,18 +84,19 @@
     <xi:include href="ajax.xml" />
 
     <xi:include href="plugins.xml" />
-	</part>
+  </part>
+
   <part>
     <title>Advanced Topics</title>
 
     <article>
       <title>This Section is a Work in Progress</title>
-	
+
       <para>Please visit <link
       xlink:href="http://github.com/rmurphey/jqfundamentals">http://github.com/rmurphey/jqfundamentals</link>
       to contribute!</para>
     </article>
 
-	<xi:include href="performance.xml" />
+    <xi:include href="performance.xml" />
   </part>
 </book>

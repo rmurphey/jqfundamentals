@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Utility Methods</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch04.html" title="Chapter 4. jQuery Core" /><link rel="prev" href="ch04.html" title="Chapter 4. jQuery Core" /><link rel="next" href="ch04s03.html" title="Data Methods" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Utility Methods</th></tr><tr><td align="left"><a accesskey="p" href="ch04.html">Prev</a> </td><th align="center" width="60%">Chapter 4. jQuery Core</th><td align="right"> <a accesskey="n" href="ch04s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Utility Methods"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20B8D" />Utility Methods</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Utility Methods</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch04.html" title="Chapter 4. jQuery Core" /><link rel="prev" href="ch04.html" title="Chapter 4. jQuery Core" /><link rel="next" href="ch04s03.html" title="Checking types" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Utility Methods</th></tr><tr><td align="left"><a accesskey="p" href="ch04.html">Prev</a> </td><th align="center" width="60%">Chapter 4. jQuery Core</th><td align="right"> <a accesskey="n" href="ch04s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Utility Methods"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20B99" />Utility Methods</h2></div></div></div>
     
 
     <p>jQuery offers several utility methods in the <code class="code">$</code>
@@ -57,6 +57,31 @@ var secondObject = { foo : 'baz' };
 var newObject = $.extend({}, firstObject, secondObject);
 console.log(firstObject.foo); // 'bar'
 console.log(newObject.foo);   // 'baz'</pre>
+        </dd><dt><span class="term">$.proxy</span></dt><dd>
+          <p>Returns a function that will always run in the provided scope
+          — that is, sets the meaning of <code class="code">this</code> inside the passed
+          function to the second argument.</p>
+
+          <pre class="programlisting">var myFunction = function() { console.log(this); };
+var myObject = { foo : 'bar' };
+
+myFunction(); // logs window object
+
+var myProxyFunction = $.proxy(myFunction, myObject);
+myProxyFunction(); // logs myObject object</pre>
+
+          <p>If you have an object with methods, you can pass the object
+          and the name of a method to return a function that will always run
+          in the scope of the object.</p>
+
+          <pre class="programlisting">var myObject = {
+    myFn : function() {
+        console.log(this);
+    }
+};
+
+$('#foo').click(myObject.myFn); // logs DOM element #foo
+$('#foo').click($.proxy(myObject, 'myFn')); // logs myObject</pre>
         </dd></dl></div>
   </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
     Rebecca Murphey</a>, released under the 
@@ -72,4 +97,4 @@ console.log(newObject.foo);   // 'baz'</pre>
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
-  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch04.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch04.html">Up</a></td><td align="right"> <a accesskey="n" href="ch04s03.html">Next</a></td></tr><tr><td valign="top" align="left">Chapter 4. jQuery Core </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Data Methods</td></tr></table></div></div></div></body></html>
+  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch04.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch04.html">Up</a></td><td align="right"> <a accesskey="n" href="ch04s03.html">Next</a></td></tr><tr><td valign="top" align="left">Chapter 4. jQuery Core </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Checking types</td></tr></table></div></div></div></body></html>
