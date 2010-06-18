@@ -132,6 +132,37 @@ console.log(firstObject.foo); // 'bar'
 console.log(newObject.foo);   // 'baz'</programlisting>
         </listitem>
       </varlistentry>
+
+      <varlistentry>
+        <term>$.proxy</term>
+
+        <listitem>
+          <para>Returns a function that will always run in the provided scope
+          — that is, sets the meaning of <code>this</code> inside the passed
+          function to the second argument.</para>
+
+          <programlisting>var myFunction = function() { console.log(this); };
+var myObject = { foo : 'bar' };
+
+myFunction(); // logs window object
+
+var myProxyFunction = $.proxy(myFunction, myObject);
+myProxyFunction(); // logs myObject object</programlisting>
+
+          <para>If you have an object with methods, you can pass the object
+          and the name of a method to return a function that will always run
+          in the scope of the object.</para>
+
+          <programlisting>var myObject = {
+    myFn : function() {
+        console.log(this);
+    }
+};
+
+$('#foo').click(myObject.myFn); // logs DOM element #foo
+$('#foo').click($.proxy(myObject, 'myFn')); // logs myObject</programlisting>
+        </listitem>
+      </varlistentry>
     </variablelist>
   </section>
 
@@ -155,7 +186,7 @@ $('#myDiv').data('keyName'); // { foo : 'bar' }</programlisting>
     <para>You can store any kind of data on an element, and it's hard to
     overstate the importance of this when you get into complex application
     development. For the purposes of this class, we'll mostly use
-    <code>$.fn.data</code> to store references to other elements. </para>
+    <code>$.fn.data</code> to store references to other elements.</para>
 
     <para>For example, we may want to establish a relationship between a list
     item and a div that's inside of it. We could establish this relationship
