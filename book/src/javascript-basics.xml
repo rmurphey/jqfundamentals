@@ -147,8 +147,7 @@ foo &amp;&amp; baz;   // returns 2, which is true
 baz &amp;&amp; foo;   // returns 1, which is true</programlisting>
         </example></para>
 
-      <para>Though it may not be clear from <xref
-      linkend="javascript-basics.examples.and-or" />, the <code>||</code>
+      <para>Though it may not be clear from the example, the <code>||</code>
       operator returns the value of the first truthy comparator, or the last
       falsy comparator. The <code>&amp;&amp;</code> operator returns the value
       of the first false comparator, or the value of the last comparator if

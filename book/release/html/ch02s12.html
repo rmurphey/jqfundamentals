@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Closures</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch02.html" title="Chapter 2. JavaScript Basics" /><link rel="prev" href="ch02s11.html" title="Scope" /><link rel="next" href="pt02.html" title="Part II. jQuery: Basic Concepts" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Closures</th></tr><tr><td align="left"><a accesskey="p" href="ch02s11.html">Prev</a> </td><th align="center" width="60%">Chapter 2. JavaScript Basics</th><td align="right"> <a accesskey="n" href="pt02.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Closures"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N205EF" />Closures</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Closures</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch02.html" title="Chapter 2. JavaScript Basics" /><link rel="prev" href="ch02s11.html" title="Scope" /><link rel="next" href="pt02.html" title="Part II. jQuery: Basic Concepts" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Closures</th></tr><tr><td align="left"><a accesskey="p" href="ch02s11.html">Prev</a> </td><th align="center" width="60%">Chapter 2. JavaScript Basics</th><td align="right"> <a accesskey="n" href="pt02.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Closures"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N205EC" />Closures</h2></div></div></div>
     
 
     <p>Closures are an extension of the concept of scope — functions have
@@ -14,7 +14,7 @@
     function "sees" the change in the variable's value even after the function
     is defined, resulting in all clicks alerting 4.</p>
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N205FD" /><p class="title"><b>Example 2.40. How to lock in the value of <code class="code">i</code>?</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N205FA" /><p class="title"><b>Example 2.40. How to lock in the value of <code class="code">i</code>?</b></p><div class="example-contents">
       
 
       <pre class="programlisting">/* this won't behave as we want it to; */
@@ -26,7 +26,7 @@ for (var i=0; i&lt;5; i++) {
 }</pre>
     </div></div><br class="example-break" />
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20609" /><p class="title"><b>Example 2.41. Locking in the value of <code class="code">i</code> with a closure</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20606" /><p class="title"><b>Example 2.41. Locking in the value of <code class="code">i</code> with a closure</b></p><div class="example-contents">
       
 
       <pre class="programlisting">/* fix: “close” the value of i inside createFunction, so it won't change */

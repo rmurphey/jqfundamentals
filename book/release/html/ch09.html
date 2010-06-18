@@ -1,28 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Chapter 9. Exercises</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL-NS Stylesheets V1.75.0" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="pt04.html" title="Part IV. Exercises" /><link rel="prev" href="pt04.html" title="Part IV. Exercises" /><link rel="next" href="ch09s02.html" title="Traversing" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Chapter 9. Exercises</th></tr><tr><td align="left"><a accesskey="p" href="pt04.html">Prev</a> </td><th align="center" width="60%">Part IV. Exercises</th><td align="right"> <a accesskey="n" href="ch09s02.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="chapter" title="Chapter 9. Exercises"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10CC4" />Chapter 9. Exercises</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ch09.html#N10CE8">Selecting</a></span></dt><dt><span class="section"><a href="ch09s02.html">Traversing</a></span></dt><dt><span class="section"><a href="ch09s03.html">Manipulating</a></span></dt><dt><span class="section"><a href="ch09s04.html">Create an Input Hint</a></span></dt><dt><span class="section"><a href="ch09s05.html">Reveal Hidden Text</a></span></dt><dt><span class="section"><a href="ch09s06.html">Add Tabbed Navigation</a></span></dt><dt><span class="section"><a href="ch09s07.html">Create Dropdown Menus</a></span></dt><dt><span class="section"><a href="ch09s08.html">Create a Slideshow</a></span></dt><dt><span class="section"><a href="ch09s09.html">Load External Content</a></span></dt><dt><span class="section"><a href="ch09s10.html">Load Content Using JSON</a></span></dt><dt><span class="section"><a href="ch09s11.html">Make a Table Sortable</a></span></dt><dt><span class="section"><a href="ch09s12.html">Write a Table-Striping Plugin</a></span></dt></dl></div><p>Each of these exercises uses the file
-  <code class="filename">/exercises/index.html</code> included in the sample code. This
-  file has the jQuery library included at the bottom of the page. For some
-  exercises, you’ll be able to work directly in Firebug; for others, you will
-  need to include other scripts after the jQuery script tag as directed in the
-  individual exercises.</p><p>In some cases, you will need to consult the jQuery documentation in
-  order to complete an exercise, as we won’t have covered all of the relevant
-  information in the lecture. This is by design; the jQuery library is large,
-  and learning to find answers in the documentation is an important part of
-  the process.</p><p>Here are a few suggestions for tackling these problems:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p>First, make sure you thoroughly understand the problem you're
-      being asked to solve. Ask questions if the problem isn't clear.</p></li><li class="listitem"><p>Next, figure out which elements you'll need to access in order to
-      solve the problem, and determine how you'll get those elements. Use
-      Firebug to verify that you're getting the elements you're after.</p></li><li class="listitem"><p>Finally, figure out what you need to do with the elements to solve
-      the problem. It can be helpful to write comments explaining what you're
-      going to do before you try to write the code to do it.</p></li></ul></div><p>Do not be afraid to make mistakes! Do not try to make your code
-  perfect on the first try! Making mistakes and experimenting with solutions
-  is part of learning the library, and you’ll be a better developer for it.
-  Examples of solutions for these exercises are located in the
-  <code class="filename">/solutions</code> directory in the sample code.</p><div class="section" title="Selecting"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N10CE8" />Selecting</h2></div></div></div><p>Open the file <code class="filename">/exercises/index.html</code> in your
-	    browser. Use the file <code class="filename">/exercises/js/sandbox.js</code> or
-	    work in Firebug to accomplish the following:</p><div class="orderedlist"><ol class="orderedlist"><li class="listitem"><p>Select all of the div elements that have a class of
-	        "module".</p></li><li class="listitem"><p>Come up with three selectors that you could use to get the third
-	        item in the #myList unordered list. Which is the best to use?
-	        Why?</p></li><li class="listitem"><p>Select the label for the search input using an attribute
-	        selector.</p></li><li class="listitem"><p>Figure out how many elements on the page are hidden (hint:
-	        .length).</p></li><li class="listitem"><p>Figure out how many image elements on the page have an alt
-	        attribute.</p></li><li class="listitem"><p>Select all of the odd table rows in the table body.</p></li></ol></div></div></div><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="pt04.html">Prev</a> </td><td align="center"><a accesskey="u" href="pt04.html">Up</a></td><td align="right"> <a accesskey="n" href="ch09s02.html">Next</a></td></tr><tr><td valign="top" align="left">Part IV. Exercises </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Traversing</td></tr></table></div></div></div></body></html>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Chapter 9. Code Organization</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="pt03.html" title="Part III. jQuery: Advanced Concepts" /><link rel="prev" href="pt03.html" title="Part III. jQuery: Advanced Concepts" /><link rel="next" href="ch09s02.html" title="Organizational Structures" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Chapter 9. Code Organization</th></tr><tr><td align="left"><a accesskey="p" href="pt03.html">Prev</a> </td><th align="center" width="60%">Part III. jQuery: Advanced Concepts</th><td align="right"> <a accesskey="n" href="ch09s02.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="chapter" title="Chapter 9. Code Organization"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2146F" />Chapter 9. Code Organization</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ch09.html#N21475">Overview</a></span></dt><dt><span class="section"><a href="ch09s02.html">Organizational Structures</a></span></dt></dl></div>
+  
+
+  <div class="section" title="Overview"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21475" />Overview</h2></div></div></div>
+    
+
+    <p>When you move beyond adding simple enhancements to your website with
+    jQuery and start developing full-blown client-side applications, you need
+    to consider how to organize your code. In this chapter, we'll take a look
+    at various code organization patterns you can use in your jQuery
+    application and explore why code organization is important.</p>
+
+    <div class="section" title="Key Concepts"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2147D" />Key Concepts</h3></div></div></div>
+      
+
+      <p>Before we jump into code organization patterns, it's important to
+      understand some concepts that are common to all good code organization
+      patterns.</p>
+
+      <div class="itemizedlist"><ul class="itemizedlist"><li class="listitem">
+          <p>Your code should be divided into units of functionality —
+          modules, services, etc. Avoid the temptation to have all of your
+          code in one huge $(document).ready() block.</p>
+        </li><li class="listitem">
+          <p>Despite jQuery's DOM-centric nature, JavaScript applications
+          are not all about the DOM. Remember that not all pieces of
+          functionality need to — or should — have a DOM
+          representation.</p>
+        </li><li class="listitem">
+          <p>Units of functionality should be <a class="ulink" href="http://en.wikipedia.org/wiki/Loose_coupling">loosely
+          coupled</a> — a unit of functionality should be able to exist on
+          its own, and communication between units should be handled via a
+          messaging system such as custom events or pub/sub. Stay away from
+          direct communication between units of functionality whenever
+          possible. </p>
+        </li><li class="listitem">
+          <p>Units of functionality should be divided into small methods
+          that do exactly one thing. If your methods are more than a few lines
+          long, you may need to consider refactoring.</p>
+        </li><li class="listitem">
+          <p>Configuration options for your units of functionality — URLs,
+          strings, timeouts, etc. — should be set in properties or a
+          configuration object, not scattered throughout the code.</p>
+        </li></ul></div>
+
+      <p>The concept of loose coupling can be especially troublesome to
+      developers making their first foray into complex applications, so be
+      mindful of this as you're getting started.</p>
+    </div>
+  </div>
+
+  
+</div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
+    Rebecca Murphey</a>, released under the 
+  <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
+	Creative Commons Attribution-Share Alike 3.0 United States license</a>.
+  </p><script>
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-143877-4']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="pt03.html">Prev</a> </td><td align="center"><a accesskey="u" href="pt03.html">Up</a></td><td align="right"> <a accesskey="n" href="ch09s02.html">Next</a></td></tr><tr><td valign="top" align="left">Part III. jQuery: Advanced Concepts </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Organizational Structures</td></tr></table></div></div></div></body></html>
