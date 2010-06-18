@@ -19,6 +19,7 @@ h2 {
 color: #003;
 letter-spacing: -1px;
 font-family: Helvetica, sans-serif;
+line-height:1.2em;
 }
 h2.title {
 font-size:2.8em;
