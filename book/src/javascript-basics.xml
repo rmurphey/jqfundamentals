@@ -366,7 +366,7 @@ if (stuffToDo[foo]) {
     <para><example id="javascript-basics.examples.loops">
         <title>Loops</title>
 
-        <programlisting>// logs 'try 0', 'try 1', ..., 'try 2'
+        <programlisting>// logs 'try 0', 'try 1', ..., 'try 4'
 for (var i=0; i&lt;5; i++) {
     console.log('try ' + i);
 }</programlisting>
