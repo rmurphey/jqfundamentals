@@ -55,22 +55,24 @@ var bar = '2';
 // coerce the string to a number
 console.log(foo + Number(bar));</pre>
       </div></div><br class="example-break" />
-      
-      <p>The Number constructor, when called as a function (like above) will have the effect of casting its argument into a number. You could also use the unary plus operator, which does the same thing:</p>
-      
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.force-number-unary" /><p class="title"><b>Example 2.10. Forcing a string to act as a number (using the unary-plus operator)</b></p><div class="example-contents">
+
+      <p>The Number constructor, when called as a function (like above)
+      will have the effect of casting its argument into a number. You could
+      also use the unary plus operator, which does the same thing:</p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.force-number-unary" /><p class="title"><b>Example 2.10. Forcing a string to act as a number (using the unary-plus
+        operator)</b></p><div class="example-contents">
         
 
         <pre class="programlisting">
 console.log(foo + +bar);</pre>
       </div></div><br class="example-break" />
-      
     </div>
 
     <div class="section" title="Logical Operators"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20214" />Logical Operators</h3></div></div></div>
       
 
-      <p>Logical operators allow you to evaluate a series of comparators
+      <p>Logical operators allow you to evaluate a series of operands
       using AND and OR operations.</p>
 
       <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.and-or" /><p class="title"><b>Example 2.11. Logical AND and OR operators</b></p><div class="example-contents">
@@ -89,11 +91,11 @@ baz &amp;&amp; foo;   // returns 1, which is true</pre>
         </div></div><p><br class="example-break" /></p>
 
       <p>Though it may not be clear from the example, the <code class="code">||</code>
-      operator returns the value of the first truthy comparator, or the last
-      falsy comparator. The <code class="code">&amp;&amp;</code> operator returns the value
-      of the first false comparator, or the value of the last comparator if
-      all values are truthy. Essentially, both operators return the first
-      value that proves them true or false.</p>
+      operator returns the value of the first truthy operand, or, in cases where
+      neither operand is truthy, it'll return the last of both operands.
+      The <code class="code">&amp;&amp;</code> operator returns the value
+      of the first false operand, or the value of the last operand if
+      both operands are truthy.</p>
 
       <p>Be sure to consult <a class="xref" href="ch02s04.html#javascript-basics.sections.truthy-falsy" title="Truthy and Falsy Things">the section called “Truthy and Falsy Things”</a> for more details on
       which values evaluate to <code class="code">true</code> and which evaluate to

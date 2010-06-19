@@ -114,16 +114,18 @@ var bar = '2';
 // coerce the string to a number
 console.log(foo + Number(bar));</programlisting>
       </example>
-      
-      <para>The Number constructor, when called as a function (like above) will have the effect of casting its argument into a number. You could also use the unary plus operator, which does the same thing:</para>
-      
+
+      <para>The Number constructor, when called as a function (like above)
+      will have the effect of casting its argument into a number. You could
+      also use the unary plus operator, which does the same thing:</para>
+
       <example id="javascript-basics.examples.force-number-unary">
-        <title>Forcing a string to act as a number (using the unary-plus operator)</title>
+        <title>Forcing a string to act as a number (using the unary-plus
+        operator)</title>
 
         <programlisting>
 console.log(foo + +bar);</programlisting>
       </example>
-      
     </section>
 
     <section>
@@ -213,9 +215,8 @@ foo &lt;= baz;   // returns true</programlisting></para>
     <title>Conditional Code</title>
 
     <para>Sometimes you only want to run a block of code under certain
-    conditions. Flow control — via <code>if</code> and
-    <code>else</code> blocks — lets you run code only under certain
-    conditions.</para>
+    conditions. Flow control — via <code>if</code> and <code>else</code>
+    blocks — lets you run code only under certain conditions.</para>
 
     <example>
       <title>Flow control</title>
@@ -385,21 +386,21 @@ for (var i=0; i&lt;5; i++) {
       <programlisting>for ([initialisation]; [conditional]; [iteration])
  [loopBody]</programlisting>
       
-      <para>The <em>initialisation</em> statement is executed only once, before
+      <para>The <emphasis>initialisation</emphasis> statement is executed only once, before
       the loop starts. It gives you an oppurtunity to prepare or declare any
       variables.</para>
       
-      <para>The <em>conditional</em> statement is executed before each
+      <para>The <emphasis>conditional</emphasis> statement is executed before each
       iteration, and its return value decides whether or not the loop is to
       continue. If the conditional statement evaluates to a falsey value then
       the loop stops.</para>
       
-      <para>The <em>iteration</em> statement is executed at the end of each
+      <para>The <emphasis>iteration</emphasis> statement is executed at the end of each
       iteration and gives you an oppurtunity to change the state of important
       variables. Typically, this will involve incrementing or decrementing a
       counter and thus bringing the loop ever closer to its end.</para>
       
-      <para>The <em>loopBody</em> statement is what runs on every iteration. It
+      <para>The <emphasis>loopBody</emphasis> statement is what runs on every iteration. It
       can contain anything you want. You'll typically have multiple statements
       that need to be executed and so will wrap them in a block (
       <code>{...}</code>).</para>
@@ -828,18 +829,17 @@ var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]</programlistin
 myObject.sayHello();            // logs 'hello'
 console.log(myObject.myName);   // logs 'Rebecca'</programlisting>
     </example>
-    
+
     <note>
-      
-      <para>When creating object literals, you should note that the key portion
-      of each key-value pair can be written as any valid JavaScript identifier,
-      a string (wrapped in quotes) or a number:</para>
+      <para>When creating object literals, you should note that the key
+      portion of each key-value pair can be written as any valid JavaScript
+      identifier, a string (wrapped in quotes) or a number:</para>
+
       <programlisting>var myObject = {
     validIdentifier: 123,
     'some string': 456,
     99999: 789
 };</programlisting>
-
     </note>
 
     <para>Object literals can be extremely useful for code organization; for
@@ -978,7 +978,7 @@ myFn(myOtherFn);   // logs 'hello world'</programlisting>
     <para>JavaScript offers a way to test the "type" of a variable. However,
     the result can be confusing -- for example, the type of an Array is
     "object".</para>
-    
+
     <para>It's common practice to use the <code>typeof</code> operator when
     trying to determining the type of a specific value.</para>
 
@@ -1022,7 +1022,6 @@ if (Object.prototype.toString.call(myArray) === '[object Array]') {
 
     <para>jQuery offers utility methods to help you determine the type of an
     arbitrary value. These will be covered later.</para>
-    
   </section>
 
   <section xml:id="javascript-basics.sections.scope">
@@ -1149,7 +1148,7 @@ bim();  // bim is not defined outside of the anonymous function,
       <title>How to lock in the value of <code>i</code>?</title>
 
       <programlisting>/* this won't behave as we want it to; */
-/* every click will alert 4 */
+/* every click will alert 5 */
 for (var i=0; i&lt;5; i++) {
     $('&lt;p&gt;click me&lt;/p&gt;').appendTo('body').click(function() {
         alert(i);

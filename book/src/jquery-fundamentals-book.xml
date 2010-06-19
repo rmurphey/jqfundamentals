@@ -96,7 +96,6 @@
       xlink:href="http://github.com/rmurphey/jqfundamentals">http://github.com/rmurphey/jqfundamentals</link>
       to contribute!</para>
     </article>
-
     <xi:include href="performance.xml" />
   </part>
 </book>

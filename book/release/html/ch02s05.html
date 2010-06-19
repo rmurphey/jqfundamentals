@@ -7,7 +7,7 @@
     <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="javascript-basics.examples.loops" /><p class="title"><b>Example 2.18. Loops</b></p><div class="example-contents">
         
 
-        <pre class="programlisting">// logs 'try 1', 'try 2', ..., 'try 5'
+        <pre class="programlisting">// logs 'try 0', 'try 1', ..., 'try 4'
 for (var i=0; i&lt;5; i++) {
     console.log('try ' + i);
 }</pre>
@@ -15,6 +15,139 @@ for (var i=0; i&lt;5; i++) {
     <span class="token">var</span> before the variable name <code class="varname">i</code>, this does
     not "scope" the variable <code class="varname">i</code> to the loop block. We'll
     discuss scope in depth later in this chapter.</span></em></p>
+    
+    <div class="section" title="The for loop"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2030E" />The for loop</h3></div></div></div>
+      
+    
+      <p>A <code class="code">for</code> loop is made up of four statements and has the
+      following structure:</p>
+      
+      <pre class="programlisting">for ([initialisation]; [conditional]; [iteration])
+ [loopBody]</pre>
+      
+      <p>The <span class="emphasis"><em>initialisation</em></span> statement is executed only once, before
+      the loop starts. It gives you an oppurtunity to prepare or declare any
+      variables.</p>
+      
+      <p>The <span class="emphasis"><em>conditional</em></span> statement is executed before each
+      iteration, and its return value decides whether or not the loop is to
+      continue. If the conditional statement evaluates to a falsey value then
+      the loop stops.</p>
+      
+      <p>The <span class="emphasis"><em>iteration</em></span> statement is executed at the end of each
+      iteration and gives you an oppurtunity to change the state of important
+      variables. Typically, this will involve incrementing or decrementing a
+      counter and thus bringing the loop ever closer to its end.</p>
+      
+      <p>The <span class="emphasis"><em>loopBody</em></span> statement is what runs on every iteration. It
+      can contain anything you want. You'll typically have multiple statements
+      that need to be executed and so will wrap them in a block (
+      <code class="code">{...}</code>).</p>
+      
+      <p>Here's a typical <code class="code">for</code> loop:</p>
+      
+      <pre class="programlisting">for (var i = 0, limit = 100; i &lt; limit; i++) {
+    // This block will be executed 100 times
+    console.log('Currently at ' + i);
+    // Note: the last log will be "Currently at 99"
+}</pre>
+      
+      
+    </div>
+    
+    <div class="section" title="The while loop"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20341" />The while loop</h3></div></div></div>
+      
+    
+      <p>A <code class="code">while</code> loop is similar to an
+      <code class="code">if</code> statement, axcept that its body will keep executing until
+      the condition evaluates to false.</p>
+      
+      <pre class="programlisting">while ([conditional]) [loopBody]</pre>
+      
+      <p>Here's a typical <code class="code">while</code> loop:</p>
+      
+      <pre class="programlisting">var i = 0;
+while (i &lt; 100) {
+
+    // This block will be executed 100 times
+    console.log('Currently at ' + i);
+    
+    i++; // increment i
+    
+}</pre>
+      
+      <p>You'll notice that we're having to increment the counter within
+      the loop's body. It is possible to combine the conditional and
+      incrementer, like so:</p>
+      
+      <pre class="programlisting">var i = -1;
+while (++i &lt; 100) {
+    // This block will be executed 100 times
+    console.log('Currently at ' + i);
+}</pre>
+
+      <p>Notice that we're starting at <code class="code">-1</code> and using the
+      prefix incrementer (<code class="code">++i</code>).</p>
+      
+    </div>
+    
+    <div class="section" title="The do-while loop"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2036B" />The do-while loop</h3></div></div></div>
+      
+    
+      <p>This is almost exactly the same as the <code class="code">while</code> loop,
+      except for the fact that the loop's body is executed at least once before
+      the condition is tested.</p>
+      
+      <pre class="programlisting">do [loopBody] while ([conditional])</pre>
+      
+      <p>Here's a <code class="code">do-while</code> loop:</p>
+      
+      <pre class="programlisting">do {
+
+    // Even though the condition evaluates to false
+    // this loop's body will still execute once.
+    
+    alert('Hi there!');
+    
+} while (false);</pre>
+      
+      <p>These types of loops are quite rare since only few situations
+      require a loop that blindly executes at least once. Regardless, it's good
+      to be aware of it.</p>
+      
+    </div>
+    
+    <div class="section" title="Breaking and continuing"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20386" />Breaking and continuing</h3></div></div></div>
+      
+    
+      <p>Usually, a loop's termination will result from the conditional
+      statement not evaluating to true, but it is possible to stop a loop in its
+      tracks from within the loop's body with the <code class="code">break</code> statement:
+      </p>
+      
+      <pre class="programlisting">for (var i = 0; i &lt; 10; i++) {
+    if (something) {
+        break;
+    }
+}</pre>
+
+      <p>You may also want to continue the loop without executing more of the
+      loop's body. This is done using the <code class="code">continue</code> statement:</p>
+      
+      <pre class="programlisting">for (var i = 0; i &lt; 10; i++) {
+    
+    if (something) {
+        continue;
+    }
+    
+    // The following statement will only be executed
+    // if the conditional 'something' has not been met
+    console.log('I have been reached');
+    
+}</pre>
+      
+    </div>
+    
   </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
     Rebecca Murphey</a>, released under the 
   <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
