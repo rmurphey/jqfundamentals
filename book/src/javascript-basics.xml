@@ -131,8 +131,8 @@ console.log(foo + +bar);</programlisting>
     <section>
       <title>Logical Operators</title>
 
-      <para>Logical operators allow you to evaluate a series of operands
-      using AND and OR operations.</para>
+      <para>Logical operators allow you to evaluate a series of operands using
+      AND and OR operations.</para>
 
       <para><example id="javascript-basics.examples.and-or">
           <title>Logical AND and OR operators</title>
@@ -150,11 +150,11 @@ baz &amp;&amp; foo;   // returns 1, which is true</programlisting>
         </example></para>
 
       <para>Though it may not be clear from the example, the <code>||</code>
-      operator returns the value of the first truthy operand, or, in cases where
-      neither operand is truthy, it'll return the last of both operands.
-      The <code>&amp;&amp;</code> operator returns the value
-      of the first false operand, or the value of the last operand if
-      both operands are truthy.</para>
+      operator returns the value of the first truthy operand, or, in cases
+      where neither operand is truthy, it'll return the last of both operands.
+      The <code>&amp;&amp;</code> operator returns the value of the first
+      false operand, or the value of the last operand if both operands are
+      truthy.</para>
 
       <para>Be sure to consult <xref
       linkend="javascript-basics.sections.truthy-falsy" /> for more details on
@@ -372,62 +372,68 @@ for (var i=0; i&lt;5; i++) {
     console.log('try ' + i);
 }</programlisting>
       </example><remark>Note that in <xref
-    linkend="javascript-basics.examples.loops" /> even though we use the keyword
-    <token>var</token> before the variable name <varname>i</varname>, this does
-    not "scope" the variable <varname>i</varname> to the loop block. We'll
-    discuss scope in depth later in this chapter.</remark></para>
-    
+    linkend="javascript-basics.examples.loops" /> even though we use the
+    keyword <token>var</token> before the variable name <varname>i</varname>,
+    this does not "scope" the variable <varname>i</varname> to the loop block.
+    We'll discuss scope in depth later in this chapter.</remark></para>
+
     <section>
       <title>The for loop</title>
-    
+
       <para>A <code>for</code> loop is made up of four statements and has the
       following structure:</para>
-      
+
       <programlisting>for ([initialisation]; [conditional]; [iteration])
  [loopBody]</programlisting>
-      
-      <para>The <emphasis>initialisation</emphasis> statement is executed only once, before
-      the loop starts. It gives you an oppurtunity to prepare or declare any
-      variables.</para>
-      
-      <para>The <emphasis>conditional</emphasis> statement is executed before each
-      iteration, and its return value decides whether or not the loop is to
-      continue. If the conditional statement evaluates to a falsey value then
-      the loop stops.</para>
-      
-      <para>The <emphasis>iteration</emphasis> statement is executed at the end of each
-      iteration and gives you an oppurtunity to change the state of important
-      variables. Typically, this will involve incrementing or decrementing a
-      counter and thus bringing the loop ever closer to its end.</para>
-      
-      <para>The <emphasis>loopBody</emphasis> statement is what runs on every iteration. It
-      can contain anything you want. You'll typically have multiple statements
-      that need to be executed and so will wrap them in a block (
-      <code>{...}</code>).</para>
-      
+
+      <para>The <emphasis>initialisation</emphasis> statement is executed only
+      once, before the loop starts. It gives you an oppurtunity to prepare or
+      declare any variables.</para>
+
+      <para>The <emphasis>conditional</emphasis> statement is executed before
+      each iteration, and its return value decides whether or not the loop is
+      to continue. If the conditional statement evaluates to a falsey value
+      then the loop stops.</para>
+
+      <para>The <emphasis>iteration</emphasis> statement is executed at the
+      end of each iteration and gives you an oppurtunity to change the state
+      of important variables. Typically, this will involve incrementing or
+      decrementing a counter and thus bringing the loop ever closer to its
+      end.</para>
+
+      <para>The <emphasis>loopBody</emphasis> statement is what runs on every
+      iteration. It can contain anything you want. You'll typically have
+      multiple statements that need to be executed and so will wrap them in a
+      block ( <code>{...}</code>).</para>
+
       <para>Here's a typical <code>for</code> loop:</para>
-      
-      <programlisting>for (var i = 0, limit = 100; i &lt; limit; i++) {
+
+      <example>
+        <title>A typical <code>for</code> loop</title>
+
+        <programlisting>for (var i = 0, limit = 100; i &lt; limit; i++) {
     // This block will be executed 100 times
     console.log('Currently at ' + i);
     // Note: the last log will be "Currently at 99"
 }</programlisting>
-      
-      
+      </example>
     </section>
-    
+
     <section>
       <title>The while loop</title>
-    
-      <para>A <code>while</code> loop is similar to an
-      <code>if</code> statement, axcept that its body will keep executing until
-      the condition evaluates to false.</para>
-      
+
+      <para>A <code>while</code> loop is similar to an <code>if</code>
+      statement, axcept that its body will keep executing until the condition
+      evaluates to false.</para>
+
       <programlisting>while ([conditional]) [loopBody]</programlisting>
-      
+
       <para>Here's a typical <code>while</code> loop:</para>
-      
-      <programlisting>var i = 0;
+
+      <example>
+        <title>A typical <code>while</code> loop</title>
+
+        <programlisting>var i = 0;
 while (i &lt; 100) {
 
     // This block will be executed 100 times
@@ -436,34 +442,42 @@ while (i &lt; 100) {
     i++; // increment i
     
 }</programlisting>
-      
+      </example>
+
       <para>You'll notice that we're having to increment the counter within
       the loop's body. It is possible to combine the conditional and
       incrementer, like so:</para>
-      
-      <programlisting>var i = -1;
+
+      <example>
+        <title>A <code>while</code> loop with a combined conditional and
+        incrementer</title>
+
+        <programlisting>var i = -1;
 while (++i &lt; 100) {
     // This block will be executed 100 times
     console.log('Currently at ' + i);
 }</programlisting>
+      </example>
 
-      <para>Notice that we're starting at <code>-1</code> and using the
-      prefix incrementer (<code>++i</code>).</para>
-      
+      <para>Notice that we're starting at <code>-1</code> and using the prefix
+      incrementer (<code>++i</code>).</para>
     </section>
-    
+
     <section>
       <title>The do-while loop</title>
-    
+
       <para>This is almost exactly the same as the <code>while</code> loop,
-      except for the fact that the loop's body is executed at least once before
-      the condition is tested.</para>
-      
+      except for the fact that the loop's body is executed at least once
+      before the condition is tested.</para>
+
       <programlisting>do [loopBody] while ([conditional])</programlisting>
-      
+
       <para>Here's a <code>do-while</code> loop:</para>
-      
-      <programlisting>do {
+
+      <example>
+        <title>A <code>do-while</code> loop</title>
+
+        <programlisting>do {
 
     // Even though the condition evaluates to false
     // this loop's body will still execute once.
@@ -471,31 +485,39 @@ while (++i &lt; 100) {
     alert('Hi there!');
     
 } while (false);</programlisting>
-      
+      </example>
+
       <para>These types of loops are quite rare since only few situations
-      require a loop that blindly executes at least once. Regardless, it's good
-      to be aware of it.</para>
-      
+      require a loop that blindly executes at least once. Regardless, it's
+      good to be aware of it.</para>
     </section>
-    
+
     <section>
       <title>Breaking and continuing</title>
-    
+
       <para>Usually, a loop's termination will result from the conditional
-      statement not evaluating to true, but it is possible to stop a loop in its
-      tracks from within the loop's body with the <code>break</code> statement:
-      </para>
-      
-      <programlisting>for (var i = 0; i &lt; 10; i++) {
+      statement not evaluating to true, but it is possible to stop a loop in
+      its tracks from within the loop's body with the <code>break</code>
+      statement.</para>
+
+      <example>
+        <title>Stopping a loop</title>
+
+        <programlisting>for (var i = 0; i &lt; 10; i++) {
     if (something) {
         break;
     }
 }</programlisting>
+      </example>
 
-      <para>You may also want to continue the loop without executing more of the
-      loop's body. This is done using the <code>continue</code> statement:</para>
-      
-      <programlisting>for (var i = 0; i &lt; 10; i++) {
+      <para>You may also want to continue the loop without executing more of
+      the loop's body. This is done using the <code>continue</code>
+      statement.</para>
+
+      <example>
+        <title>Skipping to the next iteration of a loop</title>
+
+        <programlisting>for (var i = 0; i &lt; 10; i++) {
     
     if (something) {
         continue;
@@ -506,9 +528,8 @@ while (++i &lt; 100) {
     console.log('I have been reached');
     
 }</programlisting>
-      
+      </example>
     </section>
-    
   </section>
 
   <section>
