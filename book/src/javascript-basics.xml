@@ -129,7 +129,7 @@ console.log(foo + +bar);</programlisting>
     <section>
       <title>Logical Operators</title>
 
-      <para>Logical operators allow you to evaluate a series of comparators
+      <para>Logical operators allow you to evaluate a series of operands
       using AND and OR operations.</para>
 
       <para><example id="javascript-basics.examples.and-or">
@@ -148,11 +148,11 @@ baz &amp;&amp; foo;   // returns 1, which is true</programlisting>
         </example></para>
 
       <para>Though it may not be clear from the example, the <code>||</code>
-      operator returns the value of the first truthy comparator, or the last
-      falsy comparator. The <code>&amp;&amp;</code> operator returns the value
-      of the first false comparator, or the value of the last comparator if
-      all values are truthy. Essentially, both operators return the first
-      value that proves them true or false.</para>
+      operator returns the value of the first truthy operand, or, in cases where
+      neither operand is truthy, it'll return the last of both operands.
+      The <code>&amp;&amp;</code> operator returns the value
+      of the first false operand, or the value of the last operand if
+      both operands are truthy.</para>
 
       <para>Be sure to consult <xref
       linkend="javascript-basics.sections.truthy-falsy" /> for more details on
