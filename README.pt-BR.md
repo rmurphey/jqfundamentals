@@ -1,5 +1,5 @@
 # Material de Treinamento Fundamentos jQuery #
-Este repositório contém em evolução o material fonte para minhas turmas de Fundamentos jQuery, incluindo exercícios, soluções e um livro web-based.
+Este repositório contém, em evolução, o material fonte para minhas turmas de Fundamentos jQuery, incluindo exercícios, soluções e um livro web-based.
 
 Se você está procurando pela última versão do livro, baixe a versão [mais recente](http://github.com/rmurphey/jqfundamentals/downloads) e navegue em /book/release/html.
 
