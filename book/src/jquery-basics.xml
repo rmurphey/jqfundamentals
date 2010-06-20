@@ -160,74 +160,73 @@ $("a[rel$='thinger']");</programlisting>
     <section>
       <title>Salvando seleções</title>
 
-      <para>Every time you make a selection, a lot of code runs, and jQuery
-      doesn't do caching of selections for you. If you've made a selection
-      that you might need to make again, you should save the selection in a
-      variable rather than making the selection repeatedly.</para>
+      <para>Toda vez que você faz uma seleção, um monte de código é executado,
+	  e o jQuery não faz caching de seleções para você. Se você fez uma seleção
+	  que você talvez precise fazer novamente, você deve salvar a seleção numa
+	  variável ao invés de fazer a seleção várias vezes.</para>
 
       <example xml:id="jquery-basics.examples.storing-selections">
-        <title>Storing selections in a variable</title>
+        <title>Armazenando seleções em variáveis</title>
 
         <programlisting>var $divs = $('div');</programlisting>
       </example>
 
       <note>
-        <para>In <xref linkend="jquery-basics.examples.storing-selections" />,
-        the variable name begins with a dollar sign. Unlike in other
-        languages, there's nothing special about the dollar sign in JavaScript
-        -- it's just another character. We use it here to indicate that the
-        variable contains a jQuery object. This practice -- a sort of <link
-        xlink:href="http://en.wikipedia.org/wiki/Hungarian_notation">Hungarian
-        notation</link> -- is merely convention, and is not mandatory.</para>
+        <para>Em <xref linkend="jquery-basics.examples.storing-selections" />,
+        o nome da variável começa com um sinal de dólar. Ao invés de outras
+		linguagens, não há nada especial sobre o sinal de dólar em JavaScript
+        -- é apenas outro caractere. Nós o usamos para indicar que a varíavel
+		contém um objeto jQuery. Esta prática -- um tipo de <link
+        xlink:href="http://en.wikipedia.org/wiki/Hungarian_notation">Notação
+		Húngara</link> -- é meramente uma convenção, e não é obrigatória.</para>
       </note>
 
-      <para>Once you've stored your selection, you can call jQuery methods on
-      the variable you stored it in just like you would have called them on
-      the original selection.</para>
+      <para>Uma vez que você armazenou sua seleção, você pode chamar os métodos
+	  do jQuery na varoável que você armazenou, da mesma forma que você faria
+	  na seleção original.</para>
 
       <note>
-        <para>A selection only fetches the elements that are on the page when
-        you make the selection. If you add elements to the page later, you'll
-        have to repeat the selection or otherwise add them to the selection
-        stored in the variable. Stored selections don't magically update when
-        the DOM changes.</para>
+        <para>Uma seleção somente obtém os elementos que estão na página quando
+		você faz a seleção. Se você adicionar elementos na página depois,
+		você terá que repetir a seleção ou então adiciona-la à seleção armazenada
+		na variável. Seleções armazenadas não atualizam automaticamente quando
+		o DOM muda.</para>
       </note>
     </section>
 
     <section>
-      <title>Refining &amp; Filtering Selections</title>
+      <title>Refinando &amp; Filtrando Seleções</title>
 
-      <para>Sometimes you have a selection that contains more than what you're
-      after; in this case, you may want to refine your selection. jQuery
-      offers several methods for zeroing in on exactly what you're
-      after.</para>
+      <para>Algumas vezes você tem uma seleção que contém mais do que você
+	  quer; neste caso, você talvez queira refinar sua seleção. O jQuery
+	  oferece vários métodos para você obter exatamente o que precisa.</para>
 
       <example>
-        <title>Refining selections</title>
+        <title>Refinando seleções</title>
 
-        <programlisting>$('div.foo').has('p');          // div.foo elements that contain &lt;p&gt;'s
-$('h1').not('.bar');            // h1 elements that don't have a class of bar
-$('ul li').filter('.current');  // unordered list items with class of current
-$('ul li').first();             // just the first unordered list item
-$('ul li').eq(5);               // the sixth </programlisting>
+        <programlisting>$('div.foo').has('p');          // o elemento div.foo que contém &lt;p&gt;'s
+$('h1').not('.bar');            // elementos h1 que não tem a classe bar
+$('ul li').filter('.current');  // itens de listas não-ordenadas com a classe current
+$('ul li').first();             // somente o primeiro item da lista não ordenada
+$('ul li').eq(5);               // o sexto item da lista </programlisting>
       </example>
     </section>
 
     <section>
-      <title>Form-Related Selectors</title>
+      <title>Seletores relacionados à formulários</title>
 
-      <para>jQuery offers several pseudo-selectors that help you find elements
-      in your forms; these are especially helpful because it can be difficult
-      to distinguish between form elements based on their state or type using
-      standard CSS selectors.</para>
+      <para>O jQuery oferece vários pseudo-seletores que lhe ajudam a encontrar
+	  elementos nos seus formulários; estes são especialmente úteis porque pode
+	  ser difícil distinguir entre elementos form baseados no seu estado ou tipo
+	  usando seletores CSS padrão.</para>
 
       <variablelist>
         <varlistentry>
           <term>:button</term>
 
           <listitem>
-            <para>Selects <code>&lt;button&gt;</code> elements and elements
-            with <code>type="button"</code></para>
+            <para>Seleciona elementos do tipo <code>&lt;button&gt;</code>
+            e elementos com <code>type="button"</code></para>
           </listitem>
         </varlistentry>
 
@@ -235,7 +234,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:checkbox</term>
 
           <listitem>
-            <para>Selects inputs with <code>type="checkbox"</code></para>
+            <para>Seleciona inputs com <code>type="checkbox"</code></para>
           </listitem>
         </varlistentry>
 
@@ -243,7 +242,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:checked</term>
 
           <listitem>
-            <para>Selects checked inputs</para>
+            <para>Seleciona inputs selecionados</para>
           </listitem>
         </varlistentry>
 
@@ -251,7 +250,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:disabled</term>
 
           <listitem>
-            <para>Selects disabled form elements</para>
+            <para>Seleciona elementos de formulário desabilitados</para>
           </listitem>
         </varlistentry>
 
@@ -259,7 +258,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:enabled</term>
 
           <listitem>
-            <para>Selects enabled form elements</para>
+            <para>Seleciona elementos de formulário habilitados</para>
           </listitem>
         </varlistentry>
 
@@ -267,7 +266,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:file</term>
 
           <listitem>
-            <para>Selects inputs with <code>type="file"</code></para>
+            <para>Seleciona inputs com <code>type="file"</code></para>
           </listitem>
         </varlistentry>
 
@@ -275,7 +274,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:image</term>
 
           <listitem>
-            <para>Selects inputs with <code>type="image"</code></para>
+            <para>Seleciona inputs com <code>type="image"</code></para>
           </listitem>
         </varlistentry>
 
@@ -283,9 +282,9 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:input</term>
 
           <listitem>
-            <para>Selects <code>&lt;input&gt;</code>,
-            <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code>
-            elements</para>
+            <para>Seleciona <code>&lt;input&gt;</code>,
+            <code>&lt;textarea&gt;</code>, e elementos <code>&lt;select&gt;</code>
+			</para>
           </listitem>
         </varlistentry>
 
@@ -293,7 +292,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:password</term>
 
           <listitem>
-            <para>Selects inputs with <code>type="password"</code></para>
+            <para>Selecionam inputs com <code>type="password"</code></para>
           </listitem>
         </varlistentry>
 
@@ -301,7 +300,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:radio</term>
 
           <listitem>
-            <para>Selects inputs with <code>type="radio"</code></para>
+            <para>Selecionam inputs com <code>type="radio"</code></para>
           </listitem>
         </varlistentry>
 
@@ -309,7 +308,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:reset</term>
 
           <listitem>
-            <para>Selects inputs with <code>type="reset"</code></para>
+            <para>Selecionam inputs com <code>type="reset"</code></para>
           </listitem>
         </varlistentry>
 
@@ -317,7 +316,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:selected</term>
 
           <listitem>
-            <para>Selects options that are selected</para>
+            <para>Seleciona inputs que estão selecionados</para>
           </listitem>
         </varlistentry>
 
@@ -325,7 +324,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:submit</term>
 
           <listitem>
-            <para>Selects inputs with <code>type="submit"</code></para>
+            <para>Seleciona inputs com <code>type="submit"</code></para>
           </listitem>
         </varlistentry>
 
@@ -333,7 +332,7 @@ $('ul li').eq(5);               // the sixth </programlisting>
           <term>:text</term>
 
           <listitem>
-            <para>Selects inputs with <code>type="text"</code></para>
+            <para>Seleciona inputs com <code>type="text"</code></para>
           </listitem>
         </varlistentry>
       </variablelist>
