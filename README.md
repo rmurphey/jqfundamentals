@@ -3,7 +3,7 @@ Este repositório contém em evolução o material fonte para minhas turmas de F
 
 Se você está procurando pela última versão do livro, baixe a versão [mais recente](http://github.com/rmurphey/jqfundamentals/downloads) e navegue em /book/release/html.
 
-## Contributing ##
+## Contribuindo ##
 Eu liberei este material sob a licença Creative Commons Attribution-Share Alike 3.0 US porque eu estou ansioso para ver outras pessoas contribuir nele. Pull requests são bem vidas e encorajadas!
 
 O conteúdo do livro é escrito em [DocBook 5.0](http://www.docbook.org/), que é ligeiramente doloroso para escrever devido à falta de bons editores gratuitos de XML, mas gera todo tipo de saída, incluindo HTML e PDF. Eu usei a versão free do [XMLEditor](http://www.xmlmind.com/xmleditor/) para gerar os arquivos dos capítulos.
