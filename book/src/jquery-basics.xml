@@ -132,33 +132,33 @@ $("a[rel$='thinger']");</programlisting>
     </sidebar>
 
     <section>
-      <title>Does My Selection Contain Any Elements?</title>
+      <title>Minha seleção contém algum elemento?</title>
 
-      <para>Once you've made a selection, you'll often want to know whether
-      you have anything to work with. You may be inclined to try something
-      like:</para>
+      <para>Uma vez que você fez uma seleção, você irá querer saber se há
+	  algo para trabalhar com ela. Você talvez se sinta tentado a fazer algo
+	  assim:</para>
 
       <programlisting>if ($('div.foo')) { ... }</programlisting>
 
-      <para>This won't work. When you make a selection using <code>$()</code>,
-      an object is always returned, and objects always evaluate to
-      <code>true</code>. Even if your selection doesn't contain any elements,
-      the code inside the <code>if</code> statement will still run.</para>
-
-      <para>Instead, you need to test the selection's length property, which
-      tells you how many elements were selected. If the answer is 0, the
-      length property will evaluate to false when used as a boolean
-      value.</para>
+      <para>Isso não irá funcionar. Quando você faz uma seleção usando <code>$()</code>,
+      um objeto é sempre retornado, e objetos sempre são tratados como <code>true</code>. 
+	  Mesmo se sua seleção não tiver nenhum elemento, o código dentro do <code>if</code>
+	  vai executar do mesmo jeito.</para>
+	  
+      <para>Ao invés disso, você precisa testar a propriedade length da seleção,
+	  que diz a você quantos elementos foram selecionados. Se a resposta for 0,
+	  a propriedade length será interpretada como falso quando usada como um valor
+	  booleano.</para>
 
       <example>
-        <title>Testing whether a selection contains elements</title>
+        <title>Testando se uma seleção contém elementos.</title>
 
         <programlisting>if ($('div.foo').length) { ... }</programlisting>
       </example>
     </section>
 
     <section>
-      <title>Saving Selections</title>
+      <title>Salvando seleções</title>
 
       <para>Every time you make a selection, a lot of code runs, and jQuery
       doesn't do caching of selections for you. If you've made a selection
