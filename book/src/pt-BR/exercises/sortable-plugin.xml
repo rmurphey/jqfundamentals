@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+	    <title>Make a Table Sortable</title>
+
+	    <para>For this exercise, your task is to identify, download, and implement
+	    a table sorting plugin on the index.html page. When you’re done, all
+	    columns in the table on the page should be sortable.</para>
+</section>
