@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+	    <title>Create an Input Hint</title>
+
+	    <para>Open the file <filename>/exercises/index.html</filename> in your
+	    browser. Use the file <filename>/exercises/js/inputHint.js</filename> or
+	    work in Firebug. Your task is to use the text of the label for the search
+	    input to create "hint" text for the search input. The steps are as
+	    follows:</para>
+
+	    <orderedlist>
+	      <listitem>
+	        <para>Set the value of the search input to the text of the label
+	        element</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Add a class of "hint" to the search input</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Remove the label element</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Bind a focus event to the search input that removes the hint
+	        text and the "hint" class</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Bind a blur event to the search input that restores the hint
+	        text and "hint" class if no search text was entered</para>
+	      </listitem>
+	    </orderedlist>
+
+	    <para>What other considerations might there be if you were creating this
+	    functionality for a real site?</para>
+</section>

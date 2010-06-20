@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+	    <title>Selecting</title>
+
+	    <para>Open the file <filename>/exercises/index.html</filename> in your
+	    browser. Use the file <filename>/exercises/js/sandbox.js</filename> or
+	    work in Firebug to accomplish the following:</para>
+
+	    <orderedlist>
+	      <listitem>
+	        <para>Select all of the div elements that have a class of
+	        "module".</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Come up with three selectors that you could use to get the third
+	        item in the #myList unordered list. Which is the best to use?
+	        Why?</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Select the label for the search input using an attribute
+	        selector.</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Figure out how many elements on the page are hidden (hint:
+	        .length).</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Figure out how many image elements on the page have an alt
+	        attribute.</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Select all of the odd table rows in the table body.</para>
+	      </listitem>
+	    </orderedlist>
+</section>
