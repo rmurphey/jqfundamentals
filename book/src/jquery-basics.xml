@@ -6,46 +6,46 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>jQuery Basics</title>
+  <title>O básico de jQuery</title>
 
   <section>
     <title>$(document).ready()</title>
 
-    <para>You cannot safely manipulate a page until the document is “ready.”
-    jQuery detects this state of readiness for you; code included inside
-    <code>$(document).ready()</code> will only run once the page is ready for
-    JavaScript code to execute.</para>
+    <para>Você não pode manipular a página com segurançã até o documento estar
+	"pronto" (ready). O jQuery detecta o estado de prontidão para você; o código
+	incluido dentro de <code>$(document).ready()</code> somente irá rodar depois
+	que a página estiver pronta para que o código JavaScript estiver pronto
+	para executar</para>
 
     <example>
-      <title>A $(document).ready() block</title>
+      <title>Um bloco $(document).ready()</title>
 
       <programlisting>$(document).ready(function() {
-    console.log('ready!');
+    console.log('pronto!');
 });</programlisting>
     </example>
 
-    <para>There is a shorthand for <code>$(document).ready()</code> that you
-    will sometimes see; however, I recommend against using it if you are
-    writing code that people who aren't experienced with jQuery may
-    see.</para>
+    <para>Há um atalho para <code>$(document).ready()</code> que você verá
+	algumas vezes; entretando, eu recomendo usa-lo se você estiver escrevendo
+	código que pessoas que não tem experiência com jQuery irá ver.</para>
 
     <example>
-      <title>Shorthand for $(document).ready()</title>
+      <title>Atalho para $(document).ready()</title>
 
       <programlisting>$(function() {
-    console.log('ready!');
+    console.log('pronto!');
 });</programlisting>
     </example>
 
-    <para>You can also pass a named function to
-    <code>$(document).ready()</code> instead of passing an anonymous
-    function.</para>
+    <para>Você ainda pode passar uma função nomeada para
+    <code>$(document).ready()</code> ao invés de passar uma função
+	anônima.</para>
 
     <example>
-      <title>Passing a named function instead of an anonymous function</title>
+      <title>Passando uma função nomeada ao invês de uma anônima</title>
 
       <programlisting>function readyFn() {
-    // code to run when the document is ready
+    // código para executar quando o documento estiver pronto
 }
 
 
@@ -54,80 +54,81 @@ $(document).ready(readyFn);</programlisting>
   </section>
 
   <section>
-    <title>Selecting Elements</title>
+    <title>Selecionando elementos</title>
 
-    <para>The most basic concept of jQuery is to “select some elements and do
-    something with them.” jQuery supports most CSS3 selectors, as well as some
-    non-standard selectors. For a complete selector reference, visit <link
+    <para>O conceito mais básico do jQuery é "selecionar alguns elementos e
+	fazer alguma coisa com eles." O jQuery suporta a maioria dos seletores
+    CSS3 como alguns seletores não-padrão. Para uma referência completa de
+	seletores, visite <link
     xlink:href="http://api.jquery.com/category/selectors/">http://api.jquery.com/category/selectors/</link>.</para>
 
-    <para>Following are a few examples of common selection techniques.</para>
+    <para>A seguir, alguns exemplos de técnicas comuns de seleção.</para>
 
     <example>
-      <title>Selecting elements by ID</title>
+      <title>Selecionando elementos por ID</title>
 
-      <programlisting>$('#myId'); // note IDs must be unique per page</programlisting>
+      <programlisting>$('#myId'); // lembre-se que os IDs devem ser únicos por página</programlisting>
     </example>
 
     <example>
-      <title>Selecting elements by class name</title>
+      <title>Selecionando elementos pelo nome da classe</title>
 
-      <programlisting>$('div.myClass'); // performance improves if you specify element type</programlisting>
+      <programlisting>$('div.myClass'); // há um aumento de performance se você especificar o tipo de elemento.</programlisting>
     </example>
 
     <example>
-      <title>Selecting elements by attribute</title>
+      <title>Selecionando elementos por atributo</title>
 
-      <para><programlisting>$('input[name=first_name]'); // beware, this can be very slow</programlisting></para>
+      <para><programlisting>$('input[name=first_name]'); // cuidado, isto pode ser muito lento</programlisting></para>
     </example>
 
     <example>
-      <title>Selecting elements by compound CSS selector</title>
+      <title>Selecionando elementos através da composição de seletores CSS</title>
 
       <programlisting>$('#contents ul.people li');</programlisting>
     </example>
 
     <example>
-      <title>Pseudo-selectors</title>
+      <title>Pseudo-seletores</title>
 
       <programlisting>$('a.external:first'); 
 $('tr:odd');
-$('#myForm :input');   // select all input-like elements in a form
+$('#myForm :input');   // selecione todos os elementos input num formulário
 $('div:visible');
-$('div:gt(2)');        // all except the first three divs
-$('div:animated');     // all currently animated divs</programlisting>
+$('div:gt(2)');        // todos exceto as três primeiras divs
+$('div:animated');     // todas as divs com animação</programlisting>
     </example>
 
     <sidebar>
-      <title>Choosing Selectors</title>
+      <title>Escolhendo seletores</title>
 
-      <para>Choosing good selectors is one way to improve the performance of
-      your JavaScript. A little specificity — for example, including an
-      element type such as <code>div</code> when selecting elements by class
-      name — can go a long way. Generally, any time you can give jQuery a hint
-      about where it might expect to find what you're looking for, you should.
-      On the other hand, too much specificity can be a bad thing. A selector
-      such as <code>#myTable thead tr th.special</code> is overkill if a
-      selector such as <code>#myTable th.special</code> will get you what you
-      want.</para>
+      <para>Escolher bons seletores é uma forma de melhorar a performance
+	  do seu JavaScript. Uma pequena especificidade - por exemplo, incluir
+	  um elemento como <code>div</code> quando selecionar elementos pelo 
+	  nome da classe - pode ir por um longo caminho. Geralmente, sempre que
+	  você puder dar ao jQuery alguma dica sobre onde ele pode esperar encontrar
+	  o que você estiver procurando, você deve dar. Por outro lado, muita 
+	  especificidade pode não ser muito bom. Um seletor como <code>#myTable thead tr th.special</code> 
+	  é um desperdício se um seletor como <code>#myTable th.special</code> lhe
+	  dará o que você precisa.</para>
 
-      <para>jQuery offers many attribute-based selectors, allowing you to make
-      selections based on the content of arbitrary attributes using simplified
-      regular expressions.</para>
+      <para>O jQuery oferece muitos seletores baseados em atributo, permitindo
+	  que você selecione elementos baseados no conteúdo de atributos arbitrários
+	  usando expressões regulares simplificadas.</para>
 
-      <programlisting>// find all &lt;a&gt;s whose rel attribute
-// ends with "thinger"
+      <programlisting>// encontre todos elementos a &lt;a&gt;s em que o atributo
+// rel termine com "thinger"
 $("a[rel$='thinger']");</programlisting>
 
-      <para>While these can be useful in a pinch, they can also be extremely
-      slow — I once wrote an attribute-based selector that locked up my page
-      for multiple seconds. Wherever possible, make your selections using IDs,
-      class names, and tag names.</para>
+      <para>Se por um lado estes seletores podem ser bem úteis, eles também
+	  podem ser extremamente lerdos - Uma vez eu escrevi um seletor baseado
+	  em atributos que travou minha página por múltiplos segundos. Sempre que
+	  possível, faça suas seleções usando IDs, nomes de classe e nomes de tags.</para>
 
-      <para>Want to know more? <link
-      xlink:href="http://paulirish.com/perf">Paul Irish has a great
-      presentation about improving performance in JavaScript</link>, with
-      several slides focused specifically on selector performance.</para>
+      <para>Quer saber mais? <link 
+      xlink:href="http://paulirish.com/perf">Paul Irish tem uma excelente
+	  apresentação sobre melhorar a performance do JavaScript</link>, com
+      vários slides focando especificamente em performace de seletores.</para>
     </sidebar>
 
     <section>
