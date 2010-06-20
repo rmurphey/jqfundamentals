@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input=src/jquery-fundamentals-book.xml
+input=src/en-US/jquery-fundamentals-book.xml
 
 base=`pwd`
 
