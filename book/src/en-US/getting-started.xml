@@ -6,248 +6,258 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>Welcome</title>
-
-  <para>jQuery is fast becoming a must-have skill for front-end developers.
-  The purpose of this book is to provide an overview of the jQuery JavaScript
-  library; when you're done with the book, you should be able to complete
-  basic tasks using jQuery, and have a solid basis from which to continue your
-  learning. This book was designed as material to be used in a classroom
-  setting, but you may find it useful for individual study.</para>
-
-  <para>This is a hands-on class. We will spend a bit of time covering a
-  concept, and then you’ll have the chance to work on an exercise related to
-  the concept. Some of the exercises may seem trivial; others may be downright
-  daunting. In either case, there is no grade; the goal is simply to get you
-  comfortable working your way through problems you’ll commonly be called upon
-  to solve using jQuery. Example solutions to all of the exercises are
-  included in the sample code.</para>
+  <title>Bem vindo</title>
+  
+  <para>jQuery está se tornando rapidamente uma habilidade fundamental para
+  desenvolvedores front-end. O objetivo deste livro é prover uma visão geral
+  da biblioteca JavaScript jQuery; quando você terminar com este livro, você
+  deverá conseguir completar tarefas básicas usando jQuery, e conseguirá uma
+  base sólida se continuar estudando. Este livro foi feito para servir de
+  material para ser usado em sala de aula, mas pode servir para estudo individual.</para>
+  
+  <para>Esta é uma aula prática. Nós vamos usar um pouco de tempo para cobrir
+  conceitos, e então você terá a chance de trabalhar num exercício relacionado
+  ao conceito. Algum dos exercícios podem parecer triviais; outros podem ser
+  assustadores. Em ambos os casos, não há problema; o objetivo é simplesmente
+  fazer você ficar confortável em problemas comuns que você irá resolver no 
+  uso de jQuery. Soluções de exemplo para todos os exercícios estão inclusos
+  no código de amostra.</para>
 
   <section>
-    <title>Getting the Code</title>
+    <title>Obtendo o código</title>
 
-    <para>The code we’ll be using in this book is hosted <link
-    xlink:href="http://github.com/rmurphey/jqfundamentals">in a repository on
-    Github</link>. You can download a .zip or .tar file of the code, then
-    uncompress it to use it on your server. If you’re git-inclined, you’re
-    welcome to clone or fork the repository.</para>
+    <para>O código que iremos usar neste livro está <link
+    xlink:href="http://github.com/rmurphey/jqfundamentals">num repositório do
+    Github</link>. Você pode baixar um arquivo .zip ou .tar contendo o código
+	e então descompacta-lo para usar no seu servidor. Se você souber usar o git,
+	você será bem vindo para clonar ou 'forkar' o repositório.</para>
   </section>
 
   <section>
     <title>Software</title>
 
-    <para>You'll want to have the following tools to make the most of the
-    class:</para>
+    <para>Você precisará das seguintes ferramentas para aproveitar as aulas
+	ao máximo:</para>
 
     <itemizedlist>
       <listitem>
-        <para>The Firefox browser</para>
+        <para>O navegador Firefox</para>
       </listitem>
 
       <listitem>
-        <para>The Firebug extension for Firefox</para>
+        <para>A extensão Firebug para o Firefox</para>
       </listitem>
 
       <listitem>
-        <para>A plain text editor</para>
+        <para>Um editor de textos</para>
       </listitem>
 
       <listitem>
         <para>For the Ajax portions: A local server (such as MAMP or WAMP), or
         an FTP or SSH client to access a remote server.</para>
       </listitem>
+	  
+	  <listitem>
+        <para>Para as partes com Ajax: um servidor local (como o MAMP ou WAMP),
+		ou um cliente FTP ou SSH para acessar um servidor remoto.</para>
+      </listitem>
     </itemizedlist>
   </section>
 
   <section>
-    <title>Adding JavaScript to Your Page</title>
+    <title>Adicionando JavaScript à sua página</title>
 
-    <para>JavaScript can be included inline or by including an external file
-    via a script tag. The order in which you include JavaScript is important:
-    dependencies must be included before the script that depends on
-    them.</para>
+    <para>JavaScript pode ser incluído inline ou incluindo um arquivo externo
+	através de um tag script. A ordem em que você inclui o JavaScript é muito
+	importante: as dependências precisam ser incluídas antes do script que
+	depende dela.</para>
 
-    <para>For the sake of page performance, JavaScript should be included as
-    close to the end of your HTML as is practical. Multiple JavaScript files
-    should be combined for production use.</para>
+    <para>Para o bem da performance da página, o JavaScript deve ser colocado
+	o mais próximo possível do fim do seu HTML. Múltiplos arquivos JavaScript
+	devem ser combinados para uso em produção.</para>
 
     <example>
-      <title>An example of inline Javascript</title>
+      <title>Um exemplo de JavaScript inline</title>
 
       <programlisting>&lt;script&gt;
-console.log('hello');
+console.log('olah');
 &lt;/script&gt;</programlisting>
     </example>
 
     <example>
-      <title>An example of including external JavaScript</title>
+      <title>Um exemplo de inclusão de JavaScript externo</title>
 
       <programlisting>&lt;script src='/js/jquery.js'&gt;&lt;/script&gt;</programlisting>
     </example>
   </section>
 
   <section>
-    <title>JavaScript Debugging</title>
+    <title>Debugando JavaScript</title>
 
-    <para>A debugging tool is essential for JavaScript development. Firefox
-    provides a debugger via the Firebug extension; Safari and Chrome provide
-    built-in consoles.</para>
+    <para>Uma ferramenta de debugging é essencial para desenvolvimento em 
+	JavaScript. O Firefox provê um debugger através da extensão Firebug; 
+	Chrome e Safari possuem consoles embutidos.</para>
 
-    <para>Each console offers:</para>
-
-    <itemizedlist>
-      <listitem>
-        <para>single- and multi-line editors for experimenting with
-        JavaScript</para>
-      </listitem>
-
-      <listitem>
-        <para>an inspector for looking at the generated source of your
-        page</para>
-      </listitem>
-
-      <listitem>
-        <para>a Network or Resources view, to examine network requests</para>
-      </listitem>
-    </itemizedlist>
-
-    <para>When you are writing JavaScript code, you can use the following
-    methods to send messages to the console:</para>
+    <para>Cada console oferece:</para>
 
     <itemizedlist>
       <listitem>
-        <para><code>console.log()</code> for sending general log
-        messages</para>
+        <para>Editores para experimentar JavaScript.</para>
       </listitem>
 
       <listitem>
-        <para><code>console.dir()</code> for logging a browseable
-        object</para>
+        <para>um inspetor para analisar o código gerado da sua 
+		página</para>
       </listitem>
 
       <listitem>
-        <para><code>console.warn()</code> for logging warnings</para>
-      </listitem>
-
-      <listitem>
-        <para><code>console.error()</code> for logging error messages</para>
+        <para>um visualizador de rede ou recursos, para examinar
+		as requisições de rede</para>
       </listitem>
     </itemizedlist>
 
-    <para>Other console methods are also available, though they may differ
-    from one browser to another. The consoles also provide the ability to set
-    break points and watch expressions in your code for debugging
-    purposes.</para>
+    <para>Quando você estiver escrevendo código em JavaScript, você pode
+	usar os seguintes métodos para enviar mensagens ao console:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><code>console.log()</code> para enviar mensagens
+		de log</para>
+      </listitem>
+
+      <listitem>
+        <para><code>console.dir()</code> para logar um objeto
+		navegável</para>
+      </listitem>
+
+      <listitem>
+        <para><code>console.warn()</code> para logar avisos
+		(warnings)</para>
+      </listitem>
+
+      <listitem>
+        <para><code>console.error()</code> para logar mensagens 
+		de erro</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Outros métodos para console estão disponíveis, apesar deles terem
+	uma diferença em cada browser. Os consoles também tem a habilidade de 
+	setar breakpoints e observar expressões no seu código para propósitos
+	de debug.</para>
+	
   </section>
 
   <section>
-    <title>Exercises</title>
+    <title>Exercícios</title>
 
-    <para>Most chapters in the book conclude with one or more exercises. For
-    some exercises, you’ll be able to work directly in Firebug; for others,
-    you will need to include other scripts after the jQuery script tag as
-    directed in the individual exercises.</para>
+    <para>A maioria dos capítulos no livro são concluídos com um ou mais 
+	exercícios. Para alguns exercícios, você poderá trabalhar diretamente
+	no Firebug; para outros, você precisará incluir outros scripts depois
+	da tag de script do jQuery nos exercícios individuais.</para>
 
-    <para>In some cases, you will need to consult the jQuery documentation in
-    order to complete an exercise, as we won’t have covered all of the
-    relevant information in the book. This is by design; the jQuery library is
-    large, and learning to find answers in the documentation is an important
-    part of the process.</para>
+    <para>Em alguns casos, você precisará consultar a documentação do jQuery
+	para concluir um exercício, pois não cobriremos todas as informações que
+	são relevantes no livro. Isso é por praticidade; jQuery é uma biblioteca
+	grande, e aprender a encontrar respostas na documentação é uma parte 
+	importante no processo.</para>
 
-    <para>Here are a few suggestions for tackling these problems:</para>
+    <para>Aqui vão algumas sugestões para cobater estes problemas:</para>
 
     <itemizedlist>
       <listitem>
-        <para>First, make sure you thoroughly understand the problem you're
-        being asked to solve.</para>
+        <para>Primeiro, tenha certeza que você entende completamente o problema
+		que você irá pedir por solução.</para>
       </listitem>
 
       <listitem>
-        <para>Next, figure out which elements you'll need to access in order
-        to solve the problem, and determine how you'll get those elements. Use
-        Firebug to verify that you're getting the elements you're
-        after.</para>
+        <para>Depois, descubra quais elementos você precisará acessar para
+		conseguir resolver o problema e determina como você irá conseguir
+		estes elementos. Use o Firebug para verificar que você está obtendo
+		os elementos que está procurando.</para>
       </listitem>
 
       <listitem>
-        <para>Finally, figure out what you need to do with the elements to
-        solve the problem. It can be helpful to write comments explaining what
-        you're going to do before you try to write the code to do it.</para>
+        <para>Por último, descrubra o que você precisa fazer com os elementos
+		para resolver o problema. Pode ser útil escrever comentários explicando
+		o que você irá fazer antes de tentar escrever código para fazer.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Do not be afraid to make mistakes! Do not try to make your code
-    perfect on the first try! Making mistakes and experimenting with solutions
-    is part of learning the library, and you’ll be a better developer for it.
-    Examples of solutions for these exercises are located in the
-    <filename>/solutions</filename> directory in the sample code.</para>
+    <para>Não tenha medo de errar! Não tente fazer seu código ficar perfeito
+	de início! Errar e experimentar soluções é parte do aprendizado da 
+	biblioteca, e você será um melhor desenvolvedor com isso. Exemplos de
+	soluções para estes exercícios estão localizados no dir <filename>/solutions</filename>
+	no código de exemplo.</para>
   </section>
 
   <section>
-    <title>Conventions used in this book</title>
+    <title>Convenções usadas neste livro.</title>
 
-    <para>Methods that can be called on jQuery objects will be referred to as
-    <code>$.fn.methodName</code>. Methods that exist in the jQuery namespace
-    but that cannot be called on jQuery objects will be referred to as
-    <code>$.methodName</code>. If this doesn't mean much to you, don't worry —
-    it should become clearer as you progress through the book.</para>
+	<para>Métodos que podem ser chamados em objetos jQuery serão referenciados
+	como <code>$.fn.methodName</code>. Métodos que existem no namespace do
+	jQuery mas não podem ser chamados em objetos jQuery serão referidos como
+	<code>$.methodName</code>. Se não fizer muito sentido pra você, não preocupe
+	 - Vai ficar mais claro à medida que você avançar no livro.
+	</para>
 
     <example>
-      <title>Example of an example</title>
+      <title>Exemplo de um exemplo</title>
 
-      <programlisting>// code examples will appear like this</programlisting>
+      <programlisting>// exemplos de código serão parecidos com isto</programlisting>
     </example>
 
-    <remark>Remarks will appear like this.</remark>
+    <remark>Comentários irão aparecer assim.</remark>
 
     <note>
-      <para>Notes about a topic will appear like this.</para>
+      <para>Notas sob um tópico irá aparecer assim.</para>
     </note>
   </section>
 
   <section>
-    <title>Reference Material</title>
+    <title>Material de referência</title>
 
-    <para>There are any number of articles and blog posts out there that
-    address some aspect of jQuery. Some are phenomenal; some are downright
-    wrong. When you read an article about jQuery, be sure it's talking about
-    the same version as you're using, and resist the urge to just copy and
-    paste — take the time to understand the code in the article. </para>
+    <para>Há muitos artigos e posts de blog por aí que falam de alguma
+	forma de jQuery. Alguns são fenomenais; alguns são certamente errados.
+	Quando você ler um artigo sobre jQuery, tenha certeza que está falando
+	sobre a mesma versão que você está usando e resita à tentação de somente
+	copiar e colar - leve um tempo para entender o código no artigo.</para>
 
-    <para>Here are some excellent resources to use during your jQuery
-    learning. The most important of all is the jQuery source itself: it
-    contains, in code form, complete documentation of the library. It is not a
-    black box — your understanding of the library will grow exponentially if
-    you spend some time visiting it now and again — and I highly recommend
-    bookmarking it in your browser and referring to it often.</para>
+    <para>Aqui vão alguns excelentes recursos para usar durante seu 
+	aprendizado em jQuery. O mais importante de todos é o código fonte
+	do jQuery: ele contém, em forma de código, a documentação comlpleta
+	da biblioteca. Não é uma caixa preta - seu conhecimento sobre a biblioteca
+	crescerá exponencialmente se você gastar um tempo visitando-o agora e 
+	novamente - e eu recomendo fortemente que você favorite-o no seu navegador
+	e visite-o com frequencia.</para>
 
     <itemizedlist>
       <listitem>
         <para><link
-        xlink:href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js">The
-        jQuery source</link></para>
+        xlink:href="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js">O 
+		código fonte do jQuery</link></para>
       </listitem>
 
       <listitem>
-        <para><link xlink:href="http://api.jquery.com">jQuery
-        documentation</link></para>
+        <para><link xlink:href="http://api.jquery.com">A 
+		documentação do jQuery</link></para>
       </listitem>
 
       <listitem>
-        <para><link xlink:href="http://forum.jquery.com/">jQuery
-        forum</link></para>
-      </listitem>
-
-      <listitem>
-        <para><link
-        xlink:href="http://delicious.com/rdmey/jquery-class">Delicious
-        bookmarks</link></para>
+        <para><link xlink:href="http://forum.jquery.com/">O
+		fórum do jQuery</link></para>
       </listitem>
 
       <listitem>
         <para><link
-        xlink:href="http://docs.jquery.com/Discussion#Chat_.2F_IRC_Channel">#jquery
-        IRC channel on Freenode</link></para>
+        xlink:href="http://delicious.com/rdmey/jquery-class">Favoritos no
+		Delicious</link></para>
+      </listitem>
+
+      <listitem>
+        <para><link
+        xlink:href="http://docs.jquery.com/Discussion#Chat_.2F_IRC_Channel">Canal
+		IRC #jquery na Freenode</link></para>
       </listitem>
     </itemizedlist>
   </section>
