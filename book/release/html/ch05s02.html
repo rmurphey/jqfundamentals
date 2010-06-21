@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Connecting Events to Elements</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch05.html" title="Chapter 5. Events" /><link rel="prev" href="ch05.html" title="Chapter 5. Events" /><link rel="next" href="ch05s03.html" title="Inside the Event Handling Function" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Connecting Events to Elements</th></tr><tr><td align="left"><a accesskey="p" href="ch05.html">Prev</a> </td><th align="center" width="60%">Chapter 5. Events</th><td align="right"> <a accesskey="n" href="ch05s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Connecting Events to Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20D5A" />Connecting Events to Elements</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Connecting Events to Elements</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch05.html" title="Chapter 5. Events" /><link rel="prev" href="ch05.html" title="Chapter 5. Events" /><link rel="next" href="ch05s03.html" title="Inside the Event Handling Function" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Connecting Events to Elements</th></tr><tr><td align="left"><a accesskey="p" href="ch05.html">Prev</a> </td><th align="center" width="60%">Chapter 5. Events</th><td align="right"> <a accesskey="n" href="ch05s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Connecting Events to Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20D90" />Connecting Events to Elements</h2></div></div></div>
     
 
     <p>jQuery offers convenience methods for most common events, and these
@@ -11,7 +11,7 @@
     provide data to the event hander, or when you are working with custom
     events.</p>
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20D71" /><p class="title"><b>Example 5.1. Event binding using a convenience method</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20DA7" /><p class="title"><b>Example 5.1. Event binding using a convenience method</b></p><div class="example-contents">
       
 
       <pre class="programlisting">$('p').click(function() {
@@ -19,7 +19,7 @@
 });</pre>
     </div></div><br class="example-break" />
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20D7A" /><p class="title"><b>Example 5.2. Event biding using the <code class="code">$.fn.bind</code> method</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20DB0" /><p class="title"><b>Example 5.2. Event biding using the <code class="code">$.fn.bind</code> method</b></p><div class="example-contents">
       
 
       <pre class="programlisting">$('p').bind('click', function() {
@@ -27,7 +27,7 @@
 });</pre>
     </div></div><br class="example-break" />
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20D86" /><p class="title"><b>Example 5.3. Event binding using the <code class="code">$.fn.bind</code> method with
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20DBC" /><p class="title"><b>Example 5.3. Event binding using the <code class="code">$.fn.bind</code> method with
       data</b></p><div class="example-contents">
       
 
@@ -42,7 +42,7 @@
 );</pre>
     </div></div><br class="example-break" />
 
-    <div class="section" title="Connecting Events to Run Only Once"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20D93" />Connecting Events to Run Only Once</h3></div></div></div>
+    <div class="section" title="Connecting Events to Run Only Once"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20DC9" />Connecting Events to Run Only Once</h3></div></div></div>
       
 
       <p>Sometimes you need a particular handler to run only once -- after
@@ -50,7 +50,7 @@
       handler to run. jQuery provides the <code class="code">$.fn.one</code> method for
       this purpose.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20D9E" /><p class="title"><b>Example 5.4. Switching handlers using the <code class="code">$.fn.one</code>
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20DD4" /><p class="title"><b>Example 5.4. Switching handlers using the <code class="code">$.fn.one</code>
         method</b></p><div class="example-contents">
         
 
@@ -64,7 +64,7 @@
       not subsequent times.</p>
     </div>
 
-    <div class="section" title="Disconnecting Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20DB1" />Disconnecting Events</h3></div></div></div>
+    <div class="section" title="Disconnecting Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20DE7" />Disconnecting Events</h3></div></div></div>
       
 
       <p>To disconnect an event handler, you use the
@@ -73,13 +73,13 @@
       unbinding to that named function by passing it as the second
       argument.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20DBC" /><p class="title"><b>Example 5.5. Unbinding all click handlers on a selection</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20DF2" /><p class="title"><b>Example 5.5. Unbinding all click handlers on a selection</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$('p').unbind('click');</pre>
       </div></div><br class="example-break" />
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20DC6" /><p class="title"><b>Example 5.6. Unbinding a particular click handler</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20DFC" /><p class="title"><b>Example 5.6. Unbinding a particular click handler</b></p><div class="example-contents">
         
 
         <pre class="programlisting">var foo = function() { console.log('foo'); };
@@ -90,14 +90,14 @@ $('p').unbind('click', bar); // foo is still bound to the click event</pre>
       </div></div><br class="example-break" />
     </div>
 
-    <div class="section" title="Namespacing Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20DD0" />Namespacing Events</h3></div></div></div>
+    <div class="section" title="Namespacing Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20E06" />Namespacing Events</h3></div></div></div>
       
 
       <p>For complex applications and for plugins you share with others, it
       can be useful to namespace your events so you don't unintentionally
       disconnect events that you didn't or couldn't know about.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20DD8" /><p class="title"><b>Example 5.7. Namespacing events</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20E0E" /><p class="title"><b>Example 5.7. Namespacing events</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$('p').bind('click.myNamespace', function() { /* ... */ });
