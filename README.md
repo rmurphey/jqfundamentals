@@ -17,7 +17,6 @@ Following is a to-do list for the book and the project.
 #### Book Chapters ####
 *	Writing testable code
 *	Unit testing with QUnit
-*	Performance best practices (refer to http://paulirish.com/perf)
 * 	Plugin authoring
 * 	Build tools & dependency management [RequireJS](http://requirejs.org/)
 *	Custom Events
