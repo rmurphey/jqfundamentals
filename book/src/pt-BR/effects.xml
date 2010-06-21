@@ -6,30 +6,30 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>Effects</title>
+  <title>Efeitos</title>
 
   <section>
-    <title>Overview</title>
+    <title>Visão Geral</title>
 
-    <para>jQuery makes it trivial to add simple effects to your page. Effects
-    can use the built-in settings, or provide a customized duration. You can
-    also create custom animations of arbitrary CSS properties.</para>
+    <para>jQuery torna trivial adicionar efeitos simples a sua página. Efeitos
+    podem usar configurações embutidas, ou fornecer uma duração customizada. Você pode
+    também criar animações customizadas de propriedades CSS arbitrárias.</para>
 
-    <para>For complete details on jQuery effects, visit <link
+    <para>Para detalhes completos sobre efeitos do jQuery, visite <link
     xlink:href="http://api.jquery.com/category/effects/">http://api.jquery.com/category/effects/</link>.</para>
   </section>
 
   <section>
-    <title>Built-in Effects</title>
+    <title>Efeitos Embutidos</title>
 
-    <para>Frequently used effects are built into jQuery as methods:</para>
+    <para>Efeitos frequentemente usados estão embutidos no jQuery como métodos:</para>
 
     <variablelist>
       <varlistentry>
         <term>$.fn.show</term>
 
         <listitem>
-          <para>Show the selected element.</para>
+          <para>Mostra o elemento selecionado.</para>
         </listitem>
       </varlistentry>
 
@@ -37,7 +37,7 @@
         <term>$.fn.hide</term>
 
         <listitem>
-          <para>Hide the selected elements.</para>
+          <para>Esconde o elemente selecionado.</para>
         </listitem>
       </varlistentry>
 
@@ -45,7 +45,7 @@
         <term>$.fn.fadeIn</term>
 
         <listitem>
-          <para>Animate the opacity of the selected elements to 100%.</para>
+          <para>Anima a opacidade dos elementos selecionados para 100%.</para>
         </listitem>
       </varlistentry>
 
@@ -53,7 +53,7 @@
         <term>$.fn.fadeOut</term>
 
         <listitem>
-          <para>Animate the opacity of the selected elements to 0%.</para>
+          <para>Anima a opacidade dos elementos selecionados para 0%.</para>
         </listitem>
       </varlistentry>
 
@@ -61,8 +61,7 @@
         <term>$.fn.slideDown</term>
 
         <listitem>
-          <para>Display the selected elements with a vertical sliding
-          motion.</para>
+          <para>Mostra os elementos selecionados com um deslizamento vertical.</para>
         </listitem>
       </varlistentry>
 
@@ -70,8 +69,7 @@
         <term>$.fn.slideUp</term>
 
         <listitem>
-          <para>Hide the selected elements with a vertical sliding
-          motion.</para>
+          <para>Esconde os elementos selecionados com um deslizamento vertical.</para>
         </listitem>
       </varlistentry>
 
@@ -79,55 +77,55 @@
         <term>$.fn.slideToggle</term>
 
         <listitem>
-          <para>Show or hide the selected elements with a vertical sliding
-          motion, depending on whether the elements are currently
-          visible.</para>
+          <para>Mostra ou esconde os elementos selecionados com um deslizamento vertical,
+          dependendo se os elementos atualmente estão
+          visíveis.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
     <example>
-      <title>A basic use of a built-in effect</title>
+      <title>Um uso básico de um efeito embutido</title>
 
       <programlisting>$('h1').show();</programlisting>
     </example>
 
     <section>
-      <title>Changing the Duration of Built-in Effects</title>
+      <title>Mudando a Duração de Efeitos Embutidos</title>
 
-      <para>With the exception of <code>$.fn.show</code> and
-      <code>$.fn.hide</code>, all of the built-in methods are animated over
-      the course of 400ms by default. Changing the duration of an effect is
-      simple.</para>
+      <para>Com exceção de <code>$.fn.show</code> e
+      <code>$.fn.hide</code>, todos os métodos embutidos são animados ao longo
+      de 400ms por default. Mudar a duração de um efeito é
+      simples.</para>
 
       <example>
-        <title>Setting the duration of an effect</title>
+        <title>Configurando a duração de um efeito</title>
 
-        <programlisting>$('h1').fadeIn(300);      // fade in over 300ms
-$('h1').fadeOut('slow');  // using a built-in speed definition</programlisting>
+        <programlisting>$('h1').fadeIn(300);      // fade in durante 300ms
+$('h1').fadeOut('slow');  // usando uma definição de duração nativa</programlisting>
       </example>
 
       <section>
         <title>jQuery.fx.speeds</title>
 
-        <para>jQuery has an object at <code>jQuery.fx.speeds</code> that
-        contains the default speed, as well as settings for
-        <code>"slow"</code> and <code>"fast"</code>.</para>
+        <para>jQuery tem um objeto em <code>jQuery.fx.speeds</code> que
+        contém a velocidade padrão, assim como as configurações para
+        <code>"slow"</code> e <code>"fast"</code>.</para>
 
-        <programlisting>speeds: {
+        <programlisting>velocidades: {
     slow: 600,
     fast: 200,
-    // Default speed
+    // Velocidade padrão
     _default: 400
 }</programlisting>
 
-        <para>It is possible to override or add to this object. For example,
-        you may want to change the default duration of effects, or you may
-        want to create your own effects speed.</para>
+        <para>É possível sobrescrever ou adicionar a este objeto. Por exemplo,
+        você pode querer mudar a duração padrão dos efeitos, ou pode
+        querer criar suas próprias velocidades de efeitos.</para>
 
         <example>
-          <title>Augmenting <code>jQuery.fx.speeds</code> with custom speed
-          definitions</title>
+          <title>Acrescentando definições de velocidade customizadas
+          ao <code>jQuery.fx.speeds</code></title>
 
           <para><programlisting>jQuery.fx.speeds.blazing = 100;
 jQuery.fx.speeds.turtle = 2000;</programlisting></para>
@@ -136,38 +134,38 @@ jQuery.fx.speeds.turtle = 2000;</programlisting></para>
     </section>
 
     <section>
-      <title>Doing Something when an Effect is Done</title>
+      <title>Fazendo algo quando um Efeito tiver Terminado</title>
 
-      <para>Often, you'll want to run some code once an animation is done --
-      if you run it before the animation is done, it may affect the quality of
-      the animation, or it may remove elements that are part of the animation.
-      <termdef><firstterm>Callback functions</firstterm> provide a way to
-      register your interest in an event that will happen in the
-      future.</termdef> In this case, the event we'll be responding to is the
-      conclusion of the animation. Inside of the callback function, the
-      keyword <code>this</code> refers to the element that the effect was
-      called on; as we did inside of event handler functions, we can turn it
-      into a jQuery object via <code>$(this)</code>.</para>
+      <para>Frequentemente, você irá querer executar algum código uma vez que uma animação tenha terminado --
+      se você executá-lo antes que a animação tenha terminado, ele pode afetar a qualidade da
+	  animação, ou pode remover elementos que são parte da animação.
+      <termdef><firstterm>Funções de callback</firstterm> fornecem um jeito de
+	  registrar seu interesse em um evento que acontecerá no
+      futuro.</termdef> Neste caso, o evento que estaremos repondendo é a
+	  conclusão da animação. Dentro da função de callback, a
+      palavra-chave <code>this</code> refere-se ao elemento no qual o efeito
+	  foi chamado; como se estivéssemos dentro de funções de manipulação de eventos, podemos transformá-lo
+	  em um objeto jQuery via <code>$(this)</code>.</para>
 
       <example>
-        <title>Running code when an animation is complete</title>
+        <title>Executando código quando uma animação tiver completado</title>
 
         <para><programlisting>$('div.old').fadeOut(300, function() { $(this).remove(); }); </programlisting></para>
       </example>
 
-      <para>Note that if your selection doesn't return any elements, your
-      callback will never run! You can solve this problem by testing whether
-      your selection returned any elements; if not, you can just run the
-      callback immediately.</para>
+      <para>Note que se sua seleção não retorna nenhum elemento, sua
+	  callback nunca será executada! Você pode resolver este problema testando se
+	  sua seleção retornou algum elemento; se não, você pode só executar a
+	  callback imediatamente.</para>
 
       <example>
-        <title>Run a callback even if there were no elements to
-        animate</title>
+        <title>Executa uma callback mesmo se não houver elementos
+        para animar</title>
 
-        <programlisting>var $thing = $('#nonexistent');
+        <programlisting>var $thing = $('#naoexistente');
 
 var cb = function() {
-    console.log('done!');
+    console.log('pronto!');
 };
 
 if ($thing.length) {
@@ -180,49 +178,49 @@ if ($thing.length) {
   </section>
 
   <section>
-    <title>Custom Effects with <code>$.fn.animate</code></title>
+    <title>Efeitos customizados com <code>$.fn.animate</code></title>
 
-    <para>jQuery makes it possible to animate arbitrary CSS properties via the
-    <code>$.fn.animate</code> method. The <code>$.fn.animate</code> method
-    lets you animate to a set value, or to a value relative to the current
-    value.</para>
+    <para>jQuery torna possível animar propriedades CSS arbitrárias
+	através do método <code>$.fn.animate</code>. O método <code>$.fn.animate</code> 
+	deixa você animar para um valor definido ou para um valor relativo
+    ao valor atual.</para>
 
     <example>
-      <title>Custom effects with <code>$.fn.animate</code></title>
+      <title>Efeitos customizados com <code>$.fn.animate</code></title>
 
       <programlisting>$('div.funtimes').animate(
     {
         left : "+=50",
         opacity : 0.25
     }, 
-    300, // duration
-    function() { console.log('done!'); // calback
+    300, // duração
+    function() { console.log('pronto!'); // callback
 });</programlisting>
     </example>
 
     <note>
-      <para>Color-related properties cannot be animated with
-      <code>$.fn.animate</code> using jQuery out of the box. Color animations
-      can easily be accomplished by including the <link
-      xlink:href="http://plugins.jquery.com/files/jquery.color.js.txt">color
-      plugin</link>. We'll discuss using plugins later in the book.</para>
+      <para>Propriedades relacionadas a cor não podem ser animadas com
+      <code>$.fn.animate</code> usando jQuery de forma convencional. Animações de cor
+	  pode facilmente ser efetuadas incluindo o <link
+      xlink:href="http://plugins.jquery.com/files/jquery.color.js.txt">plugin
+      de cor</link>. Discutiremos o uso de plugins depois no livro.</para>
     </note>
 
     <section>
       <title>Easing</title>
 
-      <para><termdef><firstterm>Easing</firstterm> describes the manner in
-      which an effect occurs -- whether the rate of change is steady, or
-      varies over the duration of the animation.</termdef> jQuery includes
-      only two methods of easing: swing and linear. If you want more natural
-      transitions in your animations, various easing plugins are
-      available.</para>
+      <para><termdef><firstterm>Easing</firstterm> descreve a maneira
+	  na qual um efeito ocorre -- se a taxa de variação é constante, 
+	  ou varia com a duração da animação.</termdef> jQuery inclui
+	  apenas dois métodos de easing: swing and linear. Se você quer
+	  transições mais naturais em suas animações, vários plugins de
+	  easing estão disponíveis.</para>
 
-      <para>As of jQuery 1.4, it is possible to do per-property easing when
-      using the $.fn.animate method.</para>
+      <para>A partir do jQuery 1.4, é possível fazer easing por propriedade
+      ao usar o método $.fn.animate.</para>
 
       <example>
-        <title>Per-property easing</title>
+        <title>Easing por propriedade</title>
 
         <programlisting>$('div.funtimes').animate(
     {
@@ -233,23 +231,23 @@ if ($thing.length) {
 );</programlisting>
       </example>
 
-      <para>For more details on easing options, see <link
+      <para>Para mais detalhes sobre opções de easing, veja <link
       xlink:href="http://api.jquery.com/animate/">http://api.jquery.com/animate/</link>.</para>
     </section>
   </section>
 
   <section>
-    <title>Managing Effects</title>
+    <title>Controlando efeitos</title>
 
-    <para>jQuery provides several tools for managing animations.</para>
+	<para>jQuery fornece várias ferramentas para controlar animações.</para>
 
     <variablelist>
       <varlistentry>
         <term>$.fn.stop</term>
 
         <listitem>
-          <para>Stop currently running animations on the selected
-          elements.</para>
+          <para>Para animações atualmente sendo executadas nos
+          elementos selecionados.</para>
         </listitem>
       </varlistentry>
 
@@ -257,8 +255,8 @@ if ($thing.length) {
         <term>$.fn.delay</term>
 
         <listitem>
-          <para>Wait the specified number of milliseconds before running the
-          next animation.</para>
+		  <para>Espera um número de milissegundos especificado antes de
+		  executar a próxima animação.</para>
 
           <programlisting>$('h1').show(300).delay(1000).hide(300);</programlisting>
         </listitem>
@@ -268,18 +266,18 @@ if ($thing.length) {
         <term>jQuery.fx.off</term>
 
         <listitem>
-          <para>If this value is true, there will be no transition for
-          animations; elements will immediately be set to the target final
-          state instead. This can be especially useful when dealing with older
-          browsers; you also may want to provide the option to your
-          users.</para>
+		  <para>Se este valor for true, não haverá transição para as
+          animações; os elementos serão imediatamente setados para o estado
+		  alvo final em vez disso. Isto pode ser especialmente útil ao
+		  lidar com browsers antigos; você pode querer fornecer a opção
+		  para seus usuários.</para>
         </listitem>
       </varlistentry>
     </variablelist>
   </section>
 
   <section>
-    <title>Exercises</title>
+    <title>Exercícios</title>
 
     <xi:include href="exercises/reveal-hidden-text.xml" xpointer="element(/1)" />
 

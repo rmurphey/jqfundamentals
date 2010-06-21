@@ -1,10 +1,10 @@
-# Material de Treinamento Fundamentos jQuery #
+﻿# Material de Treinamento Fundamentos jQuery #
 Este repositório contém, em evolução, o material fonte para minhas turmas de Fundamentos jQuery, incluindo exercícios, soluções e um livro web-based.
 
 Se você está procurando pela última versão do livro, baixe a versão [mais recente](http://github.com/rmurphey/jqfundamentals/downloads) e navegue em /book/release/html.
 
 ## Contribuindo ##
-Eu liberei este material sob a licença Creative Commons Attribution-Share Alike 3.0 US porque eu estou ansioso para ver outras pessoas contribuir nele. Pull requests são bem vidas e encorajadas!
+Eu liberei este material sob a licença Creative Commons Attribution-Share Alike 3.0 US porque eu estou ansioso para ver outras pessoas contribuir nele. Pull requests são bem vindas e encorajadas!
 
 O conteúdo do livro é escrito em [DocBook 5.0](http://www.docbook.org/), que é ligeiramente doloroso para escrever devido à falta de bons editores gratuitos de XML, mas gera todo tipo de saída, incluindo HTML e PDF. Eu usei a versão free do [XMLEditor](http://www.xmlmind.com/xmleditor/) para gerar os arquivos dos capítulos.
 
@@ -27,7 +27,7 @@ A seguir, uma lista do que há pra fazer no livro e no projeto.
 *   Pelo fato de eu escrever JavaScript, não shell scripts, os shell scripts para geração de HTML e PDF podem ser sem dúvida melhorados, especialmente por que há algumas duplicações entre eles.
 
 ## Usando este material ##
-Por causa da licença, você é pode usar este material à vontade; Se você usa-lo para dar aulas, eu adoraria saber sobre.
+Por causa da licença, você pode usar este material à vontade; Se você usá-lo para dar aulas, eu adoraria saber sobre.
 
 ## Gerando o HTML ##
 No diretório /book, execute:
@@ -41,4 +41,4 @@ Depois execute:
 `./scripts/publish-pdf.sh`
 
 # Copyright & Licenciamento #
-Este material é licenciado por Rebecca Murphey sob [Creative Commons Attribution-Share Alike 3.0 United States license](http://creativecommons.org/licenses/by-sa/3.0/us/). Você é livre para copiar, distribuir, transmitir, modificar este trabalho, desde que você referencie Rebbeca Murphey como autor original e referencie [este repositório](http://github.com/rmurphey/jqfundamentals). Se você alterar, transformar, ou construir sob este trabalho, você deve distribuir o trabalho resultante sob a mesma licença, similiar ou compatível. Qualquer uma das condições acima podem ser dispensadas se você conseguir permissão do detentor da copiright. Para qualquer reuso ou distribuição, você deve deixar claro para outros os termos da licença deste trabalho. A melhor forma de fazer isso é com um link para [Creative Commons Attribution-Share Alike 3.0 United States license](http://creativecommons.org/licenses/by-sa/3.0/us/).
+Este material é licenciado por Rebecca Murphey sob [Creative Commons Attribution-Share Alike 3.0 United States license](http://creativecommons.org/licenses/by-sa/3.0/us/). Você é livre para copiar, distribuir, transmitir, modificar este trabalho, desde que você referencie Rebbeca Murphey como autor original e referencie [este repositório](http://github.com/rmurphey/jqfundamentals). Se você alterar, transformar, ou construir sob este trabalho, você deve distribuir o trabalho resultante sob a mesma licença, similiar ou compatível. Qualquer uma das condições acima podem ser dispensadas se você conseguir permissão do detentor da copyright. Para qualquer reuso ou distribuição, você deve deixar claro para outros os termos da licença deste trabalho. A melhor forma de fazer isso é com um link para [Creative Commons Attribution-Share Alike 3.0 United States license](http://creativecommons.org/licenses/by-sa/3.0/us/).
