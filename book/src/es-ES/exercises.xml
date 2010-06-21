@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Exercises</title>
+
+  <para>Each of these exercises uses the file
+  <filename>/exercises/index.html</filename> included in the sample code. This
+  file has the jQuery library included at the bottom of the page. For some
+  exercises, you’ll be able to work directly in Firebug; for others, you will
+  need to include other scripts after the jQuery script tag as directed in the
+  individual exercises.</para>
+
+  <para>In some cases, you will need to consult the jQuery documentation in
+  order to complete an exercise, as we won’t have covered all of the relevant
+  information in the lecture. This is by design; the jQuery library is large,
+  and learning to find answers in the documentation is an important part of
+  the process.</para>
+
+  <para>Here are a few suggestions for tackling these problems:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>First, make sure you thoroughly understand the problem you're
+      being asked to solve. Ask questions if the problem isn't clear.</para>
+    </listitem>
+
+    <listitem>
+      <para>Next, figure out which elements you'll need to access in order to
+      solve the problem, and determine how you'll get those elements. Use
+      Firebug to verify that you're getting the elements you're after.</para>
+    </listitem>
+
+    <listitem>
+      <para>Finally, figure out what you need to do with the elements to solve
+      the problem. It can be helpful to write comments explaining what you're
+      going to do before you try to write the code to do it.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>Do not be afraid to make mistakes! Do not try to make your code
+  perfect on the first try! Making mistakes and experimenting with solutions
+  is part of learning the library, and you’ll be a better developer for it.
+  Examples of solutions for these exercises are located in the
+  <filename>/solutions</filename> directory in the sample code.</para>
+
+
+  <xi:include href="exercises/selecting.xml" />
+  <xi:include href="exercises/traversing.xml" />
+  <xi:include href="exercises/manipulating.xml" />
+  <xi:include href="exercises/input-hint.xml" />
+  <xi:include href="exercises/reveal-hidden-text.xml" />
+  <xi:include href="exercises/tabbed-navigation.xml" />
+  <xi:include href="exercises/dropdown-menus.xml" />
+  <xi:include href="exercises/slideshow.xml" />
+  <xi:include href="exercises/load-external-content.xml" />
+  <xi:include href="exercises/load-json.xml" />
+  <xi:include href="exercises/sortable-plugin.xml" />
+  <xi:include href="exercises/striping-plugin.xml" />
+</chapter>

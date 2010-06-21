@@ -9,77 +9,45 @@
   <title>Ajax</title>
 
   <section>
-    <title>Overview</title>
+    <title>Sinopsis</title>
 
-    <para>The XMLHttpRequest method (XHR) allows browsers to communicate with the
-    server without requiring a page reload. This method, also known as Ajax
-    (Asynchronous JavaScript and XML), allows for web pages that provide rich,
-    interactive experiences.</para>
+    <para>El método XMLHttpRequest (XHR) permite que los exploradores se comuniquen con el servidor sin requerir una recarga de la página. Este método, conocido también como Ajax (Asynchronous JavaScript and XML o JavaScript y XML Asincrónico), permite que páginas web provean experiencias ricas e interactivas. </para>
 
-    <para>Ajax requests are triggered by JavaScript code; your code sends a
-    request to a URL, and when it receives a response, a callback function can
-    be triggered to handle the response. Because the request is asynchronous,
-    the rest of your code continues to execute while the request is being
-    processed, so it’s imperative that a callback be used to handle the
-    response.</para>
+    <para>Solicitudes de Ajax son iniciadas por código JavaScript; su código envía una solicitud a un URL, y cuando éste recibe una respuesta, una función "callback" puede iniciarse para manipular la respuesta. como la solicitud es asincrónica, el resto de su código se continúa ejecutando mientras la solicitud está siendo procesada, así que es importante que un callback se use para manipular la respuesta.</para>
 
-    <para>jQuery provides Ajax support that abstracts away painful browser
-    differences. It offers both a full-featured <code>$.ajax()</code> method,
-    and simple convenience methods such as <code>$.get()</code>,
-    <code>$.getScript()</code>, <code>$.getJSON()</code>,
-    <code>$.post()</code>, and <code>$().load()</code>.</para>
+    <para>jQuery provee soporte de Ajax que abstrae las dolorosas diferencias entre exploradores. Ofrece un poderoso método <code>$.ajax()</code> al igual que métodos convenientes tales como <code>$.get()</code>, <code>$.getScript</code>, <code>$.getJSON()</code>, <code>$.post()</code>, and <code>$().load()</code>.</para>
 
-    <para>Most jQuery applications don’t in fact use XML, despite the name
-    “Ajax”; instead, they transport data as plain HTML or JSON (JavaScript
-    Object Notation).</para>
+    <para>La mayoría de aplicaciones con jQuery no usan XML, a pesar del nombre “Ajax”; en su lugar, transportan datos como HTML o JSON (JavaScript Object Notation o Notación de Objetos JavaScript).</para>
 
-    <para>In general, Ajax does not work across domains. Exceptions are
-    services that provide JSONP (JSON with Padding) support, which allow
-    limited cross-domain functionality.</para>
+    <para>En general, Ajax no funciona a través de diferentes dominios. Servicios que proveen soporte de JSONP (JSON with Padding), los cuales permiten funcionalidad entre-dominios limitada. </para>
   </section>
 
   <section>
-    <title>Key Concepts</title>
+    <title>Conceptos Clave</title>
 
-    <para>Proper use of Ajax-related jQuery methods requires understanding
-    some key concepts first.</para>
+    <para>El uso apropiado de métodos de jQuery relacionados a Ajax requiere la comprensión de algunos conceptos clave primero.</para>
 
     <section>
       <title>GET vs. Post</title>
 
-      <para>The two most common “methods” for sending a request to a server
-      are GET and POST. It’s important to understand the proper application of
-      each.</para>
+      <para>Los dos “métodos” más comunes para enviar solicitudes a un servidor son GET y POST. Es importante comprender la aplicación correcta de cada uno.</para>
 
-      <para>The GET method should be used for non-destructive operations —
-      that is, operations where you are only “getting” data from the server,
-      not changing data on the server. For example, a query to a search
-      service might be a GET request. GET requests may be cached by the
-      browser, which can lead to unpredictable behavior if you are not
-      expecting it. GET requests generally send all of their data in a query
-      string.</para>
+      <para>El método GET debe ser usado en operaciones no-destructivas — es decir, operaciones en las cuales usted únicamente está “obteniendo” datos del servidor, y no modificando data en el servidor. Por ejemplo, una consulta a un servicio de búsqueda puede ser una solicitud GET. Las solicitudes GET pueden ser almacenadas en caché por el explorador, las cuales pueden provocar comportamiento imprevisible si usted no lo está esperando. Las solicitudes GET envían generalmente todos sus datos en una cadena de consulta (query string).</para>
 
-      <para>The POST method should be used for destructive operations — that
-      is, operations where you are changing data on the server. For example, a
-      user saving a blog post should be a POST request. POST requests are
-      generally not cached by the browser; a query string can be part of the
-      URL, but the data tends to be sent separately as post data.</para>
+      <para>El método POST debe ser usado en operaciones destructivas — es decir, operaciones en las cuales usted únicamente está modificando datos en el servidor. Por ejemplo, un usuario almacenando una entrada de blog debe ser una solicitud POST. Las solicitudes POST no son almacenadas en el cache por el explorador generalmente; una cadena de consulta puede ser parte del URL, pero los datos se envían generalmente como datos post.</para>
     </section>
 
     <section>
-      <title>Data Types</title>
+      <title>Tipos de Dato</title>
 
-      <para>jQuery generally requires some instruction as to the type of data
-      you expect to get back from an Ajax request; in some cases the data type
-      is specified by the method name, and in other cases it is provided as
-      part of a configuration object. There are several options:</para>
+      <para>jQuery requiere generalmente alguna instruccion en cuanto al tipo de datos que usted espera recibir de una solicitud Ajax; en algunos casos el tipo de datos se especifica en el nombre del método, en otros casos se provee como un objeto de configuración. Hay varias opciones:</para>
 
       <variablelist>
         <varlistentry>
           <term>text</term>
 
           <listitem>
-            <para>For transporting simple strings</para>
+            <para>Para transportar cadenas simples</para>
           </listitem>
         </varlistentry>
 
@@ -87,8 +55,7 @@
           <term>html</term>
 
           <listitem>
-            <para>For transporting blocks of HTML to be placed on the
-            page</para>
+            <para>Para transportar bloques de HTML que serán ubicados en la página</para>
           </listitem>
         </varlistentry>
 
@@ -96,7 +63,7 @@
           <term>script</term>
 
           <listitem>
-            <para>For adding a new script to the page</para>
+            <para>Para agregar un script a la página</para>
           </listitem>
         </varlistentry>
 
@@ -104,14 +71,9 @@
           <term>json</term>
 
           <listitem>
-            <para>For transporting JSON-formatted data, which can include
-            strings, arrays, and objects<note>
-                <para>As of jQuery 1.4, if the JSON data sent by your server
-                isn't properly formatted, the request may fail silently. See
-                <link xlink:href="http://json.org">http://json.org</link> for
-                details on properly formatting JSON, but as a general rule,
-                use built-in language methods for generating JSON on the
-                server to avoid syntax issues.</para>
+            <para>Para transportar datos con formato JSON, los cuales pueden incluir cadenas, arreglos (arrays), y objetos<note>
+                <para>Desde jQuery 1.4, si los datos JSON enviados por su servidor no se tienen el formato correcto, la solicitud puede fallar silenciosamente. Vea
+                <link xlink:href="http://json.org">http://json.org</link> para detalles en el formato correcto para JSON, pero como regla general, use métodos incorporados en el lenguaje de servidor para generar JSON  y evitar conflictos de sintaxis.</para>
               </note></para>
           </listitem>
         </varlistentry>
@@ -120,7 +82,7 @@
           <term>jsonp</term>
 
           <listitem>
-            <para>For transporting JSON data from another domain</para>
+            <para>Para transportar datos JSON desde otro dominio</para>
           </listitem>
         </varlistentry>
 
@@ -128,23 +90,18 @@
           <term>xml</term>
 
           <listitem>
-            <para>For transporting data in a custom XML schema</para>
+            <para>Para transportar datos en un esquema de XML personalizado</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <remark>I am a strong proponent of using the JSON format in most cases,
-      as it provides the most flexibility. It is especially useful for sending
-      both HTML and data at the same time.</remark>
+      <remark>Soy una fuerte defensora de utilizar el formato JSON en la mayoría de los casos, ya que proporciona la mayor flexibilidad. Es especialmente útil para el envío de HTML y de datos al mismo tiempo.</remark>
     </section>
 
     <section>
-      <title>A is for Asynchronous</title>
+      <title>A es por Asincrónico</title>
 
-      <para>The asynchronicity of Ajax catches many new jQuery users off
-      guard. Because Ajax calls are asynchronous by default, the response is
-      not immediately available. Responses can only be handled using a
-      callback. So, for example, the following code will not work:</para>
+      <para>La asincronicicidad de Ajax toma a muchos usuarios nuevos de jQuery por sorpresa. Como las llamadas de Ajax son asincrónicas por predeterminación, la respuesta no se encuentra disponible inmediatamente. Las respuestas pueden ser manipuladas únicamente al usar un callback. Así que, por ejemplo, el siguiente código no funcionará:</para>
 
       <programlisting>$.get('foo.php');
 console.log(response);</programlisting>
