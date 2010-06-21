@@ -438,48 +438,48 @@ $('ul li').eq(5);               // o sexto item da lista </programlisting>
   </section>
 
   <section>
-    <title>CSS, Styling, &amp; Dimensions</title>
+    <title>CSS, Styling, &amp; Dimensões</title>
 
-    <para>jQuery includes a handy way to get and set CSS properties of
-    elements.</para>
+    <para>O jQuery possui uma forma bem prática para pegar e setar 
+	propriedades CSS dos elementos.</para>
 
     <note>
-      <para>CSS properties that normally include a hyphen need to be
-      <firstterm>camel cased</firstterm> in JavaScript. For example, the CSS
-      property <code>font-size</code> is expressed as <code>fontSize</code> in
-      JavaScript.</para>
+      <para>Propriedades CSS que normalmente incluem um hífen, precisam ser
+	  acessadas no estilo <firstterm>camel case</firstterm> em JavaScript. 
+	  Por exemplo, a propriedade CSS <code>font-size</code> é  expressada 
+      como <code>fontSize</code> em JavaScript.</para>
     </note>
 
     <example>
-      <title>Getting CSS properties</title>
+      <title>Pegando propriedades CSS</title>
 
-      <programlisting>$('h1').css('fontSize'); // returns a string such as "19px"</programlisting>
+      <programlisting>$('h1').css('fontSize'); // retorna uma string, como "19px"</programlisting>
     </example>
 
     <example>
-      <title>Setting CSS properties</title>
+      <title>Setando propriedades CSS</title>
 
-      <programlisting>$('h1').css('fontSize', '100px'); // setting an individual property
-$('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple properties</programlisting>
+      <programlisting>$('h1').css('fontSize', '100px'); // setando uma propriedade individual
+$('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setando múltiplas propriedades</programlisting>
     </example>
 
-    <remark>Note the style of the argument we use on the second line -- it is
-    an object that contains multiple properties. This is a common way to pass
-    multiple arguments to a function, and many jQuery setter methods accept
-    objects to set mulitple values at once.</remark>
+	<remark>Note o estilo do argumento que usamos na segunda linha -- é um 
+	objeto que contém múltiplas propriedades. Este é um jeito comum de passar
+	múltiplos argumentos para uma função, e muitos setters do jQuery aceitam
+	objetos para setar múltiplos valores de uma só vez.</remark>
 
     <section>
-      <title>Using CSS Classes for Styling</title>
+      <title>Usando classes do CSS para estilos</title>
 
-      <para>As a getter, the <code>$.fn.css</code> method is valuable;
-      however, it should generally be avoided as a setter in production-ready
-      code, because you don't want presentational information in your
-      JavaScript. Instead, write CSS rules for classes that describe the
-      various visual states, and then simply change the class on the element
-      you want to affect.</para>
+      <para>Como um getter, o método <code>$.fn.css</code> é útil;
+      Entretanto, ele geralmente deve ser evitado como um setter em
+	  código de produção, pois você não quer informação de apresentação
+	  no seu JavaScript. Ao invés disso, escreva regras CSS para classes
+	  que descrevam os vários estados visuais, e então mude a classe no
+	  elemento que você quer afetar.</para>
 
       <example>
-        <title>Working with classes</title>
+        <title>Trabalhando com classes</title>
 
         <programlisting>var $h1 = $('h1');
 
@@ -490,62 +490,64 @@ $h1.toggleClass('big');
 if ($h1.hasClass('big')) { ... }</programlisting>
       </example>
 
-      <para>Classes can also be useful for storing state information about an
-      element, such as indicating that an element is selected.</para>
+      <para>Classes também podem ser úteis para armazenar informações de estado
+	  de um elemento, como indicar se um elemento está selecionado, por exemplo.</para>
     </section>
 
     <section>
-      <title>Dimensions</title>
+      <title>Dimensões</title>
 
-      <para>jQuery offers a variety of methods for obtaining and modifying
-      dimenion and position information about an element.</para>
+      <para>O jQuery oferece uma variedade de médotos para obter e modificar
+	  informações sobre dimensões e posições de um elemento.</para>
 
-      <para>The code in <xref linkend="jquery-basics.examples.dimensions" />
-      is just a very brief overview of the dimensions functionality in jQuery;
-      for complete details about jQuery dimension methods, visit <link
+      <para>O código em <xref linkend="jquery-basics.examples.dimensions" />
+      é somente uma introdução muito curta sobre a funcionalidade de dimensões
+	  do jQuery; para detalhes completos sobre a funcionalidade de dimensões
+	  no jQuery, visite <link
       xlink:href="http://api.jquery.com/category/dimensions/">http://api.jquery.com/category/dimensions/</link>.</para>
 
       <example xml:id="jquery-basics.examples.dimensions">
-        <title>Basic dimensions methods</title>
+        <title>Métodos básicos de dimensões</title>
 
-        <para><programlisting>$('h1').width('50px');   // sets the width of all H1 elements
-$('h1').width();         // gets the width of the first H1
+        <para><programlisting>$('h1').width('50px');   // seta a largura de todos os elementos h1
+$('h1').width();         // obtém a largura do primeiro h1
 
-$('h1').height('50px');  // sets the height of all H1 elements
-$('h1').height();        // gets the height of the first H1
+$('h1').height('50px');  // seta a altura de todos os elementos h1
+$('h1').height();        // obtém a altura do primeiro h1
 
-$('h1').position();      // returns an object containing position
-                         // information for the first H1 relative to
-                         // its "offset (positioned) parent"</programlisting></para>
+$('h1').position();      // retorna um objeto contendo informações
+                         // sobre a posição do primeiro h1 relativo
+                         // à seu pai</programlisting></para>
       </example>
     </section>
   </section>
 
   <section>
-    <title>Attributes</title>
+    <title>Atributos</title>
 
-    <para>An element's attributes can contain useful information for your
-    application, so it's important to be able to get and set them.</para>
+    <para>Atributos de elementos podem conter informações úteis para sua
+    aplicação, então é importante saber como seta-los e obte-los.</para>
 
-    <para>The <code>$.fn.attr</code> method acts as both a getter and a
-    setter. As with the <code>$.fn.css</code> method, <code>$.fn.attr</code>
-    as a setter can accept either a key and a value, or an object containing
-    one or more key/value pairs.</para>
+    <para>O método <code>$.fn.attr</code> atua como getter e setter
+    . Assim como os métodos <code>$.fn.css</code> , <code>$.fn.attr</code>
+    atuando como um setter, podem aceitar tanto uma chave e um valor ou
+	um objeto contendo um ou mais pares chave/valor.</para>
 
     <example>
       <title>Setting attributes</title>
 
-      <programlisting>$('a').attr('href', 'allMyHrefsAreTheSameNow.html');
+      <programlisting>$('a').attr('href', 'todosMeusHrefsSaoOMesmoAgora.html');
 $('a').attr({ 
-    'title' : 'all titles are the same too!', 
-    'href' : 'somethingNew.html' 
+    'title' : 'todos os títulos são os mesmos também!', 
+    'href' : 'algoNovo.html' 
 });</programlisting>
     </example>
 
-    <remark>This time, we broke the object up into multiple lines. Remember,
-    whitespace doesn't matter in JavaScript, so you should feel free to use it
-    liberally to make your code more legible! You can use a minification tool
-    later to strip out unnecessary whitespace for production.</remark>
+    <remark>Agora, nós quebramos o objeto em múltiplas linhas. Lembre-se,
+	espaços não importam em JavaScript, então você deve se sentir livre
+	para usa-lo do jeito que quiser para fazer seu código ficar mais legível!
+	Depois, você pode usar uma ferramenta de minificação para remover espaços
+	desnecessários para seu código de produção.</remark>
 
     <example>
       <title>Getting attributes</title>
