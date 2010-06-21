@@ -4,26 +4,9 @@ This repository contains evolving source material for my jQuery Fundamentals cla
 If you're looking for the latest release of the book, download the [most recent tag](http://github.com/rmurphey/jqfundamentals/downloads) and navigate to /book/release/html/. 
 
 ## Contributing ##
-I have released this material under the Creative Commons Attribution-Share Alike 3.0 US license because I am eager to see other people contribute to it. Pull requests are welcome and encouraged!
+I have released this material under the Creative Commons Attribution-Share Alike 3.0 US license because I am eager to see other people contribute to it. Pull requests are welcome and encouraged! Check out the Issues page for the project to see the most recent list of things that still need to be done. 
 
-The content of the book is written in [DocBook 5.0](http://www.docbook.org/), which is slightly painful to write in due to the lack of good free XML editors, but which generates all sorts of outputs, including HTML and PDF. I used the free version of [XMLEditor](http://www.xmlmind.com/xmleditor/) to generate the chapter files. 
-
-If you're interested in contributing but don't want to deal with DocBook, let me know and we can work something out. Also, if you have existing content that you think would be good to include in the book, let me know that too! You will, of course, be credited for any contributions.
-
-Following is a to-do list for the book and the project.
-
-### TODO ###
-
-#### Book Chapters ####
-*	Writing testable code
-*	Unit testing with QUnit
-* 	Plugin authoring
-* 	Build tools & dependency management [RequireJS](http://requirejs.org/)
-*	Custom Events
-
-#### General ####
-*	The PDF output is decent but has issues. If you're interested in solving them, please do :) For now I consider it good enough, though.
-*	Also, since I write JavaScript, not shell scripts, the shell scripts for generating the HTML and PDF could undoubtedly be improved if you're so inclined, especially because there's some duplication between them.
+The content of the book is written in [DocBook 5.0](http://www.docbook.org/), which is slightly painful to write in due to the lack of good free XML editors, but which generates all sorts of outputs, including HTML and PDF. I used the free version of [XMLEditor](http://www.xmlmind.com/xmleditor/) to generate the chapter files. If you're interested in contributing content but don't want to deal with DocBook, let me know and we can work something out. Also, if you have existing content that you think would be good to include in the book, let me know that too! You will, of course, be credited for any contributions.
 
 ## Using This Material ##
 Per the license, you are welcome to use this material; if you're using it to teach a class, I'd love for you to let me know about it.
