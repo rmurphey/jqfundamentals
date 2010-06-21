@@ -1,45 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Debugando JavaScript</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch01.html" title="Chapter 1. Bem vindo" /><link rel="prev" href="ch01s03.html" title="Adicionando JavaScript à sua página" /><link rel="next" href="ch01s05.html" title="Exercícios" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Debugando JavaScript</th></tr><tr><td align="left"><a accesskey="p" href="ch01s03.html">Prev</a> </td><th align="center" width="60%">Chapter 1. Bem vindo</th><td align="right"> <a accesskey="n" href="ch01s05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Debugando JavaScript"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N200AC" />Debugando JavaScript</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>JavaScript Debugging</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch01.html" title="Chapter 1. Welcome" /><link rel="prev" href="ch01s03.html" title="Adding JavaScript to Your Page" /><link rel="next" href="ch01s05.html" title="Exercises" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">JavaScript Debugging</th></tr><tr><td align="left"><a accesskey="p" href="ch01s03.html">Prev</a> </td><th align="center" width="60%">Chapter 1. Welcome</th><td align="right"> <a accesskey="n" href="ch01s05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="JavaScript Debugging"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N200A6" />JavaScript Debugging</h2></div></div></div>
     
 
-    <p>Uma ferramenta de debugging é essencial para desenvolvimento em 
-	JavaScript. O Firefox provê um debugger através da extensão Firebug; 
-	Chrome e Safari possuem consoles embutidos.</p>
+    <p>A debugging tool is essential for JavaScript development. Firefox
+    provides a debugger via the Firebug extension; Safari and Chrome provide
+    built-in consoles.</p>
 
-    <p>Cada console oferece:</p>
-
-    <div class="itemizedlist"><ul class="itemizedlist"><li class="listitem">
-        <p>Editores para experimentar JavaScript.</p>
-      </li><li class="listitem">
-        <p>um inspetor para analisar o código gerado da sua 
-		página</p>
-      </li><li class="listitem">
-        <p>um visualizador de rede ou recursos, para examinar
-		as requisições de rede</p>
-      </li></ul></div>
-
-    <p>Quando você estiver escrevendo código em JavaScript, você pode
-	usar os seguintes métodos para enviar mensagens ao console:</p>
+    <p>Each console offers:</p>
 
     <div class="itemizedlist"><ul class="itemizedlist"><li class="listitem">
-        <p><code class="code">console.log()</code> para enviar mensagens
-		de log</p>
+        <p>single- and multi-line editors for experimenting with
+        JavaScript</p>
       </li><li class="listitem">
-        <p><code class="code">console.dir()</code> para logar um objeto
-		navegável</p>
+        <p>an inspector for looking at the generated source of your
+        page</p>
       </li><li class="listitem">
-        <p><code class="code">console.warn()</code> para logar avisos
-		(warnings)</p>
-      </li><li class="listitem">
-        <p><code class="code">console.error()</code> para logar mensagens 
-		de erro</p>
+        <p>a Network or Resources view, to examine network requests</p>
       </li></ul></div>
 
-    <p>Outros métodos para console estão disponíveis, apesar deles terem
-	uma diferença em cada browser. Os consoles também tem a habilidade de 
-	setar breakpoints e observar expressões no seu código para propósitos
-	de debug.</p>
-	
+    <p>When you are writing JavaScript code, you can use the following
+    methods to send messages to the console:</p>
+
+    <div class="itemizedlist"><ul class="itemizedlist"><li class="listitem">
+        <p><code class="code">console.log()</code> for sending general log
+        messages</p>
+      </li><li class="listitem">
+        <p><code class="code">console.dir()</code> for logging a browseable
+        object</p>
+      </li><li class="listitem">
+        <p><code class="code">console.warn()</code> for logging warnings</p>
+      </li><li class="listitem">
+        <p><code class="code">console.error()</code> for logging error messages</p>
+      </li></ul></div>
+
+    <p>Other console methods are also available, though they may differ
+    from one browser to another. The consoles also provide the ability to set
+    break points and watch expressions in your code for debugging
+    purposes.</p>
   </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
     Rebecca Murphey</a>, released under the 
   <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
@@ -54,4 +51,4 @@
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
-  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch01s03.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch01.html">Up</a></td><td align="right"> <a accesskey="n" href="ch01s05.html">Next</a></td></tr><tr><td valign="top" align="left">Adicionando JavaScript à sua página </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Exercícios</td></tr></table></div></div></div></body></html>
+  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch01s03.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch01.html">Up</a></td><td align="right"> <a accesskey="n" href="ch01s05.html">Next</a></td></tr><tr><td valign="top" align="left">Adding JavaScript to Your Page </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Exercises</td></tr></table></div></div></div></body></html>

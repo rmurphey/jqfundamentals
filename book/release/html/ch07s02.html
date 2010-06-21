@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Key Concepts</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch07.html" title="Chapter 7. Ajax" /><link rel="prev" href="ch07.html" title="Chapter 7. Ajax" /><link rel="next" href="ch07s03.html" title="jQuery's Ajax-Related Methods" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Key Concepts</th></tr><tr><td align="left"><a accesskey="p" href="ch07.html">Prev</a> </td><th align="center" width="60%">Chapter 7. Ajax</th><td align="right"> <a accesskey="n" href="ch07s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Key Concepts"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N211D7" />Key Concepts</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Key Concepts</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch07.html" title="Chapter 7. Ajax" /><link rel="prev" href="ch07.html" title="Chapter 7. Ajax" /><link rel="next" href="ch07s03.html" title="jQuery's Ajax-Related Methods" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Key Concepts</th></tr><tr><td align="left"><a accesskey="p" href="ch07.html">Prev</a> </td><th align="center" width="60%">Chapter 7. Ajax</th><td align="right"> <a accesskey="n" href="ch07s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Key Concepts"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N211D1" />Key Concepts</h2></div></div></div>
     
 
     <p>Proper use of Ajax-related jQuery methods requires understanding
     some key concepts first.</p>
 
-    <div class="section" title="GET vs. Post"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N211DF" />GET vs. Post</h3></div></div></div>
+    <div class="section" title="GET vs. Post"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N211D9" />GET vs. Post</h3></div></div></div>
       
 
       <p>The two most common “methods” for sending a request to a server
@@ -27,7 +27,7 @@
       URL, but the data tends to be sent separately as post data.</p>
     </div>
 
-    <div class="section" title="Data Types"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N211EE" />Data Types</h3></div></div></div>
+    <div class="section" title="Data Types"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N211E8" />Data Types</h3></div></div></div>
       
 
       <p>jQuery generally requires some instruction as to the type of data
@@ -41,7 +41,7 @@
             <p>For transporting blocks of HTML to be placed on the
             page</p>
           </dd><dt><span class="term">script</span></dt><dd>
-            <p>For ading a new script to the page</p>
+            <p>For adding a new script to the page</p>
           </dd><dt><span class="term">json</span></dt><dd>
             <p>For transporting JSON-formatted data, which can include
             strings, arrays, and objects</p><div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
@@ -63,7 +63,7 @@
       both HTML and data at the same time.</span></i></p>
     </div>
 
-    <div class="section" title="A is for Asynchronous"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2124E" />A is for Asynchronous</h3></div></div></div>
+    <div class="section" title="A is for Asynchronous"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21248" />A is for Asynchronous</h3></div></div></div>
       
 
       <p>The asynchronicity of Ajax catches many new jQuery users off
@@ -79,7 +79,7 @@ console.log(response);</pre>
       access the data that it returned, if any. </p><pre class="programlisting">$.get('foo.php', function(response) { console.log(response); });</pre>
     </div>
 
-    <div class="section" title="Same-Origin Policy and JSONP"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2125F" />Same-Origin Policy and JSONP</h3></div></div></div>
+    <div class="section" title="Same-Origin Policy and JSONP"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21259" />Same-Origin Policy and JSONP</h3></div></div></div>
       
 
       <p>In general, Ajax requests are limited to the same protocol (http
@@ -95,7 +95,7 @@ console.log(response);</pre>
       wrapped in a callback function you provide.</p>
     </div>
 
-    <div class="section" title="Ajax and Firebug"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2126E" />Ajax and Firebug</h3></div></div></div>
+    <div class="section" title="Ajax and Firebug"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21268" />Ajax and Firebug</h3></div></div></div>
       
 
       <p>Firebug (or the Webkit Inspector in Chrome or Safari) is an
