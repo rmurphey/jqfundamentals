@@ -35,7 +35,7 @@ if [ ! -d "release/html" ]; then
 	mkdir release/html
 fi
 
-#cp -Rf imgs release/html
+cp -Rf imgs release/html
 cp style/* release/html
 cp -Rf $xsl/images release/html
 
