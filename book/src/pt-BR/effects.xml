@@ -178,49 +178,49 @@ if ($thing.length) {
   </section>
 
   <section>
-    <title>Custom Effects with <code>$.fn.animate</code></title>
+    <title>Efeitos customizados com <code>$.fn.animate</code></title>
 
-    <para>jQuery makes it possible to animate arbitrary CSS properties via the
-    <code>$.fn.animate</code> method. The <code>$.fn.animate</code> method
-    lets you animate to a set value, or to a value relative to the current
-    value.</para>
+    <para>jQuery torna possível animar propriedades CSS arbitrárias
+	através do método <code>$.fn.animate</code>. O método <code>$.fn.animate</code> 
+	deixa você animar para um valor definido ou para um valor relativo
+    ao valor atual.</para>
 
     <example>
-      <title>Custom effects with <code>$.fn.animate</code></title>
+      <title>Efeitos customizados com <code>$.fn.animate</code></title>
 
       <programlisting>$('div.funtimes').animate(
     {
         left : "+=50",
         opacity : 0.25
     }, 
-    300, // duration
-    function() { console.log('done!'); // calback
+    300, // duração
+    function() { console.log('pronto!'); // callback
 });</programlisting>
     </example>
 
     <note>
-      <para>Color-related properties cannot be animated with
-      <code>$.fn.animate</code> using jQuery out of the box. Color animations
-      can easily be accomplished by including the <link
-      xlink:href="http://plugins.jquery.com/files/jquery.color.js.txt">color
-      plugin</link>. We'll discuss using plugins later in the book.</para>
+      <para>Propriedades relacionadas a cor não podem ser animadas com
+      <code>$.fn.animate</code> usando jQuery de forma convencional. Animações de cor
+	  pode facilmente ser efetuadas incluindo o <link
+      xlink:href="http://plugins.jquery.com/files/jquery.color.js.txt">plugin
+      de cor</link>. Discutiremos o uso de plugins depois no livro.</para>
     </note>
 
     <section>
       <title>Easing</title>
 
-      <para><termdef><firstterm>Easing</firstterm> describes the manner in
-      which an effect occurs -- whether the rate of change is steady, or
-      varies over the duration of the animation.</termdef> jQuery includes
-      only two methods of easing: swing and linear. If you want more natural
-      transitions in your animations, various easing plugins are
-      available.</para>
+      <para><termdef><firstterm>Easing</firstterm> descreve a maneira
+	  na qual um efeito ocorre -- se a taxa de variação é constante, 
+	  ou varia com a duração da animação.</termdef> jQuery inclui
+	  apenas dois métodos de easing: swing and linear. Se você quer
+	  transições mais naturais em suas animações, vários plugins de
+	  easing estão disponíveis.</para>
 
-      <para>As of jQuery 1.4, it is possible to do per-property easing when
-      using the $.fn.animate method.</para>
+      <para>A partir do jQuery 1.4, é possível fazer easing por propriedade
+      ao usar o método $.fn.animate.</para>
 
       <example>
-        <title>Per-property easing</title>
+        <title>Easing por propriedade</title>
 
         <programlisting>$('div.funtimes').animate(
     {
@@ -231,23 +231,23 @@ if ($thing.length) {
 );</programlisting>
       </example>
 
-      <para>For more details on easing options, see <link
+      <para>Para mais detalhes sobre opções de easing, veja <link
       xlink:href="http://api.jquery.com/animate/">http://api.jquery.com/animate/</link>.</para>
     </section>
   </section>
 
   <section>
-    <title>Managing Effects</title>
+    <title>Controlando efeitos</title>
 
-    <para>jQuery provides several tools for managing animations.</para>
+	<para>jQuery fornece várias ferramentas para controlar animações.</para>
 
     <variablelist>
       <varlistentry>
         <term>$.fn.stop</term>
 
         <listitem>
-          <para>Stop currently running animations on the selected
-          elements.</para>
+          <para>Para animações atualmente sendo executadas nos
+          elementos selecionados.</para>
         </listitem>
       </varlistentry>
 
@@ -255,8 +255,8 @@ if ($thing.length) {
         <term>$.fn.delay</term>
 
         <listitem>
-          <para>Wait the specified number of milliseconds before running the
-          next animation.</para>
+		  <para>Espera um número de milissegundos especificado antes de
+		  executar a próxima animação.</para>
 
           <programlisting>$('h1').show(300).delay(1000).hide(300);</programlisting>
         </listitem>
@@ -266,18 +266,18 @@ if ($thing.length) {
         <term>jQuery.fx.off</term>
 
         <listitem>
-          <para>If this value is true, there will be no transition for
-          animations; elements will immediately be set to the target final
-          state instead. This can be especially useful when dealing with older
-          browsers; you also may want to provide the option to your
-          users.</para>
+		  <para>Se este valor for true, não haverá transição para as
+          animações; os elementos serão imediatamente setados para o estado
+		  alvo final em vez disso. Isto pode ser especialmente útil ao
+		  lidar com browsers antigos; você pode querer fornecer a opção
+		  para seus usuários.</para>
         </listitem>
       </varlistentry>
     </variablelist>
   </section>
 
   <section>
-    <title>Exercises</title>
+    <title>Exercícios</title>
 
     <xi:include href="exercises/reveal-hidden-text.xml" xpointer="element(/1)" />
 
