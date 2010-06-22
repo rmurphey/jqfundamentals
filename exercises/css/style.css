@@ -7,6 +7,10 @@
 	color: blue;
 }
 
+.hint {
+	color: #999;
+}
+
 h1 {
 	font-size: 250%;
 	margin: 5px 0 10px 0;
@@ -111,7 +115,7 @@ table th {
 body {
 	font-family: Arial;
 	color: #333;
-	width: 970px;
+	width: 900px;
 	margin: 10px auto;
 }
 
