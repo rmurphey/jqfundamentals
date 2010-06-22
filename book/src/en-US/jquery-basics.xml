@@ -411,12 +411,10 @@ $('ul li').eq(5);               // the sixth </programlisting>
 
       <para>jQuery “overloads” its methods, so the method used to set a value
       generally has the same name as the method used to get a value.
-      <termdef>When a method is used to set a value, it is called a
-      <firstterm>setter</firstterm></termdef>. <termdef>When a method is used
-      to get (or read) a value, it is called a
-      <firstterm>getter</firstterm></termdef>. Setters affect all elements in
-      a selection; getters get the requested value only for the first element
-      in the selection.</para>
+      When a method is used to set a value, it is called a
+      setter. When a method is used to get (or read) a value, it is called a
+      getter. Setters affect all elements in a selection; getters get the requested 
+      value only for the first element in the selection.</para>
 
       <example>
         <title>The <code>$.fn.html</code> method used as a setter</title>
@@ -498,7 +496,7 @@ if ($h1.hasClass('big')) { ... }</programlisting>
       <title>Dimensions</title>
 
       <para>jQuery offers a variety of methods for obtaining and modifying
-      dimenion and position information about an element.</para>
+      dimension and position information about an element.</para>
 
       <para>The code in <xref linkend="jquery-basics.examples.dimensions" />
       is just a very brief overview of the dimensions functionality in jQuery;
