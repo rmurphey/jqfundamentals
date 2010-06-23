@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Increasing Performance with Event Delegation</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch05.html" title="Chapter 5. Events" /><link rel="prev" href="ch05s04.html" title="Triggering Event Handlers" /><link rel="next" href="ch05s06.html" title="Event Helpers" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Increasing Performance with Event Delegation</th></tr><tr><td align="left"><a accesskey="p" href="ch05s04.html">Prev</a> </td><th align="center" width="60%">Chapter 5. Events</th><td align="right"> <a accesskey="n" href="ch05s06.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Increasing Performance with Event Delegation"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20EA0" />Increasing Performance with Event Delegation</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Increasing Performance with Event Delegation</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch05.html" title="Chapter 5. Events" /><link rel="prev" href="ch05s04.html" title="Triggering Event Handlers" /><link rel="next" href="ch05s06.html" title="Event Helpers" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Increasing Performance with Event Delegation</th></tr><tr><td align="left"><a accesskey="p" href="ch05s04.html">Prev</a> </td><th align="center" width="60%">Chapter 5. Events</th><td align="right"> <a accesskey="n" href="ch05s06.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Increasing Performance with Event Delegation"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20E96" />Increasing Performance with Event Delegation</h2></div></div></div>
     
 
     <p>You'll frequently use jQuery to add new elements to the page, and
@@ -26,7 +26,7 @@
       preferred method.</p>
     </div>
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20EBD" /><p class="title"><b>Example 5.10. Event delegation using <code class="code">$.fn.delegate</code></b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20EB3" /><p class="title"><b>Example 5.10. Event delegation using <code class="code">$.fn.delegate</code></b></p><div class="example-contents">
       
 
       <pre class="programlisting">$('#myUnorderedList').delegate('li', 'click', function(e) {
@@ -35,7 +35,7 @@
 });</pre>
     </div></div><br class="example-break" />
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20EC8" /><p class="title"><b>Example 5.11. Event delegation using <code class="code">$.fn.live</code></b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20EBE" /><p class="title"><b>Example 5.11. Event delegation using <code class="code">$.fn.live</code></b></p><div class="example-contents">
       
 
       <pre class="programlisting">$('#myUnorderedList li').live('click', function(e) {
@@ -44,7 +44,7 @@
 });</pre>
     </div></div><br class="example-break" />
 
-    <div class="section" title="Unbinding Delegated Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20ED3" />Unbinding Delegated Events</h3></div></div></div>
+    <div class="section" title="Unbinding Delegated Events"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20EC9" />Unbinding Delegated Events</h3></div></div></div>
       
 
       <p>If you need to remove delegated events, you can't simply unbind
@@ -53,14 +53,14 @@
       connected with <code class="code">$.fn.live</code>. As with bind, you can optionally
       pass in the name of the bound function.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20EE7" /><p class="title"><b>Example 5.12. Unbinding delegated events</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20EDD" /><p class="title"><b>Example 5.12. Unbinding delegated events</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$('#myUnorderedList').undelegate('li', 'click');
 $('#myUnorderedList li').die('click');</pre>
       </div></div><br class="example-break" />
     </div>
-  </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
+  </div><hr /><form method="post" action="https://www.paypal.com/cgi-bin/webscr"><input value="_s-xclick" name="cmd" type="hidden" /><input value="-----BEGIN PKCS7-----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-----END PKCS7-----  " name="encrypted" type="hidden" /><input alt="PayPal - The safer, easier way to pay online!" name="submit" border="0" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" type="image" /><img height="1" width="1" src="https://www.paypal.com/en_US/i/scr/pixel.gif" border="0" alt="" /></form><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
     Rebecca Murphey</a>, released under the 
   <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
 	Creative Commons Attribution-Share Alike 3.0 United States license</a>.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>CSS, Styling, &amp; Dimensions</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="prev" href="ch03s03.html" title="Working with Selections" /><link rel="next" href="ch03s05.html" title="Attributes" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">CSS, Styling, &amp; Dimensions</th></tr><tr><td align="left"><a accesskey="p" href="ch03s03.html">Prev</a> </td><th align="center" width="60%">Chapter 3. jQuery Basics</th><td align="right"> <a accesskey="n" href="ch03s05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="CSS, Styling, &amp; Dimensions"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20923" />CSS, Styling, &amp; Dimensions</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>CSS, Styling, &amp; Dimensions</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="prev" href="ch03s03.html" title="Working with Selections" /><link rel="next" href="ch03s05.html" title="Attributes" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">CSS, Styling, &amp; Dimensions</th></tr><tr><td align="left"><a accesskey="p" href="ch03s03.html">Prev</a> </td><th align="center" width="60%">Chapter 3. jQuery Basics</th><td align="right"> <a accesskey="n" href="ch03s05.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="CSS, Styling, &amp; Dimensions"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20919" />CSS, Styling, &amp; Dimensions</h2></div></div></div>
     
 
     <p>jQuery includes a handy way to get and set CSS properties of
@@ -12,13 +12,13 @@
       JavaScript.</p>
     </div>
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2093A" /><p class="title"><b>Example 3.18. Getting CSS properties</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20930" /><p class="title"><b>Example 3.18. Getting CSS properties</b></p><div class="example-contents">
       
 
       <pre class="programlisting">$('h1').css('fontSize'); // returns a string such as "19px"</pre>
     </div></div><br class="example-break" />
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20943" /><p class="title"><b>Example 3.19. Setting CSS properties</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20939" /><p class="title"><b>Example 3.19. Setting CSS properties</b></p><div class="example-contents">
       
 
       <pre class="programlisting">$('h1').css('fontSize', '100px'); // setting an individual property
@@ -30,7 +30,7 @@ $('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple prop
     multiple arguments to a function, and many jQuery setter methods accept
     objects to set mulitple values at once.</span></i></p>
 
-    <div class="section" title="Using CSS Classes for Styling"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2094F" />Using CSS Classes for Styling</h3></div></div></div>
+    <div class="section" title="Using CSS Classes for Styling"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20945" />Using CSS Classes for Styling</h3></div></div></div>
       
 
       <p>As a getter, the <code class="code">$.fn.css</code> method is valuable;
@@ -40,7 +40,7 @@ $('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple prop
       various visual states, and then simply change the class on the element
       you want to affect.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2095A" /><p class="title"><b>Example 3.20. Working with classes</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20950" /><p class="title"><b>Example 3.20. Working with classes</b></p><div class="example-contents">
         
 
         <pre class="programlisting">var $h1 = $('h1');
@@ -56,11 +56,11 @@ if ($h1.hasClass('big')) { ... }</pre>
       element, such as indicating that an element is selected.</p>
     </div>
 
-    <div class="section" title="Dimensions"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20967" />Dimensions</h3></div></div></div>
+    <div class="section" title="Dimensions"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2095D" />Dimensions</h3></div></div></div>
       
 
       <p>jQuery offers a variety of methods for obtaining and modifying
-      dimenion and position information about an element.</p>
+      dimension and position information about an element.</p>
 
       <p>The code in <a class="xref" href="ch03s04.html#jquery-basics.examples.dimensions" title="Example 3.21. Basic dimensions methods">Example 3.21, “Basic dimensions methods”</a>
       is just a very brief overview of the dimensions functionality in jQuery;
@@ -80,7 +80,7 @@ $('h1').position();      // returns an object containing position
                          // its "offset (positioned) parent"</pre>
       </div></div><br class="example-break" />
     </div>
-  </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
+  </div><hr /><form method="post" action="https://www.paypal.com/cgi-bin/webscr"><input value="_s-xclick" name="cmd" type="hidden" /><input value="-----BEGIN PKCS7-----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-----END PKCS7-----  " name="encrypted" type="hidden" /><input alt="PayPal - The safer, easier way to pay online!" name="submit" border="0" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" type="image" /><img height="1" width="1" src="https://www.paypal.com/en_US/i/scr/pixel.gif" border="0" alt="" /></form><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
     Rebecca Murphey</a>, released under the 
   <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
 	Creative Commons Attribution-Share Alike 3.0 United States license</a>.
