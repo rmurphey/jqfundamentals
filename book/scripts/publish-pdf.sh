@@ -37,7 +37,7 @@ java \
     -param highlight.xslthl.config "file://$absolute/scripts/libs/xslthl/highlighters/xslthl-config.xml" \
     -param highlight.source 1
 
-#cp -Rf imgs $fop
+cp -Rf imgs $fop
 
 #fo -> pdf
 cd $fop
