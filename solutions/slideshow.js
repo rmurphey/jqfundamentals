@@ -1,3 +1,24 @@
+/*
+
+Move the #slideshow element to the top of #main.
+
+Write code to cycle through the list items inside the element; 
+fade one in, display it for a few seconds, then fade it out and 
+fade in the next one.
+
+When you get to the end of the list, start again at the beginning.
+
+Add a counter under the slideshow (2 of 3, etc.) $.fn.prevAll
+
+Add buttons under the counter that let you take manual control
+of the slideshow and stop the automatic animation.
+
+*/
+
+
+$('h1').html('new html').attr()
+
+
 $(document).ready(function() {
 	var timeout, manualMode = false,
 	
@@ -58,10 +79,11 @@ $(document).ready(function() {
 			// the next item in 5 seconds
 			timeout = setTimeout(function() {
 				showItem($this, $next);
-			}, 1000);
+			}, 5000);
 		},
 		
 		handleBtnClick = function(e) {
+			console.log(e);
 			clearTimeout(timeout);
 
 			manualMode = true;
@@ -74,8 +96,8 @@ $(document).ready(function() {
 			showItem($currentItem, $itemToShow);
 		};
 		
-	$prevBtn.bind('click', handleBtnClick, { prev : true });
-	$nextBtn.bind('click', handleBtnClick, { next : true });
+	$prevBtn.bind('click', { prev : true }, handleBtnClick);
+	$nextBtn.bind('click', { next : true }, handleBtnClick);
 	
 	$items.eq(0).fadeIn(500, fadeCallback);
 });
