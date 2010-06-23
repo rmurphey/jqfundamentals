@@ -17,7 +17,7 @@ A seguir, uma lista do que há pra fazer no livro e no projeto.
 #### Capítulos do livro ####
 *	Escrever código testável
 *	Teste unitário com QUnit
-*	Melhores práticas para performance (refer to http://paulirish.com/perf)
+*	Melhores práticas para performance (dê uma olhada em http://paulirish.com/perf)
 * 	Criação de plugins
 * 	Ferramentas para build & gerenciamento de dependência [RequireJS](http://requirejs.org/)
 *	Eventos customizados
