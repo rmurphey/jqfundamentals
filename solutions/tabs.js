@@ -7,7 +7,7 @@ $(document).ready(function() {
 		
 	$modules.each(function() {
 		var $module = $(this);
-		var $title = $module.find('h2').remove();
+		var $title = $module.find('h2');
 
 		var $tab = $('<li>' + $title.text() + '</li>')
 			.appendTo($nav);
