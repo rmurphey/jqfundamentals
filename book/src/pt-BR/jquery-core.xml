@@ -6,56 +6,56 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>jQuery Core</title>
+  <title>Core (Núcleo) do jQuery</title>
 
   <section>
     <title><code>$</code> vs <code>$()</code></title>
 
-    <para>Until now, we’ve been dealing entirely with methods that are called
-    on a jQuery object. For example:</para>
+	<para>Até agora, estivemos lidando inteiramente com métodos que são chamados
+    em um objeto jQuery. Por examplo:</para>
 
     <programlisting>$('h1').remove();</programlisting>
 
-    <para>Most jQuery methods are called on jQuery objects as shown above;
-    these methods are said to be part of the <code>$.fn</code> namespace, or
-    the “jQuery prototype,” and are best thought of as jQuery object
-    methods.</para>
+    <para>A maioria dos métodos jQuery é chamada em objetos jQuery como mostrado acima;
+    esses métodos são considerados parte do namespace <code>$.fn</code>, ou
+    o “protótipo do jQuery”, e são melhor imaginados como métodos do objeto
+    jQuery.</para>
 
-    <para>However, there are several methods that do not act on a selection;
-    these methods are said to be part of the jQuery namespace, and are best
-    thought of as core jQuery methods.</para>
+    <para>No entanto, há vários métodos que não atuam em uma seleção;
+    esses métodos são considerados parte do namespace jQuery, e são melhor
+    imaginados como métodos do núcleo do jQuery.</para>
 
-    <para>This distinction can be incredibly confusing to new jQuery users.
-    Here’s what you need to remember:</para>
+    <para>Esta distinção pode ser incrivelmente confusa para os novos usuários do jQuery.
+    Aqui está o que você precisa se lembrar:</para>
 
     <itemizedlist>
       <listitem>
-        <para>Methods called on jQuery selections are in the <code>$.fn</code>
-        namespace, and automatically receive and return the selection as
-        this.</para>
+        <para>Métodos chamados em seleções do jQuery estão no namespace
+        <code>$.fn</code>, e automaticamente recebem e retornam a seleção
+        como está.</para>
       </listitem>
 
       <listitem>
-        <para>Methods in the <code>$</code> namespace are generally
-        utility-type methods, and do not work with selections; they are not
-        automatically passed any arguments, and their return value will
-        vary.</para>
+        <para>Métodos no namespace <code>$</code> geralmente são
+        métodos do tipo utilitário, e não funcionam em seleções; não são passados
+        quaisquer argumentos automaticamente para eles, e seu valor de retorno
+        variará.</para>
       </listitem>
     </itemizedlist>
 
-    <para>There are a few cases where object methods and core methods have the
-    same names, such as <code>$.each</code> and <code>$.fn.each</code>. In
-    these cases, be extremely careful when reading the documentation that you
-    are exploring the correct method.</para>
+    <para>Há alguns casos onde métodos de objeto e métodos do núcleo tem os
+    mesmos nomes, tal como <code>$.each</code> e <code>$.fn.each</code>. Nesses
+    casos, seja extremamente cuidadoso(a) ao ler a documentação para que você
+    explore o método correto.</para>
   </section>
 
   <section>
-    <title>Utility Methods</title>
+    <title>Métodos Utilitários</title>
 
-    <para>jQuery offers several utility methods in the <code>$</code>
-    namespace. These methods are helpful for accomplishing routine programming
-    tasks. Below are examples of a few of the utility methods; for a complete
-    reference on jQuery utility methods, visit <link
+    <para>jQuery oferece diversos métodos utilitários no namespace
+    <code>$</code>. Estes métodos são úteis para realizar tarefas rotineiras
+    de programação. Abaixo estão exemplos de alguns dos métodos utilitários; para uma
+    referência completa sobre métodos utilitários do jQuery, visite <link
     xlink:href="http://api.jquery.com/category/utilities/">http://api.jquery.com/category/utilities/</link>.</para>
 
     <variablelist>
@@ -63,10 +63,10 @@
         <term>$.trim</term>
 
         <listitem>
-          <para>Removes leading and trailing whitespace.</para>
+          <para>Remove espaços em branco à esquerda e à direita.</para>
 
-          <programlisting>$.trim('    lots of extra whitespace    ');
-// returns 'lots of extra whitespace'</programlisting>
+          <programlisting>$.trim('    muitos espaços em branco extras    ');
+// returns 'muitos espaços em branco extras'</programlisting>
         </listitem>
       </varlistentry>
 
@@ -74,10 +74,10 @@
         <term>$.each</term>
 
         <listitem>
-          <para>Iterates over arrays and objects.</para>
+          <para>Itera sobre arrays e objetos.</para>
 
           <programlisting>$.each([ 'foo', 'bar', 'baz' ], function(idx, val) {
-    console.log('element ' + idx + 'is ' + val);
+    console.log('elemento ' + idx + 'é ' + val);
 });
 
 $.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
@@ -85,8 +85,8 @@ $.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
 });</programlisting>
 
           <note>
-            <para>There is also a method <code>$.fn.each</code>, which is used
-            for iterating over a selection of elements.</para>
+            <para>Há também um método <code>$.fn.each</code>, que é usado
+            para iterar sobre uma seleção de elementos.</para>
           </note>
         </listitem>
       </varlistentry>
@@ -95,13 +95,13 @@ $.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
         <term>$.inArray</term>
 
         <listitem>
-          <para>Returns a value's index in an array, or -1 if the value is not
-          in the array.</para>
+          <para>Retorna o índice de um valor em um array, ou -1 se o valor não
+          estiver no array.</para>
 
-          <programlisting>var myArray = [ 1, 2, 3, 5 ];
+          <programlisting>var meuArray = [ 1, 2, 3, 5 ];
 
 if ($.inArray(4, myArray) !== -1) {
-    console.log('found it!');
+    console.log('encontrei!');
 }</programlisting>
         </listitem>
       </varlistentry>
@@ -110,26 +110,26 @@ if ($.inArray(4, myArray) !== -1) {
         <term>$.extend</term>
 
         <listitem>
-          <para>Changes the properties of the first object using the
-          properties of subsequent objects.</para>
+          <para>Muda as propriedades do primeiro objeto usando as
+          propriedades dos objetos subsequentes.</para>
 
-          <programlisting>var firstObject = { foo : 'bar', a : 'b' };
-var secondObject = { foo : 'baz' };
+          <programlisting>var primeiroObjeto = { foo : 'bar', a : 'b' };
+var segundoObjeto = { foo : 'baz' };
 
-var newObject = $.extend(firstObject, secondObject);
-console.log(firstObject.foo); // 'baz'
-console.log(newObject.foo);   // 'baz'</programlisting>
+var novoObjeto = $.extend(primeiroObjeto, segundoObjeto);
+console.log(primeiroObjeto.foo); // 'baz'
+console.log(novoObjeto.foo);   // 'baz'</programlisting>
 
-          <para>If you don't want to change any of the objects you pass to
-          <code>$.extend</code>, pass an empty object as the first
-          argument.</para>
+          <para>Se você não quer mudar nenhum dos objetos que passa para o
+          <code>$.extend</code>, passe um objeto vazio como primeiro
+          argumento.</para>
 
-          <programlisting>var firstObject = { foo : 'bar', a : 'b' };
-var secondObject = { foo : 'baz' };
+          <programlisting>var primeiroObjeto = { foo : 'bar', a : 'b' };
+var segundoObjeto = { foo : 'baz' };
 
-var newObject = $.extend({}, firstObject, secondObject);
-console.log(firstObject.foo); // 'bar'
-console.log(newObject.foo);   // 'baz'</programlisting>
+var novoObjeto = $.extend({}, primeiroObjeto, segundoObjeto);
+console.log(primeiroObjeto.foo); // 'bar'
+console.log(novoObjeto.foo);   // 'baz'</programlisting>
         </listitem>
       </varlistentry>
 
@@ -137,30 +137,30 @@ console.log(newObject.foo);   // 'baz'</programlisting>
         <term>$.proxy</term>
 
         <listitem>
-          <para>Returns a function that will always run in the provided scope
-          — that is, sets the meaning of <code>this</code> inside the passed
-          function to the second argument.</para>
+          <para>Returna uma função que sempre será executada no escopo fornececido
+          — isto é, seta o significado do <code>this</code> dentro da função
+          passada ao segundo argumento.</para>
 
-          <programlisting>var myFunction = function() { console.log(this); };
-var myObject = { foo : 'bar' };
+          <programlisting>var minhaFuncao = function() { console.log(this); };
+var meuObjeto = { foo : 'bar' };
 
-myFunction(); // logs window object
+minhaFuncao(); // loga o objeto window
 
-var myProxyFunction = $.proxy(myFunction, myObject);
-myProxyFunction(); // logs myObject object</programlisting>
+var minhaFuncaoComProxy = $.proxy(minhaFuncao, meuObjeto);
+minhaFuncaoComProxy(); // loga o objeto meuObjeto</programlisting>
 
-          <para>If you have an object with methods, you can pass the object
-          and the name of a method to return a function that will always run
-          in the scope of the object.</para>
+          <para>Se você tiver um objeto com métodos, pode passar o objeto
+          e o nome do método para retornar uma função que sempre será
+          executada no escopo do objeto.</para>
 
-          <programlisting>var myObject = {
-    myFn : function() {
+          <programlisting>var meuObjeto = {
+    minhaFn : function() {
         console.log(this);
     }
 };
 
-$('#foo').click(myObject.myFn); // logs DOM element #foo
-$('#foo').click($.proxy(myObject, 'myFn')); // logs myObject</programlisting>
+$('#foo').click(meuObjeto.minhaFn); // loga o elemento DOM #foo
+$('#foo').click($.proxy(meuObjeto, 'minhaFn')); // loga meuObjeto</programlisting>
         </listitem>
       </varlistentry>
     </variablelist>
