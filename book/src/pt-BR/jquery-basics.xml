@@ -598,8 +598,8 @@ $('li.selected').siblings();</programlisting>
 
       <programlisting>$('#myList li').each(function(idx, el) {
     console.log(
-        'Element ' + idx + 
-        'has the following html: ' +
+        'O elemento ' + idx + 
+        'tem o seguinte html: ' +
         $(el).html()
     );
 });</programlisting>
@@ -607,28 +607,29 @@ $('li.selected').siblings();</programlisting>
   </section>
 
   <section>
-    <title>Manipulating Elements</title>
+    <title>Manipulando elementos</title>
+    <para>Uma vez que você fez uma seleção, a diversão começa. Você pode mudar,
+    mover, remover e clonar elementos. Você ainda pode criar novos elementos 
+    através uma sintaxe simples</para>
 
-    <para>Once you've made a selection, the fun begins. You can change, move,
-    remove, and clone elements. You can also create new elements via a simple
-    syntax.</para>
-
-    <para>For complete documentation of jQuery manipulation methods, visit
+    <para>Para uma referência completa dos métodos de manipulação do jQuery,
+    visite 
     <link
     xlink:href="http://api.jquery.com/category/manipulation/">http://api.jquery.com/category/manipulation/</link>.</para>
 
     <section>
-      <title>Getting and Setting Information about Elements</title>
+      <title>Obtendo e setando informações sobre elementos</title>
 
-      <para>There are any number of ways you can change an existing element.
-      Among the most common tasks you'll perform is changing the inner HTML or
-      attribute of an element. jQuery offers simple, cross-browser methods for
-      these sorts of manipulations. You can also get information about
-      elements using many of the same methods in their getter incarnations.
-      We'll see examples of these throughout this section, but specifically,
-      here are a few methods you can use to get and set information about
-      elements.</para>
-
+      <para>Há um certo número de formas que você pode mudar um elemento 
+      existente. Dentre as tarefas mais comuns que você irá fazer é mudar
+      o inner HTML ou o atributo de um elemento. O jQuery oferece métodos
+      simples e cross-navegador para estes tipos de manipulação. Você ainda
+      pode obter informações sobre elementos usando muitos dos mesmos métodos
+      nas suas formas de getter. Nós veremos exemplos destes métodos durante
+      esta seção, mas especificamente, aqui vão alguns poucos métodos que
+      você pode usar para obter e setar informação sobre elementos.
+      </para>
+      
       <note>
         <para>Changing things about elements is trivial, but remember that the
         change will affect <emphasis>all</emphasis> elements in the selection,
