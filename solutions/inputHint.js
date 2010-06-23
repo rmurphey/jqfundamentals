@@ -6,7 +6,12 @@ $(document).ready(function() {
 	$input
 		.val(hint)
 		.addClass('hint')
-		.one('focus', function() {
+		.bind('focus', function() {
 			$input.val('').removeClass('hint');
+		})
+		.bind('blur', function() {
+			if (!$.trim($input.val())) {
+				$input.val(hint).addClass('hint');
+			}
 		});
 });
