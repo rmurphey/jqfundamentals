@@ -557,25 +557,28 @@ $('a').attr({
   </section>
 
   <section>
-    <title>Traversing</title>
+    <title>Travessia</title>
 
-    <para>Once you have a jQuery selection, you can find other elements using
-    your selection as a starting point.</para>
+    <para>Uma vez que você tem uma seleção do jQuery, você pode encontrar
+    outros elementos usando sua seleção como ponto de início.</para>
 
-    <para>For complete documentation of jQuery traversal methods, visit <link
+    <para>Para documentação completa dos métodos de travessia do jQuery,
+    visite <link
     xlink:href="http://api.jquery.com/category/traversing/">http://api.jquery.com/category/traversing/</link>.</para>
 
     <note>
-      <para>Be cautious with traversing long distances in your documents --
-      complex traversal makes it imperative that your document's structure
-      remain the same, something that's difficult to guarantee even if you're
-      the one creating the whole application from server to client. One- or
-      two-step traversal is fine, but you generally want to avoid traversals
-      that take you from one container to another.</para>
+      <para>Seja cuidadoso com travessias de longas distâncias nos seus
+      documentos -- travessias complexas torna imperativo que a estrutura
+      do seu documento continua a mesma, alguma coisa que dificulta a 
+      garantia mesmo se você é o responsável por criar toda a aplicação
+      do servidor ao cliente. Travessias de um ou dois passos é legal,
+      mas geralmente você irá querer evitar travessias que levem você
+      de um container para outro.</para> 
+      <!-- TODO: essa parte ficou meio estranha. procurar uma melhor tradução -->
     </note>
 
     <example>
-      <title>Moving around the DOM using traversal methods</title>
+      <title>Movendo pelo DOM usando métodos de travessia.</title>
 
       <programlisting>$('h1').next('p');
 $('div:visible').parent();
@@ -584,19 +587,19 @@ $('#myList').children();
 $('li.selected').siblings();</programlisting>
     </example>
 
-    <para>You can also iterate over a selection using <code>$.fn.each</code>.
-    This method iterates over all of the elements in a selection, and runs a
-    function for each one. The function receives the index of the current
-    element and the DOM element itself as arguments. Inside the function, the
-    DOM element is also available as <code>this</code> by default.</para>
+    <para>Você também pode iterar sobre uma seleção usando <code>$.fn.each</code>. 
+    Este método itera sobre todos os elementos numa seleção e executa uma funlção
+    para cada um. A função recebe como argumento um índice com o elemento atual 
+    e com o próprio elemento DOM. Dentro da função, o elemento DOM também está
+    disponível como  <code>this</code> por padrão.</para>
 
     <example>
-      <title>Iterating over a selection</title>
+      <title>Iterando sobre uma seleção</title>
 
       <programlisting>$('#myList li').each(function(idx, el) {
     console.log(
-        'Element ' + idx + 
-        'has the following html: ' +
+        'O elemento ' + idx + 
+        'tem o seguinte html: ' +
         $(el).html()
     );
 });</programlisting>
@@ -604,28 +607,29 @@ $('li.selected').siblings();</programlisting>
   </section>
 
   <section>
-    <title>Manipulating Elements</title>
+    <title>Manipulando elementos</title>
+    <para>Uma vez que você fez uma seleção, a diversão começa. Você pode mudar,
+    mover, remover e clonar elementos. Você ainda pode criar novos elementos 
+    através uma sintaxe simples</para>
 
-    <para>Once you've made a selection, the fun begins. You can change, move,
-    remove, and clone elements. You can also create new elements via a simple
-    syntax.</para>
-
-    <para>For complete documentation of jQuery manipulation methods, visit
+    <para>Para uma referência completa dos métodos de manipulação do jQuery,
+    visite 
     <link
     xlink:href="http://api.jquery.com/category/manipulation/">http://api.jquery.com/category/manipulation/</link>.</para>
 
     <section>
-      <title>Getting and Setting Information about Elements</title>
+      <title>Obtendo e setando informações sobre elementos</title>
 
-      <para>There are any number of ways you can change an existing element.
-      Among the most common tasks you'll perform is changing the inner HTML or
-      attribute of an element. jQuery offers simple, cross-browser methods for
-      these sorts of manipulations. You can also get information about
-      elements using many of the same methods in their getter incarnations.
-      We'll see examples of these throughout this section, but specifically,
-      here are a few methods you can use to get and set information about
-      elements.</para>
-
+      <para>Há um certo número de formas que você pode mudar um elemento 
+      existente. Dentre as tarefas mais comuns que você irá fazer é mudar
+      o inner HTML ou o atributo de um elemento. O jQuery oferece métodos
+      simples e cross-navegador para estes tipos de manipulação. Você ainda
+      pode obter informações sobre elementos usando muitos dos mesmos métodos
+      nas suas formas de getter. Nós veremos exemplos destes métodos durante
+      esta seção, mas especificamente, aqui vão alguns poucos métodos que
+      você pode usar para obter e setar informação sobre elementos.
+      </para>
+      
       <note>
         <para>Changing things about elements is trivial, but remember that the
         change will affect <emphasis>all</emphasis> elements in the selection,
