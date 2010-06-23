@@ -146,8 +146,9 @@
       not immediately available. Responses can only be handled using a
       callback. So, for example, the following code will not work:</para>
 
-      <programlisting>$.get('foo.php');
-console.log(response);</programlisting>
+	<programlisting>var response;
+$.get('foo.php', function(r) { response = r; });
+console.log(response); <emphasis>// undefined!</emphasis></programlisting>
 
       <para>Instead, we need to pass a callback function to our request; this
       callback will run when the request succeeds, at which point we can
