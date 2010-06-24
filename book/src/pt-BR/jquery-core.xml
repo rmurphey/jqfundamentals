@@ -6,7 +6,7 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>Core (Núcleo) do jQuery</title>
+  <title>Núcleo do jQuery</title>
 
   <section>
     <title><code>$</code> vs <code>$()</code></title>
@@ -167,134 +167,134 @@ $('#foo').click($.proxy(meuObjeto, 'minhaFn')); // loga meuObjeto</programlistin
   </section>
   
   <section>
-    <title>Checking types</title>
+    <title>Verificando tipos</title>
 
-    <para>As mentioned in the "JavaScript basics" section, jQuery offers
-    a few basic utility methods for determining the type of a specific
-    value.</para>
+    <para>Como mencionado na seção "O Básico do jQuery", jQuery oferece
+    alguns métodos utilitários para determinar o tipo de um valor
+    específico.</para>
     
     <example>
-      <title>Checking the type of an arbitrary value</title>
+      <title>Verificando o tipo de um valor arbitrário</title>
 
-      <programlisting>var myValue = [1, 2, 3];
+      <programlisting>var meuValor = [1, 2, 3];
 
-// Using JavaScript's typeof operator to test for primative types
-typeof myValue == 'string'; // false
-typeof myValue == 'number'; // false
-typeof myValue == 'undefined'; // false
-typeof myValue == 'boolean'; // false
+// Usando o operador typeof do JavaScript para testar tipos primitivos
+typeof meuValor == 'string'; // false
+typeof meuValor == 'number'; // false
+typeof meuValor == 'undefined'; // false
+typeof meuValor == 'boolean'; // false
 
-// Using strict equality operator to check for null
-myValue === null; // false
+// Usando o operador de igualdade estrita verificar null
+meuValor === null; // false
 
-// Using jQuery's methods to check for non-primative types
-jQuery.isFunction(myValue); // false
-jQuery.isPlainObject(myValue); // false
-jQuery.isArray(myValue); // true</programlisting>
+// Usando os métodos do jQuery para verificar tipos não primitivos
+jQuery.isFunction(meuValor); // false
+jQuery.isPlainObject(meuValor); // false
+jQuery.isArray(meuValor); // true</programlisting>
     </example>
     
   </section>
 
   <section>
-    <title>Data Methods</title>
+    <title>Métodos de Dados</title>
 
-    <para>As your work with jQuery progresses, you'll find that there's often
-    data about an element that you want to store with the element. In plain
-    JavaScript, you might do this by adding a property to the DOM element, but
-    you'd have to deal with memory leaks in some browsers. jQuery offers a
-    straightforward way to store data related to an element, and it manages
-    the memory issues for you.</para>
+    <para>Assim que seu trabalho com o jQuery avança, você descobrirá com frequência que há
+    dados sobre um elemento que você quer armazenar com o elemento. Em JavaScript
+    puro, você pode fazer isso adicionando uma propriedade ao elemento do DOM, mas
+    você terá q lidar com memory leaks em alguns browsers. jQuery ofere um jeito
+    simples de armazenar dados relacionados a um elemento, e gerencia
+    os problemas de memória para você.</para>
 
     <example>
-      <title>Storing and retrieving data related to an element</title>
+      <title>Armazenando e recuperando dados relacionados a um elemento</title>
 
-      <programlisting>$('#myDiv').data('keyName', { foo : 'bar' });
-$('#myDiv').data('keyName'); // { foo : 'bar' }</programlisting>
+      <programlisting>$('#meuDiv').data('nomeChave', { foo : 'bar' });
+$('#meuDiv').data('nomeChave'); // { foo : 'bar' }</programlisting>
     </example>
 
-    <para>You can store any kind of data on an element, and it's hard to
-    overstate the importance of this when you get into complex application
-    development. For the purposes of this class, we'll mostly use
-    <code>$.fn.data</code> to store references to other elements.</para>
+    <para>Você pode armazenar qualquer tipo de dados em um elemento, e é difícil
+    expressar a importância disto quando você está desenvolvendo uma aplicação
+    complexa. Para os fins deste curso, usaremos <code>$.fn.data</code>
+    na maioria das vezes para armazenar referências a outros elementos.</para>
 
-    <para>For example, we may want to establish a relationship between a list
-    item and a div that's inside of it. We could establish this relationship
-    every single time we interact with the list item, but a better solution
-    would be to establish the relationship once, and then store a pointer to
-    the div on the list item using <code>$.fn.data</code>:</para>
+    <para>Por exemplo, podemos querer estabelecer um relacionamento entre um item
+    de lista e um div que está dentro dele. Poderíamos estabelecer este relacionamento
+    cada vez que interagimos com o item de lista, mas uma solução melhor
+    seria estabelecer o relacionamento uma vez, e então armazenar um ponteiro para
+    o div no item de lista usando <code>$.fn.data</code>:</para>
 
     <example>
-      <title>Storing a relationship between elements using
+      <title>Armazenando um relacionamento entre elementos usando
       <code>$.fn.data</code></title>
 
-      <programlisting>$('#myList li').each(function() {
+      <programlisting>$('#minhaLista li').each(function() {
     var $li = $(this), $div = $li.find('div.content');
     $li.data('contentDiv', $div);
 });
 
-// later, we don't have to find the div again;
-// we can just read it from the list item's data
-var $firstLi = $('#myList li:first');
-$firstLi.data('contentDiv').html('new content');</programlisting>
+// depois não temos que procurar o div de novo;
+// podemos apenas lê-lo dos dados do item de lista
+var $primeiroLi = $('#minhaLista li:first');
+$primeiroLi.data('contentDiv').html('new content');</programlisting>
     </example>
 
-    <para>In addition to passing <code>$.fn.data</code> a single key-value
-    pair to store data, you can also pass an object containing one or more
-    pairs.</para>
+    <para>Além de passar um único par chave-valor para <code>$.fn.data</code> 
+    para armazenar dados, você pode passar um objeto contento um ou mais
+    pares.</para>
   </section>
 
   <section>
-    <title>Feature &amp; Browser Detection</title>
+    <title>Detecção de Browser &amp; Funcionalidades</title>
 
-    <para>Although jQuery eliminates most JavaScript browser quirks, there are
-    still occasions when your code needs to know about the browser
-    environment.</para>
+    <para>Embora o jQuery elimine a maioria das peculiaridades dos browsers, há
+    ainda ocasiões quando seu código precisa saber sobre o ambiente
+    do browser.</para>
 
-    <para>jQuery offers the <code>$.support</code> object, as well as the
-    deprecated <code>$.browser</code> object, for this purpose. For complete
-    documentation on these objects, visit <link
+    <para>jQuery oferece o objeto <code>$.support</code>, assim como o
+    objeto obsoleto <code>$.browser</code>, para este propósito. Para uma
+    documentação completa sobre esses objetos, visite <link
     xlink:href="http://api.jquery.com/jQuery.support/">http://api.jquery.com/jQuery.support/</link>
-    and <link
+    e <link
     xlink:href="http://api.jquery.com/jQuery.browser/">http://api.jquery.com/jQuery.browser/</link>.</para>
 
-    <para>The <code>$.support</code> object is dedicated to determining what
-    features a browser supports; it is recommended as a more “future-proof”
-    method of customizing your JavaScript for different browser
-    environments.</para>
+    <para>O objeto <code>$.support</code> é dedicado a determinar quais
+    funcionalidades um browser suporta; é recomendado como um método mais 
+	“à prova de futuro” de customizar seu JavaScript para diferentes ambientes
+    de browser.</para>
 
-    <para>The <code>$.browser</code> object was deprecated in favor of the
-    <code>$.support</code> object, but it will not be removed from jQuery
-    anytime soon. It provides direct detection of the browser brand and
-    version.</para>
+    <para>O objeto <code>$.browser</code> foi substituído em favor do
+    objeto <code>$.support</code>, mas não será removido do jQuery
+    tão cedo. Ele fornece detecção direta de versão e marca
+    do browser.</para>
   </section>
 
   <section>
-    <title>Avoiding Conflicts with Other Libraries</title>
+    <title>Evitando Conflitos com Outras Bibliotecas</title>
 
-    <para>If you are using another JavaScript library that uses the
-    <code>$</code> variable, you can run into conflicts with jQuery. In order
-    to avoid these conflicts, you need to put jQuery in no-conflict mode
-    immediately after it is loaded onto the page and before you attempt to use
-    jQuery in your page.</para>
+    <para>Se você está usando outra biblioteca JavaScript que usa a
+    variável <code>$</code>, você pode cair em conflitos com o jQuery. Para
+    evitar esses conflitos, você precisa colocar o jQuery em modo no-conflict (sem conflito)
+    imediatamente depois que ele é carregado na página e antes que você tente
+    usar o jQuery em sua página.</para>
 
-    <para>When you put jQuery into no-conflict mode, you have the option of
-    assigning a variable name to replace <code>$</code>.</para>
+    <para>Quando você coloca o jQuery em modo no-conflict, tem a opção de
+    atribuir um nome de variável para substituir a <code>$</code>.</para>
 
     <example>
-      <title>Putting jQuery into no-conflict mode</title>
+      <title>Colocando jQuery em modo no-conflict</title>
 
       <programlisting>&lt;script src="prototype.js"&gt;&lt;/script&gt;
 &lt;script src="jquery.js"&gt;&lt;/script&gt;
 &lt;script&gt;var $j = jQuery.noConflict();&lt;/script&gt;</programlisting>
     </example>
 
-    <para>You can continue to use the standard <code>$</code> by wrapping your
-    code in a self-executing anonymous function; this is a standard pattern
-    for plugin authoring, where the author cannot know whether another library
-    will have taken over the <code>$</code>.</para>
+    <para>Você pode continuar a usar o <code>$</code> padrão envolvendo seu
+    código em uma função anônima auto-executada; este é o modelo padrão
+    para criação de plugin, onde o autor não saberá se uma outra biblioteca
+    estará usando o <code>$</code>.</para>
 
     <example>
-      <title>Using the $ inside a self-executing anonymous function</title>
+      <title>Usando o $ dentro de uma função anônima auto-executada</title>
 
       <programlisting>&lt;script src="prototype.js"&gt;&lt;/script&gt;
 &lt;script src="jquery.js"&gt;&lt;/script&gt;
@@ -302,7 +302,7 @@ $firstLi.data('contentDiv').html('new content');</programlisting>
 jQuery.noConflict();
 
 (function($) {
-   // your code here, using the $
+   // seu código aqui, usando o $
 })(jQuery);
 &lt;/script&gt;</programlisting>
     </example>
