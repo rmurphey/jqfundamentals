@@ -631,6 +631,10 @@ $('li.selected').siblings();</programlisting>
       </para>
       
       <note>
+        <para>Mudar coisas em elementos é trivial, mas lembre-se que a mudança
+        irá afetar <emphasis>todos</emphasis> os elementos na seleção, então 
+        se você quiser mudar um elemento, esteja certo de especifica-lo em sua
+        seleção antes de chamar o método setter</para>
         <para>Changing things about elements is trivial, but remember that the
         change will affect <emphasis>all</emphasis> elements in the selection,
         so if you just want to change one element, be sure to specify that in
@@ -638,11 +642,11 @@ $('li.selected').siblings();</programlisting>
       </note>
 
       <note>
-        <para>When methods act as getters, they generally only work on the
-        first element in the selection, and they do not return a jQuery
-        object, so you can't chain additional methods to them. One notable
-        exception is <code>$.fn.text</code>; as mentioned below, it gets the
-        text for all elements in the selection.</para>
+        <para>Quando os métodos atuam como getters, eles geralmente só 
+        trabalham no primeiro elemento da seleção e eles não retornam um
+        objeto jQuery, portanto você não pode encadear métodos adicionais
+        a eles. Uma exceção notável é <code>$.fn.text</code>; como mencionado
+        acima, ele obtém o texto para todos os elementos da seleção</para>
       </note>
 
       <variablelist>
@@ -650,7 +654,7 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.html</term>
 
           <listitem>
-            <para>Get or set the html contents.</para>
+            <para>Obter ou setar o conteúdo html.</para>
           </listitem>
         </varlistentry>
 
@@ -658,7 +662,7 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.text</term>
 
           <listitem>
-            <para>Get or set the text contents; HTML will be stripped.</para>
+            <para>Obter ou setar os conteúdos de texto; HTML será removido.</para>
           </listitem>
         </varlistentry>
 
@@ -666,7 +670,7 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.attr</term>
 
           <listitem>
-            <para>Get or set the value of the provided attribute.</para>
+            <para>Obtém ou seta um valor doatributo provido.</para>
           </listitem>
         </varlistentry>
 
@@ -674,8 +678,8 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.width</term>
 
           <listitem>
-            <para>Get or set the width in pixels of the first element in the
-            selection as an integer.</para>
+            <para>Obtém ou seta a largura em pixels do primeiro elemento na
+            seleção como um inteiro.</para>
           </listitem>
         </varlistentry>
 
@@ -683,8 +687,8 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.height</term>
 
           <listitem>
-            <para>Get or set the height in pixels of the first element in the
-            selection as an integer.</para>
+            <para>Obtem ou seta a altura em pixels do primeiro elemento na 
+            seleção.</para>
           </listitem>
         </varlistentry>
 
@@ -692,9 +696,10 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.position</term>
 
           <listitem>
-            <para>Get an object with position information for the first
-            element in the selection, relative to its first positioned
-            ancestor. <emphasis>This is a getter only.</emphasis></para>
+            <para>Obtém um objeto com a informação de posição do primeiro
+            elemento na seleção, relativo a seu primeiro ancestral (pai).
+            <emphasis>Este é somente um getter.</emphasis></para>
+            
           </listitem>
         </varlistentry>
 
@@ -702,13 +707,13 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.val</term>
 
           <listitem>
-            <para>Get or set the value of form elements.</para>
+            <para>Obtém ou seta o valor de elementos de formulários.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
       <example>
-        <title>Changing the HTML of an element</title>
+        <title>Mudando o HTML de um elemento.</title>
 
         <programlisting>$('#myDiv p:first')
     .html('New &lt;strong&gt;first&lt;/strong&gt; paragraph!');</programlisting>
@@ -716,7 +721,7 @@ $('li.selected').siblings();</programlisting>
     </section>
 
     <section>
-      <title>Moving, Copying, and Removing Elements</title>
+      <title>Movendo, copiando e removendo elementos. </title>
 
       <para>There are a variety of ways to move elements around the DOM;
       generally, there are two approaches:</para>
