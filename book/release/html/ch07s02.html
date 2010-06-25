@@ -71,15 +71,16 @@
       not immediately available. Responses can only be handled using a
       callback. So, for example, the following code will not work:</p>
 
-      <pre class="programlisting">$.get('foo.php');
-console.log(response);</pre>
+	<pre class="programlisting">var response;
+$.get('foo.php', function(r) { response = r; });
+console.log(response); <span class="emphasis"><em>// undefined!</em></span></pre>
 
       <p>Instead, we need to pass a callback function to our request; this
       callback will run when the request succeeds, at which point we can
       access the data that it returned, if any. </p><pre class="programlisting">$.get('foo.php', function(response) { console.log(response); });</pre>
     </div>
 
-    <div class="section" title="Same-Origin Policy and JSONP"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2124F" />Same-Origin Policy and JSONP</h3></div></div></div>
+    <div class="section" title="Same-Origin Policy and JSONP"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21251" />Same-Origin Policy and JSONP</h3></div></div></div>
       
 
       <p>In general, Ajax requests are limited to the same protocol (http
@@ -95,7 +96,7 @@ console.log(response);</pre>
       wrapped in a callback function you provide.</p>
     </div>
 
-    <div class="section" title="Ajax and Firebug"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2125E" />Ajax and Firebug</h3></div></div></div>
+    <div class="section" title="Ajax and Firebug"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21260" />Ajax and Firebug</h3></div></div></div>
       
 
       <p>Firebug (or the Webkit Inspector in Chrome or Safari) is an
