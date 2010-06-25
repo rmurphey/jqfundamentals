@@ -46,14 +46,9 @@ $(document).ready(function() {
 			$counter.text(num + ' of ' + total);
 		},
 		
-		getNextItem = function($item) {
-			return $item.next().length ? 
-				$item.next() : $items.first();
-		},
-		
-		getPrevItem = function($item) {
-			return $item.prev().length ?
-				$item.prev() : $items.last();
+		getItem = function($item, trav) {
+			var $returnItem = $item[(trav == 'next') ? 'first' : 'last']();
+			return $returnItem.length ? $returnItem : $items[pos]();
 		},
 		
 		showItem = function($currentItem, $itemToShow) {
@@ -90,8 +85,8 @@ $(document).ready(function() {
 			
 			var $currentItem = $items.filter(':visible'),
 				$itemToShow = e.data.prev ? 
-					getPrevItem($currentItem) :
-					getNextItem($currentItem);
+					getItem($currentItem, 'prev') :
+					getItem($currentItem, 'next');
 					
 			showItem($currentItem, $itemToShow);
 		};
