@@ -9,37 +9,37 @@
   <title>Ajax</title>
 
   <section>
-    <title>Overview</title>
+    <title>Introdução</title>
 
-    <para>The XMLHttpRequest method (XHR) allows browsers communicate with the
-    server without requiring a page reload. This method, also known as Ajax
-    (Asynchronous JavaScript and XML), allows for web pages that provide rich,
-    interactive experiences.</para>
+    <para>O método XMLHttpRequest permite que navegadores comuniquem com o
+    servidor sem precisar um reload na página. Este método, também conhecido
+    como Ajax(Asynchronous JavaScript and XML - JavaScript Assíncrono e XML),
+    permite ter experiências ricas e interativas nas páginas web.</para>
 
-    <para>Ajax requests are triggered by JavaScript code; your code sends a
-    request to a URL, and when it receives a response, a callback function can
-    be triggered to handle the response. Because the request is asynchronous,
-    the rest of your code continues to execute while the request is being
-    processed, so it’s imperative that a callback be used to handle the
-    response.</para>
+    <para>Requisições Ajax são disparadas por código JavaScript; seu código 
+    envia uma requisição a uma URL, e quando recebe uma resposta, uma função
+    callback pode ser acionada para lidar com a resposta. Pelo motivo da requisição
+    ser assíncrona, o resto do seu código continua a executar enquanto a requisição
+    estiver sendo processada, então é imperativo que um callback seja usado para
+    lidar com a resposta.</para>
 
-    <para>jQuery provides Ajax support that abstracts away painful browser
-    differences. It offers both a full-featured <code>$.ajax()</code> method,
-    and simple convenience methods such as <code>$.get()</code>,
+    <para>O jQuery provê suporte Ajax que abstrai as dolorosas diferenças entre
+    navegadores. Ele oferece métodos completos como o <code>$.ajax()</code>,
+    e alguns métodos de conveniência como <code>$.get()</code>,
     <code>$.getScript()</code>, <code>$.getJSON()</code>,
-    <code>$.post()</code>, and <code>$().load()</code>.</para>
+    <code>$.post()</code> e <code>$().load()</code>.</para>
 
-    <para>Most jQuery applications don’t in fact use XML, despite the name
-    “Ajax”; instead, they transport data as plain HTML or JSON (JavaScript
-    Object Notation).</para>
+    <para>A maior parte das aplicações jQuery não usam XML apesar do nome
+    "Ajax"; ao invés disso, elas transportam HTML puro ou JSON (JavaScript
+    Object Notation - Notação de Objeto do JavaScript).</para>
 
-    <para>In general, Ajax does not work across domains. Exceptions are
-    services that provide JSONP (JSON with Padding) support, which allow
-    limited cross-domain functionality.</para>
+    <para>Em geral, Ajax não funciona através de domínios diferentes. 
+    As exceções são serviços que fornecem suporte ao JSONP (JSON com
+    padding), que permite uma limitada funcionalidade cross-domínio.</para>
   </section>
 
   <section>
-    <title>Key Concepts</title>
+    <title>Conceitos Chave</title>
 
     <para>Proper use of Ajax-related jQuery methods requires understanding
     some key concepts first.</para>
