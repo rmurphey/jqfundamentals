@@ -174,77 +174,79 @@ console.log(response);</programlisting>
     </section>
 
     <section>
-      <title>Ajax and Firebug</title>
+      <title>Ajax e o Firebug</title>
 
-      <para>Firebug (or the Webkit Inspector in Chrome or Safari) is an
-      invaluable tool for working with Ajax requests. You can see Ajax
-      requests as they happen in the Console tab of Firebug (and in the
-      Resources &gt; XHR panel of Webkit Inspector), and you can click on a
-      request to expand it and see details such as the request headers,
-      response headers, response content, and more. If something isn't going
-      as expected with an Ajax request, this is the first place to look to
-      track down what's wrong.</para>
+      <para>O Firebug (ou o Webkit Inspector no Chrome ou Safari) é uma
+      ferramenta indispensável para trabalhar com requisições Aajax. Você
+      pode ver as requisições Ajax no mesmo instante que elas acontecem na
+      tab Console do Firebug  (e no painel Resources &gt; XHR do Webkit Inspector), 
+      e você pode clicar numa requisição para expandi-la e ver os detalhes como
+      os headers de requisição, de resposta, conteúdo e mais. Se alguma coisa não
+      estiver acontecendo como esperado com uma requisição Ajax, este é o primeiro
+      lugar para ver o que está acontecendo de errado.</para>
     </section>
   </section>
 
   <section>
-    <title>jQuery's Ajax-Related Methods</title>
+    <title>Métodos do jQuery relacionados ao Ajax</title>
 
-    <para>While jQuery does offer many Ajax-related convenience methods, the
-    core <code>$.ajax</code> method is at the heart of all of them, and
-    understanding it is imperative. We'll review it first, and then touch
-    briefly on the convenience methods.</para>
+    <para>Enquanto o jQuery oferece muitos métodos convenientes relacionados
+    ao Ajax, o coração de todos eles é o método <code>$.ajax</code> e entende-lo
+    é imperativo. Nós vamos revisa-lo primeiro e então dar uma olhada rápida
+    nos métodos de conveniência.</para>
 
-    <remark>I generally use the $.ajax method and do not use convenience
-    methods. As you'll see, it offers features that the convenience methods do
-    not, and its syntax is more easily understandable, in my opinion.</remark>
+    <remark>Eu geralmente uso o método $.ajax e não uso os métodos de conveniência.
+    Como você poderá ver, ele fornece recursos que os métodos de conveniência não
+    oferecem e sua sintaxe é mais facilmente inteligível, na minha opinião.</remark>
 
     <section>
       <title>$.ajax</title>
 
-      <para>jQuery’s core <code>$.ajax</code> method is a powerful and
-      straightforward way of creating Ajax requests. It takes a configuration
-      object that contains all the instructions jQuery requires to complete
-      the request. The <code>$.ajax</code> method is particularly valuable
-      because it offers the ability to specify both success and failure
-      callbacks. Also, its ability to take a configuration object that can be
-      defined separately makes it easier to write reusable code. For complete
-      documentation of the configuration options, visit <link
+      <para>O método core <code>$.ajax</code> é uma forma simples e poderosa
+      de criar requisições Ajax. Ele utiliza um objeto de configuração que 
+      contém todas as instruções que o jQuery precisa para completar a requisição. 
+      O método <code>$.ajax</code> é particularmente útil porque ele oferece a
+      habilidade de especificar callbacks de sucesso e falha. Há também a 
+      possibilidade de pegar um objeto de configuração definido separadamente,
+      fazendo que seja fácil escrever código reutilizável. Para documentação 
+      completa das opções de configuração, visite <link
       xlink:href="http://api.jquery.com/jQuery.ajax/">http://api.jquery.com/jQuery.ajax/</link>.</para>
 
       <example>
-        <title>Using the core $.ajax method</title>
+        <title>Usando o método core $.ajax</title>
 
         <programlisting>$.ajax({
-    // the URL for the request
+    // a URL para requisição
     url : 'post.php',
 
-    // the data to send 
-    // (will be converted to a query string)
+    // Os dados a serem enviados 
+    // (serão convertidos em uma string de requisição)
     data : { id : 123 },
 
-    // whether this is a POST or GET request
+    // se esta é uma requisição POST ou GET
     method : 'GET',
 
-    // the type of data we expect back
+    // o tipo de dados que nós esperamos
     dataType : 'json',
 
-    // code to run if the request succeeds;
-    // the response is passed to the function
+    // código a ser executado se a requisição
+    // for executada com sucesso; a resposta
+    // é passada para a função
     success : function(json) {
         $('&lt;h1/&gt;').text(json.title).appendTo('body');
         $('&lt;div class="content"/&gt;')
             .html(json.html).appendTo('body');
     },
 
-    // code to run if the request fails;
-    // the raw request and status codes are 
-    // passed to the function
+    // código a ser executado se a requisição
+    // falhar. A requisição bruta e os códigos
+    // de statsus são passados para função 
     error : function(xhr, status) {
-        alert('Sorry, there was a problem!');
+        alert('Desculpa, aconteceu um problema!');
     },
 
-    // code to run regardless of success or failure
+    // Código a ser executado independetemente
+    // do sucesso ou falha
     complete : function(xhr, status) {
         alert('The request is complete!');
     }
@@ -252,33 +254,34 @@ console.log(response);</programlisting>
       </example>
 
       <note>
-        <para>A note about the <code>dataType</code> setting: if the server
-        sends back data that is in a different format than you specify, your
-        code may fail, and the reason will not always be clear, because the
-        HTTP response code will not show an error. When working with Ajax
-        requests, make sure your server is sending back the data type you're
-        asking for, and verify that the Content-type header is accurate for
-        the data type. For example, for JSON data, the Content-type header
-        should be <code>application/json</code>.</para>
+        <para>Uma nota a respeito da configuração <code>dataType</code>: se o 
+        servicor enviar dados que estão num formato diferente que você especificou,
+        seu código poderá falhar, e a razão nem sempre será clara, por que o
+        código de resposta HTTP não irá mostrar um erro. Qunado estiver trabalhando
+        com requisições Ajax, tenha certeza que o servidor está enviando de volta
+        os dados com o formato que você especificou e verifique se o header
+        Content-type está de acordo com o tipo de dados. Por exemplo, para dados
+        JSON, o header Content-type deve ser <code>application/json</code>.</para>
       </note>
 
       <section>
-        <title><code>$.ajax</code> Options</title>
+        <title>Opções do <code>$.ajax</code></title>
 
-        <para>There are many, many options for the $.ajax method, which is
-        part of its power. For a complete list of options, visit <link
+        <para>Há várias, várias opções para o método  $.ajax, que é parte do
+        seu poder. Para uma lista completa de opções, visite <link
         xlink:href="http://api.jquery.com/jQuery.ajax/">http://api.jquery.com/jQuery.ajax/</link>;
-        here are several that you will use frequently:</para>
+        aqui vão algumas opções que você irá usar frequentemente:</para>
 
         <variablelist>
           <varlistentry>
             <term>async</term>
 
             <listitem>
-              <para>Set to <code>false</code> if the request should be sent
-              synchronously. Defaults to <code>true</code>. Note that if you
-              set this option to false, your request will block execution of
-              other code until the response is received.</para>
+              <para>Sete para <code>false</code> se a requisição deve ser
+              enviada de forma síncrona. O padrão é <code>true</code>. Perceba
+              que se você setar esta opção para falso, sua requisição irá 
+              bloquear a execução de outro código até que a resposta seja
+              recebida.</para>
             </listitem>
           </varlistentry>
 
@@ -286,10 +289,10 @@ console.log(response);</programlisting>
             <term>cache</term>
 
             <listitem>
-              <para>Whether to use a cached response if available. Defaults to
-              <code>true</code> for all dataTypes except "script" and "jsonp".
-              When set to false, the URL will simply have a cachebusting
-              parameter appended to it.</para>
+              <para>Usado se resposta disponível for cacheável. O padrão é
+              <code>true</code> para todos os tipos de dados, exceto  "script"
+              e "jsonp". Quando setado para falso, a URL simplemente terá um 
+              parâmetro a mais anexado a ela para evitar o cache.</para>
             </listitem>
           </varlistentry>
 
@@ -297,9 +300,9 @@ console.log(response);</programlisting>
             <term>complete</term>
 
             <listitem>
-              <para>A callback function to run when the request is complete,
-              regardless of success or failure. The function receives the raw
-              request object and the text status of the request.</para>
+              <para>Uma funcção callback para executar quando a requisição
+              estiver completa, independetemente de sucesso ou falha. A função
+              recebe o objeto bruto da requisição e o texto de status da mesma.</para>
             </listitem>
           </varlistentry>
 
@@ -307,11 +310,11 @@ console.log(response);</programlisting>
             <term>context</term>
 
             <listitem>
-              <para>The scope in which the callback function(s) should run
-              (i.e. what <code>this</code> will mean inside the callback
-              function(s)). By default, <code>this</code> inside the callback
-              function(s) refers to the object originally passed to
-              <code>$.ajax</code>.</para>
+              <para>O escopo em que a função callback deve executar 
+              (ou seja, o que <code>this</code> irá significar dentro da(s)
+              função(ões) callback). Por padrão, <code>this</code> dentro
+              das funções callback refere ao objeto originalmente passado
+              para <code>$.ajax</code>.</para>
             </listitem>
           </varlistentry>
 
@@ -319,8 +322,8 @@ console.log(response);</programlisting>
             <term>data</term>
 
             <listitem>
-              <para>The data to be sent to the server. This can either be an
-              object or a query string, such as
+              <para>Os dados a serem enviados para o servidor. Isto pode ser tanto
+              um objeto quanto uma string de requisição, como 
               <code>foo=bar&amp;baz=bim</code>.</para>
             </listitem>
           </varlistentry>
@@ -329,9 +332,9 @@ console.log(response);</programlisting>
             <term>dataType</term>
 
             <listitem>
-              <para>The type of data you expect back from the server. By
-              default, jQuery will look at the MIME type of the response if no
-              dataType is specified.</para>
+              <para>O tipo de dado que você espera do servidor. Por padrão, o
+              jQuery irá olhar o MIME type da resposta se nenhum tipo de dados
+              for especificado.</para>
             </listitem>
           </varlistentry>
 
@@ -339,9 +342,9 @@ console.log(response);</programlisting>
             <term>error</term>
 
             <listitem>
-              <para>A callback function to run if the request results in an
-              error. The function receives the raw request object and the text
-              status of the request.</para>
+              <para>Uma função callback para ser executa se a requisição resultar
+              em um erro. A função recebe o objeto bruto de requisição e o texto 
+              de status da requisição.</para>
             </listitem>
           </varlistentry>
 
