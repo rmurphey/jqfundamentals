@@ -41,45 +41,45 @@
   <section>
     <title>Conceitos Chave</title>
 
-    <para>Proper use of Ajax-related jQuery methods requires understanding
-    some key concepts first.</para>
+    <para>O uso apropriado de métodos relacionados ao Ajax requer alguns
+    conceitos-chave primeiro</para>
 
     <section>
-      <title>GET vs. Post</title>
+      <title>GET vs. POST</title>
 
-      <para>The two most common “methods” for sending a request to a server
-      are GET and POST. It’s important to understand the proper application of
-      each.</para>
+      <para>Os métodos mais comuns para enviar uma requisição ao servidor são
+      o GET e o POST. É importante entender a aplicação apropriada para cada um.</para>
 
-      <para>The GET method should be used for non-destructive operations —
-      that is, operations where you are only “getting” data from the server,
-      not changing data on the server. For example, a query to a search
-      service might be a GET request. GET requests may be cached by the
-      browser, which can lead to unpredictable behavior if you are not
-      expecting it. GET requests generally send all of their data in a query
-      string.</para>
+      <para>O método GET deve ser usado para operações não-destrutivas -
+      ou seja, operações que você apenas esteja "pegando" dados do servidor,
+      sem modificar nenhum dado no servidor. Por exemplo, uma consulta para
+      fazer uma busca pode ser uma requisição GET. Requisições GET podem ser
+      cacheadas pelo navegador, que pode levar a comportamentos imprevisíveis
+      se você não tomar cuidado. Requisições GET geralmente enviam todos os 
+      seus dados na string de requisição.</para>
 
-      <para>The POST method should be used for destructive operations — that
-      is, operations where you are changing data on the server. For example, a
-      user saving a blog post should be a POST request. POST requests are
-      generally not cached by the browser; a query string can be part of the
-      URL, but the data tends to be sent separately as post data.</para>
+      <para>O método POST deve ser usado para operações destrutivas - ou seja,
+      operações onde você muda dados no servidor. Por exemplo, um usuário salvando
+      o post de um blog deve ser uma requisição POST. Requisições POST geralmente
+      não são cacheadas pelo browser; uma string de requisição pode fazer parte da
+      URL, mas os dados tendem a ser enviados separadamente como uma requisição 
+      POST.</para>
     </section>
 
     <section>
-      <title>Data Types</title>
+      <title>Tipos de dados</title>
 
-      <para>jQuery generally requires some instruction as to the type of data
-      you expect to get back from an Ajax request; in some cases the data type
-      is specified by the method name, and in other cases it is provided as
-      part of a configuration object. There are several options:</para>
+      <para>O jQuery geralmente requer alguma instrução a respeito do tipo de 
+      dados que você espera obter com uma requisição Ajax; em alguns casos, o
+      tipo de dados é especificado no nome do método e em outros casos é provido
+      como parte do objeto de configuração. Há várias opções:</para>
 
       <variablelist>
         <varlistentry>
-          <term>text</term>
+          <term>texto</term>
 
           <listitem>
-            <para>For transporting simple strings</para>
+            <para>Para transportar strings simples</para>
           </listitem>
         </varlistentry>
 
@@ -87,8 +87,8 @@
           <term>html</term>
 
           <listitem>
-            <para>For transporting blocks of HTML to be placed on the
-            page</para>
+            <para>Para transportar blocos de HTML para serem colocados
+            na página</para>
           </listitem>
         </varlistentry>
 
@@ -96,7 +96,7 @@
           <term>script</term>
 
           <listitem>
-            <para>For ading a new script to the page</para>
+            <para>Para adicionar um novo script à página</para>
           </listitem>
         </varlistentry>
 
@@ -104,14 +104,15 @@
           <term>json</term>
 
           <listitem>
-            <para>For transporting JSON-formatted data, which can include
-            strings, arrays, and objects<note>
-                <para>As of jQuery 1.4, if the JSON data sent by your server
-                isn't properly formatted, the request may fail silently. See
-                <link xlink:href="http://json.org">http://json.org</link> for
-                details on properly formatting JSON, but as a general rule,
-                use built-in language methods for generating JSON on the
-                server to avoid syntax issues.</para>
+            <para>Para transportar dados formatados no estilo JSON, que pode
+            incluir strings, arrays e objetos<note>
+                <para>No jQuery 1.4, se os dados JSON enviados pelo seu 
+                servidor não estiverem propriamente formatados, a requisição
+                pode falhar silenciosamente. Dê uma olhada em
+                <link xlink:href="http://json.org">http://json.org</link> para
+                detalhes sobre formatação correta do JSON, mas como regra geral,
+                use métodos já prontos da linguagem usada no servidor para gerar
+                JSON sem erros de sintaxe.</para>
               </note></para>
           </listitem>
         </varlistentry>
@@ -120,7 +121,7 @@
           <term>jsonp</term>
 
           <listitem>
-            <para>For transporting JSON data from another domain</para>
+            <para>Para transportar dados JSON de outro domínio.</para>
           </listitem>
         </varlistentry>
 
@@ -128,46 +129,48 @@
           <term>xml</term>
 
           <listitem>
-            <para>For transporting data in a custom XML schema</para>
+            <para>Para transporte de dados em um XML</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <remark>I am a strong proponent of using the JSON format in most cases,
-      as it provides the most flexibility. It is especially useful for sending
-      both HTML and data at the same time.</remark>
+      <remark>Eu sou um forte proponente no uso de JSON na maioria dos casos,
+      de forma que ele provê a maior flexibilidade. É especialmente útil para
+      enviar HTML e dados ao mesmo tempo.</remark>
     </section>
 
     <section>
-      <title>A is for Asynchronous</title>
+      <title>A é de assíncrono</title>
 
-      <para>The asynchronicity of Ajax catches many new jQuery users off
-      guard. Because Ajax calls are asynchronous by default, the response is
-      not immediately available. Responses can only be handled using a
-      callback. So, for example, the following code will not work:</para>
+      <para>A assincronicidade do Ajax pega muitos novos usuários do jQuery
+      desprevinidos. Pelo fato das chamadas Ajax serem assíncronas por padrão,
+      a resposta não estará disponvível imediatamente. Respostas só podem ser
+      manipuladas por um callback. Então, por exemplo, o código seguinte não
+      irá funcionar:</para>
 
       <programlisting>$.get('foo.php');
 console.log(response);</programlisting>
 
-      <para>Instead, we need to pass a callback function to our request; this
-      callback will run when the request succeeds, at which point we can
-      access the data that it returned, if any. <programlisting>$.get('foo.php', function(response) { console.log(response); });</programlisting></para>
+      <para>Ao invés disso, nós temos que passar um função callback para 
+      nossa requisição; Este callback será executado quando a requisição
+      for realizada com sucesso, e é neste ponto que poderemos acessar os
+      dados que ela retornou, se houver algum. <programlisting>$.get('foo.php', function(response) { console.log(response); });</programlisting></para>
     </section>
 
     <section>
-      <title>Same-Origin Policy and JSONP</title>
+      <title>Regra da mesma origem e JSONP</title>
 
-      <para>In general, Ajax requests are limited to the same protocol (http
-      or https), the same port, and the same domain as the page making the
-      request. This limitation does not apply to scripts that are loaded via
-      jQuery's Ajax methods.</para>
+      <para>Em geral, as requisições Ajax são limitadas ao mesmo protocolo
+       (http ou https), a mesma porta, e ao mesmo domínio da página que
+       está fazendo a requisição. Esta limitação não se aplicam a scripts que
+       são carregados pelos métodos de Ajax do jQuery.</para>
 
-      <para>The other exception is requests targeted at a JSONP service on
-      another domain. In the case of JSONP, the provider of the service has
-      agreed to respond to your request with a script that can be loaded into
-      the page using a <code>&lt;script&gt;</code> tag, thus avoiding the
-      same-origin limitation; that script will include the data you requested,
-      wrapped in a callback function you provide.</para>
+      <para>A outra exceção são requisições direcionadas a um serviço JSONP
+      em outro domínio. No caso do JSONP, o provedor do serviço tem que concordar
+      em responder a sua requisição com um script que pode ser carregado dentro
+      da mesma página usando uma tag <code>&lt;script&gt;</code>, assim evitando
+      a limitação da mesma origem; este script terá os dados que você requisitou
+      encapsulado em uma função de callback que você especificou.</para>
     </section>
 
     <section>
