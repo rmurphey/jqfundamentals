@@ -631,6 +631,10 @@ $('li.selected').siblings();</programlisting>
       </para>
       
       <note>
+        <para>Mudar coisas em elementos é trivial, mas lembre-se que a mudança
+        irá afetar <emphasis>todos</emphasis> os elementos na seleção, então 
+        se você quiser mudar um elemento, esteja certo de especifica-lo em sua
+        seleção antes de chamar o método setter</para>
         <para>Changing things about elements is trivial, but remember that the
         change will affect <emphasis>all</emphasis> elements in the selection,
         so if you just want to change one element, be sure to specify that in
@@ -638,11 +642,11 @@ $('li.selected').siblings();</programlisting>
       </note>
 
       <note>
-        <para>When methods act as getters, they generally only work on the
-        first element in the selection, and they do not return a jQuery
-        object, so you can't chain additional methods to them. One notable
-        exception is <code>$.fn.text</code>; as mentioned below, it gets the
-        text for all elements in the selection.</para>
+        <para>Quando os métodos atuam como getters, eles geralmente só 
+        trabalham no primeiro elemento da seleção e eles não retornam um
+        objeto jQuery, portanto você não pode encadear métodos adicionais
+        a eles. Uma exceção notável é <code>$.fn.text</code>; como mencionado
+        acima, ele obtém o texto para todos os elementos da seleção</para>
       </note>
 
       <variablelist>
@@ -650,7 +654,7 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.html</term>
 
           <listitem>
-            <para>Get or set the html contents.</para>
+            <para>Obter ou setar o conteúdo html.</para>
           </listitem>
         </varlistentry>
 
@@ -658,7 +662,7 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.text</term>
 
           <listitem>
-            <para>Get or set the text contents; HTML will be stripped.</para>
+            <para>Obter ou setar os conteúdos de texto; HTML será removido.</para>
           </listitem>
         </varlistentry>
 
@@ -666,7 +670,7 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.attr</term>
 
           <listitem>
-            <para>Get or set the value of the provided attribute.</para>
+            <para>Obtém ou seta um valor doatributo provido.</para>
           </listitem>
         </varlistentry>
 
@@ -674,8 +678,8 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.width</term>
 
           <listitem>
-            <para>Get or set the width in pixels of the first element in the
-            selection as an integer.</para>
+            <para>Obtém ou seta a largura em pixels do primeiro elemento na
+            seleção como um inteiro.</para>
           </listitem>
         </varlistentry>
 
@@ -683,8 +687,8 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.height</term>
 
           <listitem>
-            <para>Get or set the height in pixels of the first element in the
-            selection as an integer.</para>
+            <para>Obtem ou seta a altura em pixels do primeiro elemento na 
+            seleção.</para>
           </listitem>
         </varlistentry>
 
@@ -692,9 +696,10 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.position</term>
 
           <listitem>
-            <para>Get an object with position information for the first
-            element in the selection, relative to its first positioned
-            ancestor. <emphasis>This is a getter only.</emphasis></para>
+            <para>Obtém um objeto com a informação de posição do primeiro
+            elemento na seleção, relativo a seu primeiro ancestral (pai).
+            <emphasis>Este é somente um getter.</emphasis></para>
+            
           </listitem>
         </varlistentry>
 
@@ -702,13 +707,13 @@ $('li.selected').siblings();</programlisting>
           <term>$.fn.val</term>
 
           <listitem>
-            <para>Get or set the value of form elements.</para>
+            <para>Obtém ou seta o valor de elementos de formulários.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
       <example>
-        <title>Changing the HTML of an element</title>
+        <title>Mudando o HTML de um elemento.</title>
 
         <programlisting>$('#myDiv p:first')
     .html('New &lt;strong&gt;first&lt;/strong&gt; paragraph!');</programlisting>
@@ -716,177 +721,177 @@ $('li.selected').siblings();</programlisting>
     </section>
 
     <section>
-      <title>Moving, Copying, and Removing Elements</title>
+      <title>Movendo, copiando e removendo elementos. </title>
 
-      <para>There are a variety of ways to move elements around the DOM;
-      generally, there are two approaches:</para>
+      <para>Há uma variedade de formas de mover elementos pelo DOM;
+      geralmente, há duas formas:</para>
 
       <itemizedlist>
         <listitem>
-          <para>Place the selected element(s) relative to another
-          element</para>
+          <para>Coloque o(s) elemento(s) selecionado(s) relativo
+          à outro elemento</para>
         </listitem>
 
         <listitem>
-          <para>Place an element relative to the selected element(s)</para>
+          <para>Coloque um elemento relativo ao(s) elemento(s) 
+          selecionado(s)</para>
         </listitem>
       </itemizedlist>
 
-      <para>For example, jQuery provides <code>$.fn.insertAfter</code> and
-      <code>$.fn.after</code>. The <code>$.fn.insertAfter</code> method places
-      the selected element(s) after the element that you provide as an
-      argument; the <code>$.fn.after</code> method places the element provided
-      as an argument after the selected element. Several other methods follow
-      this pattern: <code>$.fn.insertBefore</code> and
-      <code>$.fn.before</code>; <code>$.fn.appendTo</code> and
-      <code>$.fn.append</code>; and <code>$.fn.prependTo</code> and
+      <para>Por exemplo, o jQueru provê <code>$.fn.insertAfter</code> e
+      <code>$.fn.after</code>. O método <code>$.fn.insertAfter</code> coloca
+      o(s) elemento(s) selecionado(s) depois do elemento que você passou 
+      como argumento; o método <code>$.fn.after</code> coloca o elemento 
+      passado como argumento depois do elemento selecionado.Vários outros 
+      métodos seguem este padrão: <code>$.fn.insertBefore</code> e
+      <code>$.fn.before</code>; <code>$.fn.appendTo</code> e
+      <code>$.fn.append</code>; e <code>$.fn.prependTo</code> e
       <code>$.fn.prepend</code>.</para>
-
-      <para>The method that makes the most sense for you will depend on what
-      elements you already have selected, and whether you will need to store a
-      reference to the elements you're adding to the page. If you need to
-      store a reference, you will always want to take the first approach --
-      placing the selected elements relative to another element -- as it
-      returns the element(s) you're placing. In this case,
+      
+      <para>O método que faz mais sentido pra você depende de quais elementos
+      você já selecionou e quais você precisa armazenar uma referência para os 
+      elementos que você está adicionando na página. Se você precisar de armazenar
+      uma referência, você sempre irá querer fazer pela primeira forma -- colocando
+      os elementos selecionados relativos à outro elemento -- de forma que ele
+      retorne o(s) elemento(s) que você está colocando. Neste caso, os métodos
       <code>$.fn.insertAfter</code>, <code>$.fn.insertBefore</code>,
-      <code>$.fn.appendTo</code>, and <code>$.fn.prependTo</code> will be your
-      tools of choice.</para>
+      <code>$.fn.appendTo</code>, e <code>$.fn.prependTo</code> serão suas 
+      ferramentas para escolha.</para>
 
       <example>
-        <title>Moving elements using different approaches</title>
+        <title>Movendo elementos usando outras formas</title>
 
-        <programlisting>// make the first list item the last list item
+        <programlisting>// faz o primeiro item da lista se tornar o último
 var $li = $('#myList li:first').appendTo('#myList');
 
-// another approach to the same problem
+// outra forma de resolver o mesmo problema
 $('#myList').append($('#myList li:first'));
 
-// note that there's no way to access the
-// list item that we moved, as this returns
-// the list itself
+// perceba que não tem como acessar o item
+// da lista que movemos, pois ele retorna 
+// a própria lista
 </programlisting>
       </example>
 
       <section>
-        <title>Cloning Elements</title>
+        <title>Clonando elementos</title>
 
-        <para>When you use methods such as $.fn.appendTo, you are moving the
-        element; sometimes you want to make a copy of the element instead. In
-        this case, you'll need to use $.fn.clone first.</para>
+        <para>Quando você usa métodos como $.fn.appendTo, você está movendo o
+        elemento; porém,algumas vezes você irá querer fazer uma cópia do 
+        elemento. Neste caso, você precisará usar $.fn.clone first.</para>
 
         <example>
-          <title>Making a copy of an element</title>
+          <title>Fazendo uma cópia de um elemento</title>
 
-          <programlisting>// copy the first list item to the end of the list
+          <programlisting>// copia o primeiro item da lista para o fim
 $('#myList li:first').clone().appendTo('#myList');</programlisting>
         </example>
 
         <note>
-          <para>If you need to copy related data and events, be sure to pass
-          <code>true</code> as an argument to <code>$.fn.clone</code>.</para>
+          <para>Se você precisa copiar dados e eventos relacionados, esteja
+          certo de passar <code>true</code> como um argumento para <code>$.fn.clone</code>.</para>
         </note>
       </section>
 
       <section>
-        <title>Removing Elements</title>
+        <title>Removendo elementos</title>
 
-        <para>There are two ways to remove elements from the page:
-        <code>$.fn.remove</code> and <code>$.fn.detach</code>. You'll use
-        <code>$.fn.remove</code> when you want to permanently remove the
-        selection from the page; while the method does return the removed
-        element(s), those elements will not have their associated data and
-        events attached to them if you return them to the page.</para>
+        <para>Há duas formas de remover elementos da página:
+        <code>$.fn.remove</code> e <code>$.fn.detach</code>. Você irá 
+        usar <code>$.fn.remove</code> quandp você quer remover a
+        seleção permanentemente da página; enquanto o método retorna
+        os elementos removidos, estes elementos não terão seus eventos
+        e dados associados a ele se você retorna-los à página.</para>
 
-        <para>If you need the data and events to persist, you'll want to use
-        <code>$.fn.detach</code> instead. Like <code>$.fn.remove</code>, it
-        returns the selection, but it also maintains the data and events
-        associated with the selection, so you can restore the selection to the
-        page at a later time.</para>
+        <para>Se você precisa que os dados e eventos persistam, você irá 
+        isar <code>$.fn.detach</code> . Da mesma forma que <code>$.fn.remove</code>,
+        ele retorna uma seleção, mas também mantém os dados e os eventos
+        associados com a seleção para que você possa restaurar a seleção
+        para a página no futuro.</para>
 
         <note>
-          <para>The <code>$.fn.detach</code> method is extremely valuable if
-          you are doing heavy manipulation to an element. In that case, it's
-          beneficial to <code>$.fn.detach</code> the element from the page,
-          work on it in your code, and then restore it to the page when you're
-          done. This saves you from expensive "DOM touches" while maintaining
-          the element's data and events.</para>
+          <para>O método <code>$.fn.detach</code> é extremamente útil se você
+          estiver fazendo uma manipulação pesada à um elemento. Neste caso,
+          é bom aplicar um <code>$.fn.detach</code> no elemento da página,
+          trabalhar no seu próprio código, e então restaura-lo à página quando
+          você terminar. Isto evita que você faça "toques ao DOM" caros enquanto
+          mantém os dados e eventos do elemento.</para>
         </note>
 
-        <para>If you want to leave the element on the page but simply want to
-        remove its contents, you can use <code>$.fn.empty</code> to dispose of
-        the element's inner HTML.</para>
+        <para>Se você quer deixar um elemento na página mas simplesmente quer
+        remover seu conteúdo, você pode usar <code>$.fn.empty</code> para retirar
+        o innerHTML do elemento.</para>
       </section>
     </section>
 
     <section>
-      <title>Creating New Elements</title>
-
-      <para>jQuery offers a trivial and elegant way to create new elements
-      using the same <code>$()</code> method you use to make
-      selections.</para>
-
+      <title>Criando novos elementos</title>
+          <para>O jQuery oferece uma forma elegante e trivial para criar novos
+          elementos usando o mesmo método <code>$()</code> que você usava para
+          seleções.</para>
       <example>
-        <title>Creating new elements</title>
+        <title>Criando novos elementos</title>
 
-        <programlisting>$('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
-$('&lt;li class="new"&gt;new list item&lt;/li&gt;');</programlisting>
+        <programlisting>$('&lt;p&gt;Este é um novo parágrafo&lt;/p&gt;');
+$('&lt;li class="new"&gt;novo item de lista&lt;/li&gt;');</programlisting>
       </example>
 
       <example>
-        <title>Creating a new element with an attribute object</title>
+        <title>Criando um novo elemento com um objeto atributo</title>
 
         <programlisting>$('&lt;a/&gt;', { 
-    html : 'This is a &lt;strong&gt;new&lt;/strong&gt; link',
+    html : 'Este é um link &lt;strong&gt;new&lt;/strong&gt;',
     'class' : 'new',
     href : 'foo.html'
 });</programlisting>
       </example>
 
-      <remark>Note that in the attributes object we included as the second
-      argument, the property name class is quoted, while the property names
-      text and href are not. Property names generally do not need to be quoted
-      unless they are reserved words (as class is in this case).</remark>
-
-      <para>When you create a new element, it is not immediately added to the
-      page. There are several ways to add an element to the page once it's
-      been created.</para>
+      <remark>Perceba que no objeto de atributos nós incluimos como segundo
+      argumento a propriedade classe entre aspas, enquanto as propriedades
+      text e href não. Geralmente, nomes de propriedades não precisam estar
+      entre aspas a não ser que elas sejam palavras reservadas (como a 
+      classe neste caso)</remark>
+      
+      <para>Quando você cria um novo elemento, ele não é adicionado imediatamente
+      à página. Há várias formas de adicionar um elemento à página uma vez que ele
+      esteja criado.</para>
 
       <example>
-        <title>Getting a new element on to the page</title>
+        <title>Inserindo um novo elemento na página</title>
 
         <programlisting>var $myNewElement = $('&lt;p&gt;New element&lt;/p&gt;');
 $myNewElement.appendTo('#content');
 
-$myNewElement.insertAfter('ul:last'); // this will remove the p from #content!
-$('ul').last().after($myNewElement.clone());  // clone the p so now we have 2</programlisting>
+$myNewElement.insertAfter('ul:last'); // isto irá remover p de #content!
+$('ul').last().after($myNewElement.clone());  // clona o p, portanto temos 2 agora</programlisting>
       </example>
 
-      <remark>Strictly speaking, you don't have to store the created element
-      in a variable -- you could just call the method to add the element to
-      the page directly after the $(). However, most of the time you will want
-      a reference to the element you added, so you don't need to select it
-      later.</remark>
+      <remark>Estritamente falando, você não precisa armazenar o elemento
+      criado numa variável -- você pode simplesmente chamar o método para 
+      adiciona-lo diretamente depois do <code>$()</code>. Entretanto, a maior
+      parte do tempo você precisará de uma referência ao elemento que você
+      adicionou para que você não o selecione depois.</remark>
 
-      <para>You can even create an element as you're adding it to the page,
-      but note that in this case you don't get a reference to the newly
-      created element.</para>
+      <para>Você ainda pode criar um elemento ao mesmo tempo que você
+      o adiciona à página, mas note que neste caso você não obtém a 
+      referência do novo objeto criado.</para>
 
       <example>
-        <title>Creating and adding an element to the page at the same
-        time</title>
+        <title>Criando e adicionando um elemento à página ao
+        mesmo tempo</title>
 
         <programlisting>$('ul').append('&lt;li&gt;list item&lt;/li&gt;');</programlisting>
       </example>
 
       <note>
-        <para>The syntax for adding new elements to the page is so easy, it's
-        tempting to forget that there's a huge performance cost for adding to
-        the DOM repeatedly. If you are adding many elements to the same
-        container, you'll want to concatenate all the html into a single
-        string, and then append that string to the container instead of
-        appending the elements one at a time. You can use an array to gather
-        all the pieces together, then <code>join</code> them into a single
-        string for appending.</para>
+        <para>A sintaxe para adicionar novos elementos à página é tão fácil
+        que é tentador esquecer que há um enorme custo de performance por 
+        adicionar ao DOM repetidas vezes. Se você está adicionando muitos 
+        elementos ao mesmo container, você irá concatenar todo html numa 
+        única string e então adicionar a string ao container ao invés de
+        ir adicionando um elemento de cada vez. Você pode usar um array
+        para colocar todas os pedaços juntos e então aplicar um <code>join</code>
+        nele em uma única string para adicionar ao container.</para>
 
         <programlisting>var myItems = [], $myList = $('#myList');
 
@@ -899,20 +904,20 @@ $myList.append(myItems.join(''));</programlisting>
     </section>
 
     <section>
-      <title>Manipulating Attributes</title>
+      <title>Manipulando atributos</title>
 
-      <para>jQuery's attribute manipulation capabilities are extensive. Basic
-      changes are simple, but the $.fn.attr method also allows for more
-      complex manipulations.</para>
+      <para>Os recursos de  manipulação de atributos do jQuery são muitos.
+      Mudanças básicas são simples, mas o método $.fn.attr também permite
+      manipulações mais complexas.</para>
 
       <example>
-        <title>Manipulating a single attribute</title>
+        <title>Manipulando um único atributo</title>
 
         <programlisting>$('#myDiv a:first').attr('href', 'newDestination.html');</programlisting>
       </example>
 
       <example>
-        <title>Manipulating multiple attributes</title>
+        <title>Manipulando múltiplos atributos</title>
 
         <programlisting>$('#myDiv a:first').attr({
     href : 'newDestination.html',
@@ -921,7 +926,7 @@ $myList.append(myItems.join(''));</programlisting>
       </example>
 
       <example>
-        <title>Using a function to determine an attribute's new value</title>
+        <title>Usando uma função para determinar um novo valor de atributo</title>
 
         <programlisting>$('#myDiv a:first').attr({
     rel : 'super-special',
@@ -938,7 +943,7 @@ $('#myDiv a:first').attr('href', function() {
   </section>
 
   <section>
-    <title>Exercises</title>
+    <title>Exercícios</title>
 
     <xi:include href="exercises/selecting.xml" xpointer="element(/1)" />
 
