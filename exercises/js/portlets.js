@@ -22,7 +22,7 @@ Usage:
 
 	var myPortlet = Portlet({
 		title : 'Curry',
-		source : 'exercises/data/html/curry.html',
+		source : 'data/html/curry.html',
 		initialState : 'open' // or 'closed'
 	});
 	
