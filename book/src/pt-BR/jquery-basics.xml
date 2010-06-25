@@ -826,73 +826,72 @@ $('#myList li:first').clone().appendTo('#myList');</programlisting>
 
     <section>
       <title>Criando novos elementos</title>
-
-      <para>jQuery offers a trivial and elegant way to create new elements
-      using the same <code>$()</code> method you use to make
-      selections.</para>
-
+          <para>O jQuery oferece uma forma elegante e trivial para criar novos
+          elementos usando o mesmo método <code>$()</code> que você usava para
+          seleções.</para>
       <example>
-        <title>Creating new elements</title>
+        <title>Criando novos elementos</title>
 
-        <programlisting>$('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
-$('&lt;li class="new"&gt;new list item&lt;/li&gt;');</programlisting>
+        <programlisting>$('&lt;p&gt;Este é um novo parágrafo&lt;/p&gt;');
+$('&lt;li class="new"&gt;novo item de lista&lt;/li&gt;');</programlisting>
       </example>
 
       <example>
-        <title>Creating a new element with an attribute object</title>
+        <title>Criando um novo elemento com um objeto atributo</title>
 
         <programlisting>$('&lt;a/&gt;', { 
-    html : 'This is a &lt;strong&gt;new&lt;/strong&gt; link',
+    html : 'Este é um link &lt;strong&gt;new&lt;/strong&gt;',
     'class' : 'new',
     href : 'foo.html'
 });</programlisting>
       </example>
 
-      <remark>Note that in the attributes object we included as the second
-      argument, the property name class is quoted, while the property names
-      text and href are not. Property names generally do not need to be quoted
-      unless they are reserved words (as class is in this case).</remark>
-
-      <para>When you create a new element, it is not immediately added to the
-      page. There are several ways to add an element to the page once it's
-      been created.</para>
+      <remark>Perceba que no objeto de atributos nós incluimos como segundo
+      argumento a propriedade classe entre aspas, enquanto as propriedades
+      text e href não. Geralmente, nomes de propriedades não precisam estar
+      entre aspas a não ser que elas sejam palavras reservadas (como a 
+      classe neste caso)</remark>
+      
+      <para>Quando você cria um novo elemento, ele não é adicionado imediatamente
+      à página. Há várias formas de adicionar um elemento à página uma vez que ele
+      esteja criado.</para>
 
       <example>
-        <title>Getting a new element on to the page</title>
+        <title>Inserindo um novo elemento na página</title>
 
         <programlisting>var $myNewElement = $('&lt;p&gt;New element&lt;/p&gt;');
 $myNewElement.appendTo('#content');
 
-$myNewElement.insertAfter('ul:last'); // this will remove the p from #content!
-$('ul').last().after($myNewElement.clone());  // clone the p so now we have 2</programlisting>
+$myNewElement.insertAfter('ul:last'); // isto irá remover p de #content!
+$('ul').last().after($myNewElement.clone());  // clona o p, portanto temos 2 agora</programlisting>
       </example>
 
-      <remark>Strictly speaking, you don't have to store the created element
-      in a variable -- you could just call the method to add the element to
-      the page directly after the $(). However, most of the time you will want
-      a reference to the element you added, so you don't need to select it
-      later.</remark>
+      <remark>Estritamente falando, você não precisa armazenar o elemento
+      criado numa variável -- você pode simplesmente chamar o método para 
+      adiciona-lo diretamente depois do <code>$()</code>. Entretanto, a maior
+      parte do tempo você precisará de uma referência ao elemento que você
+      adicionou para que você não o selecione depois.</remark>
 
-      <para>You can even create an element as you're adding it to the page,
-      but note that in this case you don't get a reference to the newly
-      created element.</para>
+      <para>Você ainda pode criar um elemento ao mesmo tempo que você
+      o adiciona à página, mas note que neste caso você não obtém a 
+      referência do novo objeto criado.</para>
 
       <example>
-        <title>Creating and adding an element to the page at the same
-        time</title>
+        <title>Criando e adicionando um elemento à página ao
+        mesmo tempo</title>
 
         <programlisting>$('ul').append('&lt;li&gt;list item&lt;/li&gt;');</programlisting>
       </example>
 
       <note>
-        <para>The syntax for adding new elements to the page is so easy, it's
-        tempting to forget that there's a huge performance cost for adding to
-        the DOM repeatedly. If you are adding many elements to the same
-        container, you'll want to concatenate all the html into a single
-        string, and then append that string to the container instead of
-        appending the elements one at a time. You can use an array to gather
-        all the pieces together, then <code>join</code> them into a single
-        string for appending.</para>
+        <para>A sintaxe para adicionar novos elementos à página é tão fácil
+        que é tentador esquecer que há um enorme custo de performance por 
+        adicionar ao DOM repetidas vezes. Se você está adicionando muitos 
+        elementos ao mesmo container, você irá concatenar todo html numa 
+        única string e então adicionar a string ao container ao invés de
+        ir adicionando um elemento de cada vez. Você pode usar um array
+        para colocar todas os pedaços juntos e então aplicar um <code>join</code>
+        nele em uma única string para adicionar ao container.</para>
 
         <programlisting>var myItems = [], $myList = $('#myList');
 
@@ -905,20 +904,20 @@ $myList.append(myItems.join(''));</programlisting>
     </section>
 
     <section>
-      <title>Manipulating Attributes</title>
+      <title>Manipulando atributos</title>
 
-      <para>jQuery's attribute manipulation capabilities are extensive. Basic
-      changes are simple, but the $.fn.attr method also allows for more
-      complex manipulations.</para>
+      <para>Os recursos de  manipulação de atributos do jQuery são muitos.
+      Mudanças básicas são simples, mas o método $.fn.attr também permite
+      manipulações mais complexas.</para>
 
       <example>
-        <title>Manipulating a single attribute</title>
+        <title>Manipulando um único atributo</title>
 
         <programlisting>$('#myDiv a:first').attr('href', 'newDestination.html');</programlisting>
       </example>
 
       <example>
-        <title>Manipulating multiple attributes</title>
+        <title>Manipulando múltiplos atributos</title>
 
         <programlisting>$('#myDiv a:first').attr({
     href : 'newDestination.html',
@@ -927,7 +926,7 @@ $myList.append(myItems.join(''));</programlisting>
       </example>
 
       <example>
-        <title>Using a function to determine an attribute's new value</title>
+        <title>Usando uma função para determinar um novo valor de atributo</title>
 
         <programlisting>$('#myDiv a:first').attr({
     rel : 'super-special',
@@ -944,7 +943,7 @@ $('#myDiv a:first').attr('href', function() {
   </section>
 
   <section>
-    <title>Exercises</title>
+    <title>Exercícios</title>
 
     <xi:include href="exercises/selecting.xml" xpointer="element(/1)" />
 
