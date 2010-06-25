@@ -723,52 +723,53 @@ $('li.selected').siblings();</programlisting>
     <section>
       <title>Movendo, copiando e removendo elementos. </title>
 
-      <para>There are a variety of ways to move elements around the DOM;
-      generally, there are two approaches:</para>
+      <para>Há uma variedade de formas de mover elementos pelo DOM;
+      geralmente, há duas formas:</para>
 
       <itemizedlist>
         <listitem>
-          <para>Place the selected element(s) relative to another
-          element</para>
+          <para>Coloque o(s) elemento(s) selecionado(s) relativo
+          à outro elemento</para>
         </listitem>
 
         <listitem>
-          <para>Place an element relative to the selected element(s)</para>
+          <para>Coloque um elemento relativo ao(s) elemento(s) 
+          selecionado(s)</para>
         </listitem>
       </itemizedlist>
 
-      <para>For example, jQuery provides <code>$.fn.insertAfter</code> and
-      <code>$.fn.after</code>. The <code>$.fn.insertAfter</code> method places
-      the selected element(s) after the element that you provide as an
-      argument; the <code>$.fn.after</code> method places the element provided
-      as an argument after the selected element. Several other methods follow
-      this pattern: <code>$.fn.insertBefore</code> and
-      <code>$.fn.before</code>; <code>$.fn.appendTo</code> and
-      <code>$.fn.append</code>; and <code>$.fn.prependTo</code> and
+      <para>Por exemplo, o jQueru provê <code>$.fn.insertAfter</code> e
+      <code>$.fn.after</code>. O método <code>$.fn.insertAfter</code> coloca
+      o(s) elemento(s) selecionado(s) depois do elemento que você passou 
+      como argumento; o método <code>$.fn.after</code> coloca o elemento 
+      passado como argumento depois do elemento selecionado.Vários outros 
+      métodos seguem este padrão: <code>$.fn.insertBefore</code> e
+      <code>$.fn.before</code>; <code>$.fn.appendTo</code> e
+      <code>$.fn.append</code>; e <code>$.fn.prependTo</code> e
       <code>$.fn.prepend</code>.</para>
-
-      <para>The method that makes the most sense for you will depend on what
-      elements you already have selected, and whether you will need to store a
-      reference to the elements you're adding to the page. If you need to
-      store a reference, you will always want to take the first approach --
-      placing the selected elements relative to another element -- as it
-      returns the element(s) you're placing. In this case,
+      
+      <para>O método que faz mais sentido pra você depende de quais elementos
+      você já selecionou e quais você precisa armazenar uma referência para os 
+      elementos que você está adicionando na página. Se você precisar de armazenar
+      uma referência, você sempre irá querer fazer pela primeira forma -- colocando
+      os elementos selecionados relativos à outro elemento -- de forma que ele
+      retorne o(s) elemento(s) que você está colocando. Neste caso, os métodos
       <code>$.fn.insertAfter</code>, <code>$.fn.insertBefore</code>,
-      <code>$.fn.appendTo</code>, and <code>$.fn.prependTo</code> will be your
-      tools of choice.</para>
+      <code>$.fn.appendTo</code>, e <code>$.fn.prependTo</code> serão suas 
+      ferramentas para escolha.</para>
 
       <example>
-        <title>Moving elements using different approaches</title>
+        <title>Movendo elementos usando outras formas</title>
 
-        <programlisting>// make the first list item the last list item
+        <programlisting>// faz o primeiro item da lista se tornar o último
 var $li = $('#myList li:first').appendTo('#myList');
 
-// another approach to the same problem
+// outra forma de resolver o mesmo problema
 $('#myList').append($('#myList li:first'));
 
-// note that there's no way to access the
-// list item that we moved, as this returns
-// the list itself
+// perceba que não tem como acessar o item
+// da lista que movemos, pois ele retorna 
+// a própria lista
 </programlisting>
       </example>
 
