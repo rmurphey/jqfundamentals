@@ -774,58 +774,58 @@ $('#myList').append($('#myList li:first'));
       </example>
 
       <section>
-        <title>Cloning Elements</title>
+        <title>Clonando elementos</title>
 
-        <para>When you use methods such as $.fn.appendTo, you are moving the
-        element; sometimes you want to make a copy of the element instead. In
-        this case, you'll need to use $.fn.clone first.</para>
+        <para>Quando você usa métodos como $.fn.appendTo, você está movendo o
+        elemento; porém,algumas vezes você irá querer fazer uma cópia do 
+        elemento. Neste caso, você precisará usar $.fn.clone first.</para>
 
         <example>
-          <title>Making a copy of an element</title>
+          <title>Fazendo uma cópia de um elemento</title>
 
-          <programlisting>// copy the first list item to the end of the list
+          <programlisting>// copia o primeiro item da lista para o fim
 $('#myList li:first').clone().appendTo('#myList');</programlisting>
         </example>
 
         <note>
-          <para>If you need to copy related data and events, be sure to pass
-          <code>true</code> as an argument to <code>$.fn.clone</code>.</para>
+          <para>Se você precisa copiar dados e eventos relacionados, esteja
+          certo de passar <code>true</code> como um argumento para <code>$.fn.clone</code>.</para>
         </note>
       </section>
 
       <section>
-        <title>Removing Elements</title>
+        <title>Removendo elementos</title>
 
-        <para>There are two ways to remove elements from the page:
-        <code>$.fn.remove</code> and <code>$.fn.detach</code>. You'll use
-        <code>$.fn.remove</code> when you want to permanently remove the
-        selection from the page; while the method does return the removed
-        element(s), those elements will not have their associated data and
-        events attached to them if you return them to the page.</para>
+        <para>Há duas formas de remover elementos da página:
+        <code>$.fn.remove</code> e <code>$.fn.detach</code>. Você irá 
+        usar <code>$.fn.remove</code> quandp você quer remover a
+        seleção permanentemente da página; enquanto o método retorna
+        os elementos removidos, estes elementos não terão seus eventos
+        e dados associados a ele se você retorna-los à página.</para>
 
-        <para>If you need the data and events to persist, you'll want to use
-        <code>$.fn.detach</code> instead. Like <code>$.fn.remove</code>, it
-        returns the selection, but it also maintains the data and events
-        associated with the selection, so you can restore the selection to the
-        page at a later time.</para>
+        <para>Se você precisa que os dados e eventos persistam, você irá 
+        isar <code>$.fn.detach</code> . Da mesma forma que <code>$.fn.remove</code>,
+        ele retorna uma seleção, mas também mantém os dados e os eventos
+        associados com a seleção para que você possa restaurar a seleção
+        para a página no futuro.</para>
 
         <note>
-          <para>The <code>$.fn.detach</code> method is extremely valuable if
-          you are doing heavy manipulation to an element. In that case, it's
-          beneficial to <code>$.fn.detach</code> the element from the page,
-          work on it in your code, and then restore it to the page when you're
-          done. This saves you from expensive "DOM touches" while maintaining
-          the element's data and events.</para>
+          <para>O método <code>$.fn.detach</code> é extremamente útil se você
+          estiver fazendo uma manipulação pesada à um elemento. Neste caso,
+          é bom aplicar um <code>$.fn.detach</code> no elemento da página,
+          trabalhar no seu próprio código, e então restaura-lo à página quando
+          você terminar. Isto evita que você faça "toques ao DOM" caros enquanto
+          mantém os dados e eventos do elemento.</para>
         </note>
 
-        <para>If you want to leave the element on the page but simply want to
-        remove its contents, you can use <code>$.fn.empty</code> to dispose of
-        the element's inner HTML.</para>
+        <para>Se você quer deixar um elemento na página mas simplesmente quer
+        remover seu conteúdo, você pode usar <code>$.fn.empty</code> para retirar
+        o innerHTML do elemento.</para>
       </section>
     </section>
 
     <section>
-      <title>Creating New Elements</title>
+      <title>Criando novos elementos</title>
 
       <para>jQuery offers a trivial and elegant way to create new elements
       using the same <code>$()</code> method you use to make
