@@ -400,4 +400,39 @@ feature.sayPrivateThing();
 
     <para></para>
   </section>
+
+  <section>
+    <title>Exercises</title>
+
+    <section>
+      <title>Create a Portlet Module</title>
+
+      <para>Open the file <filename>/exercises/portlets.html</filename> in
+      your browser. Use the file
+      <filename>/exercises/js/portlets.js</filename>. Your task is to create a
+      portlet creation function that uses the module pattern, such that the
+      following code will work:</para>
+
+      <programlisting>var myPortlet = Portlet({
+    title : 'Curry',
+    source : 'data/html/curry.html',
+    initialState : 'open' // or 'closed'
+});
+
+myPortlet.$element.appendTo('body');</programlisting>
+
+      <para>Each portlet should be a div with a title, a content area, a
+      button to open/close the portlet, a button to remove the portlet, and a
+      button to refresh the portlet. The portlet returned by the Portlet
+      function should have the following public API:</para>
+
+      <programlisting>myPortlet.open(); // force open state
+myPortlet.close(); // force close state
+myPortlet.toggle(); // toggle open/close state
+myPortlet.refresh(); // refresh the content
+myPortlet.destroy(); // remove the portlet from the page
+myPortlet.setSource('data/html/onions.html'); 
+// change the source</programlisting>
+    </section>
+  </section>
 </chapter>
