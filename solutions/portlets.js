@@ -52,7 +52,6 @@ var Portlet = function(config) {
 			actions.refresh.action();
 		},
 		
-		
 		_setupActions = function() {
 			var html = '';
 				
@@ -73,6 +72,9 @@ var Portlet = function(config) {
 	if (state == 'closed') { 
 		$content.hide(); 
 	}
+	
+	// $.subscribe('/portlets/open', open);
+	// $.subscribe('/portlets/close', close);
 		
 	return {
 		toggle : actions.toggle.action,
