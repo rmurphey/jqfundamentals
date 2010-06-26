@@ -6,118 +6,121 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>Code Organization</title>
+  <title>Organização de código</title>
 
   <section>
-    <title>Overview</title>
+    <title>Introdução</title>
 
-    <para>When you move beyond adding simple enhancements to your website with
-    jQuery and start developing full-blown client-side applications, you need
-    to consider how to organize your code. In this chapter, we'll take a look
-    at various code organization patterns you can use in your jQuery
-    application and explore why code organization is important.</para>
+    <para>Quando você vai além de adicionar simples melhoras no seu website
+    com jQuery e começa a desenvolver aplicações client-side mais complexas,
+    você precisa considerar como organizar seu código. Neste capítulo, nós
+    vamos dar uma olhada em vários padrões para organização de código que 
+    você pode usar em sua aplicação com jQuery e explorar o porquê de 
+    organização de código ser importante.</para>
 
     <section>
-      <title>Key Concepts</title>
+      <title>Conceitos chave</title>
 
-      <para>Before we jump into code organization patterns, it's important to
-      understand some concepts that are common to all good code organization
-      patterns.</para>
+      <para>Antes de nós entrarmos em padrões para organização de código, é 
+      importante entender alguns conceitos que são comuns a todos os padrões
+      de organização de código.</para>
 
       <itemizedlist>
         <listitem>
-          <para>Your code should be divided into units of functionality —
-          modules, services, etc. Avoid the temptation to have all of your
-          code in one huge $(document).ready() block.</para>
+          <para>Seu código deve ser dividido em unidades de funcionalidades
+          - módulos, serviços, etc. Resista à tentação de ter todo o seu 
+          código dentro de um block enorme de $(document).ready().</para>
         </listitem>
 
         <listitem>
-          <para>Despite jQuery's DOM-centric nature, JavaScript applications
-          are not all about the DOM. Remember that not all pieces of
-          functionality need to — or should — have a DOM
-          representation.</para>
+          <para>Apesar da natureza centrada em DOM do jQuery, aplicações
+          JavaScript não são só sobre o DOM. Lembre-se que nem todas as
+          funcionalidades que você precisa - ou deve - usar tem uma representação
+          no DOM.</para>
         </listitem>
 
         <listitem>
-          <para>Units of functionality should be <link
-          xlink:href="http://en.wikipedia.org/wiki/Loose_coupling">loosely
-          coupled</link> — a unit of functionality should be able to exist on
-          its own, and communication between units should be handled via a
-          messaging system such as custom events or pub/sub. Stay away from
-          direct communication between units of functionality whenever
-          possible. </para>
+          <para>Unidades de funcionalidade devem ser <link
+          xlink:href="http://en.wikipedia.org/wiki/Loose_coupling">fracamente
+          acopladas</link> — uma unidade de funcionalidade deve existir por 
+          si só e comunicação entre unidades deve ser manipulado via um 
+          sistema de mensagens como eventos customizados ou pub/sub. Fique
+          longe de comunicação direta entre unidades de funcionalidade sempre
+          que possível. </para>
         </listitem>
 
         <listitem>
-          <para>Units of functionality should be divided into small methods
-          that do exactly one thing. If your methods are more than a few lines
-          long, you may need to consider refactoring.</para>
+          <para>Unidades de funcionalidade devem ser divididas em pequenos métodos
+          que fazem exatamente uma coisa. Se seus métodos são maiores que algumas
+          linhas, você pode considerar a refatoração.</para>
         </listitem>
 
         <listitem>
-          <para>Configuration options for your units of functionality — URLs,
+          <para>Opções de configuração para suas unidades de funcionalidade
+          - URLS, strings, timeouts, etc. - devem ser setadas em propriedades
+          ou em um objeto de configuração, não Configuration options for your units of functionality — URLs,
           strings, timeouts, etc. — should be set in properties or a
-          configuration object, not scattered throughout the code.</para>
+          configuration object, not disperso através do código.</para>
         </listitem>
       </itemizedlist>
 
-      <para>The concept of loose coupling can be especially troublesome to
-      developers making their first foray into complex applications, so be
-      mindful of this as you're getting started.</para>
+      <para>O conceito de baixo acoplamento pode ser especialmente problemático
+      para desenvolvedores fazendo sua primeira imersão em aplicações complexas,
+      então tenha isto em mente quando você estiver iniciando.</para>
     </section>
   </section>
 
   <section>
-    <title>Organizational Structures</title>
+    <title>Estruturas organizacionais</title>
 
-    <para>There are several ways </para>
+    <para>Há várias formas</para>
 
     <section>
-      <title>The Object Literal</title>
+      <title>O literal objeto</title>
 
-      <para>An object literal is perhaps the simplest way to organize your
-      code. It doesn't offer any of the many features provided by other
-      techniques, but it's a good starting point for discussion.</para>
+      <para>Um literal objeto é talvez o modo mais simples para organizar
+      seu código. Ele não oferece nenhuma das muitas outras funcionalidades
+      fornecidas por outras técnicas, mas é um bom ponto de início para
+      discussão.</para>
 
       <example>
-        <title>An object literal</title>
+        <title>Um literal objeto</title>
 
-        <programlisting>var myFeature = {
-    myProperty : 'hello',
+        <programlisting>var minhaFuncionalidade = {
+    minhaPropriedade : 'olá',
 
-    myMethod : function() {
-        console.log(myFeature.myProperty);
+    meuMetodo : function() {
+        console.log(minhaFuncionalidade.minhaPropriedade);
     },
 
-    init : function(settings) {
-        myFeature.settings = settings;
+    init : function(configuracoes) {
+        minhaFuncionalidade.configuracoes = configuracoes;
     },
 
-    readSettings : function() {
-        console.log(myFeature.settings);
+    lerConfiguracoes : function() {
+        console.log(minhaFuncionalidade.configuracoes);
     }
 };
 
-myFeature.myProperty; // 'hello'
-myFeature.myMethod(); // logs 'hello'
-myFeature.init({ foo : 'bar' });
-myFeature.readSettings(); // logs { foo : 'bar' }
+minhaFuncionalidade.minhaPropriedade; // 'olá'
+minhaFuncionalidade.meuMetodo(); // loga 'olá'
+minhaFuncionalidade.init({ foo : 'bar' });
+minhaFuncionalidade.lerConfiguracoes(); // loga { foo : 'bar' }
 </programlisting>
       </example>
 
-      <para>The object literal above is simply an object assigned to a
-      variable. The object has one property and several methods. All of the
-      properties and methods are public, so any part of your application can
-      see the properties and call methods on the object. While there is an
-      init method, there's nothing requiring that it be called before the
-      object is functional. </para>
+      <para>O literal objeto acima é simplesmente um objeto associado a uma
+      variável. O objeto tem uma propriedade e vários métodos. Todas as propriedades
+      e métodos são públicos, então qualquer parte da sua aplicação pode ver
+      e chamar métodos no objeto. Enquanto há um método init, não há nada 
+      obrigando que ele seja chamado antes do objeto ser funcional. </para>
 
-      <para>How would we apply this pattern to jQuery code? Let's say that we
-      had this code written in the traditional jQuery style:</para>
+      <para>Como poderiámos aplicar este padrão no código jQuery? Digamos
+      que nós temos este código escrito num estilo tradicional do jQuery:</para>
 
-      <programlisting>// clicking on a list item loads some content
-// using the list item's ID and hides content
-// in sibling list items
+      <programlisting>// clicando num item de lista carrega algum conteúdo
+// usando o ID do item e esconde conteúdo
+// nos itens de lista irmãos
 $(document).ready(function() {
   $('#myFeature li')
     .append('&lt;div/&gt;')
