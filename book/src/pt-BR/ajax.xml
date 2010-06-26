@@ -352,8 +352,8 @@ console.log(response);</programlisting>
             <term>jsonp</term>
 
             <listitem>
-              <para>The callback name to send in a query string when making a
-              JSONP request. Defaults to "callback".</para>
+              <para>O nome da função de callback para enviar na string de requisição
+              quando estiver fazendo uma requisição JSONP. O padrão é "callback".</para>
             </listitem>
           </varlistentry>
 
@@ -361,10 +361,10 @@ console.log(response);</programlisting>
             <term>success</term>
 
             <listitem>
-              <para>A callback function to run if the request succeeds. The
-              function receives the response data (converted to a JavaScript
-              object if the dataType was JSON), as well as the text status of
-              the request and the raw request object.</para>
+              <para>Uma função de callback para ser executada se a requisição
+              tiver exito. A função recebe os dados de resposta (convertidos
+              para um objeto JavaScript se o tipo de dados for JSON), e o texto
+              de status da requisição e o objeto bruto da requisição.</para>
             </listitem>
           </varlistentry>
 
@@ -372,8 +372,8 @@ console.log(response);</programlisting>
             <term>timeout</term>
 
             <listitem>
-              <para>The time in milliseconds to wait before considering the
-              request a failure.</para>
+              <para>O tempo em milisegundos a se esperar antes de considerar
+              que a reqsuisição falhou.</para>
             </listitem>
           </varlistentry>
 
@@ -381,8 +381,8 @@ console.log(response);</programlisting>
             <term>traditional</term>
 
             <listitem>
-              <para>Set to true to use the param serialization style in use
-              prior to jQuery 1.4. For details, see <link
+              <para>Sete para true para usar o tipo de serialização param em
+              versões anteriores ao jQuery 1.4. Para detalhes, veja: <link
               xlink:href="http://api.jquery.com/jQuery.param/">http://api.jquery.com/jQuery.param/</link>.</para>
             </listitem>
           </varlistentry>
@@ -391,9 +391,10 @@ console.log(response);</programlisting>
             <term>type</term>
 
             <listitem>
-              <para>The type of the request, "POST" or "GET". Defaults to
-              "GET". Other request types, such as "PUT" and "DELETE" can be
-              used, but they may not be supported by all browsers.</para>
+              <para>O tipo da requisição, "POST" ou "GET". O padrão é "GET".
+              Outros tipos de requisição, como "PUT" e "DELETE" podem ser
+              utilizados, mas eles talvez não sejam suportados por todos os
+              navegadores.</para>
             </listitem>
           </varlistentry>
 
@@ -401,43 +402,43 @@ console.log(response);</programlisting>
             <term>url</term>
 
             <listitem>
-              <para>The URL for the request.</para>
+              <para>A URL para requisição.</para>
             </listitem>
           </varlistentry>
         </variablelist>
 
-        <para>The <code>url</code> option is the only required property of the
-        <code>$.ajax</code> configuration object; all other properties are
-        optional.</para>
+        <para>A opção <code>url</code> é a única propriedade obrigatória
+        do objeto de configuração do método <code>$.ajax</code>;todas as
+        outras propriedades são opcionais.</para>
       </section>
     </section>
 
     <section>
-      <title>Convenience Methods</title>
+      <title>Métodos de conveniência</title>
 
-      <para>If you don't need the extensive configurability of
-      <code>$.ajax</code>, and you don't care about handling errors, the Ajax
-      convenience functions provided by jQuery can be useful, terse ways to
-      accomplish Ajax requests. These methods are just "wrappers" around the
-      core <code>$.ajax</code> method, and simply pre-set some of the options
-      on the <code>$.ajax</code> method.</para>
+      <para>Se você não precisa da configuração extensiva do <code>$.ajax</code>, 
+      e você não se preocupa sobre manipulação de erros, as funções 
+      de conveniêcia providas pelo jQuery podem ser uma forma útil e lapidada
+      para executar requisições Ajax. Estes métodos são somente "encapsulamentos"
+      em torno do método <code>$.ajax</code>, e simplesmente pré setam algumas
+      das opções no método <code>$.ajax</code>.</para>
 
-      <para>The convenience methods provided by jQuery are:</para>
+      <para>Os métodos de conveniência providos pelo jQuery são:</para>
 
       <variablelist>
         <varlistentry>
           <term>$.get</term>
 
           <listitem>
-            <para>Perform a GET request to the provided URL.</para>
+            <para>Executa uma requisição GET para a URL informada.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
           <term>$.post</term>
 
-          <listitem>
-            <para>Perform a POST request to the provided URL.</para>
+          <listitem> 
+            <para>Executa uma requisição POST na URL informada.</para>
           </listitem>
         </varlistentry>
 
@@ -445,7 +446,7 @@ console.log(response);</programlisting>
           <term>$.getScript</term>
 
           <listitem>
-            <para>Add a script to the page.</para>
+            <para>Adiciona um script à página.</para>
           </listitem>
         </varlistentry>
 
@@ -453,21 +454,21 @@ console.log(response);</programlisting>
           <term>$.getJSON</term>
 
           <listitem>
-            <para>Perform a GET request, and expect JSON to be
-            returned.</para>
+            <para>Executa uma requisição GET com expectativa de retorno
+            de um JSON.</para>
           </listitem>
         </varlistentry>
       </variablelist>
 
-      <para>In each case, the methods take the following arguments, in
-      order:</para>
+      <para>Em cada caso, os métodos pegam os seguintes argumentos,
+      em ordem:</para>
 
       <variablelist>
         <varlistentry>
           <term>url</term>
 
           <listitem>
-            <para>The URL for the request. Required.</para>
+            <para>A URL para requisição. Obrigatório.</para>
           </listitem>
         </varlistentry>
 
@@ -475,12 +476,13 @@ console.log(response);</programlisting>
           <term>data</term>
 
           <listitem>
-            <para>The data to be sent to the server. Optional. This can either
-            be an object or a query string, such as
+            <para>Os dados para serem enviados para o servidor.
+            Opcional. Pode ser tanto um objeto quanto uma string
+            de requisição, como 
             <code>foo=bar&amp;baz=bim</code>.</para>
 
             <note>
-              <para>This option is not valid for
+              <para>Esta opção não é válida para 
               <code>$.getScript</code>.</para>
             </note>
           </listitem>
