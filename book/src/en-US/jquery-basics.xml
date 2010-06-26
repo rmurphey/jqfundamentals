@@ -98,6 +98,53 @@ $('div:gt(2)');        // all except the first three divs
 $('div:animated');     // all currently animated divs</programlisting>
     </example>
 
+    <note>
+      <para>When you use the <code>:visible</code> and <code>:hidden</code>
+      pseudo-selectors, jQuery tests the actual visibility of the element, not
+      its CSS visibility or display — that is, it looks to see if the
+      element's <emphasis>physical height and width on the page</emphasis> are
+      both greater than zero. However, this test doesn't work with
+      <code>&lt;tr&gt;</code> elements; in this case, jQuery does check the
+      CSS <code>display</code> property, and considers an element hidden if
+      its <code>display</code> property is set to <code>none</code>. Elements
+      that have not been added to the DOM will always be considered hidden,
+      even if the CSS that would affect them would render them visible. (See
+      the Manipulation section later in this chapter to learn how to create
+      and add elements to the DOM.)</para>
+
+      <para>For reference, here is the code jQuery uses to determine whether
+      an element is visible or hidden, with comments added for clarity:</para>
+
+      <programlisting>jQuery.expr.filters.hidden = function( elem ) {
+    var width = elem.offsetWidth, height = elem.offsetHeight,
+        skip = elem.nodeName.toLowerCase() === "tr";
+
+    // does the element have 0 height, 0 width, 
+    // and it's not a &lt;tr&gt;?
+    return width === 0 &amp;&amp; height === 0 &amp;&amp; !skip ?
+
+        // then it must be hidden
+        true :
+
+        // but if it has width and height 
+        // and it's not a &lt;tr&gt;
+        width &gt; 0 &amp;&amp; height &gt; 0 &amp;&amp; !skip ?
+
+            // then it must be visible
+            false :
+
+            // if we get here, the element has width
+            // and height, but it's also a &lt;tr&gt;,
+            // so check its display property to
+            // decide whether it's hidden
+            jQuery.curCSS(elem, "display") === "none";
+};
+
+jQuery.expr.filters.visible = function( elem ) {
+    return !jQuery.expr.filters.hidden( elem );
+};</programlisting>
+    </note>
+
     <sidebar>
       <title>Choosing Selectors</title>
 
@@ -410,11 +457,11 @@ $('ul li').eq(5);               // the sixth </programlisting>
       <title>Getters &amp; Setters</title>
 
       <para>jQuery “overloads” its methods, so the method used to set a value
-      generally has the same name as the method used to get a value.
-      When a method is used to set a value, it is called a
-      setter. When a method is used to get (or read) a value, it is called a
-      getter. Setters affect all elements in a selection; getters get the requested 
-      value only for the first element in the selection.</para>
+      generally has the same name as the method used to get a value. When a
+      method is used to set a value, it is called a setter. When a method is
+      used to get (or read) a value, it is called a getter. Setters affect all
+      elements in a selection; getters get the requested value only for the
+      first element in the selection.</para>
 
       <example>
         <title>The <code>$.fn.html</code> method used as a setter</title>
