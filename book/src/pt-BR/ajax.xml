@@ -489,45 +489,47 @@ console.log(response);</programlisting>
         </varlistentry>
 
         <varlistentry>
-          <term>success callback</term>
+          <term>callback de successo</term>
 
           <listitem>
-            <para>A callback function to run if the request succeeds.
-            Optional. The function receives the response data (converted to a
-            JavaScript object if the data type was JSON), as well as the text
-            status of the request and the raw request object.</para>
+            <para>Uma função de callback para executar se a requisição for
+            executada com sucesso. Opcional. A função recebe os dados de
+            resposta  (convertidos para um objeto JavaScropt se o tipo de 
+            dados for JSON), assim como o texto de status  e o objeto
+            bruto da requisição.</para>
           </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term>data type</term>
+          <term>tipo de dados</term>
 
           <listitem>
-            <para>The type of data you expect back from the server.
-            Optional.</para>
+            <para>O tipo de dados que você espera de retorno do servidor.
+            Opcional.</para>
 
             <note>
-              <para>This option is only applicable for methods that don't
-              already specify the data type in their name.</para>
+              <para>Esta opção só é aplicável para métodos que ainda não
+              espeficaram o tipo de dados no seu nome.</para>
             </note>
           </listitem>
         </varlistentry>
       </variablelist>
 
       <example>
-        <title>Using jQuery's Ajax convenience methods</title>
+        <title>Usando os métodos de conveniência do jQUery</title>
 
-        <para><programlisting>// get plain text or html
+        <para><programlisting>// pega texto puro ou html
 $.get('/users.php', { userId : 1234 }, function(resp) {
     console.log(resp);
 });
 
-// add a script to the page, then run a function defined in it
+// adiciona um script na página, e então executa uma função
+// definida nele
 $.getScript('/static/js/myScript.js', function() {
     functionFromMyScript();
 });
 
-// get JSON-formatted data from the server
+// pega dados formatados em JSON do servidor
 $.getJSON('/details.php', function(resp) {
     $.each(resp, function(k, v) {
         console.log(k + ' : ' + v);
@@ -539,116 +541,116 @@ $.getJSON('/details.php', function(resp) {
     <section>
       <title><code>$.fn.load</code></title>
 
-      <para>The <code>$.fn.load</code> method is unique among jQuery’s Ajax
-      methods in that it is called on a selection. The <code>$.fn.load</code>
-      method fetches HTML from a URL, and uses the returned HTML to populate
-      the selected element(s). In addition to providing a URL to the method,
-      you can optionally provide a selector; jQuery will fetch only the
-      matching content from the returned HTML.</para>
+      <para>O método <code>$.fn.load</code> é único dentre os métodos de 
+      ajax do jQuery que é chamado em uma seleção. O méodo <code>$.fn.load</code>
+      pega HTML de uma URL, e usa o HTML retornado para popular o(s) elemento(s)
+      selecionados. Em adição à URL informada, você ainda pode informar um 
+      seletor; o jQUery irá pegar somente o elemento correspondente do html
+      retornado.</para>
 
       <example>
-        <title>Using <code>$.fn.load</code> to populate an element</title>
+        <title>Usando o <code>$.fn.load</code> para popular um elemento</title>
 
         <programlisting>$('#newContent').load('/foo.html');</programlisting>
       </example>
 
       <example>
-        <title>Using <code>$.fn.load</code> to populate an element based on a
-        selector</title>
+        <title>Usando o <code>$.fn.load</code> para popular um elemento
+        baseado no seletor</title>
 
         <programlisting>$('#newContent').load('/foo.html <emphasis role="bold">#myDiv h1:first</emphasis>', function(html) {
-  alert('Content updated!');
+  alert('Conteúdo atualizado!');
 });</programlisting>
       </example>
     </section>
   </section>
 
   <section>
-    <title>Ajax and Forms</title>
+    <title>Ajax e formulários</title>
 
-    <para>jQuery’s ajax capabilities can be especially useful when dealing
-    with forms. The <link xlink:href="http://jquery.malsup.com/form/">jQuery
-    Form Plugin</link> is a well-tested tool for adding Ajax capabilities to
-    forms, and you should generally use it for handling forms with Ajax rather
-    than trying to roll your own solution for anything remotely complex. That
-    said, there are a two jQuery methods you should know that relate to form
-    processing in jQuery: <code>$.fn.serialize</code> and
+    <para>As funcionalidades de Ajax do jQuery podem ser especialmente úteis
+    ao lidar com formulários. O <link xlink:href="http://jquery.malsup.com/form/">jQuery
+    Form Plugin</link> é uma ferramenta bem testada para adicionar funcionalidades 
+    de Ajax nos formulários e você deve usa-lo para manipular formulários com
+    Ajax ao invés de usar sua própria solução para alguma coisa mais complexa.
+    Mas ainda há dois métodos do jQuery relacionados à processamento de formulários
+    que você deve conhecer: <code>$.fn.serialize</code> e
     <code>$.fn.serializeArray</code>.</para>
 
     <example>
-      <title>Turning form data into a query string</title>
+      <title>Transformando os dados de um formulário em uma string de requisição</title>
 
       <programlisting>$('#myForm').serialize();</programlisting>
     </example>
 
     <example>
-      <title>Creating an array of objects containing form data</title>
+      <title>Criando um array de objetos contendo dados do formulário.</title>
 
       <programlisting>$('#myForm').serializeArray();
 
-// creates a structure like this:
+// cria uma estrutura como esta:
 [
-    { name : 'field1', value : 123 },
-    { name : 'field2', value : 'hello world' }
+    { name : 'campo1', value : 123 },
+    { name : 'campo2', value : 'olá mundo!' }
 ]</programlisting>
     </example>
   </section>
 
   <section>
-    <title>Working with JSONP</title>
+    <title>Trabalhando com JSONP</title>
 
-    <para>The advent of JSONP -- essentially a consensual cross-site scripting
-    hack -- has opened the door to powerful mashups of content. Many prominent
-    sites provide JSONP services, allowing you access to their content via a
-    predefined API. A particularly great source of JSONP-formatted data is the
-    <link xlink:href="http://developer.yahoo.com/yql/console/">Yahoo! Query
-    Language</link>, which we'll use in the following example to fetch news
-    about cats.</para>
+    <para>O advendo do JSONP -- essencialmente um hack consensual para cross-site
+    scripting -- abriu a porta para mashups de conteúdo bem poderosos. Muitos 
+    sites provêem serviços JSONP, permitindo que você acesse o conteúdo deles
+    através de uma API pré-definida. Uma boa fronte de dados formatados em
+    JSONP é o <link xlink:href="http://developer.yahoo.com/yql/console/">Yahoo! Query
+    Language</link>, que nós iremos usar no próximo exemplo para pegar notícias
+    a respeito de gatos.</para>
 
     <example>
-      <title>Using YQL and JSONP</title>
+      <title>Usando YQL e JSONP</title>
 
       <programlisting>$.ajax({
     url : 'http://query.yahooapis.com/v1/public/yql',
 
-    // the name of the callback parameter,
-    // as specified by the YQL service
+    // o nome do parâmetro de callback,
+    // como é especificado pelo serviço do YQL
     jsonp : 'callback',
 
-    // tell jQuery we're expecting JSONP
+    // fala pro jQuery que estamos esperando JSONP
     dataType : 'jsonp',
 
-    // tell YQL what we want and that we want JSON
+    // fala para o YQL o que nós queremos e que queremos em JSON
     data : {
-        q : 'select title,abstract,url from search.news where query="cat"',
+        q : 'select title,abstract,url from search.news where query="gato"',
         format : 'json'
     },
 
-    // work with the response
+    // trabalha com a resposta
     success : function(response) {
         console.log(response);
     }
 });</programlisting>
     </example>
 
-    <para>jQuery handles all the complex aspects of JSONP behind-the-scenes --
-    all we have to do is tell jQuery the name of the JSONP callback parameter
-    specified by YQL ("callback" in this case), and otherwise the whole
-    process looks and feels like a normal Ajax request.</para>
+    <para>O jQuery manipula todos os aspectos complexos por trás do JSONP --
+    tudo que nós temos que fazer é falar para o jQuery o nome do callback
+    JSONP especificado pelo YQL ("callback" neste caso), e todo o processo
+    se parece com uma requisição Ajax normal.</para>
   </section>
 
   <section>
-    <title>Ajax Events</title>
+    <title>Eventos do Ajax</title>
 
-    <para>Often, you’ll want to perform an operation whenever an Ajax requests
-    starts or stops, such as showing or hiding a loading indicator. Rather
-    than defining this behavior inside every Ajax request, you can bind Ajax
-    events to elements just like you'd bind other events. For a complete list
-    of Ajax events, visit <link
+    <para>Frequentemente, você irá querer fazer algo depois que uma requisição
+    Ajax inicia ou para, como exibir ou mostrar um indicador de carregamento.
+    Ao invés de definir este comportamento dentro de cada requisição Ajax, você
+    pode associar eventos do Ajax à elementos da mesma forma que você associa 
+    outros eventos. Para uma lista completa de de eventos do Ajax, visite <link
     xlink:href="http://docs.jquery.com/Ajax_Events">http://docs.jquery.com/Ajax_Events</link>.</para>
 
     <example>
-      <title>Setting up a loading indicator using Ajax Events</title>
+      <title>Configurando um indicador de carregamento usando eventos do Ajax</title>
 
       <programlisting>$('#loading_indicator')
     .ajaxStart(function() { $(this).show(); })
@@ -657,7 +659,7 @@ $.getJSON('/details.php', function(resp) {
   </section>
 
   <section>
-    <title>Exercises</title>
+    <title>Exercícios</title>
 
     <xi:include href="exercises/load-external-content.xml"
                 xpointer="element(/1)" />
