@@ -7,7 +7,153 @@
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
   <title>Plugins</title>
+  
+  <section>
+    <title>What exactly is a plugin?</title>
+    
+    <para>A jQuery plugin is simply a new method that we use to extend jQuery's
+    prototype object. By extending the prototype object you enable all jQuery
+    objects to inherit any methods that you add. As established, whenever you
+    call <code>jQuery()</code> you're creating a new jQuery object, with all of
+    jQuery's methods inherited.</para>
+    
+    <para>The idea of a plugin is to do something with a collection of elements.
+    You could consider each method that comes with the jQuery core a plugin,
+    like <code>fadeOut</code> or <code>addClass</code>.</para>
+    
+    <para>You can make your own plugins and use them privately in your
+    code or you can release them into the wild. There are thousands of jQuery
+    plugins available online. The barrier to creating a plugin of your own
+    is so low that you'll want to do it straight away!</para>
+    
+  </section>
+  
+  <section>
+    <title>How to create a basic plugin</title>
+    
+    <para>The notation for creating a typical plugin is as follows:</para>
+    
+    <programlisting>(function($){
+    $.fn.myNewPlugin = function() {
+        return this.each(function(){
+            // do something
+        });
+    };
+}(jQuery));</programlisting>
+    
+    <para>Don't let that confuse you though. The point of a jQuery plugin is to
+    extend jQuery's prototype object, and that's what's happening on this line:
+    </para>
+    
+    <programlisting>$.fn.myNewPlugin = function() { //...</programlisting>
+    
+    <para>We wrap this assignment in an immediately-invoked function:</para>
+    
+    <programlisting>(function($){
+    //...
+}(jQuery));</programlisting>
+    
+    <para>This has the effect of creating a &quot;private&quot; scope that
+    allows us to extend jQuery using the dollar symbol without having to risk
+    the possibility that the dollar has been over-written by another library.
+    </para>
+    
+    <para>So our actual plugin, thus far, is this:</para>
+    
+    <programlisting>$.fn.myNewPlugin = function() {
+    return this.each(function(){
+        // do something
+    });
+};</programlisting>
+    
+    <para>The <code>this</code> keyword within the new plugin refers to the
+    jQuery object on which the plugin is being called.</para>
+    
+    <programlisting>var somejQueryObject = $('#something');
 
+$.fn.myNewPlugin = function() {
+    alert(this === somejQueryObject);
+};
+
+somejQueryObject.myNewPlugin(); // alerts 'true'</programlisting>
+    
+    <para>Your typical jQuery object will contain references to any number of
+    DOM elements, and that's why jQuery objects are often referred to as
+    collections.</para>
+    
+    <para>So, to do something with a collection we need to loop through it,
+    which is most easily achieved using jQuery's <code>each()</code> method:
+    </para>
+    
+    <programlisting>$.fn.myNewPlugin = function() {
+    return this.each(function(){
+    
+    });
+};</programlisting>
+    
+    <para>jQuery's <code>each()</code> method, like most other jQuery methods,
+    returns a jQuery object, thus enabling what we've all come to know and love
+    as 'chaining' (<code>$(...).css().attr()...</code>). We wouldn't want to
+    break this convention so we return the <code>this</code> object. Within this
+    loop you can do whatever you want with each element. Here's an example of a
+    small plugin using some of the techniques we've discussed:</para>
+    
+    <programlisting>(function($){
+    $.fn.showLinkLocation = function() {
+        return this.filter('a').each(function(){
+            $(this).append(
+                ' (' + $(this).attr('href') + ')'
+            );
+        });
+    };
+}(jQuery));
+    
+// Usage example:
+$('a').showLinkLocation();</programlisting>
+    
+    <para>This handy plugin goes through all anchors in the collection and
+    appends the <code>href</code> attribute in brackets.</para>
+    
+    <programlisting>&lt;!-- Before plugin is called: --&gt;
+&lt;a href=&quot;page.html&quot;&gt;Foo&lt;/a&gt;
+    
+&lt;!-- After plugin is called: --&gt;
+&lt;a href=&quot;page.html&quot;&gt;Foo (page.html)&lt;/a&gt;</programlisting>
+    
+    <para>Our plugin can be optimised though:</para>
+    
+    <programlisting>(function($){
+    $.fn.showLinkLocation = function() {
+        return this.filter('a').append(function(){
+              return ' (' + this.href + ')';
+        });
+    };
+}(jQuery));</programlisting>
+    
+    <para>We're using the <code>append</code> method's capability to accept a
+    callback, and the return value of that callback will determine what is
+    appended to each element in the collection. Notice also that we're not
+    using the <code>attr</code> method to retrieve the <code>href</code>
+    attribute, because the native DOM API gives us easy access with the aptly
+    named <code>href</code> property.</para>
+    
+    <para>Here's another example of a plugin. This one doesn't require us to
+    loop through every elememt with the <code>each()</code> method. Instead,
+    we're simply going to delegate to other jQuery methods directly:</para>
+    
+    <programlisting>(function($){
+    $.fn.fadeInAndAddClass = function(duration, className) {
+        return this.fadeIn(duration, function(){
+            $(this).addClass(className);
+        });
+    };
+}(jQuery));
+    
+// Usage example:
+$('a').fadeInAndAddClass(400, 'finishedFading');</programlisting>
+    
+  </section>
+    
   <section>
     <title>Finding &amp; Evaluating Plugins</title>
 

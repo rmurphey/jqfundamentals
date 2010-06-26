@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>jQuery Fundamentals :: Home</title>
+	<link href="css/reset.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	
+	<style>
+	#blog p.excerpt { display: none; }
+	
+	.portlet {
+		border:1px solid #000;
+		padding:10px;
+		margin:0 0 10px 0;
+	}
+	
+	.portlet .content {
+		padding:10px;
+		background-color:#ccc;
+	}
+	
+	.portlet .actions {
+		font-size:80%;
+		overflow:hidden;
+		list-style-type:none;
+		margin:0 0 10px 0;
+		text-align:right;
+	}
+	
+	.portlet .actions li {
+		float:left;
+		margin:0 10px 0 0;
+		padding:0;
+		cursor:pointer;
+	}
+	</style>
+	
+	<link rel="stylesheet" href="libs/qunit/qunit/qunit.css" type="text/css" media="screen">
+	
+	
+</head>
+
+<body>
+	
+	<h1 id="qunit-header">QUnit Test Suite</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<h2 id="qunit-userAgent"></h2>
+	<ol id="qunit-tests"></ol>
+
+<script src="libs/jquery-1.4.2.min.js"></script>
+<script src="libs/pubsub.js"></script>
+<script src="libs/qunit/qunit/qunit.js"></script>
+<script src="../solutions/portlets.js"></script>
+<script>
+var portlets = [ 'curry', 'onions', 'stirfry', 'tomatoes' ];
+
+$.each(portlets, function(i, p) {
+	var portlet = Portlet({
+		title : p,
+		source : 'data/html/' + p + '.html',
+		initialState : 'open'
+	});
+	
+	portlet.$element.appendTo('body');	
+});
+</script>
+<!-- 
+<script src="js/sandbox.js"></script>
+<script src="js/hoverClass.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/blog.js"></script>
+<script src="js/specials.js"></script>
+<script src="../solutions/slideshow.js"></script> 
+-->
+</body>
+</html>
