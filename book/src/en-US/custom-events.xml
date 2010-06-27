@@ -212,10 +212,6 @@ $(document).trigger('myCustomEvent', [ 'bim', 'baz' ]);</programlisting>
         <title>Our finished application</title>
 
         <screenshot>
-          <info>
-            <title></title>
-          </info>
-
           <mediaobject>
             <imageobject>
               <imagedata fileref="http://gyazo.com/70415e9fffab1c47953f5264ecf722fe.png"></imagedata>
