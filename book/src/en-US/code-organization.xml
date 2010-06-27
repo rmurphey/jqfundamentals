@@ -28,7 +28,14 @@
         <listitem>
           <para>Your code should be divided into units of functionality —
           modules, services, etc. Avoid the temptation to have all of your
-          code in one huge $(document).ready() block.</para>
+          code in one huge <code>$(document).ready()</code> block. This
+          concept, loosely, is known as encapsulation.</para>
+        </listitem>
+
+        <listitem>
+          <para>Don't repeat yourself. Identify similarities among pieces of
+          functionality, and use inheritance techniques to avoid repetitive
+          code.</para>
         </listitem>
 
         <listitem>
@@ -45,19 +52,7 @@
           its own, and communication between units should be handled via a
           messaging system such as custom events or pub/sub. Stay away from
           direct communication between units of functionality whenever
-          possible. </para>
-        </listitem>
-
-        <listitem>
-          <para>Units of functionality should be divided into small methods
-          that do exactly one thing. If your methods are more than a few lines
-          long, you may need to consider refactoring.</para>
-        </listitem>
-
-        <listitem>
-          <para>Configuration options for your units of functionality — URLs,
-          strings, timeouts, etc. — should be set in properties or a
-          configuration object, not scattered throughout the code.</para>
+          possible.</para>
         </listitem>
       </itemizedlist>
 
@@ -68,16 +63,20 @@
   </section>
 
   <section>
-    <title>Organizational Structures</title>
+    <title>Encapsulation</title>
 
-    <para>There are several ways </para>
+    <para>The first step to code organization is separating pieces of your
+    application into distinct pieces; sometimes, even just this effort is
+    sufficient to lend</para>
 
     <section>
       <title>The Object Literal</title>
 
-      <para>An object literal is perhaps the simplest way to organize your
-      code. It doesn't offer any of the many features provided by other
-      techniques, but it's a good starting point for discussion.</para>
+      <para>An object literal is perhaps the simplest way to encapsulate
+      related code. It doesn't offer any privacy for properties or methods,
+      but it's useful for eliminating anonymous functions from your code,
+      centralizing configuration options, and easing the path to reuse and
+      refactoring.</para>
 
       <example>
         <title>An object literal</title>
@@ -110,7 +109,7 @@ myFeature.readSettings(); // logs { foo : 'bar' }
       properties and methods are public, so any part of your application can
       see the properties and call methods on the object. While there is an
       init method, there's nothing requiring that it be called before the
-      object is functional. </para>
+      object is functional.</para>
 
       <para>How would we apply this pattern to jQuery code? Let's say that we
       had this code written in the traditional jQuery style:</para>
@@ -141,7 +140,7 @@ $(document).ready(function() {
       we'd do well to keep this functionality separate from unrelated
       functionality. We might also want to move the URL out of the code and
       into a configuration area. Finally, we might want to break up the chain
-      to make it easier to modify pieces of the functionality later. </para>
+      to make it easier to modify pieces of the functionality later.</para>
 
       <example>
         <title>Using an object literal for a jQuery feature</title>
@@ -209,16 +208,20 @@ $(document).ready(myFeature.init);</programlisting>
 
       <para>The first thing you'll notice is that this approach is obviously
       far longer than the original — again, if this were the extent of our
-      application, using an object literal would make no sense at all.
-      Assuming it's not the extent of our application, though, we've gained
-      several things:</para>
+      application, using an object literal would likely be overkill. Assuming
+      it's not the extent of our application, though, we've gained several
+      things:</para>
 
       <itemizedlist>
         <listitem>
-          <para>We've broken our feature up into tiny methods; in the future,
+          <para>We've broken our feature up into tiny methods. In the future,
           if we want to change how content is shown, it's clear where to
           change it. In the original code, this step is much harder to
           locate.</para>
+        </listitem>
+
+        <listitem>
+          <para>We've eliminated the use of anonymous functions.</para>
         </listitem>
 
         <listitem>
@@ -236,16 +239,22 @@ $(document).ready(myFeature.init);</programlisting>
       over a long stretch of code stuffed in a $(document).ready() block, as
       they get us thinking about the pieces of our functionality. However,
       they aren't a whole lot more advanced than simply having a bunch of
-      function declarations inside of that $(document).ready() block. </para>
+      function declarations inside of that $(document).ready() block.</para>
     </section>
 
     <section>
       <title>The Module Pattern</title>
 
+      <para>The module pattern overcomes some of the limitations of the object
+      literal, offering privacy for variables and functions while exposing a
+      public API if desired.</para>
+
       <example>
         <title>The module pattern</title>
 
-        <programlisting>var featureCreator = function() {
+        <programlisting>var feature =(function() {
+
+    // private variables and functions
     var privateThing = 'secret',
         publicThing = 'not secret',
 
@@ -258,39 +267,48 @@ $(document).ready(myFeature.init);</programlisting>
             changePrivateThing();
         };
 
+    // public API
     return {
         publicThing : publicThing,
         sayPrivateThing : sayPrivateThing
     }
-};
 
-var feature = featureCreator();
+})();
+
 feature.publicThing; // 'not secret'
+
 feature.sayPrivateThing(); 
 // logs 'secret' and changes the value
 // of privateThing</programlisting>
       </example>
 
-      <para>In the example above, we create a function featureCreator that
+      <para>In the example above, we self-execute an anonymous function that
       returns an object. Inside of the function, we define some variables.
       Because the variables are defined inside of the function, we don't have
       access to them outside of the function unless we put them in the return
       object. This means that no code outside of the function has access to
-      the privateThing variable or to the changePrivateThing function.
-      However, sayPrivateThing does have access to privateThing and
-      changePrivateThing, because both were defined in the same scope as
-      sayPrivateThing.</para>
+      the <code>privateThing</code> variable or to the
+      <code>changePrivateThing</code> function. However,
+      <code>sayPrivateThing</code> does have access to
+      <code>privateThing</code> and <code>changePrivateThing</code>, because
+      both were defined in the same scope as
+      <code>sayPrivateThing</code>.</para>
 
       <para>This pattern is powerful because, as you can gather from the
       variable names, it can give you private variables and functions while
       exposing a limited API consisting of the returned object's properties
       and methods.</para>
 
+      <para>Below is a revised version of the previous example, showing how we
+      could create the same feature using the module pattern while only
+      exposing one public method of the module,
+      <code>showItemByIndex()</code>.</para>
+
       <example>
         <title>Using the module pattern for a jQuery feature</title>
 
         <programlisting>$(document).ready(function() {
-    var myFeature = (function() {
+    var feature = (function() {
         
         var $items = $('#myFeature li'),
             $container = $('&lt;div class="container"&gt;&lt;/div&gt;'),
@@ -334,22 +352,87 @@ feature.sayPrivateThing();
                 });
             };
 
-        config.$items
+        $items
             .each(createContainer)
             .click(showItem);
             
         return { showItemByIndex : showItemByIndex };
     })();
     
-    myFeature.showItemByIndex(0);
+    feature.showItemByIndex(0);
 });</programlisting>
       </example>
     </section>
+  </section>
+
+  <section>
+    <title>Inheritance</title>
+
+    <para>Object literals and the module pattern, on their own, create only a
+    single instance of the enclosed functionality. Sometimes essentially the
+    same functionality exists several times throughout your code — for
+    example, maybe there are a list of people on your page, and there is a set
+    of behavior associated with each person. In these cases, you need a way to
+    create multiple instances of a feature and to share code across similar
+    features.</para>
 
     <section>
-      <title>Classes and Class-Like Constructs</title>
+      <title>Prototypal Inheritance</title>
 
       <para></para>
+    </section>
+
+    <section>
+      <title>Classical Inheritance</title>
+
+      <para></para>
+    </section>
+  </section>
+
+  <section>
+    <title>It's Not All About the DOM</title>
+
+    <para></para>
+  </section>
+
+  <section>
+    <title>Communication Between Components</title>
+
+    <para></para>
+  </section>
+
+  <section>
+    <title>Exercises</title>
+
+    <section>
+      <title>Create a Portlet Module</title>
+
+      <para>Open the file <filename>/exercises/portlets.html</filename> in
+      your browser. Use the file
+      <filename>/exercises/js/portlets.js</filename>. Your task is to create a
+      portlet creation function that uses the module pattern, such that the
+      following code will work:</para>
+
+      <programlisting>var myPortlet = Portlet({
+    title : 'Curry',
+    source : 'data/html/curry.html',
+    initialState : 'open' // or 'closed'
+});
+
+myPortlet.$element.appendTo('body');</programlisting>
+
+      <para>Each portlet should be a div with a title, a content area, a
+      button to open/close the portlet, a button to remove the portlet, and a
+      button to refresh the portlet. The portlet returned by the Portlet
+      function should have the following public API:</para>
+
+      <programlisting>myPortlet.open(); // force open state
+myPortlet.close(); // force close state
+myPortlet.toggle(); // toggle open/close state
+myPortlet.refresh(); // refresh the content
+myPortlet.destroy(); // remove the portlet from the page
+myPortlet.setSource('data/html/onions.html'); 
+// change the source</programlisting>
     </section>
   </section>
 </chapter>

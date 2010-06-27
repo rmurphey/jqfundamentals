@@ -259,8 +259,8 @@ $('ul li').eq(5);               // the sixth </programlisting>
       </example>
     </section>
 
-    <section>
-      <title>Form-Related Selectors</title>
+    <section xml:id="jquery-basics.sections.formSelectors">
+      <title>Selecting Form Elements</title>
 
       <para>jQuery offers several pseudo-selectors that help you find elements
       in your forms; these are especially helpful because it can be difficult
