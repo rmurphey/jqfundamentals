@@ -14,8 +14,8 @@ xsl=scripts/libs/docbook-xsl/docbook-xsl-1.75.2
 xslChunked=xsl/xhtml-chunked.xsl
 xslAllInOne=xsl/xhtml.xsl
 
-outputAllInOne=release/html/jquery-fundamentals-book.html
-outputChunked=release/html/index.html
+outputAllInOne=release/html/index.html
+outputChunked=release/html/index-chunked.html
 
 if [ ! -f $xalan/xalan.jar ]; then
 	echo "Xalan not found. Run install script: ./scripts/install.sh"
