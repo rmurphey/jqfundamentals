@@ -8,11 +8,8 @@
          xmlns:db="http://docbook.org/ns/docbook">
   <title>Working with Forms</title>
 
-  <section>
-    <title>Selecting Form Elements</title>
-
-    <para></para>
-  </section>
+  <xi:include href="jquery-basics.xml"
+              xpointer="jquery-basics.sections.formSelectors" />
 
   <section>
     <title>Turning Forms into Data</title>
