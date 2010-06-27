@@ -189,3 +189,9 @@ color: #800000;
 	font-size:120%;
 	font-weight:normal;
 }
+
+div.chapter {
+	border-top:5px solid #ccc;
+	margin:50px 0 0 0;
+	padding:25px 0 0 0;
+}
