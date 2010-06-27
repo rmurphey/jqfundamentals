@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+	<title>Custom Events Demo</title> 
+	<link href="css/custom-events.css" rel="stylesheet" type="text/css" media="all" /> 
+</head> 
+ 
+<body> 
+	<h1>Twitter Search</h1> 
+	<input type="button" id="get_trends" value="Load Trending Terms" /> 
+	<input type="button" id="refresh" value="Refresh All Results" /> 
+	<input type="button" id="remove" value="Remove All Results" /> 
+	<br/> 
+	<input type="button" id="collapse" value="Collapse All Results" /> 
+	<input type="button" id="expand" value="Expand All Results" /> 
+	
+	<form> 
+		<input type="text" class="input_text" id="search_term" /> 
+		<input type="submit" class="input_submit" value="Add Search Term" /> 
+	</form> 
+	
+	<div id="twitter"> 
+		<div class="template results"> 
+			<h2>Search Results for <span class="search_term"></span></h2> 
+		</div> 
+	</div> 
+	
+	<script src="../exercises/libs/jquery-1.4.2.min.js"></script> 
+	<script src="js/custom-events.js"></script>
+</body> 
+</html> 
