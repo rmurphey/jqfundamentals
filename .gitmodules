@@ -1,0 +1,3 @@
+[submodule "demos/large-jquery-apps"]
+	path = demos/large-jquery-apps
+	url = git://github.com/rmurphey/large-jquery-apps.git
