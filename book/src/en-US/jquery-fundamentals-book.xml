@@ -97,5 +97,6 @@
       to contribute!</para>
     </article>
     <xi:include href="performance.xml" />
+    <xi:include href="custom-events.xml" />
   </part>
 </book>
