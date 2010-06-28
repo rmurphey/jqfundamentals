@@ -367,42 +367,6 @@ feature.sayPrivateThing();
   </section>
 
   <section>
-    <title>Inheritance</title>
-
-    <para>Object literals and the module pattern, on their own, create only a
-    single instance of the enclosed functionality. Sometimes essentially the
-    same functionality exists several times throughout your code — for
-    example, maybe there are a list of people on your page, and there is a set
-    of behavior associated with each person. In these cases, you need a way to
-    create multiple instances of a feature and to share code across similar
-    features.</para>
-
-    <section>
-      <title>Prototypal Inheritance</title>
-
-      <para></para>
-    </section>
-
-    <section>
-      <title>Classical Inheritance</title>
-
-      <para></para>
-    </section>
-  </section>
-
-  <section>
-    <title>It's Not All About the DOM</title>
-
-    <para></para>
-  </section>
-
-  <section>
-    <title>Communication Between Components</title>
-
-    <para></para>
-  </section>
-
-  <section>
     <title>Managing Dependencies</title>
 
     <note>
