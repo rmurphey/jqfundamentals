@@ -9,39 +9,40 @@
   <title>Plugins</title>
 
   <section>
-    <title>Finding &amp; Evaluating Plugins</title>
+    <title>Encontrando &amp; Avaliando plugins</title>
 
-    <para>Plugins extend the basic jQuery functionality, and one of the most
-    celebrated aspects of the library is its extensive plugin ecosystem. From
-    table sorting to form validation to autocompletion ... if there’s a need
-    for it, chances are good that someone has written a plugin for it.</para>
+    <para>Os plugins extendem a funcionalidade básica do jQuery, e um dos
+    aspectos mais celebrados da biblioteca é seu ecossistema extenso de
+    plugins. De ordenação de tabela a validação de formulário para completamento
+    automático... se há necessidade para algo, as chances de alguem ter escrito 
+    um plugin são grandes.</para>
 
-    <para>The quality of jQuery plugins varies widely. Many plugins are
-    extensively tested and well-maintained, but others are hastily created and
-    then ignored. More than a few fail to follow best practices.</para>
+    <para>A qualidade de plugins para jQuery varia muito. Muitos plugins são
+    extensivamente testados e bem mantidos, mas outros são criados apressadamente
+    e então ignorados. Mais do que alguns falham em seguir as melhores práticas.</para>
 
-    <para>Google is your best initial resource for locating plugins, though
-    the jQuery team is working on an improved plugin repository. Once you’ve
-    identified some options via a Google search, you may want to consult the
-    jQuery mailing list or the #jquery IRC channel to get input from
-    others.</para>
+    <para>Google é seu melhor recurso inicial para localização de plugins,
+    apesar do time do jQuery estar trabalhando em um melhor repositório de
+    plugins. Uma vez que você identificou algumas opções na busca do Google,
+    você talvez precisará consultar a lista de emails do jQuery ou o canal IRC
+    #jquery para saber a opinião dos outros.</para>
 
-    <para>When looking for a plugin to fill a need, do your homework. Ensure
-    that the plugin is well-documented, and look for the author to provide
-    lots of examples of its use. Be wary of plugins that do far more than you
-    need; they can end up adding substantial overhead to your page. For more
-    tips on spotting a subpar plugin, read <link
+    <para>Quando estiver procurando por um plugin para satisfazer uma necessidade,
+    faça seu trabalho de casa. Tenha certeza que aquele plugin é bem documentado e
+    veja se o autor disponibiliza muitos exemplos do seu uso. Tenha cuidado com
+    plugins que fazem mais do que você precisa; eles podem adicionar um overhead
+    substancial a sua página. Para mais dicas em identificar um plugin ruim, leia <link
     xlink:href="http://remysharp.com/2010/06/03/signs-of-a-poorly-written-jquery-plugin/">Signs
-    of a poorly written jQuery plugin</link> by Remy Sharp.</para>
+    of a poorly written jQuery plugin</link> por Remy Sharp.</para>
 
-    <para>Once you choose a plugin, you’ll need to add it to your page.
-    Download the plugin, unzip it if necessary, place it your application’s
-    directory structure, then include the plugin in your page using a script
-    tag (after you include jQuery).</para>
+    <para>Uma vez que você escolheu um plugin, você precisará adiciona-lo
+    à sua página. Baixe o plugin, descompacte-o se necessário, coloque-o no
+    seu diretório e então inclua o plugin na sua página utilizando a tag
+    script (depois de você incluir o jQuery).</para>
   </section>
 
   <section>
-    <title>Writing Plugins</title>
+    <title>Escrevendo plugins</title>
 
     <para>Sometimes you want to make a piece of functionality available
     throughout your code; for example, perhaps you want a single method you
