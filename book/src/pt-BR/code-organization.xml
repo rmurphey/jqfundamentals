@@ -136,15 +136,16 @@ $(document).ready(function() {
 });
 </programlisting>
 
-      <para>If this were the extent of our application, leaving it as-is would
-      be fine. On the other hand, if this was a piece of a larger application,
-      we'd do well to keep this functionality separate from unrelated
-      functionality. We might also want to move the URL out of the code and
-      into a configuration area. Finally, we might want to break up the chain
-      to make it easier to modify pieces of the functionality later. </para>
+      <para>Se isso for extender nossa aplicação, deixar como está pode ser
+      legal. Por outro lado, se esse for um pedaço de uma aplicação maior,
+      nós temos que manter esta funcionalidade separada da funcionalidade
+      não relacionada. Talvez nós ainda queiramos mover a URL pra fora do 
+      código e dentro de uma área de configuração. Por último, nós talvez
+      precisaremos quebrar o encadeamento de métodos para ficar mais fácil
+      modificar pedaços de funcionalidade depois. </para>
 
       <example>
-        <title>Using an object literal for a jQuery feature</title>
+        <title>Usando um literal de objeto para uma feature do jQuery</title>
 
         <programlisting>var myFeature = {
     init : function(settings) {
@@ -154,7 +155,7 @@ $(document).ready(function() {
             urlBase : '/foo.php?item='
         };
 
-        // allow overriding the default config
+        // permite a sobreposição da da configuração padrão
         $.extend(myFeature.config, settings);
 
         myFeature.setup();        
@@ -207,40 +208,41 @@ $(document).ready(function() {
 $(document).ready(myFeature.init);</programlisting>
       </example>
 
-      <para>The first thing you'll notice is that this approach is obviously
-      far longer than the original — again, if this were the extent of our
-      application, using an object literal would make no sense at all.
-      Assuming it's not the extent of our application, though, we've gained
-      several things:</para>
+      <para>A primeira coisa que você irá perceber é que esta abordagem 
+      é obviamente muito maior que a original - novamente, se isso for 
+      extender nossa aplicação, o uso do literal objeto não irá fazer 
+      sentido algum. Embora assumindo que não vai extender nossa aplicação,
+      nós ganhamos várias coisas:</para>
 
       <itemizedlist>
         <listitem>
-          <para>We've broken our feature up into tiny methods; in the future,
-          if we want to change how content is shown, it's clear where to
-          change it. In the original code, this step is much harder to
-          locate.</para>
+          <para>Nós quebramos nossas funcionalidaes em métodos pequenos;
+          no futuro, se nós precisarmos mudar como o conteúdo é mostrado,
+          é claro onde nós iremos mudar. No código original, este passo é
+          muito mais difícil para se localizar.</para>
         </listitem>
 
         <listitem>
-          <para>We've moved configuration options out of the body of the code
-          and put them in a central location.</para>
+          <para>Nós movemos as as opções de configuração para fora do 
+          corpo do código e colocamos em uma localização central.</para>
         </listitem>
 
         <listitem>
-          <para>We've eliminated the constraints of the chain, making the code
-          easier to refactor, remix, and rearrange.</para>
+          <para>Nós eliminamos as restrições do encadeamento, fazendo o
+          código mais refatorável, modificável e rearranjável.</para>
         </listitem>
       </itemizedlist>
 
-      <para>For non-trivial features, object literals are a clear improvement
-      over a long stretch of code stuffed in a $(document).ready() block, as
-      they get us thinking about the pieces of our functionality. However,
-      they aren't a whole lot more advanced than simply having a bunch of
-      function declarations inside of that $(document).ready() block. </para>
+      <para>Para funcionalidades não triviais, literais de objeto são uma 
+      clara melhora sobre o longo pedaço de código dentro do bloco 
+      $(document).ready(), de forma nos leva a pensar sobre pedaços de 
+      funcionalidade. Entretanto, eles não são muito mais avançados do
+      que ter um monte de declarações de funções dentro do bloco 
+      $(document).ready(). </para>
     </section>
 
     <section>
-      <title>The Module Pattern</title>
+      <title>O Module Pattern</title>
 
       <example>
         <title>The module pattern</title>
