@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+	    <title>Create Dropdown Menus</title>
+
+	    <para>Open the file <filename>/exercises/index.html</filename> in your
+	    browser. Use the file <filename>/exercises/js/navigation.js</filename>.
+	    Your task is to add dropdowns to the main navigation at the top of the
+	    page.</para>
+
+	    <itemizedlist>
+	      <listitem>
+	        <para>Hovering over an item in the main menu should show that item's
+	        submenu items, if any.</para>
+	      </listitem>
+
+	      <listitem>
+	        <para>Exiting an item should hide any submenu items.</para>
+	      </listitem>
+	    </itemizedlist>
+
+	    <para>To accomplish this, use the <code>$.fn.hover</code> method to add
+	    and remove a class from the submenu items to control whether they're
+	    visible or hidden. (The file at
+	    <filename>/exercises/css/styles.css</filename> includes the "hover" class
+	    for this purpose.)</para>
+</section>

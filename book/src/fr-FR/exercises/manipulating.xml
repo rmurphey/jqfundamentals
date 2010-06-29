@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Manipulating</title>
+
+  <para>Open the file <filename>/exercises/index.html</filename> in your
+  browser. Use the file <filename>/exercises/js/sandbox.js</filename> or work
+  in Firebug to accomplish the following:</para>
+
+  <orderedlist>
+    <listitem>
+      <para>Add five new list items to the end of the unordered list #myList.
+      Hint:</para>
+
+      <programlisting>for (var i = 0; i&lt;5; i++) { ... }</programlisting>
+    </listitem>
+
+    <listitem>
+      <para>Remove the odd list items</para>
+    </listitem>
+
+    <listitem>
+      <para>Add another h2 and another paragraph to the last div.module</para>
+    </listitem>
+
+    <listitem>
+      <para>Add another option to the select element; give the option the
+      value "Wednesday"</para>
+    </listitem>
+
+    <listitem>
+      <para>Add a new div.module to the page after the last one; put a copy of
+      one of the existing images inside of it.</para>
+    </listitem>
+  </orderedlist>
+</section>

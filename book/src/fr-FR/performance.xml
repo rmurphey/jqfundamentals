@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Performance Best Practices</title>
+
+  <para>This chapter covers a number of jQuery and JavaScript best practices,
+  in no particular order. Many of the best practices in this chapter are based
+  on the <link xlink:href="http://paulirish.com/perf">jQuery Anti-Patterns for
+  Performance</link> presentation by Paul Irish.</para>
+
+  <sect1>
+    <title>Cache length during loops</title>
+
+    <para>In a for loop, don't access the length property of an array every
+    time; cache it beforehand.</para>
+
+    <programlisting>var myLength = myArray.length;
+
+for (var i = 0; i &lt; myLength; i++) {
+    // do stuff
+}</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Append new content outside of a loop</title>
+
+    <para>Touching the DOM comes at a cost; if you're adding a lot of elements
+    to the DOM, do it all at once, not one at a time.</para>
+
+    <programlisting>// this is bad
+$.each(myArray, function(i, item) {
+   var newListItem = '&lt;li&gt;' + item + '&lt;/li&gt;';
+   $('#ballers').append(newListItem);
+});
+
+// better: do this
+var frag = document.createDocumentFragment();
+
+$.each(myArray, function(i, item) {
+    var newListItem = '&lt;li&gt;' + item + '&lt;/li&gt;';
+    frag.appendChild(newListItem);
+});
+$('#ballers')[0].appendChild(frag);
+
+// or do this
+var myHtml = '';
+
+$.each(myArray, function(i, item) {
+    html += '&lt;li&gt;' + item + '&lt;/li&gt;';
+});
+$('#ballers').html(myHtml);</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Keep things DRY</title>
+
+    <para>Don't repeat yourself; if you're repeating yourself, you're doing it
+    wrong.</para>
+
+    <programlisting>// BAD
+if ($eventfade.data('currently') != 'showing') {
+    $eventfade.stop();
+}
+
+if ($eventhover.data('currently') != 'showing') {
+    $eventhover.stop();
+}
+
+if ($spans.data('currently') != 'showing') {
+    $spans.stop();
+}
+
+// GOOD!!
+var $elems = [$eventfade, $eventhover, $spans];
+$.each($elems, function(i,elem) {
+    if (elem.data('currently') != 'showing') {
+        elem.stop();
+    }
+});</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Beware anonymous functions</title>
+
+    <para>Anonymous functions bound everywhere are a pain. They're difficult
+    to debug, maintain, test, or reuse. Instead, use an object literal to
+    organize and name your handlers and callbacks.</para>
+
+    <programlisting>// BAD
+$(document).ready(function() {
+    $('#magic').click(function(e) {
+        $('#yayeffects').slideUp(function() {
+            // ...
+        });
+    });
+
+    $('#happiness').load(url + ' #unicorns', function() {
+        // ...
+    });
+});
+
+// BETTER
+var PI = {
+    onReady : function() {
+        $('#magic').click(PI.candyMtn);
+        $('#happiness').load(PI.url + ' #unicorns', PI.unicornCb);
+    },
+
+    candyMtn : function(e) {
+        $('#yayeffects').slideUp(PI.slideCb);
+    },
+
+    slideCb : function() { ... },
+  
+    unicornCb : function() { ... }
+};
+
+$(document).ready(PI.onReady);            </programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Optimize Selectors</title>
+
+    <para>Selector optimization is less important than it used to be, as more
+    browser implement <code>document.querySelectorAll()</code> and the burden
+    of selection shifts from jQuery to the browser. However, there are still
+    some tips to keep in midn.</para>
+
+    <sect2>
+      <title>ID-Based Selectors</title>
+
+      <para>Beginning your selector with an ID is always best.</para>
+
+      <programlisting>// fast
+$('#container div.robotarm');
+
+// super-fast
+$('#container').find('div.robotarm');</programlisting>
+
+      <para>The <code>$.fn.find</code> approach is faster because the first
+      selection is handled without going through the Sizzle selector engine —
+      ID-only selections are handled using
+      <code>document.getElementById()</code>, which is extremely fast because
+      it is native to the browser.</para>
+    </sect2>
+
+    <sect2>
+      <title>Specificity</title>
+
+      <para>Be specific on the right-hand side of your selector, and less
+      specific on the left.</para>
+
+      <programlisting>// unoptimized
+$('div.data .gonzalez');
+
+// optimized
+$('.data td.gonzalez');</programlisting>
+
+      <para>Use <code>tag.class</code> if possible on your right-most
+      selector, and just <code>tag</code> or just <code>.class</code> on the
+      left.</para>
+
+      <para>Avoid excessive specificity.</para>
+
+      <programlisting>$('.data table.attendees td.gonzalez');
+
+// better: drop the middle if possible
+$('.data td.gonzalez');</programlisting>
+
+      <para>A "flatter" DOM also helps improve selector performance, as the
+      selector engine has fewer layers to traverse when looking for an
+      element. </para>
+    </sect2>
+
+    <sect2>
+      <title>Avoid the Universal Selector</title>
+
+      <para>Selections that specify or imply that a match could be found
+      anywhere can be very slow.</para>
+
+      <programlisting>$('.buttons &gt; *');  // extremely expensive
+$('.buttons').children();  // much better
+
+$('.gender :radio');  // implied universal selection
+$('.gender *:radio'); // same thing, explicit now
+$('.gender input:radio'); // much better</programlisting>
+    </sect2>
+  </sect1>
+
+  <sect1>
+    <title>Use Event Delegation</title>
+
+    <para>Event delegation allows you to bind an event handler to one
+    container element (for example, an unordered list) instead of multiple
+    contained elements (for example, list items). jQuery makes this easy with
+    $.fn.live and $.fn.delegate. Where possible, you should use
+    <code>$.fn.delegate</code> instead of <code>$.fn.live</code>, as it
+    eliminates the need for an unnecessary selection, and its explicit context
+    (vs. <code>$.fn.live</code>'s context of <code>document</code>) reduces
+    overhead by approximately 80%.</para>
+
+    <para>In addition to performance benefits, event delegation also allows
+    you to add new contained elements to your page without having to re-bind
+    the event handlers for them as they're added.</para>
+
+    <programlisting>// bad (if there are lots of list items)
+$('li.trigger').click(handlerFn);
+
+// better: event delegation with $.fn.live
+$('li.trigger').live('click', handlerFn);
+
+// best: event delegation with $.fn.delegate
+// allows you to specify a context easily
+$('#myList').delegate('li.trigger', 'click', handlerFn);</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Detach Elements to Work With Them</title>
+
+    <para>The DOM is slow; you want to avoid manipulating it as much as
+    possible. jQuery introduced <code>$.fn.detach</code> in version 1.4 to
+    help address this issue, allowing you to remove an element from the DOM
+    while you work with it.</para>
+
+    <programlisting>var $table = $('#myTable');
+var $parent = table.parent();
+
+$table.detach();
+// ... add lots and lots of rows to table
+$parent.append(table);</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Use Stylesheets for Changing CSS on Many Elements</title>
+
+    <para>If you're changing the CSS of more than 20 elements using $.fn.css,
+    consider adding a style tag to the page instead for a nearly 60% increase
+    in speed.</para>
+
+    <programlisting>// fine for up to 20 elements, slow after that
+$('a.swedberg').css('color', '#asd123');
+$('&lt;style type="text/css"&gt;a.swedberg { color : #asd123 }&lt;/style&gt;')
+    .appendTo('head');</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Use <code>$.data</code> Instead of <code>$.fn.data</code></title>
+
+    <para>Using $.data on a DOM element instead of calling $.fn.data on a
+    jQuery selection can be up to 10 times faster. Be sure you understand the
+    difference between a DOM element and a jQuery selection before doing this,
+    though.</para>
+
+    <programlisting>// regular 
+$(elem).data(key,value);  
+
+// 10x faster
+ $.data(elem,key,value);</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Don't Act on Absent Elements</title>
+
+    <para>jQuery won't tell you if you're trying to run a whole lot of code on
+    an empty selection — it will proceed as though nothing's wrong. It's up to
+    you to verify that your selection contains some elements.</para>
+
+    <programlisting>// BAD: this runs three functions
+// before it realizes there's nothing
+// in the selection
+$('#nosuchthing').slideUp();
+
+// Better
+var $mySelection = $('#nosuchthing');
+if ($mySelection.length) { mySelection.slideUp(); }
+
+// BEST: add a doOnce plugin
+jQuery.fn.doOnce = function(func){ 
+    this.length &amp;&amp; func.apply(this);
+    return this; 
+ }
+
+ $('li.cartitems').doOnce(function(){     
+    // make it ajax! \o/ 
+});</programlisting>
+
+    <para>This guidance is especially applicable for jQuery UI widgets, which
+    have a lot of overhead even when the selection doesn't contain
+    elements.</para>
+  </sect1>
+
+  <sect1>
+    <title>Variable Definition</title>
+
+    <para>Variables can be defined in one statement instead of several.</para>
+
+    <programlisting>// old &amp; busted
+var test = 1;
+var test2 = function() { ... };
+var test3 = test2(test);
+
+// new hotness
+var test = 1,
+    test2 = function() { ... },
+    test3 = test2(test);</programlisting>
+
+    <para>In self-executing functions, variable definition can be skipped all
+    together.</para>
+
+    <programlisting>(function(foo, bar) { ... })(1, 2);</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Conditionals</title>
+
+    <programlisting>// old way
+if (type == 'foo' || type == 'bar') { ... }
+
+// better
+if (/^(foo|bar)$/.test(type)) { ... }
+
+// object literal lookup 
+if (({ foo : 1, bar : 1 })[type]) { ... }</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Don't Treat jQuery as a Black Box</title>
+
+    <para>Use the source as your documentation — bookmark <link
+    xlink:href="http://bit.ly/jqsource">http://bit.ly/jqsource</link> and
+    refer to it often.</para>
+  </sect1>
+</chapter>
