@@ -6,27 +6,28 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-	    <title>Create Dropdown Menus</title>
+	    <title>Criando menus dropdown</title>
 
-	    <para>Open the file <filename>/exercises/index.html</filename> in your
-	    browser. Use the file <filename>/exercises/js/navigation.js</filename>.
-	    Your task is to add dropdowns to the main navigation at the top of the
-	    page.</para>
+	    <para>Abra o arquivo <filename>/exercises/index.html</filename>no seu
+	    navegador. Use o arquivo <filename>/exercises/js/navigation.js</filename>.
+	    Sua tarefa é adicionar menus dropdown à navegação principal no topo da 
+	    página.</para>
 
 	    <itemizedlist>
 	      <listitem>
-	        <para>Hovering over an item in the main menu should show that item's
-	        submenu items, if any.</para>
+	        <para>Passar o mouse sobre um item no menu principal deve mostrar os 
+	        itens do submenu, se houver.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Exiting an item should hide any submenu items.</para>
+	        <para>Tirar o mouse de cima do item deve esconder todos os itens do
+	        submenu.</para>
 	      </listitem>
 	    </itemizedlist>
 
-	    <para>To accomplish this, use the <code>$.fn.hover</code> method to add
-	    and remove a class from the submenu items to control whether they're
-	    visible or hidden. (The file at
-	    <filename>/exercises/css/styles.css</filename> includes the "hover" class
-	    for this purpose.)</para>
+	    <para>Para fazer este exercício, use o método <code>$.fn.hover</code>
+	    para adicionar e remover uma classe dos itens do submenu para controlar
+	    quando ele será visível ou invisível. (O arquivo em
+	    <filename>/exercises/css/styles.css</filename> inclui a classe "hover"
+	    para este propósito.)</para>
 </section>
