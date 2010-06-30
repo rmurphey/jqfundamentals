@@ -6,39 +6,39 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-	    <title>Create an Input Hint</title>
+	    <title>Créer un Indice sur un Input</title>
 
-	    <para>Open the file <filename>/exercises/index.html</filename> in your
-	    browser. Use the file <filename>/exercises/js/inputHint.js</filename> or
-	    work in Firebug. Your task is to use the text of the label for the search
-	    input to create "hint" text for the search input. The steps are as
-	    follows:</para>
+	    <para>Ouvrez le fichier <filename>/exercises/index.html</filename> avec votre
+	    navigateur. Utilisez le fichier <filename>/exercises/js/inputHint.js</filename> ou
+	    travaillez dans Firebug. Votre tâche est d'utiliser le texte du label de l'input de
+	    recherche pour créer un texte "d'indice" pour l'input de recherche. Les étapes sont
+	    les suivantes :</para>
 
 	    <orderedlist>
 	      <listitem>
-	        <para>Set the value of the search input to the text of the label
-	        element</para>
+	        <para>Mettre la valeur de l'input de recherche sur le texte de l'élément
+	        label</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Add a class of "hint" to the search input</para>
+	        <para>Ajouter une classe "hint" sur l'input de recherche</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Remove the label element</para>
+	        <para>Supprimer l'élément label</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Bind a focus event to the search input that removes the hint
-	        text and the "hint" class</para>
+	        <para>Attacher un événement focus à l'input de recherche qui supprime le texte
+          d'indice et la classe "hint"</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Bind a blur event to the search input that restores the hint
-	        text and "hint" class if no search text was entered</para>
+	        <para>Attacher un événement blur à l'input de recherche qui rétablit le texte
+	        d'indice et la classe "hint" quand aucun texte de recherche n'a été tapé</para>
 	      </listitem>
 	    </orderedlist>
 
-	    <para>What other considerations might there be if you were creating this
-	    functionality for a real site?</para>
+	    <para>Quelle autres considérations devriez-vous faire si vous étiez entrain de créer cette
+	    fonctionnalité pour un vrai site ?</para>
 </section>

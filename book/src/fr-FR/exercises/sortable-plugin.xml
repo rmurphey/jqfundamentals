@@ -6,9 +6,9 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-	    <title>Make a Table Sortable</title>
+	    <title>Rendre une Table Triable</title>
 
-	    <para>For this exercise, your task is to identify, download, and implement
-	    a table sorting plugin on the index.html page. When you’re done, all
-	    columns in the table on the page should be sortable.</para>
+	    <para>Pour cet exercice, votre tâche est d'identifier, de télécharger, et d'implémenter
+	    un plugin de tri de table sur la page index.html. A la fin, toutes les
+	    colonnes de la table sur la page devraient être triables.</para>
 </section>
