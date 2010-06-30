@@ -6,45 +6,45 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-	    <title>Load Content Using JSON</title>
+	    <title>Charger du Contenu en Utilisant JSON</title>
 
-	    <para>Open the file <filename>/exercises/index.html</filename> in your
-	    browser. Use the file <filename>/exercises/js/specials.js</filename>. Your
-	    task is to show the user details about the special for a given day when
-	    the user selects a day from the select dropdown.</para>
+	    <para>Ouvrez le fichier <filename>/exercises/index.html</filename> dans votre
+	    navigateur. Utilisez le fichier <filename>/exercises/js/specials.js</filename>. Votre
+	    tâche est de montrer à l'utilisateur les informations sur la spécialité d'un jour donné quand
+	    l'utilisateur sélectionne un jour dans la liste déroulante.</para>
 
 	    <orderedlist>
 	      <listitem>
-	        <para>Append a target div after the form that's inside the #specials
-	        element; this will be where you put information about the special once
-	        you receive it.</para>
+	        <para>Ajouter un div cible après le formulaire à l'intérieur de l'élément
+	        #specials ; vous mettrez là l'information à propos de la spécialité une fois que
+	        vous la recevrez.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Bind to the change event of the select element; when the user
-	        changes the selection, send an Ajax request to
+	        <para>Attacher à l'événement change de l'élément select ; quand l'utilisateur
+          change la sélection, envoyer une requête Ajax à
 	        <filename>/exercises/data/specials.json</filename>.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>When the request returns a response, use the value the user
-	        selected in the select (hint: <code>$.fn.val</code>) to look up
-	        information about the special in the JSON response.</para>
+	        <para>Quand la requête retournera une réponse, utiliser la valeur que l'utilisateur
+	        a sélectionné dans le select (indice: <code>$.fn.val</code>) pour trouver
+	        l'information à propos de la spécialité dans la réponse JSON.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Add some HTML about the special to the target div you
-	        created.</para>
+	        <para>Ajouter du HTMl relatif à la spécialité dans le div cible que
+	        vous avez créé.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Finally, because the form is now Ajax-enabled, remove the submit
-	        button from the form.</para>
+	        <para>Enfin, étant donné que le formulaire est maintenant en Ajax, enlever le bouton de
+	        soumission du formulaire.</para>
 	      </listitem>
 	    </orderedlist>
 
-	    <para>Note that we're loading the JSON every time the user changes their
-	    selection. How could we change the code so we only make the request once,
-	    and then use a cached response when the user changes their choice in the
+	    <para>Notez que nous chargeons le JSON chaque fois que l'utilisateur change sa
+	    sélection. Comment pouvons-nous changer le code pour faire une requête unique,
+	    et utiliser ensuite une réponse du cache quand l'utilisateur change son choix dans le
 	    select?</para>
 </section>
