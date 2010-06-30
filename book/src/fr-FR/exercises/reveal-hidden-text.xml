@@ -6,25 +6,25 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-	    <title>Reveal Hidden Text</title>
+	    <title>Afficher un Texte Caché</title>
 
-	    <para>Open the file <filename>/exercises/index.html</filename> in your
-	    browser. Use the file <filename>/exercises/js/blog.js</filename>. Your
-	    task is to add some interactivity to the blog section of the page. The
-	    spec for the feature is as follows:</para>
+	    <para>Ouvrez le fichier <filename>/exercises/index.html</filename> dans votre
+	    navigateur. Utilisez le fichier <filename>/exercises/js/blog.js</filename>. Votre
+	    tâche est d'ajouter de l'interactivité à la section blog de la page. La
+	    spécification de la fonctionnalité est la suivante :</para>
 
 	    <itemizedlist>
 	      <listitem>
-	        <para>Clicking on a headline in the #blog div should slide down the
-	        excerpt paragraph</para>
+	        <para>Un clic sur un titre dans le div #blog devrait faire glisser vers le bas le
+	        paragraphe d'extrait</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Clicking on another headline should slide down its excerpt
-	        paragraph, and slide up any other currently showing excerpt
-	        paragraphs.</para>
+	        <para>Un clic sur un autre titre devrait faire glisser vers le bas son paragraphe
+	        d'extrait, et glisser vers le haut tout autre paragraphe d'extrait actuellement
+	        affiché.</para>
 	      </listitem>
 	    </itemizedlist>
 
-	    <para>Hint: don't forget about the <code>:visible</code> selector!</para>
+	    <para>Indice : n'oubliez pas le sélecteur <code>:visible</code> !</para>
 </section>

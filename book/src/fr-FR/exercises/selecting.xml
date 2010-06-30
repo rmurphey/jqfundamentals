@@ -6,41 +6,41 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-	    <title>Selecting</title>
+	    <title>Sélection</title>
 
-	    <para>Open the file <filename>/exercises/index.html</filename> in your
-	    browser. Use the file <filename>/exercises/js/sandbox.js</filename> or
-	    work in Firebug to accomplish the following:</para>
+	    <para>Ouvrez le fichier <filename>/exercises/index.html</filename> dans votre
+	    navigateur. Utilisez le fichier <filename>/exercises/js/sandbox.js</filename> ou
+	    travaillez dans Firebug pour accomplir ce qui suit :</para>
 
 	    <orderedlist>
 	      <listitem>
-	        <para>Select all of the div elements that have a class of
+	        <para>Sélectionner tous les éléments div qui ont une classe
 	        "module".</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Come up with three selectors that you could use to get the third
-	        item in the #myList unordered list. Which is the best to use?
-	        Why?</para>
+	        <para>Donner trois sélecteurs que vous pourriez utiliser pour obtenir le troisième
+	        élément dans la liste non ordonnée #myList. Quel est le meilleur à utiliser?
+	        Pourquoi ?</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Select the label for the search input using an attribute
-	        selector.</para>
+	        <para>Sélectionner le label pour l'input de recherche en utilisant un sélecteur
+	        d'attribut.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Figure out how many elements on the page are hidden (hint:
+	        <para>Trouver le nombre d'éléments cachés sur la page (indice :
 	        .length).</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Figure out how many image elements on the page have an alt
-	        attribute.</para>
+	        <para>Trouvez le nombre d'images sur la page qui ont un attribut
+	        alt.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Select all of the odd table rows in the table body.</para>
+	        <para>Sélectionner toutes les lignes paires dans la table.</para>
 	      </listitem>
 	    </orderedlist>
 </section>

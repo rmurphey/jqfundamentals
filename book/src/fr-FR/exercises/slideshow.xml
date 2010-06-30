@@ -6,31 +6,31 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>Create a Slideshow</title>
+  <title>Créer un Diaporama</title>
 
-  <para>Open the file <filename>/exercises/index.html</filename> in your
-  browser. Use the file <filename>/exercises/js/slideshow.js</filename>. Your
-  task is to take a plain semantic HTML page and enhance it with JavaScript by
-  adding a slideshow.</para>
+  <para>Ouvrir le fichier <filename>/exercises/index.html</filename> dans votre
+  navigateur. Utiliser le fichier <filename>/exercises/js/slideshow.js</filename>. Votre
+  tâche est de prendre une page HTML sémantique simple et l'améliorer avec du JavaScript en
+  ajoutant un diaporama.</para>
 
   <orderedlist>
     <listitem>
-      <para>Move the #slideshow element to the top of the body.</para>
+      <para>Déplacer l'élément #slideshow vers le haut du body.</para>
     </listitem>
 
     <listitem>
-      <para>Write code to cycle through the list items inside the element;
-      fade one in, display it for a few seconds, then fade it out and fade in
-      the next one.</para>
+      <para>Ecrire un code pour faire un cycle des éléments de la liste;
+      faire apparaitre un en fondu, l'afficher pour quelques secondes, ensuite le faire disparaitre
+      en fondu et faire apparaitre le suivant en fondu.</para>
     </listitem>
 
     <listitem>
-      <para>When you get to the end of the list, start again at the
-      beginning.</para>
+      <para>Quand vous arriverez à la fin de la liste, recommencer au
+      début.</para>
     </listitem>
   </orderedlist>
 
-  <para>For an extra challenge, create a navigation area under the slideshow
-  that shows how many images there are and which image you're currently
-  viewing. (Hint: $.fn.prevAll will come in handy for this.)</para>
+  <para>Pour un défi supplémentaire, créer un espace de navigation sous le diaporama
+  qui montre le nombre d'images qu'il y a et l'image qui est actuellement
+  affichée. (Indice : $.fn.prevAll sera utile pour ceci.)</para>
 </section>

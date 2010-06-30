@@ -6,36 +6,36 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>Manipulating</title>
+  <title>Manipulation</title>
 
-  <para>Open the file <filename>/exercises/index.html</filename> in your
-  browser. Use the file <filename>/exercises/js/sandbox.js</filename> or work
-  in Firebug to accomplish the following:</para>
+  <para>Ouvrez le fichier <filename>/exercises/index.html</filename> dans votre
+  navigateur. Utilisez le fichier <filename>/exercises/js/sandbox.js</filename> ou travaillez
+  dans Firebug pour accomplir ce qui suit :</para>
 
   <orderedlist>
     <listitem>
-      <para>Add five new list items to the end of the unordered list #myList.
-      Hint:</para>
+      <para>Ajouter cinq nouveaux éléments de liste à la fin d'une liste non ordonnée #myList.
+      Indice :</para>
 
       <programlisting>for (var i = 0; i&lt;5; i++) { ... }</programlisting>
     </listitem>
 
     <listitem>
-      <para>Remove the odd list items</para>
+      <para>Supprimer les éléments pairs de la liste</para>
     </listitem>
 
     <listitem>
-      <para>Add another h2 and another paragraph to the last div.module</para>
+      <para>Ajouter un autre h2 et un autre paragraphe au dernier div.module</para>
     </listitem>
 
     <listitem>
-      <para>Add another option to the select element; give the option the
-      value "Wednesday"</para>
+      <para>Ajouter une autre option à l'élément select ; donner à l'option la
+      valeur "Wednesday"</para>
     </listitem>
 
     <listitem>
-      <para>Add a new div.module to the page after the last one; put a copy of
-      one of the existing images inside of it.</para>
+      <para>Ajouter un nouveau div.module à la page après le dernier ; mettre à l'intérieur
+      une copie de l'une des images existantes.</para>
     </listitem>
   </orderedlist>
 </section>
