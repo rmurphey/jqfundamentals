@@ -29,7 +29,7 @@
 	      </listitem>
 
 	      <listitem>
-	        <para>Bind a click even to the list item that:</para>
+	        <para>Bind a click event to the list item that:</para>
 
 	        <itemizedlist>
 	          <listitem>
