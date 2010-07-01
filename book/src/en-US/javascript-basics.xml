@@ -331,7 +331,7 @@ var foo = bar ? 1 : 0;</programlisting>
       </example>
 
       <para>Switch statements have somewhat fallen out of favor in JavaScript,
-      because often the same behavior can be accomplished by creating an obect
+      because often the same behavior can be accomplished by creating an object
       that has more potential for reuse, testing, etc. For example:</para>
 
       <programlisting>var stuffToDo = {
@@ -423,7 +423,7 @@ for (var i=0; i&lt;5; i++) {
       <title>The while loop</title>
 
       <para>A <code>while</code> loop is similar to an <code>if</code>
-      statement, axcept that its body will keep executing until the condition
+      statement, except that its body will keep executing until the condition
       evaluates to false.</para>
 
       <programlisting>while ([conditional]) [loopBody]</programlisting>

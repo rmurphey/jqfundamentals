@@ -6,96 +6,96 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>JavaScript Basics</title>
+  <title>Bases du JavaScript</title>
 
   <section>
-    <title>Overview</title>
+    <title>Aperçu</title>
 
-    <para>jQuery is built on top of JavaScript, a rich and expressive language
-    in its own right. This section covers the basic concepts of JavaScript, as
-    well as some frequent pitfalls for people who have not used JavaScript
-    before. While it will be of particular value to people with no programming
-    experience, even people who have used other programming languages may
-    benefit from learning about some of the peculiarities of
+    <para>jQuery est conçu à partir du JavaScript, un langage riche et expressif
+    en lui-même. Cette section couvre les concepts de base du JavaScript, aussi
+    bien que des pièges fréquents pour ceux qui n'ont jamais utilisé le
+    JavaScript. Même si elle a une valeur particulière pour ceux qui n'ont aucune
+    expérience en programmation, ceux qui ont utilisé d'autres langages de programmation
+    pourraient bénéficier de l'apprentissage de certaines des particularités du
     JavaScript.</para>
 
-    <para>If you’re interested in learning more about the JavaScript language,
-    I highly recommend <citetitle>JavaScript: The Good Parts</citetitle> by
+    <para>Si vous êtes intéressé par un apprentissage approfondi du langage JavaScript,
+    je recommande beaucoup <citetitle>JavaScript: The Good Parts</citetitle> de
     Douglas Crockford.</para>
   </section>
 
   <section>
-    <title>Syntax Basics</title>
+    <title>Synthaxe de Base</title>
 
-    <para>Understanding statements, variable naming, whitespace, and other
-    basic JavaScript syntax.</para>
+    <para>Comprendre les déclarations, le nommage des variables, les espaces blancs, et autre
+    syntaxe JavaScript de base.</para>
 
     <example id="javascript-basics.examples.variable-declaration">
-      <title>A simple variable declaration</title>
+      <title>Une simple déclaration de variable</title>
 
-      <programlisting>var foo = 'hello world';</programlisting>
+      <programlisting>var foo = 'bonjour le monde';</programlisting>
     </example>
 
     <example>
-      <title>Whitespace has no meaning outside of quotation marks</title>
+      <title>Les espaces blancs n'ont aucune sgnification en dehors des guillemets</title>
 
-      <para><programlisting>var foo =         'hello world';</programlisting></para>
+      <para><programlisting>var foo =         'bonjour le monde';</programlisting></para>
     </example>
 
     <example>
-      <title>Parentheses indicate precedence</title>
+      <title>Les parenthèses indiquent la précédence</title>
 
-      <programlisting>2 * 3 + 5;    // returns 11; multiplication happens first
-2 * (3 + 5);  // returns 16; addition happens first</programlisting>
+      <programlisting>2 * 3 + 5;    // returne 11; la multiplication se déroule en premier
+2 * (3 + 5);  // retourne 16; l'addition se déroule en premier</programlisting>
     </example>
 
     <example>
-      <title>Tabs enhance readability, but have no special meaning</title>
+      <title>Les tabulations améliorent la lisibilité, mais n'ont aucune signification spéciale</title>
 
       <para><programlisting>var foo = function() {
-    console.log('hello');
+    console.log('bonjour');
 };</programlisting></para>
     </example>
   </section>
 
   <section>
-    <title>Operators</title>
+    <title>Opérateurs</title>
 
     <section>
-      <title>Basic Operators</title>
+      <title>Opérateurs de Base</title>
 
-      <para>Basic operators allow you to manipulate values.</para>
+      <para>Les opérateurs de base vous permettent de manipuler des valeurs.</para>
 
       <para><example>
-          <title>Concatenation</title>
+          <title>Concaténation</title>
 
-          <programlisting>var foo = 'hello';
-var bar = 'world';
+          <programlisting>var foo = 'bonjour';
+var bar = 'le monde';
 
-console.log(foo + ' ' + bar); // 'hello world'</programlisting>
+console.log(foo + ' ' + bar); // 'bonjour le monde'</programlisting>
         </example><example>
-          <title>Multiplication and division</title>
+          <title>Multiplication et division</title>
 
           <para><programlisting>2 * 3;
 2 / 3;</programlisting></para>
         </example><example>
-          <title>Incrementing and decrementing</title>
+          <title>Incrémentation et décrémentation</title>
 
           <para><programlisting>var i = 1;
 
-var j = ++i;  // pre-increment:  j equals 2; i equals 2
-var k = i++;  // post-increment: k equals 2; i equals 3</programlisting></para>
+var j = ++i;  // pré-incrément :  j égale 2; i égale 2
+var k = i++;  // post-incrément : k égale 2; i égale 3</programlisting></para>
         </example></para>
     </section>
 
     <section>
-      <title>Operations on Numbers &amp; Strings</title>
+      <title>Opérations sur les Nombres &amp; Chaines</title>
 
-      <para>In JavaScript, numbers and strings will occasionally behave in
-      ways you might not expect.</para>
+      <para>En JavaScript, les nombres et les chaines se comporteront occasionnellement comme
+      vous ne l'expériez peut-être pas.</para>
 
       <example id="javascript-basics.examples.addition-concatenation">
-        <title>Addition vs. concatenation</title>
+        <title>Addition vs. concaténation</title>
 
         <para>
           <programlisting>var foo = 1;
@@ -106,22 +106,22 @@ console.log(foo + bar);  // 12. uh oh</programlisting>
       </example>
 
       <example id="javascript-basics.examples.force-number">
-        <title>Forcing a string to act as a number</title>
+        <title>Forcer une chaine à agir comme un nombre</title>
 
         <programlisting>var foo = 1;
 var bar = '2';
 
-// coerce the string to a number
+// forcer la conversion de la chaine en nombre
 console.log(foo + Number(bar));</programlisting>
       </example>
 
-      <para>The Number constructor, when called as a function (like above)
-      will have the effect of casting its argument into a number. You could
-      also use the unary plus operator, which does the same thing:</para>
+      <para>Le constructeur de Nombre, lorsqu'il est appelé comme une fonction (comme ci-dessus)
+      aura l'effet de convertir son argument en nombre. Vous pouvez
+      aussi utiliser l'opérateur unaire plus, qui fait la même chose :</para>
 
       <example id="javascript-basics.examples.force-number-unary">
-        <title>Forcing a string to act as a number (using the unary-plus
-        operator)</title>
+        <title>Forcer une chaine à agir comme un nombre (en utilisant l'opérateur
+        unaire plus)</title>
 
         <programlisting>
 console.log(foo + +bar);</programlisting>
@@ -129,194 +129,194 @@ console.log(foo + +bar);</programlisting>
     </section>
 
     <section>
-      <title>Logical Operators</title>
+      <title>Opérateurs Logiques</title>
 
-      <para>Logical operators allow you to evaluate a series of operands using
-      AND and OR operations.</para>
+      <para>Les opérateurs logiques vous permettent d'évaluer une série d'opérandes en utilisant
+      les opérations ET et OU.</para>
 
       <para><example id="javascript-basics.examples.and-or">
-          <title>Logical AND and OR operators</title>
+          <title>Opérateurs logiques ET et OU</title>
 
           <programlisting>var foo = 1;
 var bar = 0;
 var baz = 2;
 
-foo || bar;   // returns 1, which is true
-bar || foo;   // returns 1, which is true
+foo || bar;   // retourne 1, qui est vrai
+bar || foo;   // retourne 1, qui est vrai
 
-foo &amp;&amp; bar;   // returns 0, which is false
-foo &amp;&amp; baz;   // returns 2, which is true
-baz &amp;&amp; foo;   // returns 1, which is true</programlisting>
+foo &amp;&amp; bar;   // retourne 0, qui est faux
+foo &amp;&amp; baz;   // retourne 2, qui est vrai
+baz &amp;&amp; foo;   // retourne 1, qui est vrai</programlisting>
         </example></para>
 
-      <para>Though it may not be clear from the example, the <code>||</code>
-      operator returns the value of the first truthy operand, or, in cases
-      where neither operand is truthy, it'll return the last of both operands.
-      The <code>&amp;&amp;</code> operator returns the value of the first
-      false operand, or the value of the last operand if both operands are
-      truthy.</para>
+      <para>Même si ce n'est sûrement pas clair dans l'exemple, l'opérateur <code>||</code>
+      retourne la valeur du premier opérande vrai, ou, au cas
+      où aucun des opérandes n'est vrai, il retournera le dernier des deux opérandes.
+      L'opérateur <code>&amp;&amp;</code> retourne la valeur du premier
+      opérande faux, ou la valeur du dernier opérande si les deux opérandes sont
+      vrais.</para>
 
-      <para>Be sure to consult <xref
-      linkend="javascript-basics.sections.truthy-falsy" /> for more details on
-      which values evaluate to <code>true</code> and which evaluate to
-      <code>false</code>.</para>
+      <para>Veuillez consulter <xref
+      linkend="javascript-basics.sections.truthy-falsy" /> pour plus de détails à propos
+      des valeurs qui sont estimées <code>vrai</code> qui sont estimées
+      <code>faux</code>.</para>
 
       <note>
-        <para>You'll sometimes see developers use these logical operators for
-        flow control instead of using <code>if</code> statements. For
-        example:</para>
+        <para>Vous verrez parfois des développeurs utiliser ces opérateurs logiques pour
+        le contrôle du flux au lieu d'utiliser des déclarations <code>if</code>. Par
+        exemple :</para>
 
-        <programlisting>// do something with foo if foo is truthy
+        <programlisting>// faire quelque chose avec foo si foo est vrai
 foo &amp;&amp; doSomething(foo);
 
-// set bar to baz if baz is truthy;
-// otherwise, set it to the return
-// value of createBar()
+// donner à bar la valeur de baz si baz est vrai ;
+// sinon, lui donner la valeur
+// retournée par createBar()
 var bar = baz || createBar();</programlisting>
 
-        <para>This style is quite elegant and pleasantly terse; that said, it
-        can be really hard to read, especially for beginners. I bring it up
-        here so you'll recognize it in code you read, but I don't recommend
-        using it until you're extremely comfortable with what it means and how
-        you can expect it to behave.</para>
+        <para>Ce style est assez élégant et agréablement succinct ; ceci dit, il
+        peut être vraiment difficile à lire, spécialement pour les débutants. Je le mets
+        ici pour que vous le reconnaissiez dans les codes que vous lisez, mais je n'en recommande
+        pas l'utilisation tant que vous n'êtes pas habitué à sa signification et à la façon
+        dont vous pouvez espérer qu'il se comporte.</para>
       </note>
     </section>
 
     <section>
-      <title>Comparison Operators</title>
+      <title>Opérateurs de Comparaison</title>
 
-      <para>Comparison operators allow you to test whether values are
-      equivalent or whether values are identical.</para>
+      <para>Les opérateurs de comparaison vous permettent de tester si des valeurs sont
+      équivalentes ou si des valeurs sont identiques.</para>
 
       <example>
-        <title>Comparison operators</title>
+        <title>Opérateurs de comparaison</title>
 
         <para><programlisting>var foo = 1;
 var bar = 0;
 var baz = '1';
 var bim = 2;
 
-foo == bar;   // returns false
-foo != bar;   // returns true
-foo == baz;   <emphasis role="bold">// returns true; careful!</emphasis>
+foo == bar;   // retourne false
+foo != bar;   // retourne true
+foo == baz;   <emphasis role="bold">// retourne true; attention!</emphasis>
 
-foo === baz;             // returns false
-foo !== baz;             // returns true
-foo === parseInt(baz);   // returns true
+foo === baz;             // retourne false
+foo !== baz;             // retourne true
+foo === parseInt(baz);   // retourne true
 
-foo &gt; bim;    // returns false
-bim &gt; baz;    // returns true
-foo &lt;= baz;   // returns true</programlisting></para>
+foo &gt; bim;    // retourne false
+bim &gt; baz;    // retourne true
+foo &lt;= baz;   // retourne true</programlisting></para>
       </example>
     </section>
   </section>
 
   <section>
-    <title>Conditional Code</title>
+    <title>Code de Condition</title>
 
-    <para>Sometimes you only want to run a block of code under certain
-    conditions. Flow control — via <code>if</code> and <code>else</code>
-    blocks — lets you run code only under certain conditions.</para>
+    <para>Parfois vous voulez uniquement exécuter un bloc de code sous certaines
+    conditions. Le contrôle de flux — via des blocs <code>if</code> et <code>else</code>
+    — vous permet d'exécuter du code uniquement sous certaines conditions.</para>
 
     <example>
-      <title>Flow control</title>
+      <title>Contrôle de flux</title>
 
       <programlisting>var foo = true;
 var bar = false;
 
 if (bar) {
-    // this code will never run
+    // ce code ne sera jamais exécuté
     console.log('hello!');
 }
 
 if (bar) {
-    // this code won't run
+    // ce code ne sera pas exécuté
 } else {
     if (foo) {
-        // this code will run
+        // ce code sera exécuté
     } else {
-        // this code would run if foo and bar were both false
+        // ce code aurait été exécuté si foo et bar étaient tous deux faux
     }
 }</programlisting>
     </example>
 
     <note>
-      <para>While curly braces aren't strictly required around single-line
-      <code>if</code> statements, using them consistently, even when they
-      aren't strictly required, makes for vastly more readable code.</para>
+      <para>Même si les parenthèses ne sont pas strictement requises autour de déclarations
+      <code>if</code> sur une ligne, les utiliser systématiquement, même quand elles
+      ne sont pas strictement requises, conduit à un code largement plus lisible.</para>
     </note>
 
-    <para>Be mindful not to define functions with the same name multiple times
-    within separate <code>if</code>/<code>else</code> blocks, as doing so may
-    not have the expected result.</para>
+    <para>Rappelez-vous de ne pas définir des fonctions avec le même nom plusieurs fois
+    entre des blocs <code>if</code>/<code>else</code> différents, car le faire peut
+    ne pas donner le résultat escompté.</para>
 
     <section id="javascript-basics.sections.truthy-falsy">
-      <title>Truthy and Falsy Things</title>
+      <title>Choses Vraies et Fausses</title>
 
-      <para>In order to use flow control successfully, it's important to
-      understand which kinds of values are "truthy" and which kinds of values
-      are "falsy." Sometimes, values that seem like they should evaluate one
-      way actually evaluate another.</para>
+      <para>Dans le but d'utiliser avec succès le contrôle du flux, il est important de
+      comprendre les types de valeurs qui sont "vraies" et les types de valeurs
+      qui sont "fausses". Parfois, les valeurs qui paraissent devoir être évaluées d'une
+      façon, sont réellement évaluées d'une autre façon.</para>
 
       <example>
-        <title>Values that evaluate to <code>true</code></title>
+        <title>Les valeurs qui sont évaluées comme <code>vraie</code></title>
 
         <programlisting>'0'; 
-'any string';
-[];  // an empty array
-{};  // an empty object
-1;   // any non-zero number</programlisting>
+'toute chaine';
+[];  // un tableau vide
+{};  // un objet vide
+1;   // tout nombre différent de zéro</programlisting>
       </example>
 
       <example>
-        <title>Values that evaluate to <code>false</code></title>
+        <title>Les valeurs qui sont évaluées comme <code>fausses</code></title>
 
         <programlisting>0;
-'';  // an empty string
-NaN; // JavaScript's "not-a-number" variable
+'';  // une chaine vide
+NaN; // la variable JavaScript "not-a-number"
 null;
-undefined;  // be careful -- undefined can be redefined!</programlisting>
+undefined;  // attention -- undefined peut être redéfini !</programlisting>
       </example>
     </section>
 
     <section>
-      <title>Conditional Variable Assignment with The Ternary Operator</title>
+      <title>Assignement d'une Variable de Condition avec l'Opérateur Ternaire</title>
 
-      <para>Sometimes you want to set a variable to a value depending on some
-      condition. You could use an <code>if</code>/<code>else</code> statement,
-      but in many cases the ternary operator is more convenient. <termdef>The
-      <firstterm>ternary operator</firstterm> tests a condition; if the
-      condition is true, it returns a certain value, otherwise it returns a
-      different value.</termdef></para>
+      <para>Parfois vous voulez donner une valeur à une variable en fonction d'une certaine
+      condition. Vous pourriez utiliser une déclaration <code>if</code>/<code>else</code>,
+      mais dans beaucoup de cas l'opérateur ternaire est plus convenable. <termdef>L'
+      <firstterm>opérateur ternaire</firstterm> teste une condition ; si la
+      condition est vraie, il retourne une certaine valeur, sinon il retourne une
+      valeur différente.</termdef></para>
 
       <example>
-        <title>The ternary operator</title>
+        <title>L'opérateur ternaire</title>
 
-        <programlisting>// set foo to 1 if bar is true;
-// otherwise, set foo to 0
+        <programlisting>// donne à foo la valeur 1 si bar est vrai;
+// sinon, donner à foo la valeur 0
 var foo = bar ? 1 : 0;</programlisting>
       </example>
 
-      <para>While the ternary operator can be used without assigning the
-      return value to a variable, this is generally discouraged.</para>
+      <para>Même si l'opérateur ternaire peut être utilisé sans assigner la
+      valeur retournée à une variable, ceci est généralement découragé.</para>
     </section>
 
     <section>
-      <title>Switch Statements</title>
+      <title>Déclarations Switch</title>
 
-      <para>Rather than using a series of if/else if/else blocks, sometimes it
-      can be useful to use a switch statement instead.
-      <termdef><firstterm>Switch statements</firstterm> look at the value of a
-      variable or expression, and run different blocks of code depending on
-      the value.</termdef></para>
+      <para>Au lieu d'utiliser une série de blocs if/else if/else, il peut être
+      parfois utile d'utiliser plutôt la déclaration switch.
+      Les <termdef><firstterm>déclarations Switch</firstterm> vérifient la valeur d'une
+      variable ou expression, et exécutent des blocs de code différents selon
+      la valeur.</termdef></para>
 
       <example>
-        <title>A switch statement</title>
+        <title>Une déclaration switch</title>
 
         <programlisting>switch (foo) {
 
     case 'bar':
-        alert('the value was bar -- yay!');
+        alert('la valeur était bar -- yay!');
     break;
 
     case 'baz':
@@ -324,19 +324,19 @@ var foo = bar ? 1 : 0;</programlisting>
     break;
 
     default:
-        alert('everything else is just ok');
+        alert('toute autre chose convient simplement');
     break;
 
 }</programlisting>
       </example>
 
-      <para>Switch statements have somewhat fallen out of favor in JavaScript,
-      because often the same behavior can be accomplished by creating an obect
-      that has more potential for reuse, testing, etc. For example:</para>
+      <para>Les déclarations switch sont un peu tombés en disgrâce en JavaScript,
+      parce que le même comportement peut souvent être accompli en créant un objet
+      qui a plus de potentiel de réutilisation, test, etc. Par exemple :</para>
 
       <programlisting>var stuffToDo = {
     'bar' : function() { 
-        alert('the value was bar -- yay!');
+        alert('la valeur était bar -- yay!');
     },
 
     'baz' : function() { 
@@ -344,7 +344,7 @@ var foo = bar ? 1 : 0;</programlisting>
     },
 
     'default' : function() { 
-        alert('everything else is just ok');
+        alert('toute autre chose convient simplement');
     }
 };
 
@@ -354,178 +354,178 @@ if (stuffToDo[foo]) {
     stuffToDo['default']();
 }</programlisting>
 
-      <para>We'll look at objects in greater depth later in this
-      chapter.</para>
+      <para>Nous jetterons un coup d'oeil plus approfondi aux objets plus loin dans ce
+      chapitre.</para>
     </section>
   </section>
 
   <section>
-    <title>Loops</title>
+    <title>Boucles</title>
 
-    <para>Loops let you run a block of code a certain number of times.</para>
+    <para>Les boucles vous permettent d'exécuter un bloc de code un certain nombre de fois.</para>
 
     <para><example id="javascript-basics.examples.loops">
-        <title>Loops</title>
+        <title>Boucles</title>
 
-        <programlisting>// logs 'try 0', 'try 1', ..., 'try 4'
+        <programlisting>// logue 'essai 0', 'essai 1', ..., 'essai 4'
 for (var i=0; i&lt;5; i++) {
-    console.log('try ' + i);
+    console.log('essai ' + i);
 }</programlisting>
-      </example><remark>Note that in <xref
-    linkend="javascript-basics.examples.loops" /> even though we use the
-    keyword <token>var</token> before the variable name <varname>i</varname>,
-    this does not "scope" the variable <varname>i</varname> to the loop block.
-    We'll discuss scope in depth later in this chapter.</remark></para>
+      </example><remark>Noter que dans <xref
+    linkend="javascript-basics.examples.loops" /> même si nous utilisons le
+    mot-clé <token>var</token> avant le nom de la variable <varname>i</varname>,
+    cela ne limite pas la portée de la variable <varname>i</varname> au bloc dans la boucle.
+    Nous discuterons plus en profondeur de la portée plus loin dans ce chapitre.</remark></para>
 
     <section>
-      <title>The for loop</title>
+      <title>La boucle for</title>
 
-      <para>A <code>for</code> loop is made up of four statements and has the
-      following structure:</para>
+      <para>Une boucle <code>for</code> est faite de quatre déclarations et à la
+      structure suivante :</para>
 
-      <programlisting>for ([initialisation]; [conditional]; [iteration])
- [loopBody]</programlisting>
+      <programlisting>for ([initialisation]; [condition]; [itération])
+ [corpsDeLaBoucle]</programlisting>
 
-      <para>The <emphasis>initialisation</emphasis> statement is executed only
-      once, before the loop starts. It gives you an oppurtunity to prepare or
-      declare any variables.</para>
+      <para>La déclaration d'<emphasis>initialisation</emphasis> est exécutée une seule
+      fois, avant que la boucle ne commence. Elle vous donne une opportunité de préparer ou
+      de déclarer des variables.</para>
 
-      <para>The <emphasis>conditional</emphasis> statement is executed before
-      each iteration, and its return value decides whether or not the loop is
-      to continue. If the conditional statement evaluates to a falsey value
-      then the loop stops.</para>
+      <para>La déclaration de <emphasis>condition</emphasis> est exécutée avant
+      chaque itération, et la valeur qu'elle retourne décide si oui ou non la boucle va
+      continuer. Si la déclaration de condition est évaluée à une valeur fausse
+      alors la boucle s'arrête.</para>
 
-      <para>The <emphasis>iteration</emphasis> statement is executed at the
-      end of each iteration and gives you an oppurtunity to change the state
-      of important variables. Typically, this will involve incrementing or
-      decrementing a counter and thus bringing the loop ever closer to its
-      end.</para>
+      <para>La déclaration d'<emphasis>itération</emphasis> est exécutée à la
+      fin de chaque itération et vous fournit une opportunité de changer l'état
+      de variables importantes. Typiquement, ceci impliquera l'incrémentation ou
+      la décrémentation d'un compteur et amènera ainsi la boucle de plus en plus près de sa
+      fin.</para>
 
-      <para>The <emphasis>loopBody</emphasis> statement is what runs on every
-      iteration. It can contain anything you want. You'll typically have
-      multiple statements that need to be executed and so will wrap them in a
-      block ( <code>{...}</code>).</para>
+      <para>La déclaration <emphasis>corpsDeLaBoucle</emphasis> est ce qui est éxécuté à chaque
+      itération. Elle peut contenir tout ce que vous voulez. Vous aurez typiquement
+      plusieurs déclarations qui doivent être exécutées et vous les entourerez donc d'un
+      bloc ( <code>{...}</code>).</para>
 
-      <para>Here's a typical <code>for</code> loop:</para>
+      <para>Voici une boucle <code>for</code> typique :</para>
 
       <example>
-        <title>A typical <code>for</code> loop</title>
+        <title>Une boucle <code>for</code> typique</title>
 
         <programlisting>for (var i = 0, limit = 100; i &lt; limit; i++) {
-    // This block will be executed 100 times
-    console.log('Currently at ' + i);
-    // Note: the last log will be "Currently at 99"
+    // Ce bloc sera exécuté 100 fois
+    console.log('Actuellement à ' + i);
+    // Note: le dernier log sera "Actuellement à 99"
 }</programlisting>
       </example>
     </section>
 
     <section>
-      <title>The while loop</title>
+      <title>La boucle while</title>
 
-      <para>A <code>while</code> loop is similar to an <code>if</code>
-      statement, axcept that its body will keep executing until the condition
-      evaluates to false.</para>
+      <para>Une boucle <code>while</code> est similaire à une déclaration <code>if</code>,
+      excepté que son corps continuera d'être exécuté jusqu'à ce que la condition
+      soit évaluée comme fausse.</para>
 
-      <programlisting>while ([conditional]) [loopBody]</programlisting>
+      <programlisting>while ([condition]) [corpsDeLaBoucle]</programlisting>
 
-      <para>Here's a typical <code>while</code> loop:</para>
+      <para>Voici une boucle <code>while</code> typique :</para>
 
       <example>
-        <title>A typical <code>while</code> loop</title>
+        <title>Une boucle <code>while</code> typique</title>
 
         <programlisting>var i = 0;
 while (i &lt; 100) {
 
-    // This block will be executed 100 times
-    console.log('Currently at ' + i);
+    // Ce bloc sera exécuté 100 fois
+    console.log('Actuellement à ' + i);
     
-    i++; // increment i
+    i++; // incrémente i
     
 }</programlisting>
       </example>
 
-      <para>You'll notice that we're having to increment the counter within
-      the loop's body. It is possible to combine the conditional and
-      incrementer, like so:</para>
+      <para>Vous remarquerez que nous devons incrémenter le compteur à l'intérieur du
+      corps de la boucle. Il est possible de combiner la condition et
+      l'incrémenteur, comme ceci :</para>
 
       <example>
-        <title>A <code>while</code> loop with a combined conditional and
-        incrementer</title>
+        <title>Une boucle <code>while</code> avec une condition et un incrément
+        combinés</title>
 
         <programlisting>var i = -1;
 while (++i &lt; 100) {
-    // This block will be executed 100 times
-    console.log('Currently at ' + i);
+    // Ce bloc sera exécuté 100 fois
+    console.log('Actuellement à ' + i);
 }</programlisting>
       </example>
 
-      <para>Notice that we're starting at <code>-1</code> and using the prefix
-      incrementer (<code>++i</code>).</para>
+      <para>Notez que nous commençons à <code>-1</code> et utilisons le préfixe
+      incrémenteur (<code>++i</code>).</para>
     </section>
 
     <section>
-      <title>The do-while loop</title>
+      <title>La boucle do-while</title>
 
-      <para>This is almost exactly the same as the <code>while</code> loop,
-      except for the fact that the loop's body is executed at least once
-      before the condition is tested.</para>
+      <para>C'est presque la même chose que la boucle <code>while</code>,
+      excepté le fait que le corps de la boucle est exécuté au moins une fois
+      avant que la condition ne soit testée.</para>
 
-      <programlisting>do [loopBody] while ([conditional])</programlisting>
+      <programlisting>do [corpsDeLaBoucle] while ([condition])</programlisting>
 
-      <para>Here's a <code>do-while</code> loop:</para>
+      <para>Voici une boucle <code>do-while</code> :</para>
 
       <example>
-        <title>A <code>do-while</code> loop</title>
+        <title>Une boucle <code>do-while</code></title>
 
         <programlisting>do {
 
-    // Even though the condition evaluates to false
-    // this loop's body will still execute once.
+    // Même si la condition est évaluée comme vraie
+    // le corps de cette boucle sera toujours exécuté une fois.
     
-    alert('Hi there!');
+    alert('Salut!');
     
 } while (false);</programlisting>
       </example>
 
-      <para>These types of loops are quite rare since only few situations
-      require a loop that blindly executes at least once. Regardless, it's
-      good to be aware of it.</para>
+      <para>Ces types de boucles sont assez rares étant donné que peu de situations
+      nécessitent une boucle qui s'exécute aveuglément au moins une fois. Néanmoins, il est
+      bien d'en être informé.</para>
     </section>
 
     <section>
-      <title>Breaking and continuing</title>
+      <title>Rupture et continuation</title>
 
-      <para>Usually, a loop's termination will result from the conditional
-      statement not evaluating to true, but it is possible to stop a loop in
-      its tracks from within the loop's body with the <code>break</code>
-      statement.</para>
+      <para>Habituellement, la fin d'une boucle sera le résultat d'une déclaration de
+      condition qui n'est pas évaluée comme vraie, mais il est possible d'arrêter une boucle dans
+      sont exécution dans le corps de la boucle avec la déclaration
+      <code>break</code>.</para>
 
       <example>
-        <title>Stopping a loop</title>
+        <title>Arrêter une boucle</title>
 
         <programlisting>for (var i = 0; i &lt; 10; i++) {
-    if (something) {
+    if (quelque chose) {
         break;
     }
 }</programlisting>
       </example>
 
-      <para>You may also want to continue the loop without executing more of
-      the loop's body. This is done using the <code>continue</code>
-      statement.</para>
+      <para>Vous pouvez aussi vouloir continuer la boucle sans exécuter le reste du
+      corps de la boucle. Ceci est fait en utilisant la déclaration
+      <code>continue</code>.</para>
 
       <example>
-        <title>Skipping to the next iteration of a loop</title>
+        <title>Passer à l'itération suivante d'une boucle</title>
 
         <programlisting>for (var i = 0; i &lt; 10; i++) {
     
-    if (something) {
+    if (quelque chose) {
         continue;
     }
     
-    // The following statement will only be executed
-    // if the conditional 'something' has not been met
-    console.log('I have been reached');
+    // La déclaration suivante devra être exécutée uniquement
+    // si la condition 'quelque chose' n'a pas été remplie
+    console.log('J\'ai été atteint');
     
 }</programlisting>
       </example>
@@ -533,11 +533,11 @@ while (++i &lt; 100) {
   </section>
 
   <section>
-    <title>Reserved Words</title>
+    <title>Mots Réservés</title>
 
-    <para>JavaScript has a number of “reserved words,” or words that have
-    special meaning in the language. You should avoid using these words in
-    your code except when using them with their intended meaning.</para>
+    <para>Le JavaScript a plusieurs “mots réservés,” ou mots qui ont
+    une signification spéciale dans le langage. Vous devriez éviter d'utiliser ces mots dans
+    votre code excepté quand vous les utilisez à dessein.</para>
 
     <itemizedlist>
       <listitem>
@@ -767,7 +767,7 @@ while (++i &lt; 100) {
   </section>
 
   <section>
-    <title>Arrays</title>
+    <title>Tableaux</title>
 
     <para>Arrays are zero-indexed lists of values. They are a handy way to
     store a set of related items of the same type (such as strings), though in
