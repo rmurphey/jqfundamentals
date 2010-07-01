@@ -117,19 +117,7 @@ $('#staff li').one('click', function() {
 	});
 });
 
-
-$.ajax();
-
-/_v/1233/js/foo.js
-/_v/1234/js/foo.js
-/js/foo.js
-
-
-
 /*
-
-
-
 var myObject = {
 	foo : 'bar',
 	bim : 'baz',
