@@ -11,11 +11,12 @@ xalan=scripts/libs/xalan/xalan-j_2_7_1
 xslthlJar=scripts/libs/xslthl/xslthl-2.0.2.jar
 xsl=scripts/libs/docbook-xsl/docbook-xsl-1.75.2
 
-xslChunked=xsl/xhtml-chunked.xsl
 xslAllInOne=xsl/xhtml.xsl
+outputAllInOne=release/html/book.html
 
-outputAllInOne=release/html/index.html
-outputChunked=release/html/index-chunked.html
+xslChunked=xsl/xhtml-chunked.xsl
+outputChunked=release/html/index.html
+
 
 if [ ! -f $xalan/xalan.jar ]; then
 	echo "Xalan not found. Run install script: ./scripts/install.sh"
