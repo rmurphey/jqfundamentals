@@ -1,32 +1,297 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Append new content outside of a loop</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch10.html" title="Chapter 10. Performance Best Practices" /><link rel="prev" href="ch10.html" title="Chapter 10. Performance Best Practices" /><link rel="next" href="ch10s03.html" title="Keep things DRY" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Append new content outside of a loop</th></tr><tr><td align="left"><a accesskey="p" href="ch10.html">Prev</a> </td><th align="center" width="60%">Chapter 10. Performance Best Practices</th><td align="right"> <a accesskey="n" href="ch10s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="sect1" title="Append new content outside of a loop"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2153A" />Append new content outside of a loop</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Encapsulation</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch10.html" title="Chapter 10. Code Organization" /><link rel="prev" href="ch10.html" title="Chapter 10. Code Organization" /><link rel="next" href="ch10s03.html" title="Managing Dependencies" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Encapsulation</th></tr><tr><td align="left"><a accesskey="p" href="ch10.html">Prev</a> </td><th align="center" width="60%">Chapter 10. Code Organization</th><td align="right"> <a accesskey="n" href="ch10s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Encapsulation"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2189F" />Encapsulation</h2></div></div></div>
     
 
-    <p>Touching the DOM comes at a cost; if you're adding a lot of elements
-    to the DOM, do it all at once, not one at a time.</p>
+    <p>The first step to code organization is separating pieces of your
+    application into distinct pieces; sometimes, even just this effort is
+    sufficient to lend</p>
 
-    <pre class="programlisting">// this is bad
-$.each(myArray, function(i, item) {
-   var newListItem = '&lt;li&gt;' + item + '&lt;/li&gt;';
-   $('#ballers').append(newListItem);
+    <div class="section" title="The Object Literal"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N218A7" />The Object Literal</h3></div></div></div>
+      
+
+      <p>An object literal is perhaps the simplest way to encapsulate
+      related code. It doesn't offer any privacy for properties or methods,
+      but it's useful for eliminating anonymous functions from your code,
+      centralizing configuration options, and easing the path to reuse and
+      refactoring.</p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N218AF" /><p class="title"><b>Example 10.1. An object literal</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">var myFeature = {
+    myProperty : 'hello',
+
+    myMethod : function() {
+        console.log(myFeature.myProperty);
+    },
+
+    init : function(settings) {
+        myFeature.settings = settings;
+    },
+
+    readSettings : function() {
+        console.log(myFeature.settings);
+    }
+};
+
+myFeature.myProperty; // 'hello'
+myFeature.myMethod(); // logs 'hello'
+myFeature.init({ foo : 'bar' });
+myFeature.readSettings(); // logs { foo : 'bar' }
+</pre>
+      </div></div><br class="example-break" />
+
+      <p>The object literal above is simply an object assigned to a
+      variable. The object has one property and several methods. All of the
+      properties and methods are public, so any part of your application can
+      see the properties and call methods on the object. While there is an
+      init method, there's nothing requiring that it be called before the
+      object is functional.</p>
+
+      <p>How would we apply this pattern to jQuery code? Let's say that we
+      had this code written in the traditional jQuery style:</p>
+
+      <pre class="programlisting">// clicking on a list item loads some content
+// using the list item's ID and hides content
+// in sibling list items
+$(document).ready(function() {
+  $('#myFeature li')
+    .append('&lt;div/&gt;')
+    .click(function() {
+      var $this = $(this);
+      var $div = $this.find('div');
+      $div.load('foo.php?item=' +
+        $this.attr('id'), 
+        function() {
+          $div.show();
+          $this.siblings()
+            .find('div').hide();
+        }
+      );
+    });
 });
+</pre>
 
-// better: do this
-var frag = document.createDocumentFragment();
+      <p>If this were the extent of our application, leaving it as-is would
+      be fine. On the other hand, if this was a piece of a larger application,
+      we'd do well to keep this functionality separate from unrelated
+      functionality. We might also want to move the URL out of the code and
+      into a configuration area. Finally, we might want to break up the chain
+      to make it easier to modify pieces of the functionality later.</p>
 
-$.each(myArray, function(i, item) {
-    var newListItem = '&lt;li&gt;' + item + '&lt;/li&gt;';
-    frag.appendChild(newListItem);
-});
-$('#ballers')[0].appendChild(frag);
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N218C4" /><p class="title"><b>Example 10.2. Using an object literal for a jQuery feature</b></p><div class="example-contents">
+        
 
-// or do this
-var myHtml = '';
+        <pre class="programlisting">var myFeature = {
+    init : function(settings) {
+        myFeature.config = {
+            $items : $('#myFeature li'),
+            $container : $('&lt;div class="container"&gt;&lt;/div&gt;'),
+            urlBase : '/foo.php?item='
+        };
 
-$.each(myArray, function(i, item) {
-    html += '&lt;li&gt;' + item + '&lt;/li&gt;';
-});
-$('#ballers').html(myHtml);</pre>
+        // allow overriding the default config
+        $.extend(myFeature.config, settings);
+
+        myFeature.setup();        
+    },
+
+    setup : function() {
+        myFeature.config.$items
+            .each(myFeature.createContainer)
+            .click(myFeature.showItem);
+    },
+
+    createContainer : function() {
+        var $i = $(this),
+            $c = myFeature.config.$container.clone()
+                     .appendTo($i);
+
+        $i.data('container', $c);
+    },
+    
+    buildUrl : function() {
+        return myFeature.config.urlBase + 
+               myFeature.$currentItem.attr('id');
+    },
+    
+    showItem : function() {
+        var myFeature.$currentItem = $(this);
+        myFeature.getContent(myFeature.showContent);
+    },
+    
+    getContent : function(callback) {
+        var url = myFeature.buildUrl();
+        myFeature.$currentItem
+            .data('container').load(url, callback);
+    },
+    
+    showContent : function() {
+        myFeature.$currentItem
+            .data('container').show();
+        myFeature.hideContent();
+    },
+    
+    hideContent : function() {
+        myFeature.$currentItem.siblings()
+            .each(function() { 
+                $(this).data('container').hide(); 
+            });
+    }
+};
+
+$(document).ready(myFeature.init);</pre>
+      </div></div><br class="example-break" />
+
+      <p>The first thing you'll notice is that this approach is obviously
+      far longer than the original — again, if this were the extent of our
+      application, using an object literal would likely be overkill. Assuming
+      it's not the extent of our application, though, we've gained several
+      things:</p>
+
+      <div class="itemizedlist"><ul class="itemizedlist"><li class="listitem">
+          <p>We've broken our feature up into tiny methods. In the future,
+          if we want to change how content is shown, it's clear where to
+          change it. In the original code, this step is much harder to
+          locate.</p>
+        </li><li class="listitem">
+          <p>We've eliminated the use of anonymous functions.</p>
+        </li><li class="listitem">
+          <p>We've moved configuration options out of the body of the code
+          and put them in a central location.</p>
+        </li><li class="listitem">
+          <p>We've eliminated the constraints of the chain, making the code
+          easier to refactor, remix, and rearrange.</p>
+        </li></ul></div>
+
+      <p>For non-trivial features, object literals are a clear improvement
+      over a long stretch of code stuffed in a $(document).ready() block, as
+      they get us thinking about the pieces of our functionality. However,
+      they aren't a whole lot more advanced than simply having a bunch of
+      function declarations inside of that $(document).ready() block.</p>
+    </div>
+
+    <div class="section" title="The Module Pattern"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N218EF" />The Module Pattern</h3></div></div></div>
+      
+
+      <p>The module pattern overcomes some of the limitations of the object
+      literal, offering privacy for variables and functions while exposing a
+      public API if desired.</p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N218F7" /><p class="title"><b>Example 10.3. The module pattern</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">var feature =(function() {
+
+    // private variables and functions
+    var privateThing = 'secret',
+        publicThing = 'not secret',
+
+        changePrivateThing = function() {
+            privateThing = 'super secret';
+        },
+
+        sayPrivateThing = function() {
+            console.log(privateThing);
+            changePrivateThing();
+        };
+
+    // public API
+    return {
+        publicThing : publicThing,
+        sayPrivateThing : sayPrivateThing
+    }
+
+})();
+
+feature.publicThing; // 'not secret'
+
+feature.sayPrivateThing(); 
+// logs 'secret' and changes the value
+// of privateThing</pre>
+      </div></div><br class="example-break" />
+
+      <p>In the example above, we self-execute an anonymous function that
+      returns an object. Inside of the function, we define some variables.
+      Because the variables are defined inside of the function, we don't have
+      access to them outside of the function unless we put them in the return
+      object. This means that no code outside of the function has access to
+      the <code class="code">privateThing</code> variable or to the
+      <code class="code">changePrivateThing</code> function. However,
+      <code class="code">sayPrivateThing</code> does have access to
+      <code class="code">privateThing</code> and <code class="code">changePrivateThing</code>, because
+      both were defined in the same scope as
+      <code class="code">sayPrivateThing</code>.</p>
+
+      <p>This pattern is powerful because, as you can gather from the
+      variable names, it can give you private variables and functions while
+      exposing a limited API consisting of the returned object's properties
+      and methods.</p>
+
+      <p>Below is a revised version of the previous example, showing how we
+      could create the same feature using the module pattern while only
+      exposing one public method of the module,
+      <code class="code">showItemByIndex()</code>.</p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2191E" /><p class="title"><b>Example 10.4. Using the module pattern for a jQuery feature</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">$(document).ready(function() {
+    var feature = (function() {
+        
+        var $items = $('#myFeature li'),
+            $container = $('&lt;div class="container"&gt;&lt;/div&gt;'),
+            $currentItem,
+
+            urlBase = '/foo.php?item=',
+            
+            createContainer = function() {
+                var $i = $(this),
+                    $c = $container.clone().appendTo($i);
+
+                $i.data('container', $c);
+            },
+            
+            buildUrl = function() {
+                return urlBase + $currentItem.attr('id');
+            },
+            
+            showItem = function() {
+                var $currentItem = $(this);
+                getContent(showContent);
+            },
+            
+            showItemByIndex = function(idx) {
+                $.proxy(showItem, $items.get(idx));
+            },
+            
+            getContent = function(callback) {
+                $currentItem.data('container').load(buildUrl(), callback);
+            },
+            
+            showContent = function() {
+                $currentItem.data('container').show();
+                hideContent();
+            },
+            
+            hideContent = function() {
+                $currentItem.siblings()
+                    .each(function() { 
+                        $(this).data('container').hide(); 
+                });
+            };
+
+        $items
+            .each(createContainer)
+            .click(showItem);
+            
+        return { showItemByIndex : showItemByIndex };
+    })();
+    
+    feature.showItemByIndex(0);
+});</pre>
+      </div></div><br class="example-break" />
+    </div>
   </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
     Rebecca Murphey</a>, released under the 
   <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
@@ -41,4 +306,4 @@ $('#ballers').html(myHtml);</pre>
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
-  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch10.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch10.html">Up</a></td><td align="right"> <a accesskey="n" href="ch10s03.html">Next</a></td></tr><tr><td valign="top" align="left">Chapter 10. Performance Best Practices </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Keep things DRY</td></tr></table></div></div></div></body></html>
+  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch10.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch10.html">Up</a></td><td align="right"> <a accesskey="n" href="ch10s03.html">Next</a></td></tr><tr><td valign="top" align="left">Chapter 10. Code Organization </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Managing Dependencies</td></tr></table></div></div></div></body></html>

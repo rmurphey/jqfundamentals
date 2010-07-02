@@ -43,6 +43,53 @@ $('div:gt(2)');        // all except the first three divs
 $('div:animated');     // all currently animated divs</pre>
     </div></div><br class="example-break" />
 
+    <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+      <p>When you use the <code class="code">:visible</code> and <code class="code">:hidden</code>
+      pseudo-selectors, jQuery tests the actual visibility of the element, not
+      its CSS visibility or display — that is, it looks to see if the
+      element's <span class="emphasis"><em>physical height and width on the page</em></span> are
+      both greater than zero. However, this test doesn't work with
+      <code class="code">&lt;tr&gt;</code> elements; in this case, jQuery does check the
+      CSS <code class="code">display</code> property, and considers an element hidden if
+      its <code class="code">display</code> property is set to <code class="code">none</code>. Elements
+      that have not been added to the DOM will always be considered hidden,
+      even if the CSS that would affect them would render them visible. (See
+      the Manipulation section later in this chapter to learn how to create
+      and add elements to the DOM.)</p>
+
+      <p>For reference, here is the code jQuery uses to determine whether
+      an element is visible or hidden, with comments added for clarity:</p>
+
+      <pre class="programlisting">jQuery.expr.filters.hidden = function( elem ) {
+    var width = elem.offsetWidth, height = elem.offsetHeight,
+        skip = elem.nodeName.toLowerCase() === "tr";
+
+    // does the element have 0 height, 0 width, 
+    // and it's not a &lt;tr&gt;?
+    return width === 0 &amp;&amp; height === 0 &amp;&amp; !skip ?
+
+        // then it must be hidden
+        true :
+
+        // but if it has width and height 
+        // and it's not a &lt;tr&gt;
+        width &gt; 0 &amp;&amp; height &gt; 0 &amp;&amp; !skip ?
+
+            // then it must be visible
+            false :
+
+            // if we get here, the element has width
+            // and height, but it's also a &lt;tr&gt;,
+            // so check its display property to
+            // decide whether it's hidden
+            jQuery.curCSS(elem, "display") === "none";
+};
+
+jQuery.expr.filters.visible = function( elem ) {
+    return !jQuery.expr.filters.hidden( elem );
+};</pre>
+    </div>
+
     <div class="sidebar" title="Choosing Selectors"><p class="title"><b>Choosing Selectors</b></p>
       
 
@@ -74,7 +121,7 @@ $("a[rel$='thinger']");</pre>
       several slides focused specifically on selector performance.</p>
     </div>
 
-    <div class="section" title="Does My Selection Contain Any Elements?"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2077E" />Does My Selection Contain Any Elements?</h3></div></div></div>
+    <div class="section" title="Does My Selection Contain Any Elements?"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2079F" />Does My Selection Contain Any Elements?</h3></div></div></div>
       
 
       <p>Once you've made a selection, you'll often want to know whether
@@ -93,14 +140,14 @@ $("a[rel$='thinger']");</pre>
       length property will evaluate to false when used as a boolean
       value.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20798" /><p class="title"><b>Example 3.9. Testing whether a selection contains elements</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N207B9" /><p class="title"><b>Example 3.9. Testing whether a selection contains elements</b></p><div class="example-contents">
         
 
         <pre class="programlisting">if ($('div.foo').length) { ... }</pre>
       </div></div><br class="example-break" />
     </div>
 
-    <div class="section" title="Saving Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N207A2" />Saving Selections</h3></div></div></div>
+    <div class="section" title="Saving Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N207C3" />Saving Selections</h3></div></div></div>
       
 
       <p>Every time you make a selection, a lot of code runs, and jQuery
@@ -136,7 +183,7 @@ $("a[rel$='thinger']");</pre>
       </div>
     </div>
 
-    <div class="section" title="Refining &amp; Filtering Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N207CB" />Refining &amp; Filtering Selections</h3></div></div></div>
+    <div class="section" title="Refining &amp; Filtering Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N207EC" />Refining &amp; Filtering Selections</h3></div></div></div>
       
 
       <p>Sometimes you have a selection that contains more than what you're
@@ -144,7 +191,7 @@ $("a[rel$='thinger']");</pre>
       offers several methods for zeroing in on exactly what you're
       after.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N207D3" /><p class="title"><b>Example 3.11. Refining selections</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N207F4" /><p class="title"><b>Example 3.11. Refining selections</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$('div.foo').has('p');          // div.foo elements that contain &lt;p&gt;'s
@@ -155,7 +202,7 @@ $('ul li').eq(5);               // the sixth </pre>
       </div></div><br class="example-break" />
     </div>
 
-    <div class="section" title="Form-Related Selectors"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N207DD" />Form-Related Selectors</h3></div></div></div>
+    <div class="section" title="Selecting Form Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="jquery-basics.sections.formSelectors" />Selecting Form Elements</h3></div></div></div>
       
 
       <p>jQuery offers several pseudo-selectors that help you find elements
@@ -196,7 +243,7 @@ $('ul li').eq(5);               // the sixth </pre>
             <p>Selects inputs with <code class="code">type="text"</code></p>
           </dd></dl></div>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N208AE" /><p class="title"><b>Example 3.12. Using form-related pseduo-selectors</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N208D0" /><p class="title"><b>Example 3.12. Using form-related pseduo-selectors</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$("#myForm :input'); // get all elements that accept input</pre>

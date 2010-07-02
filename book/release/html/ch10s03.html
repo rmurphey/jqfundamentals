@@ -1,30 +1,263 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Keep things DRY</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch10.html" title="Chapter 10. Performance Best Practices" /><link rel="prev" href="ch10s02.html" title="Append new content outside of a loop" /><link rel="next" href="ch10s04.html" title="Beware anonymous functions" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Keep things DRY</th></tr><tr><td align="left"><a accesskey="p" href="ch10s02.html">Prev</a> </td><th align="center" width="60%">Chapter 10. Performance Best Practices</th><td align="right"> <a accesskey="n" href="ch10s04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="sect1" title="Keep things DRY"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21546" />Keep things DRY</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Managing Dependencies</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch10.html" title="Chapter 10. Code Organization" /><link rel="prev" href="ch10s02.html" title="Encapsulation" /><link rel="next" href="ch10s04.html" title="Exercises" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Managing Dependencies</th></tr><tr><td align="left"><a accesskey="p" href="ch10s02.html">Prev</a> </td><th align="center" width="60%">Chapter 10. Code Organization</th><td align="right"> <a accesskey="n" href="ch10s04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Managing Dependencies"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21929" />Managing Dependencies</h2></div></div></div>
     
 
-    <p>Don't repeat yourself; if you're repeating yourself, you're doing it
-    wrong.</p>
+    <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+      <p>This section is based heavily on the excellent RequireJS
+      documentation at <a class="ulink" href="http://requirejs.org/docs/jquery.html">http://requirejs.org/docs/jquery.html</a>,
+      and is used with the permission of RequireJS author James Burke.</p>
+    </div>
 
-    <pre class="programlisting">// BAD
-if ($eventfade.data('currently') != 'showing') {
-    $eventfade.stop();
-}
+    <p>When a project reaches a certain size, managing the script modules
+    for a project starts to get tricky. You need to be sure to sequence the
+    scripts in the right order, and you need to start seriously thinking about
+    combining scripts together into a bundle for deployment, so that only one
+    or a very small number of requests are made to load the scripts. You may
+    also want to load code on the fly, after page load. </p>
 
-if ($eventhover.data('currently') != 'showing') {
-    $eventhover.stop();
-}
+    <p>RequireJS, a dependency management tool by James Burke, can help you
+    manage the script modules, load them in the right order, and make it easy
+    to combine the scripts later via the RequireJS optimization tool without
+    needing to change your markup. It also gives you an easy way to load
+    scripts after the page has loaded, allowing you to spread out the download
+    size over time. </p>
 
-if ($spans.data('currently') != 'showing') {
-    $spans.stop();
-}
+    <p>RequireJS has a module system that lets you define well-scoped
+    modules, but you do not have to follow that system to get the benefits of
+    dependency management and build-time optimizations. Over time, if you
+    start to create more modular code that needs to be reused in a few places,
+    the module format for RequireJS makes it easy to write encapsulated code
+    that can be loaded on the fly. It can grow with you, particularly if you
+    want to incorporate internationalization (i18n) string bundles, to
+    localize your project for different languages, or load some HTML strings
+    and make sure those strings are available before executing code, or even
+    use JSONP services as dependencies.</p>
 
-// GOOD!!
-var $elems = [$eventfade, $eventhover, $spans];
-$.each($elems, function(i,elem) {
-    if (elem.data('currently') != 'showing') {
-        elem.stop();
-    }
+    <div class="section" title="Getting RequireJS"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21941" />Getting RequireJS</h3></div></div></div>
+      
+
+      <p>The easiest way to use RequireJS with jQuery is to <a class="ulink" href="http://requirejs.org/docs/download.html">download a build of
+      jQuery that has RequireJS built in</a>. This build excludes portions
+      of RequireJS that duplicate jQuery functionality. You may also find it
+      useful to download <a class="ulink" href="http://requirejs.org/docs/release/0.11.0/jquery-require-sample.zip">a
+      sample jQuery project that uses RequireJS</a>.</p>
+    </div>
+
+    <div class="section" title="Using RequireJS with jQuery"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21952" />Using RequireJS with jQuery</h3></div></div></div>
+      
+
+      <p>Using RequireJS in your page is simple: just include the jQuery
+      that has RequireJS built in, then require your application files. The
+      following example assumes that the jQuery build, and your other scripts,
+      are all in a <code class="filename">scripts/</code> directory.</p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2195D" /><p class="title"><b>Example 10.5. Using RequireJS: A simple example</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;jQuery+RequireJS Sample Page&lt;/title&gt;
+        &lt;script src="scripts/require-jquery.js"&gt;&lt;/script&gt;
+        &lt;script&gt;require(["app"]);&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;jQuery+RequireJS Sample Page&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+      </div></div><br class="example-break" />
+
+      <p>The call to <code class="code">require(["app"])</code> tells RequireJS to load
+      the <code class="filename">scripts/app.js</code> file. RequireJS will load any
+      dependency that is passed to <code class="code">require()</code> without a
+      <code class="filename">.js</code> extension from the same directory as
+      <code class="filename">require-jquery.js</code>, though this can be configured to
+      behave differently. If you feel more comfortable specifying the whole
+      path, you can also do the following: </p>
+
+      <pre class="programlisting">&lt;script&gt;require(["scripts/app.js"]);&lt;/script&gt;</pre>
+
+      <p>What is in <code class="filename">app.js</code>? Another call to
+      <code class="filename">require.js</code> to load all the scripts you need and any
+      init work you want to do for the page. This example
+      <code class="filename">app.js</code> script loads two plugins,
+      <code class="filename">jquery.alpha.js</code> and
+      <code class="filename">jquery.beta.js</code> (not the names of real plugins, just
+      an example). The plugins should be in the same directory as
+      <code class="filename">require-jquery.js</code>: </p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21990" /><p class="title"><b>Example 10.6. A simple JavaScript file with dependencies</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">require(["jquery.alpha", "jquery.beta"], function() {
+    //the jquery.alpha.js and jquery.beta.js plugins have been loaded.
+    $(function() {
+        $('body').alpha().beta();
+    });
 });</pre>
+      </div></div><br class="example-break" />
+    </div>
+
+    <div class="section" title="Creating Reusable Modules with RequireJS"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2199A" />Creating Reusable Modules with RequireJS</h3></div></div></div>
+      
+
+      <p>RequireJS makes it easy to define reusable modules via
+      <code class="code">require.def()</code>. A RequireJS module can have dependencies
+      that can be used to define a module, and a RequireJS module can return a
+      value — an object, a function, whatever — that can then be consumed by
+      yet other modules.</p>
+
+      <p>If your module does not have any dependencies, then just specify
+      the name of the module as the first argument to
+      <code class="code">require.def()</code>. The second argument is just an object
+      literal that defines the module's properties. For example: </p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N219AB" /><p class="title"><b>Example 10.7. Defining a RequireJS module that has no dependencies</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">require.def("my/simpleshirt",
+    {
+        color: "black",
+        size: "unisize"
+    }
+);</pre>
+
+        <p>This example would be stored in a my/simpleshirt.js file.
+        </p>
+
+        <p>If your module has dependencies, you can specify the
+        dependencies as the second argument to <code class="code">require.def()</code> (as
+        an array) and then pass a function as the third argument. The function
+        will be called to define the module once all dependencies have loaded.
+        The function receives the values returned by the dependencies as its
+        arguments (in the same order they were required in the array), and the
+        function should return an object that defines the module.</p>
+
+        <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N219BC" /><p class="title"><b>Example 10.8. Defining a RequireJS module with dependencies</b></p><div class="example-contents">
+          
+
+          <pre class="programlisting">require.def("my/shirt",
+    ["my/cart", "my/inventory"],
+    function(cart, inventory) {
+        //return an object to define the "my/shirt" module.
+        return {
+            color: "blue",
+            size: "large"
+            addToCart: function() {
+                inventory.decrement(this);
+                cart.add(this);
+            }
+        }
+    }
+);</pre>
+        </div></div><br class="example-break" />
+
+        <p>In this example, a my/shirt module is created. It depends on
+        my/cart and my/inventory. On disk, the files are structured like this:
+        </p>
+
+        <pre class="programlisting">my/cart.js
+my/inventory.js
+my/shirt.js</pre>
+
+        <p>The function that defines <code class="code">my/shirt</code> is not called
+        until the <code class="code">my/cart</code> and <code class="code">my/inventory</code> modules
+        have been loaded, and the function receives the modules as the
+        <code class="code">cart</code> and <code class="code">inventory</code> arguments. The order of
+        the function arguments must match the order in which the dependencies
+        were required in the dependencies array. The object returned by the
+        function call defines the <code class="code">my/shirt</code> module. Be defining
+        modules in this way, <code class="code">my/shirt</code> does not exist as a global
+        object. Modules that define globals are explicitly discouraged, so
+        multiple versions of a module can exist in a page at a time. </p>
+
+        <p>Modules do not have to return objects; any valid return value
+        from a function is allowed.</p>
+
+        <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N219E6" /><p class="title"><b>Example 10.9. Defining a RequireJS module that returns a function</b></p><div class="example-contents">
+          
+
+          <pre class="programlisting">require.def("my/title",
+    ["my/dependency1", "my/dependency2"],
+    function(dep1, dep2) {
+        //return a function to define "my/title". It gets or sets
+        //the window title.
+        return function(title) {
+            return title ? (window.title = title) : window.title;
+        }
+    }
+);</pre>
+        </div></div><br class="example-break" />
+
+        <p>Only one module should be required per JavaScript file.</p>
+      </div></div><br class="example-break" />
+    </div>
+
+    <div class="section" title="Optimizing Your Code: The RequireJS Build Tool"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N219F4" />Optimizing Your Code: The RequireJS Build Tool</h3></div></div></div>
+      
+
+      <p>Once you incorporate RequireJS for dependency management, your
+      page is set up to be optimized very easily. Download the RequireJS
+      source and place it anywhere you like, preferrably somewhere outside
+      your web development area. For the purposes of this example, the
+      RequireJS source is placed as a sibling to the
+      <code class="filename">webapp</code> directory, which contains the HTML page and
+      the scripts directory with all the scripts. Complete directory
+      structure: </p>
+
+      <pre class="programlisting">requirejs/ (used for the build tools)
+webapp/app.html
+webapp/scripts/app.js
+webapp/scripts/require-jquery.js
+webapp/scripts/jquery.alpha.js
+webapp/scripts/jquery.beta.js</pre>
+
+      <p>Then, in the scripts directory that has
+      <code class="filename">require-jquery.js</code> and app.js, create a file called
+      app.build.js with the following contents: </p>
+
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21A08" /><p class="title"><b>Example 10.10. A RequireJS build configuration file</b></p><div class="example-contents">
+        
+
+        <pre class="programlisting">{
+    appDir: "../",
+    baseUrl: "scripts/",
+    dir: "../../webapp-build",
+    //Comment out the optimize line if you want
+    //the code minified by Closure Compiler using
+    //the "simple" optimizations mode
+    optimize: "none",
+
+    modules: [
+        {
+            name: "app"
+        }
+    ]
+}</pre>
+      </div></div><br class="example-break" />
+
+      <p>To use the build tool, you need Java 6 installed. Closure Compiler
+      is used for the JavaScript minification step (if <code class="code">optimize:
+      "none"</code> is commented out), and it requires Java 6. </p>
+
+      <p>To start the build, go to the webapp/scripts directory, execute
+      the following command: </p>
+
+      <pre class="programlisting"># non-windows systems
+../../requirejs/build/build.sh app.build.js
+
+# windows systems
+..\..\requirejs\build\build.bat app.build.js</pre>
+
+      <p>Now, in the webapp-build directory, <code class="filename">app.js</code>
+      will have the <code class="filename">app.js</code> contents,
+      <code class="filename">jquery.alpha.js</code> and
+      <code class="filename">jquery.beta.js</code> inlined. If you then load the
+      <code class="filename">app.html</code> file in the
+      <code class="filename">webapp-build</code> directory, you should not see any
+      network requests for <code class="filename">jquery.alpha.js</code> and
+      <code class="filename">jquery.beta.js</code>. </p>
+    </div>
   </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
     Rebecca Murphey</a>, released under the 
   <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">
@@ -39,4 +272,4 @@ $.each($elems, function(i,elem) {
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
-  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch10s02.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch10.html">Up</a></td><td align="right"> <a accesskey="n" href="ch10s04.html">Next</a></td></tr><tr><td valign="top" align="left">Append new content outside of a loop </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Beware anonymous functions</td></tr></table></div></div></div></body></html>
+  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch10s02.html">Prev</a> </td><td align="center"><a accesskey="u" href="ch10.html">Up</a></td><td align="right"> <a accesskey="n" href="ch10s04.html">Next</a></td></tr><tr><td valign="top" align="left">Encapsulation </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Exercises</td></tr></table></div></div></div></body></html>

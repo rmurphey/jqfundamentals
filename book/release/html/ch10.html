@@ -1,42 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Chapter 10. Performance Best Practices</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="pt03.html" title="Part III. jQuery: Advanced Concepts" /><link rel="prev" href="ch09s02.html" title="Organizational Structures" /><link rel="next" href="ch10s02.html" title="Append new content outside of a loop" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Chapter 10. Performance Best Practices</th></tr><tr><td align="left"><a accesskey="p" href="ch09s02.html">Prev</a> </td><th align="center" width="60%">Part III. jQuery: Advanced Concepts</th><td align="right"> <a accesskey="n" href="ch10s02.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="chapter" title="Chapter 10. Performance Best Practices"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21521" />Chapter 10. Performance Best Practices</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="ch10.html#N2152E">Cache length during loops</a></span></dt><dt><span class="sect1"><a href="ch10s02.html">Append new content outside of a loop</a></span></dt><dt><span class="sect1"><a href="ch10s03.html">Keep things DRY</a></span></dt><dt><span class="sect1"><a href="ch10s04.html">Beware anonymous functions</a></span></dt><dt><span class="sect1"><a href="ch10s05.html">Optimize Selectors</a></span></dt><dt><span class="sect1"><a href="ch10s06.html">Use Event Delegation</a></span></dt><dt><span class="sect1"><a href="ch10s07.html">Detach Elements to Work With Them</a></span></dt><dt><span class="sect1"><a href="ch10s08.html">Use Stylesheets for Changing CSS on Many Elements</a></span></dt><dt><span class="sect1"><a href="ch10s09.html">Use <code class="code">$.data</code> Instead of <code class="code">$.fn.data</code></a></span></dt><dt><span class="sect1"><a href="ch10s10.html">Don't Act on Absent Elements</a></span></dt><dt><span class="sect1"><a href="ch10s11.html">Variable Definition</a></span></dt><dt><span class="sect1"><a href="ch10s12.html">Conditionals</a></span></dt><dt><span class="sect1"><a href="ch10s13.html">Don't Treat jQuery as a Black Box</a></span></dt></dl></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Chapter 10. Code Organization</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="pt03.html" title="Part III. Advanced Topics" /><link rel="prev" href="ch09s13.html" title="Don't Treat jQuery as a Black Box" /><link rel="next" href="ch10s02.html" title="Encapsulation" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Chapter 10. Code Organization</th></tr><tr><td align="left"><a accesskey="p" href="ch09s13.html">Prev</a> </td><th align="center" width="60%">Part III. Advanced Topics</th><td align="right"> <a accesskey="n" href="ch10s02.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="chapter" title="Chapter 10. Code Organization"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21862" />Chapter 10. Code Organization</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="ch10.html#N21868">Overview</a></span></dt><dt><span class="section"><a href="ch10s02.html">Encapsulation</a></span></dt><dt><span class="section"><a href="ch10s03.html">Managing Dependencies</a></span></dt><dt><span class="section"><a href="ch10s04.html">Exercises</a></span></dt></dl></div>
   
 
-  <p>This chapter covers a number of jQuery and JavaScript best practices,
-  in no particular order. Many of the best practices in this chapter are based
-  on the <a class="ulink" href="http://paulirish.com/perf">jQuery Anti-Patterns for
-  Performance</a> presentation by Paul Irish.</p>
-
-  <div class="sect1" title="Cache length during loops"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2152E" />Cache length during loops</h2></div></div></div>
+  <div class="section" title="Overview"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21868" />Overview</h2></div></div></div>
     
 
-    <p>In a for loop, don't access the length property of an array every
-    time; cache it beforehand.</p>
+    <p>When you move beyond adding simple enhancements to your website with
+    jQuery and start developing full-blown client-side applications, you need
+    to consider how to organize your code. In this chapter, we'll take a look
+    at various code organization patterns you can use in your jQuery
+    application and explore the RequireJS dependency management and build
+    system.</p>
 
-    <pre class="programlisting">var myLength = myArray.length;
+    <div class="section" title="Key Concepts"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21870" />Key Concepts</h3></div></div></div>
+      
 
-for (var i = 0; i &lt; myLength; i++) {
-    // do stuff
-}</pre>
+      <p>Before we jump into code organization patterns, it's important to
+      understand some concepts that are common to all good code organization
+      patterns.</p>
+
+      <div class="itemizedlist"><ul class="itemizedlist"><li class="listitem">
+          <p>Your code should be divided into units of functionality —
+          modules, services, etc. Avoid the temptation to have all of your
+          code in one huge <code class="code">$(document).ready()</code> block. This
+          concept, loosely, is known as encapsulation.</p>
+        </li><li class="listitem">
+          <p>Don't repeat yourself. Identify similarities among pieces of
+          functionality, and use inheritance techniques to avoid repetitive
+          code.</p>
+        </li><li class="listitem">
+          <p>Despite jQuery's DOM-centric nature, JavaScript applications
+          are not all about the DOM. Remember that not all pieces of
+          functionality need to — or should — have a DOM
+          representation.</p>
+        </li><li class="listitem">
+          <p>Units of functionality should be <a class="ulink" href="http://en.wikipedia.org/wiki/Loose_coupling">loosely
+          coupled</a> — a unit of functionality should be able to exist on
+          its own, and communication between units should be handled via a
+          messaging system such as custom events or pub/sub. Stay away from
+          direct communication between units of functionality whenever
+          possible.</p>
+        </li></ul></div>
+
+      <p>The concept of loose coupling can be especially troublesome to
+      developers making their first foray into complex applications, so be
+      mindful of this as you're getting started.</p>
+    </div>
   </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
 
@@ -57,4 +67,4 @@ for (var i = 0; i &lt; myLength; i++) {
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
-  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch09s02.html">Prev</a> </td><td align="center"><a accesskey="u" href="pt03.html">Up</a></td><td align="right"> <a accesskey="n" href="ch10s02.html">Next</a></td></tr><tr><td valign="top" align="left">Organizational Structures </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Append new content outside of a loop</td></tr></table></div></div></div></body></html>
+  </script><div xmlns="http://www.w3.org/1999/xhtml" class="navfooter"><hr /><table summary="Navigation footer" width="100%"><tr><td align="left"><a accesskey="p" href="ch09s13.html">Prev</a> </td><td align="center"><a accesskey="u" href="pt03.html">Up</a></td><td align="right"> <a accesskey="n" href="ch10s02.html">Next</a></td></tr><tr><td valign="top" align="left">Don't Treat jQuery as a Black Box </td><td align="center"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right"> Encapsulation</td></tr></table></div></div></div></body></html>
