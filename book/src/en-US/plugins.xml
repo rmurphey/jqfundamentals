@@ -285,9 +285,8 @@ $('li').hoverClass('hover');</programlisting>
   <section>
     <title>Writing Stateful Plugins with the jQuery UI Widget Factory</title>
 
-    <para><note>
-        <para>This is section covers advanced topics; u</para>
-      </note><note>
+    <para>
+      <note>
         <para>This section is based, with permission, on the blog post <link
         xlink:href="http://blog.nemikor.com/2010/05/15/building-stateful-jquery-plugins/">Building
         Stateful jQuery Plugins</link> by Scott Gonzalez.</para>
