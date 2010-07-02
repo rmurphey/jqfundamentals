@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Optimize Selectors</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch09.html" title="Chapter 9. Performance Best Practices" /><link rel="prev" href="ch09s04.html" title="Beware anonymous functions" /><link rel="next" href="ch09s06.html" title="Use Event Delegation" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Optimize Selectors</th></tr><tr><td align="left"><a accesskey="p" href="ch09s04.html">Prev</a> </td><th align="center" width="60%">Chapter 9. Performance Best Practices</th><td align="right"> <a accesskey="n" href="ch09s06.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="sect1" title="Optimize Selectors"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21795" />Optimize Selectors</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Optimize Selectors</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch09.html" title="Chapter 9. Performance Best Practices" /><link rel="prev" href="ch09s04.html" title="Beware anonymous functions" /><link rel="next" href="ch09s06.html" title="Use Event Delegation" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Optimize Selectors</th></tr><tr><td align="left"><a accesskey="p" href="ch09s04.html">Prev</a> </td><th align="center" width="60%">Chapter 9. Performance Best Practices</th><td align="right"> <a accesskey="n" href="ch09s06.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="sect1" title="Optimize Selectors"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21791" />Optimize Selectors</h2></div></div></div>
     
 
     <p>Selector optimization is less important than it used to be, as more
@@ -7,7 +7,7 @@
     of selection shifts from jQuery to the browser. However, there are still
     some tips to keep in midn.</p>
 
-    <div class="sect2" title="ID-Based Selectors"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N217A0" />ID-Based Selectors</h3></div></div></div>
+    <div class="sect2" title="ID-Based Selectors"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2179C" />ID-Based Selectors</h3></div></div></div>
       
 
       <p>Beginning your selector with an ID is always best.</p>
@@ -25,7 +25,7 @@ $('#container').find('div.robotarm');</pre>
       it is native to the browser.</p>
     </div>
 
-    <div class="sect2" title="Specificity"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N217B5" />Specificity</h3></div></div></div>
+    <div class="sect2" title="Specificity"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N217B1" />Specificity</h3></div></div></div>
       
 
       <p>Be specific on the right-hand side of your selector, and less
@@ -53,7 +53,7 @@ $('.data td.gonzalez');</pre>
       element. </p>
     </div>
 
-    <div class="sect2" title="Avoid the Universal Selector"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N217D6" />Avoid the Universal Selector</h3></div></div></div>
+    <div class="sect2" title="Avoid the Universal Selector"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N217D2" />Avoid the Universal Selector</h3></div></div></div>
       
 
       <p>Selections that specify or imply that a match could be found
