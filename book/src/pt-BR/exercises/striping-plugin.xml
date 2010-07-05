@@ -6,16 +6,17 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>Write a Table-Striping Plugin</title>
+  <title>Escreva um plugin de striping para tabelas</title> <!-- não encontrei uma boa tradução para striping -->
 
-  <para>Open the file <filename>/exercises/index.html</filename> in your
-  browser. Use the file <filename>/exercises/js/stripe.js</filename>. Your
-  task is to write a plugin called "stripe" that you can call on any table
-  element. When the plugin is called on a table element, it should change the
-  color of odd rows in the table body to a user-specified color.</para>
+  <para>Abra o arquivo<filename>/exercises/index.html</filename> no seu
+  navegador. Use o arquivo <filename>/exercises/js/stripe.js</filename>. Sua 
+  tarefa é escrever um plugin chamado "stripe" que você possa chamar em 
+  qualquer elemento table. Quando o plugin for chamado no elemento table,
+  ele deve modificar as cores das linhas ímpares no corpo da tabela para uma
+  cor especificada pelo usuário.</para>
 
   <programlisting>$('#myTable').stripe('#cccccc');</programlisting>
 
-  <para>Don't forget to return the table so other methods can be chained after
-  the plugin!</para>
+  <para>Não se esqueça de retornar a tabela para que outros métodos possam
+  ser encadeados depois do plugin!</para>
 </section>
