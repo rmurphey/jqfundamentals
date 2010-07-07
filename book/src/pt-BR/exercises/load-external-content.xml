@@ -6,37 +6,37 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-  <title>Load External Content</title>
+  <title>Carregar conteúdo externo</title>
 
-  <para>Open the file <filename>/exercises/index.html</filename> in your
-  browser. Use the file <filename>/exercises/js/load.js</filename>. Your task
-  is to load the content of a blog item when a user clicks on the title of the
-  item.</para>
+  <para>Abra o arquivo <filename>/exercises/index.html</filename>no seu
+  navegador. Use o arquivo <filename>/exercises/js/load.js</filename>. Sua
+  tarefa é carregar o conteúdo de um item de blog quando um usuário clicar
+  no título do item.</para>
 
   <orderedlist>
     <listitem>
-      <para>Create a target div after the headline for each blog post and
-      store a reference to it on the headline element using
-      <code>$.fn.data</code>.</para>
+      <para>Crie uma div alvo depois da headline para cada post
+      do blog e armazene uma referência para ela na headline 
+      usando <code>$.fn.data</code>.</para>
     </listitem>
 
     <listitem>
-      <para>Bind a click event to the headline that will use the
-      <code>$.fn.load</code> method to load the appropriate content from
-      <filename>/exercises/data/blog.html</filename> into the target div.
-      Don't forget to prevent the default action of the click event.</para>
+      <para>Crie um bind do evento click na headline que irá usar o método
+      <code>$.fn.load</code> para carregar o conteúdo apropriado de
+      <filename>/exercises/data/blog.html</filename> dentro da div alvo.
+      Não se esqueça de prevenir a ação padrão do evento click.</para>
     </listitem>
   </orderedlist>
 
-  <para>Note that each blog headline in index.html includes a link to the
-  post. You'll need to leverage the href of that link to get the proper
-  content from blog.html. Once you have the href, here's one way to process it
-  into an ID that you can use as a selector in <code>$.fn.load</code>:</para>
+  <para>Perceba que cada headline do blog em index.html inclui um link
+  para o post. Você precisará aproveitar o href daquele link para obter
+  o conteúdo de blog.html. Uma vez que você tem o href, esta é uma forma 
+  de processa-lo num ID que você pode usar como seletor em <code>$.fn.load</code>:</para>
 
   <programlisting>var href = 'blog.html#post1';
 var tempArray = href.split('#');
 var id = '#' + tempArray[1];</programlisting>
 
-  <para>Remember to make liberal use of <code>console.log</code> to make sure
-  you're on the right path!</para>
+  <para>Lembre-se de fazer uso liberal de <code>console.log</code> para ter 
+  certeza que você está no caminho correto!</para>
 </section>
