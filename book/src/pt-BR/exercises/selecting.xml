@@ -6,41 +6,39 @@
          xmlns:m="http://www.w3.org/1998/Math/MathML"
          xmlns:html="http://www.w3.org/1999/xhtml"
          xmlns:db="http://docbook.org/ns/docbook">
-	    <title>Selecting</title>
+	    <title>Selecionando</title>
 
-	    <para>Open the file <filename>/exercises/index.html</filename> in your
-	    browser. Use the file <filename>/exercises/js/sandbox.js</filename> or
-	    work in Firebug to accomplish the following:</para>
+	    <para>Abra o arquivo<filename>/exercises/index.html</filename> no seu 
+	    navegador. Use o arquivo <filename>/exercises/js/sandbox.js</filename> ou
+	    trabalhe no Firebug para fazer o seguinte:</para>
 
 	    <orderedlist>
 	      <listitem>
-	        <para>Select all of the div elements that have a class of
-	        "module".</para>
+	        <para>Selecione todos os elementos DIV que tem a classe "module".</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Come up with three selectors that you could use to get the third
-	        item in the #myList unordered list. Which is the best to use?
-	        Why?</para>
+	        <para>Escreva três seletores que você pode usar para obter o
+	        terceiro item na lista não-ordenada #myList. Qual é o melhor
+	        para se usar? Por quê?</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Select the label for the search input using an attribute
-	        selector.</para>
+	        <para>Selecione o label para o input de busca usando um seletor
+	        de atributo.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Figure out how many elements on the page are hidden (hint:
+	        <para>Encontre quantos elementos na página estão escondidos (dica: 
 	        .length).</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Figure out how many image elements on the page have an alt
-	        attribute.</para>
+	        <para>Encontre quantos elementos na página tem um atributo alt.</para>
 	      </listitem>
 
 	      <listitem>
-	        <para>Select all of the odd table rows in the table body.</para>
+	        <para>Selecione todas as linhas ímpares no corpo de uma tabela.</para>
 	      </listitem>
 	    </orderedlist>
 </section>
