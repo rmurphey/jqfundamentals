@@ -53,7 +53,7 @@ $(document).ready(function() {
 		
 		showItem = function($currentItem, $itemToShow) {
 			var $itemToShow = 
-				$itemToShow || getNextItem($currentItem);
+				$itemToShow || getItem($currentItem,'next');
 			
 			$currentItem.fadeOut(500, function() {
 				$itemToShow.fadeIn(500, fadeCallback);
@@ -64,7 +64,7 @@ $(document).ready(function() {
 			if (manualMode) { return; }
 
 			var $this = $(this),
-				$next = getNextItem($this),
+				$next = getItem($this, 'next'),
 				num = $this.prevAll().length + 1;
 			
 			// update the counter
@@ -78,21 +78,18 @@ $(document).ready(function() {
 		},
 		
 		handleBtnClick = function(e) {
-			console.log(e);
 			clearTimeout(timeout);
 
 			manualMode = true;
 			
 			var $currentItem = $items.filter(':visible'),
-				$itemToShow = e.data.prev ? 
-					getItem($currentItem, 'prev') :
-					getItem($currentItem, 'next');
+				$itemToShow = getItem($currentItem, e.data.direction);
 					
 			showItem($currentItem, $itemToShow);
 		};
 		
-	$prevBtn.bind('click', { prev : true }, handleBtnClick);
-	$nextBtn.bind('click', { next : true }, handleBtnClick);
+	$prevBtn.bind('click', { direction : 'prev' }, handleBtnClick);
+	$nextBtn.bind('click', { direction : 'next' }, handleBtnClick);
 	
 	$items.eq(0).fadeIn(500, fadeCallback);
 });
