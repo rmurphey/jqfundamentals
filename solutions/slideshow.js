@@ -48,7 +48,9 @@ $(document).ready(function() {
 		
 		getItem = function($item, trav) {
 			var $returnItem = $item[trav]();
-			return $returnItem.length ? $returnItem : $items[(trav == 'next') ? 'first' : 'last']();
+			return $returnItem.length ? 
+				$returnItem : 
+				$items[(trav == 'next') ? 'first' : 'last']();
 		},
 		
 		showItem = function($currentItem, $itemToShow) {
