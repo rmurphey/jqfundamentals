@@ -1,3 +1,6 @@
 [submodule "demos/large-jquery-apps"]
 	path = demos/large-jquery-apps
 	url = git://github.com/rmurphey/large-jquery-apps.git
+[submodule "book/src/pt-BR"]
+	path = book/src/pt-BR
+	url = http://github.com/herberthamaral/jqfundamentals-pt-BR.git
