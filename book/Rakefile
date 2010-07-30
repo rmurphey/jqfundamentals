@@ -1,6 +1,3 @@
-task :install do
-end
-
 namespace :publish do
   input = "src/EN-us/jquery-fundamentals-book.xml"
   xalan = "scripts/libs/xalan/xalan-j_2_7_1"
@@ -66,7 +63,7 @@ namespace :publish do
     directory "release/epub"
     directory "release/tmp"
 
-    sh "#{epub} -c style/epub.css -o #{output_epub} #{input}"
+    exec "#{epub} -c style/epub.css -o #{output_epub} #{input}"
 
     base = pwd
     cd "release/tmp" do
@@ -120,3 +117,31 @@ end
 
 desc "Publish in all formats"
 task :publish => ["publish:html", "publish:epub", "publish:pdf"]
+
+desc "Install Xalan and DocBook XSL NS stylesheets"
+task :install do
+  curl = "curl -L -o"
+
+  directory "scripts/libs"
+  cd "scripts/libs" do
+    # Xalan
+    puts "Downloading and extracting Xalan"
+    sh "#{curl} xalan.zip http://mirrors.ibiblio.org/pub/mirrors/apache/xml/xalan-j/xalan-j_2_7_1-bin-2jars.zip"
+    sh "unzip xalan.zip -d xalan"
+
+    # FOP
+    puts "Downloading and extracting FOP"
+    sh "#{curl} fop.zip http://mirrors.ibiblio.org/pub/mirrors/apache/xmlgraphics/fop/binaries/fop-0.95-bin.zip"
+    sh "unzip fop.zip -d fop"
+
+    # DocBook NS XSL Stylesheets
+    puts "Downloading and extracting DocBook XSL NS"
+    sh "#{curl} docbook-xsl.zip http://sourceforge.net/projects/docbook/files/docbook-xsl/1.75.2/docbook-xsl-1.75.2.zip/download"
+    sh "unzip docbook-xsl.zip -d docbook-xsl"
+
+    # XSL Syntax Highlight
+    puts "Downloading and extracting XSLT Syntax Highlighting"
+    sh "#{curl} xslthl.zip http://sourceforge.net/projects/xslthl/files/xslthl/2.0.2/xslthl-2.0.2.zip/download"
+    sh "unzip xslthl.zip -d xslthl"
+  end
+end
