@@ -2,8 +2,7 @@ task :install do
 end
 
 namespace :publish do
-  language = ENV['LANGUAGE'] || "en-US"
-  input = "src/#{language}/jquery-fundamentals-book.xml"
+  input = "src/EN-us/jquery-fundamentals-book.xml"
   xalan = "scripts/libs/xalan/xalan-j_2_7_1"
   xslthl_jar = "scripts/libs/xslthl/xslthl-2.0.2.jar"
   xsl = "scripts/libs/docbook-xsl/docbook-xsl-1.75.2"
@@ -61,6 +60,26 @@ namespace :publish do
 
   desc "Generate ePub output"
   task :epub do
+    epub = "#{xsl}/epub/bin/dbtoepub"
+    output_epub = "release/epub/jquery-fundamentals-book.epub"
+
+    directory "release/epub"
+    directory "release/tmp"
+
+    sh "#{epub} -c style/epub.css -o #{output_epub} #{input}"
+
+    base = pwd
+    cd "release/tmp" do
+      # Add fonts and fix content.opf
+      sh "unzip -a #{base}/#{output_epub}"
+      cp "#{base}/fonts/*", "OEBPS/"
+      sh "ls -la ../../fonts/fonts-elements.xml"
+      sh "sed -e '/<manifest>/r ../../fonts/fonts-elements.xml' < OEBPS/content.opf > content.opf"
+      mv "content.opf", "OEBPS/content.opf"
+      sh "zip -r #{base}/#{output_epub} *"
+    end
+
+    remove_dir release/tmp
   end
 
   desc "Generate PDF output"
