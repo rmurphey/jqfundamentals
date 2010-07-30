@@ -1,0 +1,58 @@
+task :install do
+end
+
+desc "Generate HTML output"
+task :publish do
+  input = "src/en-US/jquery-fundamentals-book.xml"
+  xalan = "scripts/libs/xalan/xalan-j_2_7_1"
+  xslthl_jar = "scripts/libs/xslthl/xslthl-2.0.2.jar"
+  xsl = "scripts/libs/docbook-xsl/docbook-xsl-1.75.2"
+
+  xsl_all_in_one = "xsl/xhtml.xsl"
+  output_all_in_one = "release/html/book.html"
+
+  xsl_chunked = "xsl/xhtml-chunked.xsl"
+  output_chunked = "release/html/index.html"
+
+  file "#{xalan}/xalan.jar" do
+    raise "Xalan not found. Run rake install"
+  end
+
+  # Ensure there is a directory for our output
+  directory "release/html"
+  file "release/html" do
+    cp ["imgs", "style/*", "#{xsl}/images"], "release/html"
+  end
+
+  # Output chunked html
+  sh <<-COMMAND
+    java \
+    -Djava.endorsed.dirs=#{xalan} \
+      -cp "$xalan/xalan.jar;#{xalan}/xml-apis.jar;#{xalan}/xercesImpl.jar;#{xsl}/extensions/xalan27.jar;#{xslthl_jar}" \
+      -Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration \
+     org.apache.xalan.xslt.Process \
+      -in  #{input} \
+      -out #{output_chunked} \
+      -xsl #{xsl_chunked} \
+    -param keep.relative.image.uris 0 \
+      -param use.extensions 1 \
+      -param highlight.xslthl.config "file://#{Dir.pwd}/scripts/libs/xslthl/highlighters/xslthl-config.xml" \
+      -param highlight.source 1
+  COMMAND
+
+  # Output all-in-one html
+  sh <<-COMMAND
+    java \
+    -Djava.endorsed.dirs=#{xalan} \
+      -cp "#{xalan}/xalan.jar;#{xalan}/xml-apis.jar;#{xalan}/xercesImpl.jar;#{xsl}/extensions/xalan27.jar;#{xslthl_jar}" \
+      -Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration \
+    org.apache.xalan.xslt.Process \
+      -in  #{input} \
+      -out #{output_all_in_one} \
+      -xsl #{xsl_all_in_one} \
+    -param keep.relative.image.uris 0 \
+      -param use.extensions 1 \
+      -param highlight.xslthl.config "file://#{Dir.pwd}/scripts/libs/xslthl/highlighters/xslthl-config.xml" \
+      -param highlight.source 1
+  COMMAND
+end
