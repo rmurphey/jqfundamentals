@@ -1186,7 +1186,7 @@ var createFunction = function(i) {
 };
 
 for (var i=0; i&lt;5; i++) {
-    $('p').appendTo('body').click(createFunction(i));
+    $('&lt;p&gt;click me&lt;/p&gt;').appendTo('body').click(createFunction(i));
 }</programlisting>
     </example>
   </section>
