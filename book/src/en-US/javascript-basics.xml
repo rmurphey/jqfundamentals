@@ -1163,7 +1163,7 @@ bim();  // bim is not defined outside of the anonymous function,
     we saw how functions have access to changing variable values. The same
     sort of behavior exists with functions defined within loops -- the
     function "sees" the change in the variable's value even after the function
-    is defined, resulting in all clicks alerting 4.</para>
+    is defined, resulting in all clicks alerting 5.</para>
 
     <example>
       <title>How to lock in the value of <code>i</code>?</title>
