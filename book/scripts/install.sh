@@ -44,7 +44,7 @@ fi
 # FOP Install
 if [ ! -f fop.zip ]; then
 	echo "Downloading and extracting FOP"
-	$GET fop.zip http://mirrors.ibiblio.org/pub/mirrors/apache/xmlgraphics/fop/binaries/fop-0.95-bin.zip
+	$GET fop.zip http://mirrors.ibiblio.org/pub/mirrors/apache/xmlgraphics/fop/binaries/fop-1.0-bin.zip
 	unzip fop.zip -d fop
 fi
 
