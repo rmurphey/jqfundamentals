@@ -8,7 +8,7 @@ xalan=scripts/libs/xalan/xalan-j_2_7_1
 xslthlJar=scripts/libs/xslthl/xslthl-2.0.2.jar
 xsl=scripts/libs/docbook-xsl/docbook-xsl-ns-1.75.2
 xslFO=xsl/fo.xsl
-fop=scripts/libs/fop/fop-0.95
+fop=scripts/libs/fop/fop-1.0
 outputFO=release/fo/jquery-fundamentals-book.fo
 outputPDF=release/pdf/jquery-fundamentals-book.pdf
 
@@ -37,7 +37,7 @@ java \
     -param highlight.xslthl.config "file://$absolute/scripts/libs/xslthl/highlighters/xslthl-config.xml" \
     -param highlight.source 1
 
-cp -Rf imgs $fop
+cp -Rf release/html/imgs $fop
 
 #fo -> pdf
 cd $fop
