@@ -387,7 +387,7 @@ for (var i=0; i&lt;5; i++) {
  [loopBody]</programlisting>
 
       <para>The <emphasis>initialisation</emphasis> statement is executed only
-      once, before the loop starts. It gives you an oppurtunity to prepare or
+      once, before the loop starts. It gives you an opportunity to prepare or
       declare any variables.</para>
 
       <para>The <emphasis>conditional</emphasis> statement is executed before
@@ -396,7 +396,7 @@ for (var i=0; i&lt;5; i++) {
       then the loop stops.</para>
 
       <para>The <emphasis>iteration</emphasis> statement is executed at the
-      end of each iteration and gives you an oppurtunity to change the state
+      end of each iteration and gives you an opportunity to change the state
       of important variables. Typically, this will involve incrementing or
       decrementing a counter and thus bringing the loop ever closer to its
       end.</para>
