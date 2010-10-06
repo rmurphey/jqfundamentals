@@ -127,7 +127,7 @@ $(document).ready(PI.onReady);            </programlisting>
     <title>Optimize Selectors</title>
 
     <para>Selector optimization is less important than it used to be, as more
-    browser implement <code>document.querySelectorAll()</code> and the burden
+    browsers implement <code>document.querySelectorAll()</code> and the burden
     of selection shifts from jQuery to the browser. However, there are still
     some tips to keep in midn.</para>
 
