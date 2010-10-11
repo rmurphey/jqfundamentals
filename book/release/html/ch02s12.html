@@ -12,7 +12,7 @@
     we saw how functions have access to changing variable values. The same
     sort of behavior exists with functions defined within loops -- the
     function "sees" the change in the variable's value even after the function
-    is defined, resulting in all clicks alerting 4.</p>
+    is defined, resulting in all clicks alerting 5.</p>
 
     <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N206C6" /><p class="title"><b>Example 2.46. How to lock in the value of <code class="code">i</code>?</b></p><div class="example-contents">
       
@@ -35,7 +35,7 @@ var createFunction = function(i) {
 };
 
 for (var i=0; i&lt;5; i++) {
-    $('p').appendTo('body').click(createFunction(i));
+    $('&lt;p&gt;click me&lt;/p&gt;').appendTo('body').click(createFunction(i));
 }</pre>
     </div></div><br class="example-break" />
   </div><hr /><p class="copyright">Copyright <a href="http://www.rebeccamurphey.com">
