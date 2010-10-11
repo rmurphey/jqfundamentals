@@ -1,7 +1,7 @@
 # Material de Entrenamiento - Fundamentos de jQuery #
 Este repositorio contiene material en constante evoluci—n, que puede ser usado como material de entrenamiento en una clase de Fundamentos de jQuery, incluyendo ejercicios, soluciones y un libro web. 
 
-Si esta buscando la ultima versi—n del libro, visite http://www.rebeccamurphey.com/jqfundamentals/ o descargue [el tag m‡s reciente](http://github.com/rmurphey/jqfundamentals/downloads) y navegue a /book/release/html/. 
+Si esta buscando la ultima versi—n del libro, visite <http://www.rebeccamurphey.com/jqfundamentals/> o descargue [el tag m‡s reciente](http://github.com/rmurphey/jqfundamentals/downloads) y navegue a /book/release/html/. 
 
 ## Contribucion ##
 Este material esta licenciado bajo la licencia Creative Commons Attribution-Share Alike 3.0 US, porque me entusiasma ver a otras personas contribuir. ÁSolicitudes de Pull son bienvenidas!

@@ -1,7 +1,7 @@
 # Азы jQuery#
 Этот репозиторий содержит материал, который можно использовать для изучения jQuery, включающий упражнения, решения и веб-книгу.
 
-Последнюю редакцию книги вы можете увидеть на http://www.rebeccamurphey.com/jqfundamentals/ или скачав [последний тэг репозитория](http://github.com/rmurphey/jqfundamentals/downloads) найдёте книгу в /book/release/html/.
+Последнюю редакцию книги вы можете увидеть на <http://www.rebeccamurphey.com/jqfundamentals/> или скачав [последний тэг репозитория](http://github.com/rmurphey/jqfundamentals/downloads) найдёте книгу в /book/release/html/.
 
 ## Contributing ##
 Материал распространяется под лицензией Creative Commons Attribution-Share Alike 3.0 US, потому что я хочу, чтобы и другие распространяли книгу. Ваши предложения приветствуются! Посмотрите страницу Issues, чтобы увидеть список вещей, которые всё ещё нужно сделать. 
