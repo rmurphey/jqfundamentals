@@ -228,7 +228,7 @@ $('#myList').delegate('li.trigger', 'click', handlerFn);</programlisting>
     while you work with it.</para>
 
     <programlisting>var $table = $('#myTable');
-var $parent = table.parent();
+var $parent = $table.parent();
 
 $table.detach();
 // ... add lots and lots of rows to table
