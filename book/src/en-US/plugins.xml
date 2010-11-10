@@ -211,7 +211,7 @@ $('a').fadeInAndAddClass(400, 'finishedFading');</programlisting>
             function() { $(this).toggleClass(c); }
         );
     };
-}(jQuery);
+})(jQuery);
 
 // using the plugin
 $('li').hoverClass('hover');</programlisting>
