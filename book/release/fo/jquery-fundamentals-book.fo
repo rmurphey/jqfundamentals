@@ -4714,7 +4714,7 @@ $('#nosuchthing').slideUp();
 
 // Better
 var $mySelection = $('#nosuchthing');
-if ($mySelection.length) { mySelection.slideUp(); }
+if ($mySelection.length) { $mySelection.slideUp(); }
 
 // BEST: add a doOnce plugin
 jQuery.fn.doOnce = function(func){ 
