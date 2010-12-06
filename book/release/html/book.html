@@ -1171,7 +1171,7 @@ if (myArray.push &amp;&amp; myArray.slice &amp;&amp; myArray.join) {
 
 if (Object.prototype.toString.call(myArray) === '[object Array]') {
     // Definitely an array!
-    // This is widely considered as the most rebust way
+    // This is widely considered as the most robust way
     // to determine if a specific value is an Array.
 }</pre>
     </div></div><br class="example-break" />
@@ -2594,7 +2594,8 @@ jQuery.noConflict();
         
 
         <pre class="programlisting">$('p').one('click', function() {
-    $(this).click(function() { console.log('You clicked this before!'); });
+    console.log('You just clicked this for the first time!');
+    $(this).click(function() { console.log('You have clicked this before!'); });
 });</pre>
       </div></div><br class="example-break" />
 
@@ -3783,7 +3784,7 @@ var id = '#' + tempArray[1];</pre>
 
     <p>This has the effect of creating a "private" scope that allows us to
     extend jQuery using the dollar symbol without having to risk the
-    possibility that the dollar has been over-written by another
+    possibility that the dollar has been overwritten by another
     library.</p>
 
     <p>So our actual plugin, thus far, is this:</p>
@@ -3939,7 +3940,7 @@ $('a').fadeInAndAddClass(400, 'finishedFading');</pre>
             function() { $(this).toggleClass(c); }
         );
     };
-}(jQuery);
+})(jQuery);
 
 // using the plugin
 $('li').hoverClass('hover');</pre>
@@ -4580,7 +4581,7 @@ $(document).ready(PI.onReady);            </pre>
     
 
     <p>Selector optimization is less important than it used to be, as more
-    browser implement <code class="code">document.querySelectorAll()</code> and the burden
+    browsers implement <code class="code">document.querySelectorAll()</code> and the burden
     of selection shifts from jQuery to the browser. However, there are still
     some tips to keep in midn.</p>
 
@@ -4681,7 +4682,7 @@ $('#myList').delegate('li.trigger', 'click', handlerFn);</pre>
     while you work with it.</p>
 
     <pre class="programlisting">var $table = $('#myTable');
-var $parent = table.parent();
+var $parent = $table.parent();
 
 $table.detach();
 // ... add lots and lots of rows to table

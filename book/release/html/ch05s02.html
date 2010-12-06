@@ -55,7 +55,8 @@
         
 
         <pre class="programlisting">$('p').one('click', function() {
-    $(this).click(function() { console.log('You clicked this before!'); });
+    console.log('You just clicked this for the first time!');
+    $(this).click(function() { console.log('You have clicked this before!'); });
 });</pre>
       </div></div><br class="example-break" />
 
