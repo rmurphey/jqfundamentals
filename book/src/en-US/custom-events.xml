@@ -318,7 +318,7 @@ $(document).trigger('myCustomEvent', [ 'bim', 'baz' ]);</programlisting>
         triggered on the corresponding results container. </para>
 
         <programlisting>$.fn.twitterResult = function(settings) {
-    return $(this).each(function() {
+    return this.each(function() {
         var $results = $(this),
             $actions = $.fn.twitterResult.actions = 
                 $.fn.twitterResult.actions || 
