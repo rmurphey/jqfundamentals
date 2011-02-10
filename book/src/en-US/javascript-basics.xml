@@ -1045,6 +1045,142 @@ if (Object.prototype.toString.call(myArray) === '[object Array]') {
     arbitrary value. These will be covered later.</para>
   </section>
 
+  <section>
+    <title>The <code>this</code> keyword</title>
+
+    <para>In JavaScript, as in most object-oriented programming languages,
+    <code>this</code> is a special keyword that is used within methods to
+    refer to the object on which a method is being invoked. The value of
+    <code>this</code> is determined using a simple series of steps:</para>
+
+    <orderedlist>
+      <listitem><para>If the function is invoked using <link
+      xlink:href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">Function.call</link>
+      or <link
+      xlink:href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply">Function.apply</link>,
+      <code>this</code> will be set to the first argument passed to
+      call/apply. If the first argument passed to call/apply is
+      <code>null</code> or <code>undefined</code>, <code>this</code> will refer
+      to the global object (which is the <code>window</code> object in Web
+      browsers).</para></listitem>
+
+      <listitem><para>If the function being invoked was created using <link
+      xlink:href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind">Function.bind</link>,
+      <code>this</code> will be the first argument that was passed to
+      bind at the time the function was created.</para></listitem>
+
+      <listitem><para>If the function is being invoked as a method of an
+      object, <code>this</code> will refer to that object.</para></listitem>
+
+      <listitem><para>Otherwise, the function is being invoked as a
+      standalone function not attached to any object, and <code>this</code>
+      will refer to the global object.</para></listitem>
+    </orderedlist>
+
+    <example>
+      <title>A function invoked using Function.call</title>
+
+      <programlisting>var myObject = {
+    sayHello : function() {
+        console.log('Hi! My name is ' + this.myName);
+    },
+
+    myName : 'Rebecca'
+};
+
+var secondObject = {
+    myName : 'Colin'
+};
+
+myObject.sayHello();                  // logs 'Hi! My name is Rebecca'
+myObject.sayHello.call(secondObject); // logs 'Hi! My name is Colin'</programlisting>
+    </example>
+
+    <example>
+      <title>A function created using Function.bind</title>
+
+      <programlisting>var myName = 'the global object',
+
+    sayHello = function () {
+        console.log('Hi! My name is ' + this.myName);
+    },
+
+    myObject = {
+        myName : 'Rebecca'
+    };
+
+var myObjectHello = sayHello.bind(myObject);
+
+sayHello();       // logs 'Hi! My name is the global object'
+myObjectHello();  // logs 'Hi! My name is Rebecca'</programlisting>
+    </example>
+
+    <example>
+      <title>A function being attached to an object at runtime</title>
+
+      <programlisting>var myName = 'the global object',
+
+    sayHello = function() {
+        console.log('Hi! My name is ' + this.myName);
+    },
+
+    myObject = {
+        myName : 'Rebecca'
+    },
+
+    secondObject = {
+        myName : 'Colin'
+    };
+
+myObject.sayHello = sayHello;
+secondObject.sayHello = sayHello;
+
+sayHello();               // logs 'Hi! My name is the global object'
+myObject.sayHello();      // logs 'Hi! My name is Rebecca'
+secondObject.sayHello();  // logs 'Hi! My name is Colin'</programlisting>
+    </example>
+
+    <note>
+      <para>When invoking a function deep within a long namespace, it is
+      often tempting to reduce the amount of code you need to type by storing
+      a reference to the actual function as a single, shorter variable. It is
+      important not to do this with instance methods as this will cause the
+      value of <code>this</code> within the function to change, leading to
+      incorrect code operation. For instance:</para>
+
+      <programlisting>var myNamespace = {
+    myObject : {
+        sayHello : function() {
+            console.log('Hi! My name is ' + this.myName);
+        },
+
+        myName : 'Rebecca'
+    }
+};
+
+var hello = myNamespace.myObject.sayHello;
+
+hello();  // logs 'Hi! My name is undefined'</programlisting>
+
+      <para>You can, however, safely reduce everything up to the object on
+      which the method is invoked:</para>
+
+      <programlisting>var myNamespace = {
+    myObject : {
+        sayHello : function() {
+            console.log('Hi! My name is ' + this.myName);
+        },
+
+        myName : 'Rebecca'
+    }
+};
+
+var obj = myNamespace.myObject;
+
+obj.sayHello();  // logs 'Hi! My name is Rebecca'</programlisting>
+    </note>
+  </section>
+
   <section xml:id="javascript-basics.sections.scope">
     <title>Scope</title>
 
@@ -1140,7 +1276,7 @@ f();  // logs 'world' -- uh oh</programlisting>
 
 console.log(baz);  // baz is not defined outside of the function
 
-bar();  // bar is defined outside of the anonymous function 
+bar();  // bar is defined outside of the anonymous function
         // because it wasn't declared with var; furthermore,
         // because it was defined in the same scope as baz,
         // it has access to baz even though other code
@@ -1189,5 +1325,40 @@ for (var i=0; i&lt;5; i++) {
     $('&lt;p&gt;click me&lt;/p&gt;').appendTo('body').click(createFunction(i));
 }</programlisting>
     </example>
+
+    <para>Closures can also be used to resolve issues with the
+    <code>this</code> keyword, which is unique to each scope:</para>
+
+    <example>
+      <title>Using a closure to access inner and outer object instances
+      simultaneously</title>
+
+      <programlisting>var outerObj = {
+    myName : 'outer',
+    outerFunction : function () {
+
+        // provide a reference to outerObj through innerFunction's closure
+        var self = this;
+
+        var innerObj = {
+            myName : 'inner',
+            innerFunction : function () {
+                console.log(self.myName, this.myName); // logs 'outer inner'
+            }
+        };
+
+        innerObj.innerFunction();
+
+        console.log(this.myName); // logs 'outer'
+    }
+};
+
+outerObj.outerFunction();</programlisting>
+    </example>
+
+    <para>This mechanism can be particularly useful when dealing with
+    callbacks, though in those cases, it is often better to use <link
+    xlink:href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind">Function.bind</link>,
+    which will avoid any overhead associated with scope traversal.</para>
   </section>
 </chapter>
