@@ -34,7 +34,7 @@
     <code>$.fn.click</code>, <code>$.fn.focus</code>, <code>$.fn.blur</code>,
     <code>$.fn.change</code>, etc. -- are shorthand for jQuery's
     <code>$.fn.bind</code> method. The bind method is useful for binding the
-    same hadler function to multiple events, and is also used when you want to
+    same handler function to multiple events, and is also used when you want to
     provide data to the event hander, or when you are working with custom
     events.</para>
 
