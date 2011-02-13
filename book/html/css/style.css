@@ -1,0 +1,55 @@
+body {
+  margin: 20px auto;
+  width: 60%;
+  font-family:Georgia, serif;
+}
+
+a {
+  color:#ce242a;
+}
+
+a:visited {
+  color:#9f2826;
+}
+
+div.chapter {
+  padding:50px 0;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+}
+
+p {
+  line-height:1.4em;
+}
+
+.titlepage h2.title {
+  font-size:200%
+}
+
+h1.title {
+  font-size:250%;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family:Helvetica,Arial, sans-serif;
+}
+
+.example {
+  margin:20px 0;
+}
+
+.example .example-contents {
+  padding:5px 10px;
+  background-color:#ddd;
+  margin:0 0 10px 0;
+}
+
+.note {
+  background-color:#fe6;
+  padding:10px;
+}
+
+dt span.term {
+  font-family:Helvetica, Arial, sans-serif;
+  font-weight:bold;
+}
