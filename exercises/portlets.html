@@ -3,9 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-	<title>jQuery Fundamentals :: Home</title>
+	<title>jQuery Fundamentals :: Portlets</title>
 	<link href="css/reset.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 	
@@ -39,22 +37,12 @@
 	}
 	</style>
 	
-	<link rel="stylesheet" href="libs/qunit/qunit/qunit.css" type="text/css" media="screen">
-	
-	
 </head>
 
 <body>
 	
-	<h1 id="qunit-header">QUnit Test Suite</h1>
-	<h2 id="qunit-banner"></h2>
-	<div id="qunit-testrunner-toolbar"></div>
-	<h2 id="qunit-userAgent"></h2>
-	<ol id="qunit-tests"></ol>
-
 <script src="libs/jquery-1.4.2.min.js"></script>
 <script src="libs/pubsub.js"></script>
-<script src="libs/qunit/qunit/qunit.js"></script>
 <script src="../solutions/portlets.js"></script>
 <script>
 var portlets = [ 'curry', 'onions', 'stirfry', 'tomatoes' ];
@@ -69,13 +57,5 @@ $.each(portlets, function(i, p) {
 	portlet.$element.appendTo('body');	
 });
 </script>
-<!-- 
-<script src="js/sandbox.js"></script>
-<script src="js/hoverClass.js"></script>
-<script src="js/navigation.js"></script>
-<script src="js/blog.js"></script>
-<script src="js/specials.js"></script>
-<script src="../solutions/slideshow.js"></script> 
--->
 </body>
 </html>
