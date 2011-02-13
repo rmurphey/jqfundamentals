@@ -90,7 +90,7 @@ $(document).ready(readyFn);</programlisting>
     <example>
       <title>Pseudo-selectors</title>
 
-      <programlisting>$('a.external:first'); 
+      <programlisting>$('a.external:first');
 $('tr:odd');
 $('#myForm :input');   // select all input-like elements in a form
 $('div:visible');
@@ -119,14 +119,14 @@ $('div:animated');     // all currently animated divs</programlisting>
     var width = elem.offsetWidth, height = elem.offsetHeight,
         skip = elem.nodeName.toLowerCase() === "tr";
 
-    // does the element have 0 height, 0 width, 
+    // does the element have 0 height, 0 width,
     // and it's not a &lt;tr&gt;?
     return width === 0 &amp;&amp; height === 0 &amp;&amp; !skip ?
 
         // then it must be hidden
         true :
 
-        // but if it has width and height 
+        // but if it has width and height
         // and it's not a &lt;tr&gt;
         width &gt; 0 &amp;&amp; height &gt; 0 &amp;&amp; !skip ?
 
@@ -581,9 +581,9 @@ $('h1').position();      // returns an object containing position
       <title>Setting attributes</title>
 
       <programlisting>$('a').attr('href', 'allMyHrefsAreTheSameNow.html');
-$('a').attr({ 
-    'title' : 'all titles are the same too!', 
-    'href' : 'somethingNew.html' 
+$('a').attr({
+    'title' : 'all titles are the same too!',
+    'href' : 'somethingNew.html'
 });</programlisting>
     </example>
 
@@ -638,7 +638,7 @@ $('li.selected').siblings();</programlisting>
 
       <programlisting>$('#myList li').each(function(idx, el) {
     console.log(
-        'Element ' + idx + 
+        'Element ' + idx +
         'has the following html: ' +
         $(el).html()
     );
@@ -874,7 +874,7 @@ $('&lt;li class="new"&gt;new list item&lt;/li&gt;');</programlisting>
       <example>
         <title>Creating a new element with an attribute object</title>
 
-        <programlisting>$('&lt;a/&gt;', { 
+        <programlisting>$('&lt;a/&gt;', {
     html : 'This is a &lt;strong&gt;new&lt;/strong&gt; link',
     'class' : 'new',
     href : 'foo.html'
@@ -942,7 +942,11 @@ $myList.append(myItems.join(''));</programlisting>
 
       <para>jQuery's attribute manipulation capabilities are extensive. Basic
       changes are simple, but the $.fn.attr method also allows for more
-      complex manipulations.</para>
+      complex manipulations. It can either set an explicit value, or set a
+      value using the return value of a function. When the function syntax is
+      used, the function receives two arguments: the zero-based index of the
+      element whose attribute is being changed, and the current value of the
+      attribute being changed.</para>
 
       <example>
         <title>Manipulating a single attribute</title>
@@ -964,13 +968,13 @@ $myList.append(myItems.join(''));</programlisting>
 
         <programlisting>$('#myDiv a:first').attr({
     rel : 'super-special',
-    href : function() { 
-        return '/new/' + $(this).attr('href');
+    href : function(idx, href) {
+        return '/new/' + href;
     }
 });
 
-$('#myDiv a:first').attr('href', function() {
-    return '/new/' + $(this).attr('href');
+$('#myDiv a:first').attr('href', function(idx, href) {
+    return '/new/' + href;
 });</programlisting>
       </example>
     </section>
