@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Managing Dependencies</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch10.html" title="Chapter 10. Code Organization" /><link rel="prev" href="ch10s02.html" title="Encapsulation" /><link rel="next" href="ch10s04.html" title="Exercises" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Managing Dependencies</th></tr><tr><td align="left"><a accesskey="p" href="ch10s02.html">Prev</a> </td><th align="center" width="60%">Chapter 10. Code Organization</th><td align="right"> <a accesskey="n" href="ch10s04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Managing Dependencies"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21925" />Managing Dependencies</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Managing Dependencies</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch10.html" title="Chapter 10. Code Organization" /><link rel="prev" href="ch10s02.html" title="Encapsulation" /><link rel="next" href="ch10s04.html" title="Exercises" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Managing Dependencies</th></tr><tr><td align="left"><a accesskey="p" href="ch10s02.html">Prev</a> </td><th align="center" width="60%">Chapter 10. Code Organization</th><td align="right"> <a accesskey="n" href="ch10s04.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Managing Dependencies"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N219B1" />Managing Dependencies</h2></div></div></div>
     
 
     <div class="note" title="Note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
@@ -33,7 +33,7 @@
     and make sure those strings are available before executing code, or even
     use JSONP services as dependencies.</p>
 
-    <div class="section" title="Getting RequireJS"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2193D" />Getting RequireJS</h3></div></div></div>
+    <div class="section" title="Getting RequireJS"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N219C9" />Getting RequireJS</h3></div></div></div>
       
 
       <p>The easiest way to use RequireJS with jQuery is to <a class="ulink" href="http://requirejs.org/docs/download.html">download a build of
@@ -43,7 +43,7 @@
       sample jQuery project that uses RequireJS</a>.</p>
     </div>
 
-    <div class="section" title="Using RequireJS with jQuery"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2194E" />Using RequireJS with jQuery</h3></div></div></div>
+    <div class="section" title="Using RequireJS with jQuery"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N219DA" />Using RequireJS with jQuery</h3></div></div></div>
       
 
       <p>Using RequireJS in your page is simple: just include the jQuery
@@ -51,7 +51,7 @@
       following example assumes that the jQuery build, and your other scripts,
       are all in a <code class="filename">scripts/</code> directory.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21959" /><p class="title"><b>Example 10.5. Using RequireJS: A simple example</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N219E5" /><p class="title"><b>Example 10.5. Using RequireJS: A simple example</b></p><div class="example-contents">
         
 
         <pre class="programlisting">&lt;!DOCTYPE html&gt;
@@ -86,7 +86,7 @@
       an example). The plugins should be in the same directory as
       <code class="filename">require-jquery.js</code>: </p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2198C" /><p class="title"><b>Example 10.6. A simple JavaScript file with dependencies</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21A18" /><p class="title"><b>Example 10.6. A simple JavaScript file with dependencies</b></p><div class="example-contents">
         
 
         <pre class="programlisting">require(["jquery.alpha", "jquery.beta"], function() {
@@ -98,7 +98,7 @@
       </div></div><br class="example-break" />
     </div>
 
-    <div class="section" title="Creating Reusable Modules with RequireJS"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21996" />Creating Reusable Modules with RequireJS</h3></div></div></div>
+    <div class="section" title="Creating Reusable Modules with RequireJS"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21A22" />Creating Reusable Modules with RequireJS</h3></div></div></div>
       
 
       <p>RequireJS makes it easy to define reusable modules via
@@ -112,7 +112,7 @@
       <code class="code">require.def()</code>. The second argument is just an object
       literal that defines the module's properties. For example: </p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N219A7" /><p class="title"><b>Example 10.7. Defining a RequireJS module that has no dependencies</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21A33" /><p class="title"><b>Example 10.7. Defining a RequireJS module that has no dependencies</b></p><div class="example-contents">
         
 
         <pre class="programlisting">require.def("my/simpleshirt",
@@ -133,7 +133,7 @@
         arguments (in the same order they were required in the array), and the
         function should return an object that defines the module.</p>
 
-        <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N219B8" /><p class="title"><b>Example 10.8. Defining a RequireJS module with dependencies</b></p><div class="example-contents">
+        <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21A44" /><p class="title"><b>Example 10.8. Defining a RequireJS module with dependencies</b></p><div class="example-contents">
           
 
           <pre class="programlisting">require.def("my/shirt",
@@ -174,7 +174,7 @@ my/shirt.js</pre>
         <p>Modules do not have to return objects; any valid return value
         from a function is allowed.</p>
 
-        <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N219E2" /><p class="title"><b>Example 10.9. Defining a RequireJS module that returns a function</b></p><div class="example-contents">
+        <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21A6E" /><p class="title"><b>Example 10.9. Defining a RequireJS module that returns a function</b></p><div class="example-contents">
           
 
           <pre class="programlisting">require.def("my/title",
@@ -193,7 +193,7 @@ my/shirt.js</pre>
       </div></div><br class="example-break" />
     </div>
 
-    <div class="section" title="Optimizing Your Code: The RequireJS Build Tool"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N219F0" />Optimizing Your Code: The RequireJS Build Tool</h3></div></div></div>
+    <div class="section" title="Optimizing Your Code: The RequireJS Build Tool"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21A7C" />Optimizing Your Code: The RequireJS Build Tool</h3></div></div></div>
       
 
       <p>Once you incorporate RequireJS for dependency management, your
@@ -216,7 +216,7 @@ webapp/scripts/jquery.beta.js</pre>
       <code class="filename">require-jquery.js</code> and app.js, create a file called
       app.build.js with the following contents: </p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21A04" /><p class="title"><b>Example 10.10. A RequireJS build configuration file</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21A90" /><p class="title"><b>Example 10.10. A RequireJS build configuration file</b></p><div class="example-contents">
         
 
         <pre class="programlisting">{

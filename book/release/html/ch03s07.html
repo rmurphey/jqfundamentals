@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Manipulating Elements</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="prev" href="ch03s06.html" title="Traversing" /><link rel="next" href="ch03s08.html" title="Exercises" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Manipulating Elements</th></tr><tr><td align="left"><a accesskey="p" href="ch03s06.html">Prev</a> </td><th align="center" width="60%">Chapter 3. jQuery Basics</th><td align="right"> <a accesskey="n" href="ch03s08.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Manipulating Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N209F9" />Manipulating Elements</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Manipulating Elements</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="prev" href="ch03s06.html" title="Traversing" /><link rel="next" href="ch03s08.html" title="Exercises" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Manipulating Elements</th></tr><tr><td align="left"><a accesskey="p" href="ch03s06.html">Prev</a> </td><th align="center" width="60%">Chapter 3. jQuery Basics</th><td align="right"> <a accesskey="n" href="ch03s08.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Manipulating Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20A85" />Manipulating Elements</h2></div></div></div>
     
 
     <p>Once you've made a selection, the fun begins. You can change, move,
@@ -9,7 +9,7 @@
     <p>For complete documentation of jQuery manipulation methods, visit
     <a class="ulink" href="http://api.jquery.com/category/manipulation/">http://api.jquery.com/category/manipulation/</a>.</p>
 
-    <div class="section" title="Getting and Setting Information about Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20A08" />Getting and Setting Information about Elements</h3></div></div></div>
+    <div class="section" title="Getting and Setting Information about Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20A94" />Getting and Setting Information about Elements</h3></div></div></div>
       
 
       <p>There are any number of ways you can change an existing element.
@@ -56,7 +56,7 @@
             <p>Get or set the value of form elements.</p>
           </dd></dl></div>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20A7B" /><p class="title"><b>Example 3.26. Changing the HTML of an element</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20B07" /><p class="title"><b>Example 3.26. Changing the HTML of an element</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$('#myDiv p:first')
@@ -64,7 +64,7 @@
       </div></div><br class="example-break" />
     </div>
 
-    <div class="section" title="Moving, Copying, and Removing Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20A85" />Moving, Copying, and Removing Elements</h3></div></div></div>
+    <div class="section" title="Moving, Copying, and Removing Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20B11" />Moving, Copying, and Removing Elements</h3></div></div></div>
       
 
       <p>There are a variety of ways to move elements around the DOM;
@@ -97,7 +97,7 @@
       <code class="code">$.fn.appendTo</code>, and <code class="code">$.fn.prependTo</code> will be your
       tools of choice.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20ACC" /><p class="title"><b>Example 3.27. Moving elements using different approaches</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20B58" /><p class="title"><b>Example 3.27. Moving elements using different approaches</b></p><div class="example-contents">
         
 
         <pre class="programlisting">// make the first list item the last list item
@@ -112,14 +112,14 @@ $('#myList').append($('#myList li:first'));
 </pre>
       </div></div><br class="example-break" />
 
-      <div class="section" title="Cloning Elements"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20AD5" />Cloning Elements</h4></div></div></div>
+      <div class="section" title="Cloning Elements"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20B61" />Cloning Elements</h4></div></div></div>
         
 
         <p>When you use methods such as $.fn.appendTo, you are moving the
         element; sometimes you want to make a copy of the element instead. In
         this case, you'll need to use $.fn.clone first.</p>
 
-        <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20ADD" /><p class="title"><b>Example 3.28. Making a copy of an element</b></p><div class="example-contents">
+        <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20B69" /><p class="title"><b>Example 3.28. Making a copy of an element</b></p><div class="example-contents">
           
 
           <pre class="programlisting">// copy the first list item to the end of the list
@@ -132,7 +132,7 @@ $('#myList li:first').clone().appendTo('#myList');</pre>
         </div>
       </div>
 
-      <div class="section" title="Removing Elements"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20AF3" />Removing Elements</h4></div></div></div>
+      <div class="section" title="Removing Elements"><div class="titlepage"><div><div><h4 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20B7F" />Removing Elements</h4></div></div></div>
         
 
         <p>There are two ways to remove elements from the page:
@@ -163,24 +163,24 @@ $('#myList li:first').clone().appendTo('#myList');</pre>
       </div>
     </div>
 
-    <div class="section" title="Creating New Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20B21" />Creating New Elements</h3></div></div></div>
+    <div class="section" title="Creating New Elements"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20BAD" />Creating New Elements</h3></div></div></div>
       
 
       <p>jQuery offers a trivial and elegant way to create new elements
       using the same <code class="code">$()</code> method you use to make
       selections.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20B2C" /><p class="title"><b>Example 3.29. Creating new elements</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20BB8" /><p class="title"><b>Example 3.29. Creating new elements</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
 $('&lt;li class="new"&gt;new list item&lt;/li&gt;');</pre>
       </div></div><br class="example-break" />
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20B35" /><p class="title"><b>Example 3.30. Creating a new element with an attribute object</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20BC1" /><p class="title"><b>Example 3.30. Creating a new element with an attribute object</b></p><div class="example-contents">
         
 
-        <pre class="programlisting">$('&lt;a/&gt;', { 
+        <pre class="programlisting">$('&lt;a/&gt;', {
     html : 'This is a &lt;strong&gt;new&lt;/strong&gt; link',
     'class' : 'new',
     href : 'foo.html'
@@ -196,7 +196,7 @@ $('&lt;li class="new"&gt;new list item&lt;/li&gt;');</pre>
       page. There are several ways to add an element to the page once it's
       been created.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20B44" /><p class="title"><b>Example 3.31. Getting a new element on to the page</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20BD0" /><p class="title"><b>Example 3.31. Getting a new element on to the page</b></p><div class="example-contents">
         
 
         <pre class="programlisting">var $myNewElement = $('&lt;p&gt;New element&lt;/p&gt;');
@@ -216,7 +216,7 @@ $('ul').last().after($myNewElement.clone());  // clone the p so now we have 2</p
       but note that in this case you don't get a reference to the newly
       created element.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20B53" /><p class="title"><b>Example 3.32. Creating and adding an element to the page at the same
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20BDF" /><p class="title"><b>Example 3.32. Creating and adding an element to the page at the same
         time</b></p><div class="example-contents">
         
 
@@ -243,20 +243,24 @@ $myList.append(myItems.join(''));</pre>
       </div>
     </div>
 
-    <div class="section" title="Manipulating Attributes"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20B69" />Manipulating Attributes</h3></div></div></div>
+    <div class="section" title="Manipulating Attributes"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20BF5" />Manipulating Attributes</h3></div></div></div>
       
 
       <p>jQuery's attribute manipulation capabilities are extensive. Basic
       changes are simple, but the $.fn.attr method also allows for more
-      complex manipulations.</p>
+      complex manipulations. It can either set an explicit value, or set a
+      value using the return value of a function. When the function syntax is
+      used, the function receives two arguments: the zero-based index of the
+      element whose attribute is being changed, and the current value of the
+      attribute being changed.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20B71" /><p class="title"><b>Example 3.33. Manipulating a single attribute</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20BFD" /><p class="title"><b>Example 3.33. Manipulating a single attribute</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$('#myDiv a:first').attr('href', 'newDestination.html');</pre>
       </div></div><br class="example-break" />
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20B7A" /><p class="title"><b>Example 3.34. Manipulating multiple attributes</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20C06" /><p class="title"><b>Example 3.34. Manipulating multiple attributes</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$('#myDiv a:first').attr({
@@ -265,18 +269,18 @@ $myList.append(myItems.join(''));</pre>
 });</pre>
       </div></div><br class="example-break" />
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20B83" /><p class="title"><b>Example 3.35. Using a function to determine an attribute's new value</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20C0F" /><p class="title"><b>Example 3.35. Using a function to determine an attribute's new value</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$('#myDiv a:first').attr({
     rel : 'super-special',
-    href : function() { 
-        return '/new/' + $(this).attr('href');
+    href : function(idx, href) {
+        return '/new/' + href;
     }
 });
 
-$('#myDiv a:first').attr('href', function() {
-    return '/new/' + $(this).attr('href');
+$('#myDiv a:first').attr('href', function(idx, href) {
+    return '/new/' + href;
 });</pre>
       </div></div><br class="example-break" />
     </div>

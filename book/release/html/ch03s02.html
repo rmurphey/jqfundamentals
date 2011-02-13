@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Selecting Elements</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="prev" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="next" href="ch03s03.html" title="Working with Selections" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Selecting Elements</th></tr><tr><td align="left"><a accesskey="p" href="ch03.html">Prev</a> </td><th align="center" width="60%">Chapter 3. jQuery Basics</th><td align="right"> <a accesskey="n" href="ch03s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Selecting Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2071F" />Selecting Elements</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Selecting Elements</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="prev" href="ch03.html" title="Chapter 3. jQuery Basics" /><link rel="next" href="ch03s03.html" title="Working with Selections" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Selecting Elements</th></tr><tr><td align="left"><a accesskey="p" href="ch03.html">Prev</a> </td><th align="center" width="60%">Chapter 3. jQuery Basics</th><td align="right"> <a accesskey="n" href="ch03s03.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Selecting Elements"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N207AB" />Selecting Elements</h2></div></div></div>
     
 
     <p>The most basic concept of jQuery is to “select some elements and do
@@ -8,34 +8,34 @@
 
     <p>Following are a few examples of common selection techniques.</p>
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2072E" /><p class="title"><b>Example 3.4. Selecting elements by ID</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N207BA" /><p class="title"><b>Example 3.4. Selecting elements by ID</b></p><div class="example-contents">
       
 
       <pre class="programlisting">$('#myId'); // note IDs must be unique per page</pre>
     </div></div><br class="example-break" />
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20737" /><p class="title"><b>Example 3.5. Selecting elements by class name</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N207C3" /><p class="title"><b>Example 3.5. Selecting elements by class name</b></p><div class="example-contents">
       
 
       <pre class="programlisting">$('div.myClass'); // performance improves if you specify element type</pre>
     </div></div><br class="example-break" />
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20740" /><p class="title"><b>Example 3.6. Selecting elements by attribute</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N207CC" /><p class="title"><b>Example 3.6. Selecting elements by attribute</b></p><div class="example-contents">
       
 
       <pre class="programlisting">$('input[name=first_name]'); // beware, this can be very slow</pre>
     </div></div><br class="example-break" />
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2074A" /><p class="title"><b>Example 3.7. Selecting elements by compound CSS selector</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N207D6" /><p class="title"><b>Example 3.7. Selecting elements by compound CSS selector</b></p><div class="example-contents">
       
 
       <pre class="programlisting">$('#contents ul.people li');</pre>
     </div></div><br class="example-break" />
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20753" /><p class="title"><b>Example 3.8. Pseudo-selectors</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N207DF" /><p class="title"><b>Example 3.8. Pseudo-selectors</b></p><div class="example-contents">
       
 
-      <pre class="programlisting">$('a.external:first'); 
+      <pre class="programlisting">$('a.external:first');
 $('tr:odd');
 $('#myForm :input');   // select all input-like elements in a form
 $('div:visible');
@@ -64,14 +64,14 @@ $('div:animated');     // all currently animated divs</pre>
     var width = elem.offsetWidth, height = elem.offsetHeight,
         skip = elem.nodeName.toLowerCase() === "tr";
 
-    // does the element have 0 height, 0 width, 
+    // does the element have 0 height, 0 width,
     // and it's not a &lt;tr&gt;?
     return width === 0 &amp;&amp; height === 0 &amp;&amp; !skip ?
 
         // then it must be hidden
         true :
 
-        // but if it has width and height 
+        // but if it has width and height
         // and it's not a &lt;tr&gt;
         width &gt; 0 &amp;&amp; height &gt; 0 &amp;&amp; !skip ?
 
@@ -121,7 +121,7 @@ $("a[rel$='thinger']");</pre>
       several slides focused specifically on selector performance.</p>
     </div>
 
-    <div class="section" title="Does My Selection Contain Any Elements?"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2079F" />Does My Selection Contain Any Elements?</h3></div></div></div>
+    <div class="section" title="Does My Selection Contain Any Elements?"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2082B" />Does My Selection Contain Any Elements?</h3></div></div></div>
       
 
       <p>Once you've made a selection, you'll often want to know whether
@@ -140,14 +140,14 @@ $("a[rel$='thinger']");</pre>
       length property will evaluate to false when used as a boolean
       value.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N207B9" /><p class="title"><b>Example 3.9. Testing whether a selection contains elements</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20845" /><p class="title"><b>Example 3.9. Testing whether a selection contains elements</b></p><div class="example-contents">
         
 
         <pre class="programlisting">if ($('div.foo').length) { ... }</pre>
       </div></div><br class="example-break" />
     </div>
 
-    <div class="section" title="Saving Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N207C3" />Saving Selections</h3></div></div></div>
+    <div class="section" title="Saving Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2084F" />Saving Selections</h3></div></div></div>
       
 
       <p>Every time you make a selection, a lot of code runs, and jQuery
@@ -183,7 +183,7 @@ $("a[rel$='thinger']");</pre>
       </div>
     </div>
 
-    <div class="section" title="Refining &amp; Filtering Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N207EC" />Refining &amp; Filtering Selections</h3></div></div></div>
+    <div class="section" title="Refining &amp; Filtering Selections"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N20878" />Refining &amp; Filtering Selections</h3></div></div></div>
       
 
       <p>Sometimes you have a selection that contains more than what you're
@@ -191,7 +191,7 @@ $("a[rel$='thinger']");</pre>
       offers several methods for zeroing in on exactly what you're
       after.</p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N207F4" /><p class="title"><b>Example 3.11. Refining selections</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N20880" /><p class="title"><b>Example 3.11. Refining selections</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$('div.foo').has('p');          // div.foo elements that contain &lt;p&gt;'s
@@ -243,7 +243,7 @@ $('ul li').eq(5);               // the sixth </pre>
             <p>Selects inputs with <code class="code">type="text"</code></p>
           </dd></dl></div>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N208D0" /><p class="title"><b>Example 3.12. Using form-related pseduo-selectors</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2095C" /><p class="title"><b>Example 3.12. Using form-related pseduo-selectors</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$("#myForm :input'); // get all elements that accept input</pre>

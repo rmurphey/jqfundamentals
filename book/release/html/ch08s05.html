@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Writing Stateful Plugins with the jQuery UI Widget Factory</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch08.html" title="Chapter 8. Plugins" /><link rel="prev" href="ch08s04.html" title="Writing Plugins" /><link rel="next" href="ch08s06.html" title="Exercises" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Writing Stateful Plugins with the jQuery UI Widget Factory</th></tr><tr><td align="left"><a accesskey="p" href="ch08s04.html">Prev</a> </td><th align="center" width="60%">Chapter 8. Plugins</th><td align="right"> <a accesskey="n" href="ch08s06.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Writing Stateful Plugins with the jQuery UI Widget Factory"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N215F9" />Writing Stateful Plugins with the jQuery UI Widget Factory</h2></div></div></div>
+<html xmlns:xslthl="http://xslthl.sf.net"><head xmlns="http://www.w3.org/1999/xhtml"><title>Writing Stateful Plugins with the jQuery UI Widget Factory</title><link href="blueprint.css" rel="stylesheet" type="text/css" /><link href="style.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.75.2" name="generator" /><link rel="home" href="index.html" title="jQuery Fundamentals" /><link rel="up" href="ch08.html" title="Chapter 8. Plugins" /><link rel="prev" href="ch08s04.html" title="Writing Plugins" /><link rel="next" href="ch08s06.html" title="Exercises" /></head><body><div class="container"><div class="span-18 push-3"><div xmlns="http://www.w3.org/1999/xhtml" class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3">Writing Stateful Plugins with the jQuery UI Widget Factory</th></tr><tr><td align="left"><a accesskey="p" href="ch08s04.html">Prev</a> </td><th align="center" width="60%">Chapter 8. Plugins</th><td align="right"> <a accesskey="n" href="ch08s06.html">Next</a></td></tr></table><hr /></div><div xmlns="http://www.w3.org/1999/xhtml" class="section" title="Writing Stateful Plugins with the jQuery UI Widget Factory"><div class="titlepage"><div><div><h2 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21685" />Writing Stateful Plugins with the jQuery UI Widget Factory</h2></div></div></div>
     
 
     <p>
@@ -31,7 +31,7 @@
     context is an object, not a DOM element. Second, the context is always a
     single object, never a collection. </p>
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2161A" /><p class="title"><b>Example 8.3. A simple, stateful plugin using the jQuery UI widget
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N216A6" /><p class="title"><b>Example 8.3. A simple, stateful plugin using the jQuery UI widget
       factory</b></p><div class="example-contents">
       
 
@@ -65,7 +65,7 @@
       a larger collection.</p>
     </div>
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21641" /><p class="title"><b>Example 8.4. Passing options to a widget</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N216CD" /><p class="title"><b>Example 8.4. Passing options to a widget</b></p><div class="example-contents">
       
 
       <pre class="programlisting">$("&lt;div&gt;&lt;/div&gt;")
@@ -84,7 +84,7 @@
     your plugin so that you can set appropriate default values and make all
     options truly optional. </p>
 
-    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2165C" /><p class="title"><b>Example 8.5. Setting default options for a widget</b></p><div class="example-contents">
+    <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N216E8" /><p class="title"><b>Example 8.5. Setting default options for a widget</b></p><div class="example-contents">
       
 
       <pre class="programlisting">$.widget("nmk.progressbar", {
@@ -102,7 +102,7 @@
 });</pre>
     </div></div><br class="example-break" />
 
-    <div class="section" title="Adding Methods to a Widget"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21665" />Adding Methods to a Widget</h3></div></div></div>
+    <div class="section" title="Adding Methods to a Widget"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N216F1" />Adding Methods to a Widget</h3></div></div></div>
       
 
       <p>Now that we can initialize our progress bar, we’ll add the ability
@@ -111,7 +111,7 @@
       we pass to <code class="code">jQuery.widget</code>. We can also define “private”
       methods by prepending an underscore to the function name. </p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21670" /><p class="title"><b>Example 8.6. Creating widget methods</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N216FC" /><p class="title"><b>Example 8.6. Creating widget methods</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$.widget("nmk.progressbar", {
@@ -158,7 +158,7 @@
       parameters, you simply pass those parameters after the method name.
       </p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2167C" /><p class="title"><b>Example 8.7. Calling methods on a plugin instance</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21708" /><p class="title"><b>Example 8.7. Calling methods on a plugin instance</b></p><div class="example-contents">
         
 
         <pre class="programlisting">var bar = $("&lt;div&gt;&lt;/div&gt;")
@@ -183,7 +183,7 @@ alert(bar.progressbar("value"));</pre>
       </div>
     </div>
 
-    <div class="section" title="Working with Widget Options"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2168C" />Working with Widget Options</h3></div></div></div>
+    <div class="section" title="Working with Widget Options"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21718" />Working with Widget Options</h3></div></div></div>
       
 
       <p>One of the methods that is automatically available to our plugin
@@ -198,7 +198,7 @@ alert(bar.progressbar("value"));</pre>
       being set. We can specify a <code class="code">_setOption</code> method in our plugin
       to react to option changes. </p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2169D" /><p class="title"><b>Example 8.8. Responding when an option is set</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21729" /><p class="title"><b>Example 8.8. Responding when an option is set</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$.widget("nmk.progressbar", {
@@ -224,7 +224,7 @@ alert(bar.progressbar("value"));</pre>
       </div></div><br class="example-break" />
     </div>
 
-    <div class="section" title="Adding Callbacks"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N216A7" />Adding Callbacks</h3></div></div></div>
+    <div class="section" title="Adding Callbacks"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21733" />Adding Callbacks</h3></div></div></div>
       
 
       <p>One of the easiest ways to make your plugin extensible is to add
@@ -240,7 +240,7 @@ alert(bar.progressbar("value"));</pre>
       this would allow users to react to the drag based on the x/y coordinates
       provided by the event object. </p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N216B2" /><p class="title"><b>Example 8.9. Providing callbacks for user extension</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N2173E" /><p class="title"><b>Example 8.9. Providing callbacks for user extension</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$.widget("nmk.progressbar", {
@@ -284,7 +284,7 @@ alert(bar.progressbar("value"));</pre>
       return false so you can implement the appropriate functionality within
       your plugin. </p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N216CA" /><p class="title"><b>Example 8.10. Binding to widget events</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21756" /><p class="title"><b>Example 8.10. Binding to widget events</b></p><div class="example-contents">
         
 
         <pre class="programlisting">var bar = $("&lt;div&gt;&lt;/div&gt;")
@@ -346,7 +346,7 @@ alert(bar.options.value);</pre>
       </div>
     </div>
 
-    <div class="section" title="Cleaning Up"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N216F2" />Cleaning Up</h3></div></div></div>
+    <div class="section" title="Cleaning Up"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2177E" />Cleaning Up</h3></div></div></div>
       
 
       <p>In some cases, it will make sense to allow users to apply and then
@@ -360,7 +360,7 @@ alert(bar.options.value);</pre>
       so it’s important to call the base function from your plugin’s
       <code class="code">destroy</code> method. </p>
 
-      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21706" /><p class="title"><b>Example 8.11. Adding a destroy method to a widget</b></p><div class="example-contents">
+      <div class="example"><a xmlns:saxon="http://icl.com/saxon" id="N21792" /><p class="title"><b>Example 8.11. Adding a destroy method to a widget</b></p><div class="example-contents">
         
 
         <pre class="programlisting">$.widget( "nmk.progressbar", {
@@ -398,7 +398,7 @@ alert(bar.options.value);</pre>
       </div></div><br class="example-break" />
     </div>
 
-    <div class="section" title="Conclusion"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N21710" />Conclusion</h3></div></div></div>
+    <div class="section" title="Conclusion"><div class="titlepage"><div><div><h3 class="title"><a xmlns:saxon="http://icl.com/saxon" id="N2179C" />Conclusion</h3></div></div></div>
       
 
       <p>The widget factory is only one way of creating stateful plugins.
