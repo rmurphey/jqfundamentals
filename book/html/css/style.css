@@ -53,3 +53,13 @@ dt span.term {
   font-family:Helvetica, Arial, sans-serif;
   font-weight:bold;
 }
+
+p.toc {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size:90%;
+}
+
+#toc li, #loe li {
+  color:#ce242a;
+  cursor:pointer;
+}

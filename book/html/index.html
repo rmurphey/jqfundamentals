@@ -11,7 +11,7 @@
   <body>
     <div title="jQuery Fundamentals" class="book">
 
-      <div class="titlepage">
+      <div id="titlepage">
         <div>
           <div>
             <h1 class="title">
@@ -54,6 +54,19 @@
         </div>
       </div> <!-- end titlepage -->
 
+      <div id="toc">
+        <h2>Contents</h2>
+        <ul>
+        <!-- JS-generated TOC goes here -->
+        </ul>
+      </div>
+
+      <div id="loe">
+        <h2>List of Examples</h2>
+        <ul>
+        <!-- JS-generated list of examples goes here -->
+        </ul>
+      </div>
 
       <div title="Welcome" class="chapter">
         <div class="titlepage">
@@ -2966,12 +2979,12 @@ for (var i = 0; i&lt;5; i++) { ... }
             </div>
           </div>
         </div>
-        <div title="Query Core" class="chapter">
+        <div title="jQuery Core" class="chapter">
           <div class="titlepage">
             <div>
               <div>
                 <h2 class="title">
-                  Query Core
+                  jQuery Core
                 </h2>
               </div>
             </div>
@@ -7109,6 +7122,42 @@ $('#remove').click(function(e) {
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+</script>
+<script
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.js"></script>
+<script>
+$(function() {
+
+var toc = $('#toc ul'),
+    loe = $('#loe ul');
+
+function makeLi(text, href) {
+  return '<li><a href="' + href + '">' + text + '</a></li>';
+}
+
+$('div.chapter').each(function(i) {
+  var chapter = $(this),
+      chapterNumber = i;
+
+  $(makeLi('Chapter ' + chapterNumber + ': ' + chapter.attr('title'), '#chapter-' + i))
+    .appendTo(toc);
+
+  chapter.attr('id', 'chapter-' + i);
+
+  chapter.find('div.example').each(function(j) {
+    var example = $(this),
+        title = example.find('p.title');
+
+    $(makeLi('Example ' + chapterNumber + '.' + (j+1) + title.text(), '#example-' + j))
+      .appendTo(loe);
+
+    example.attr('id', 'example-' + j);
+  });
+
+  chapter.prepend('<p class="toc"><a title="Back to top" href="#toc">Back to top</a></p>');
+});
+
+});
 </script>
 
   </body>
