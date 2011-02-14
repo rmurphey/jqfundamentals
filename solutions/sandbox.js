@@ -7,30 +7,30 @@ $('div.module');
 
 
 
-// Come up with three selectors that you could use to get the third item in the #myList unordered list. 
+// Come up with three selectors that you could use to get the third item in the #myList unordered list.
 
-$('#myListItem'); 			
+$('#myListItem');
 // this one is best -- IDs are *always* the fastest selector
 
-$('#myList li:eq(2)');		
+$('#myList li:eq(2)');
 // this one would be best if the list item didn't have an ID
 
-$('#myList #myListItem');	
+$('#myList #myListItem');
 // this one is redundant
 
 
 
-// Get the label for the search input using an attribute selector. 
+// Get the label for the search input using an attribute selector.
 $('label[for="q"]');
 
-// Figure out how many elements on the page are hidden (hint: .length). 
+// Figure out how many elements on the page are hidden (hint: .length).
 $(':hidden').length;
 
-// Figure out how many image elements on the page have an alt attribute. 
+// Figure out how many image elements on the page have an alt attribute.
 $('img[alt]').length;
 
 // Get all the odd table rows in the table body.
-$('#fruits tbody tr:odd');	
+$('#fruits tbody tr:odd');
 // be sure to specify tbody, otherwise you'll get the tr in the thead too
 // note that we used the ID for the table to quickly localize the search
 
@@ -63,23 +63,23 @@ $('#slideshow li:first')
 	.addClass('current')
 	.siblings()
 		.addClass('disabled');
-		
-		
+
+
 
 /********************************
  * Manipulation					*
  ********************************/
 
-// Add five new list items to the end of the unordered list #myList 
+// Add five new list items to the end of the unordered list #myList
 var $ul = $('#myList');
 for (i=0; i<5; i++) {
 	$('<li>List item ' + i + '</li>').appendTo($ul);
 }
 
-// Remove the odd list items (hint: .remove()). 
+// Remove the odd list items (hint: .remove()).
 $('#myList li:odd').remove();
 
-// Add another h2 and another paragraph to div.module. 
+// Add another h2 and another paragraph to div.module.
 $('div.module')
 	.append('<h2>new heading</h2>')
 	.append('<p>new paragraph</p>');
@@ -87,35 +87,13 @@ $('div.module')
 // Add another option to the select element with a value of “Wednesday”.
 $('select').append('<option value="wednesday">Wednesday</option>');
 
-// Add a new div.module to the page after the last one; 
+// Add a new div.module to the page after the last one;
 // put a copy of one of the existing images inside of it
-var $ul = $('#myList');
+var $img = $('img:first');
 var $newDiv = $('<div class="module"/>');
 
-$newDiv.append($ul.clone().attr('id', '')).insertAfter('div.module:last');
+$newDiv.append($img.clone()).insertAfter('div.module:last');
 
-
-$('li').each(function() {
-	this.innerHTML = 'foo';
-});
-
-$('li').html('foo');
-
-$('#myCheckbox').click(function() {
-	if (this.checked) {
-		
-	}
-});
-
-
-$('li:first').get(0).innerHTML = ''
-
-$('#staff li').one('click', function() {
-	var $li = $(this);
-	$.getScript('/js/staff.js', function() {
-		showStaffDetails($li);
-	});
-});
 
 /*
 var myObject = {
@@ -201,7 +179,7 @@ myNumber + '2'; // 32
 $(document).ready(function() {
 
 	var settings = 'hello rebecca';
-	
+
 
 
 });
@@ -217,14 +195,14 @@ foo && bar && bim; // 'john'
 bar || foo || bim; // 1
 
 if (myVal) {
-	
+
 }
 
-var myArray = []; 
+var myArray = [];
 {};
 
 if (myArray.length) {
-	
+
 }
 
 myFunction && myFunction();
@@ -248,7 +226,7 @@ var myArray = [
 ];
 
 myArray[3][0]; 	// 'foo'
-myArray[4](); 	
+myArray[4]();
 
 // myArray[myArray.length] = 'bar';
 myArray.push('bar');
@@ -294,7 +272,7 @@ var $ = function(selector, context) {
 
 for (var i=0; i<5; i++) {
 	var myParagraph = $('<p>my element ' + i + '</p>');
-	
+
 	$p.appendTo('body');
 
 	$p.click(function() {
