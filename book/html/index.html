@@ -7132,26 +7132,31 @@ var toc = $('#toc ul'),
     loe = $('#loe ul');
 
 function makeLi(text, href) {
-  return '<li><a href="' + href + '">' + text + '</a></li>';
+  return $('<li><a href="' + href + '">' + text + '</a></li>');
 }
 
 $('div.chapter').each(function(i) {
   var chapter = $(this),
       chapterNumber = i;
 
-  $(makeLi('Chapter ' + chapterNumber + ': ' + chapter.attr('title'), '#chapter-' + i))
-    .appendTo(toc);
+  toc.append(
+    makeLi('Chapter ' + chapterNumber + ': ' + chapter.attr('title'), '#chapter-' + i)
+  );
 
   chapter.attr('id', 'chapter-' + i);
 
   chapter.find('div.example').each(function(j) {
     var example = $(this),
-        title = example.find('p.title');
+        title = example.find('p.title'),
+        exampleNumber = chapterNumber + '.' + (j+1),
+        exampleName = title.text();
 
-    $(makeLi('Example ' + chapterNumber + '.' + (j+1) + title.text(), '#example-' + j))
-      .appendTo(loe);
+    loe.append(
+      makeLi('Example ' + exampleNumber + ': ' + exampleName, '#example-' + j)
+    );
 
     example.attr('id', 'example-' + j);
+    title.html('Example ' + exampleNumber + ': ' + exampleName);
   });
 
   chapter.prepend('<p class="toc"><a title="Back to top" href="#toc">Back to top</a></p>');
