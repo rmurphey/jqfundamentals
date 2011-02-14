@@ -7137,13 +7137,13 @@ function makeLi(text, href) {
 
 $('div.chapter').each(function(i) {
   var chapter = $(this),
-      chapterNumber = i;
+      chapterNumber = i + 1;
 
   toc.append(
-    makeLi('Chapter ' + chapterNumber + ': ' + chapter.attr('title'), '#chapter-' + i)
+    makeLi('Chapter ' + chapterNumber + ': ' + chapter.attr('title'), '#chapter-' + chapterNumber)
   );
 
-  chapter.attr('id', 'chapter-' + i);
+  chapter.attr('id', 'chapter-' + chapterNumber);
 
   chapter.find('div.example').each(function(j) {
     var example = $(this),
