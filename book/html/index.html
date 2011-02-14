@@ -3663,7 +3663,11 @@ $('#menu li').hover(function() {
                 </h3>
               </div>
               <p>
-                Much like <code class="code">$.fn.hover</code>, the <code class="code">$.fn.toggle</code> method receives two or more functions; each time the event occurs, the next function in the list is called. Generally, <code class="code">$.fn.toggle</code> is used with just two functions, but technically you can use as many as you'd like.
+                The <code class="code">$.fn.toggle</a> method is triggered by the "click" event and accepts two or more
+                functions. Each time the click event occurs, the next function in the list is called.
+                Generally, <code class="code">$.fn.toggle</code> is used with just two functions; however, it will accept an
+                unlimited number of functions. Be careful, though: providing a long list of functions can be
+                difficult to debug).
               </p>
               <div class="example">
                 <p class="title">
