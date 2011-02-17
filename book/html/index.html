@@ -7,6 +7,8 @@
       jQuery Fundamentals
     </title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/2.1.382/styles/shCore.css">
+		<link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/2.1.382/styles/shThemeRDark.css">
   </head>
   <body>
     <div title="jQuery Fundamentals" class="book">
@@ -137,7 +139,7 @@
               <b>An example of inline JavaScript</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 &lt;script&gt;
 console.log('hello');
 &lt;/script&gt;
@@ -149,7 +151,7 @@ console.log('hello');
               <b>An example of including external JavaScript</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 &lt;script src='/js/jquery.js'&gt;&lt;/script&gt;
 </pre>
             </div>
@@ -248,7 +250,7 @@ console.log('hello');
             <b>Example of an example</b>
           </p>
           <div class="example-contents">
-            <pre class="programlisting">
+            <pre class="brush: js">
 // code examples will appear like this
 </pre>
           </div>
@@ -346,7 +348,7 @@ console.log('hello');
                 <b>A simple variable declaration</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var foo = 'hello world';
 </pre>
               </div>
@@ -356,7 +358,7 @@ var foo = 'hello world';
                 <b>Whitespace has no meaning outside of quotation marks</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var foo =         'hello world';
 </pre>
               </div>
@@ -366,7 +368,7 @@ var foo =         'hello world';
                 <b>Parentheses indicate precedence</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 2 * 3 + 5;    // returns 11; multiplication happens first
 2 * (3 + 5);  // returns 16; addition happens first
 </pre>
@@ -377,7 +379,7 @@ var foo =         'hello world';
                 <b>Tabs enhance readability, but have no special meaning</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var foo = function() {
     console.log('hello');
 };
@@ -403,7 +405,7 @@ var foo = function() {
                   <b>Concatenation</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var foo = 'hello';
 var bar = 'world';
 
@@ -416,7 +418,7 @@ console.log(foo + ' ' + bar); // 'hello world'
                   <b>Multiplication and division</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 2 * 3;
 2 / 3;
 </pre>
@@ -427,7 +429,7 @@ console.log(foo + ' ' + bar); // 'hello world'
                   <b>Incrementing and decrementing</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var i = 1;
 
 var j = ++i;  // pre-increment:  j equals 2; i equals 2
@@ -450,7 +452,7 @@ var k = i++;  // post-increment: k equals 2; i equals 3
                   <b>Addition vs. concatenation</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var foo = 1;
 var bar = '2';
 
@@ -463,7 +465,7 @@ console.log(foo + bar);  // 12. uh oh
                   <b>Forcing a string to act as a number</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var foo = 1;
 var bar = '2';
 
@@ -480,7 +482,7 @@ console.log(foo + Number(bar));
                   <b>Forcing a string to act as a number (using the unary-plus operator)</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 console.log(foo + +bar);
 </pre>
                 </div>
@@ -499,7 +501,7 @@ console.log(foo + +bar);
                 <b>Logical AND and OR operators</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var foo = 1;
 var bar = 0;
 var baz = 2;
@@ -526,7 +528,7 @@ baz &amp;&amp; foo;   // returns 1, which is true
             <p>
               You'll sometimes see developers use these logical operators for flow control instead of using <code class="code">if</code> statements. For example:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // do something with foo if foo is truthy
 foo &amp;&amp; doSomething(foo);
 
@@ -553,7 +555,7 @@ var bar = baz || createBar();
                   <b>Comparison operators</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var foo = 1;
 var bar = 0;
 var baz = '1';
@@ -586,7 +588,7 @@ foo &lt;= baz;   // returns true
               <b>Flow control</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 var foo = true;
 var bar = false;
 
@@ -633,7 +635,7 @@ if (bar) {
                 <b>Values that evaluate to <code class="code">true</code></b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 '0';
 'any string';
 [];  // an empty array
@@ -647,7 +649,7 @@ if (bar) {
                 <b>Values that evaluate to <code class="code">false</code></b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 0;
 '';  // an empty string
 NaN; // JavaScript's "not-a-number" variable
@@ -671,7 +673,7 @@ undefined;  // be careful -- undefined can be redefined!
                 <b>The ternary operator</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 // set foo to 1 if bar is true;
 // otherwise, set foo to 0
 var foo = bar ? 1 : 0;
@@ -696,7 +698,7 @@ var foo = bar ? 1 : 0;
                 <b>A switch statement</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 switch (foo) {
 
     case 'bar':
@@ -718,7 +720,7 @@ switch (foo) {
             <p>
               Switch statements have somewhat fallen out of favor in JavaScript, because often the same behavior can be accomplished by creating an object that has more potential for reuse, testing, etc. For example:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 var stuffToDo = {
     'bar' : function() {
         alert('the value was bar -- yay!');
@@ -755,7 +757,7 @@ if (stuffToDo[foo]) {
                 <b>Loops</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 // logs 'try 0', 'try 1', ..., 'try 4'
 for (var i=0; i&lt;5; i++) {
     console.log('try ' + i);
@@ -775,7 +777,7 @@ for (var i=0; i&lt;5; i++) {
               <p>
                 A <code class="code">for</code> loop is made up of four statements and has the following structure:
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 for ([initialisation]; [conditional]; [iteration])
  [loopBody]
 </pre>
@@ -799,7 +801,7 @@ for ([initialisation]; [conditional]; [iteration])
                   <b>A typical <code class="code">for</code> loop</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 for (var i = 0, limit = 100; i &lt; limit; i++) {
     // This block will be executed 100 times
     console.log('Currently at ' + i);
@@ -818,7 +820,7 @@ for (var i = 0, limit = 100; i &lt; limit; i++) {
               <p>
                 A <code class="code">while</code> loop is similar to an <code class="code">if</code> statement, except that its body will keep executing until the condition evaluates to false.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 while ([conditional]) [loopBody]
 </pre>
               <p>
@@ -829,7 +831,7 @@ while ([conditional]) [loopBody]
                   <b>A typical <code class="code">while</code> loop</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var i = 0;
 while (i &lt; 100) {
 
@@ -850,7 +852,7 @@ while (i &lt; 100) {
                   <b>A <code class="code">while</code> loop with a combined conditional and incrementer</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var i = -1;
 while (++i &lt; 100) {
     // This block will be executed 100 times
@@ -872,7 +874,7 @@ while (++i &lt; 100) {
               <p>
                 This is almost exactly the same as the <code class="code">while</code> loop, except for the fact that the loop's body is executed at least once before the condition is tested.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 do [loopBody] while ([conditional])
 </pre>
               <p>
@@ -883,7 +885,7 @@ do [loopBody] while ([conditional])
                   <b>A <code class="code">do-while</code> loop</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 do {
 
     // Even though the condition evaluates to false
@@ -913,7 +915,7 @@ do {
                   <b>Stopping a loop</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 for (var i = 0; i &lt; 10; i++) {
     if (something) {
         break;
@@ -930,7 +932,7 @@ for (var i = 0; i &lt; 10; i++) {
                   <b>Skipping to the next iteration of a loop</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 for (var i = 0; i &lt; 10; i++) {
 
     if (something) {
@@ -1137,7 +1139,7 @@ for (var i = 0; i &lt; 10; i++) {
                 <b>A simple array</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var myArray = [ 'hello', 'world' ];
 </pre>
               </div>
@@ -1147,7 +1149,7 @@ var myArray = [ 'hello', 'world' ];
                 <b>Accessing array items by index</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var myArray = [ 'hello', 'world', 'foo', 'bar' ];
 console.log(myArray[3]);   // logs 'bar'
 </pre>
@@ -1158,7 +1160,7 @@ console.log(myArray[3]);   // logs 'bar'
                 <b>Testing the size of an array</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var myArray = [ 'hello', 'world' ];
 console.log(myArray.length);   // logs 2
 </pre>
@@ -1169,7 +1171,7 @@ console.log(myArray.length);   // logs 2
                 <b>Changing the value of an array item</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var myArray = [ 'hello', 'world' ];
 myArray[1] = 'changed';
 </pre>
@@ -1183,7 +1185,7 @@ myArray[1] = 'changed';
                 <b>Adding elements to an array</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var myArray = [ 'hello', 'world' ];
 myArray.push('new');
 </pre>
@@ -1194,7 +1196,7 @@ myArray.push('new');
                 <b>Working with arrays</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var myArray = [ 'h', 'e', 'l', 'l', 'o' ];
 var myString = myArray.join('');   // 'hello'
 var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]
@@ -1219,7 +1221,7 @@ var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]
               <b>Creating an "object literal"</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 var myObject = {
     sayHello : function() {
         console.log('hello');
@@ -1240,7 +1242,7 @@ console.log(myObject.myName);   // logs 'Rebecca'
           <p>
             When creating object literals, you should note that the key portion of each key-value pair can be written as any valid JavaScript identifier, a string (wrapped in quotes) or a number:
           </p>
-          <pre class="programlisting">
+          <pre class="brush: js">
 var myObject = {
     validIdentifier: 123,
     'some string': 456,
@@ -1266,7 +1268,7 @@ var myObject = {
                 <b>Function Declaration</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 function foo() { /* do something */ }
 </pre>
               </div>
@@ -1276,7 +1278,7 @@ function foo() { /* do something */ }
                 <b>Named Function Expression</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var foo = function() { /* do something */ }
 </pre>
               </div>
@@ -1295,7 +1297,7 @@ var foo = function() { /* do something */ }
                   <b>A simple function</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var greet = function(person, greeting) {
     var text = greeting + ', ' + person;
     console.log(text);
@@ -1311,7 +1313,7 @@ greet('Rebecca', 'Hello');
                   <b>A function that returns a value</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var greet = function(person, greeting) {
     var text = greeting + ', ' + person;
     return text;
@@ -1326,7 +1328,7 @@ console.log(greet('Rebecca','hello'));
                   <b>A function that returns another function</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var greet = function(person, greeting) {
     var text = greeting + ', ' + person;
     return function() { console.log(text); };
@@ -1353,7 +1355,7 @@ greeting();
                   <b>A self-executing anonymous function</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 (function(){
     var foo = 'Hello world';
 })();
@@ -1378,7 +1380,7 @@ console.log(foo);   // undefined!
                   <b>Passing an anonymous function as an argument</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var myFn = function(fn) {
     var result = fn();
     console.log(result);
@@ -1393,7 +1395,7 @@ myFn(function() { return 'hello world'; });   // logs 'hello world'
                   <b>Passing a named function as an argument</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var myFn = function(fn) {
     var result = fn();
     console.log(result);
@@ -1424,7 +1426,7 @@ myFn(myOtherFn);   // logs 'hello world'
                 <b>Testing the type of various variables</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var myFunction = function() {
     console.log('hello');
 };
@@ -1488,7 +1490,7 @@ if (Object.prototype.toString.call(myArray) === '[object Array]') {
               <b>A function invoked using Function.call</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 var myObject = {
     sayHello : function() {
         console.log('Hi! My name is ' + this.myName);
@@ -1511,7 +1513,7 @@ myObject.sayHello.call(secondObject); // logs 'Hi! My name is Colin'
               <b>A function created using Function.bind</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 var myName = 'the global object',
 
     sayHello = function () {
@@ -1534,7 +1536,7 @@ myObjectHello();  // logs 'Hi! My name is Rebecca'
               <b>A function being attached to an object at runtime</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 var myName = 'the global object',
 
     sayHello = function() {
@@ -1565,7 +1567,7 @@ secondObject.sayHello();  // logs 'Hi! My name is Colin'
           <p>
             When invoking a function deep within a long namespace, it is often tempting to reduce the amount of code you need to type by storing a reference to the actual function as a single, shorter variable. It is important not to do this with instance methods as this will cause the value of <code class="code">this</code> within the function to change, leading to incorrect code operation. For instance:
           </p>
-          <pre class="programlisting">
+          <pre class="brush: js">
 var myNamespace = {
     myObject : {
         sayHello : function() {
@@ -1583,7 +1585,7 @@ hello();  // logs 'Hi! My name is undefined'
           <p>
             You can, however, safely reduce everything up to the object on which the method is invoked:
           </p>
-          <pre class="programlisting">
+          <pre class="brush: js">
 var myNamespace = {
     myObject : {
         sayHello : function() {
@@ -1617,7 +1619,7 @@ obj.sayHello();  // logs 'Hi! My name is Rebecca'
                 <b>Functions have access to variables defined in the same scope</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var foo = 'hello';
 
 var sayHello = function() {
@@ -1634,7 +1636,7 @@ console.log(foo);   // also logs 'hello'
                 <b>Code outside the scope in which a variable was defined does not have access to the variable</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var sayHello = function() {
     var foo = 'hello';
     console.log(foo);
@@ -1650,7 +1652,7 @@ console.log(foo);   // doesn't log anything
                 <b>Variables with the same name can exist in different scopes with different values</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var foo = 'world';
 
 var sayHello = function() {
@@ -1668,7 +1670,7 @@ console.log(foo);   // logs 'world'
                 <b>Functions can "see" changes in variable values after the function is defined</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var myFunction = function() {
     var foo = 'hello';
 
@@ -1691,7 +1693,7 @@ f();  // logs 'world' -- uh oh
                 <b>Scope insanity</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 // a self-executing anonymous function
 (function() {
     var baz = 1;
@@ -1728,7 +1730,7 @@ bim();  // bim is not defined outside of the anonymous function,
                 <b>How to lock in the value of <code class="code">i</code>?</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 /* this won't behave as we want it to; */
 /* every click will alert 5 */
 for (var i=0; i&lt;5; i++) {
@@ -1744,7 +1746,7 @@ for (var i=0; i&lt;5; i++) {
                 <b>Locking in the value of <code class="code">i</code> with a closure</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 /* fix: “close” the value of i inside createFunction, so it won't change */
 var createFunction = function(i) {
     return function() { alert(i); };
@@ -1764,7 +1766,7 @@ for (var i=0; i&lt;5; i++) {
                 <b>Using a closure to access inner and outer object instances simultaneously</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var outerObj = {
     myName : 'outer',
     outerFunction : function () {
@@ -1827,7 +1829,7 @@ outerObj.outerFunction();
                 <b>A $(document).ready() block</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $(document).ready(function() {
     console.log('ready!');
 });
@@ -1842,7 +1844,7 @@ $(document).ready(function() {
                 <b>Shorthand for $(document).ready()</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $(function() {
     console.log('ready!');
 });
@@ -1857,7 +1859,7 @@ $(function() {
                 <b>Passing a named function instead of an anonymous function</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 function readyFn() {
     // code to run when the document is ready
 }
@@ -1882,7 +1884,7 @@ $(document).ready(readyFn);
               <b>Selecting elements by ID</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('#myId'); // note IDs must be unique per page
 </pre>
             </div>
@@ -1892,7 +1894,7 @@ $('#myId'); // note IDs must be unique per page
               <b>Selecting elements by class name</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('div.myClass'); // performance improves if you specify element type
 </pre>
             </div>
@@ -1902,7 +1904,7 @@ $('div.myClass'); // performance improves if you specify element type
               <b>Selecting elements by attribute</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('input[name=first_name]'); // beware, this can be very slow
 </pre>
             </div>
@@ -1912,7 +1914,7 @@ $('input[name=first_name]'); // beware, this can be very slow
               <b>Selecting elements by compound CSS selector</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('#contents ul.people li');
 </pre>
             </div>
@@ -1922,7 +1924,7 @@ $('#contents ul.people li');
               <b>Pseudo-selectors</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('a.external:first');
 $('tr:odd');
 $('#myForm :input');   // select all input-like elements in a form
@@ -1942,7 +1944,7 @@ $('div:animated');     // all currently animated divs
           <p>
             For reference, here is the code jQuery uses to determine whether an element is visible or hidden, with comments added for clarity:
           </p>
-          <pre class="programlisting">
+          <pre class="brush: js">
 jQuery.expr.filters.hidden = function( elem ) {
     var width = elem.offsetWidth, height = elem.offsetHeight,
         skip = elem.nodeName.toLowerCase() === "tr";
@@ -1983,7 +1985,7 @@ jQuery.expr.filters.visible = function( elem ) {
             <p>
               jQuery offers many attribute-based selectors, allowing you to make selections based on the content of arbitrary attributes using simplified regular expressions.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // find all &lt;a&gt;s whose rel attribute
 // ends with "thinger"
 $("a[rel$='thinger']");
@@ -2004,7 +2006,7 @@ $("a[rel$='thinger']");
             <p>
               Once you've made a selection, you'll often want to know whether you have anything to work with. You may be inclined to try something like:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 if ($('div.foo')) { ... }
 </pre>
             <p>
@@ -2018,7 +2020,7 @@ if ($('div.foo')) { ... }
                 <b>Testing whether a selection contains elements</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 if ($('div.foo').length) { ... }
 </pre>
               </div>
@@ -2037,7 +2039,7 @@ if ($('div.foo').length) { ... }
               <b>Storing selections in a variable</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 var $divs = $('div');
 </pre>
             </div>
@@ -2075,7 +2077,7 @@ var $divs = $('div');
                 <b>Refining selections</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('div.foo').has('p');          // div.foo elements that contain &lt;p&gt;'s
 $('h1').not('.bar');            // h1 elements that don't have a class of bar
 $('ul li').filter('.current');  // unordered list items with class of current
@@ -2215,7 +2217,7 @@ $('ul li').eq(5);               // the sixth
                 <b>Using form-related pseduo-selectors</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $("#myForm :input'); // get all elements that accept input
 </pre>
               </div>
@@ -2241,7 +2243,7 @@ $("#myForm :input'); // get all elements that accept input
                 <b>Chaining</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#content').find('h3').eq(2).html('new text for the third h3!');
 </pre>
               </div>
@@ -2254,7 +2256,7 @@ $('#content').find('h3').eq(2).html('new text for the third h3!');
                 <b>Formatting chained code</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#content')
     .find('h3')
     .eq(2)
@@ -2270,7 +2272,7 @@ $('#content')
                 <b>Restoring your original selection using <code class="code">$.fn.end</code></b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#content')
     .find('h3')
     .eq(2)
@@ -2303,7 +2305,7 @@ $('#content')
                   <b>The <code class="code">$.fn.html</code> method used as a setter</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('h1').html('hello world');
 </pre>
                 </div>
@@ -2313,7 +2315,7 @@ $('h1').html('hello world');
                   <b>The html method used as a getter</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('h1').html();
 </pre>
                 </div>
@@ -2342,7 +2344,7 @@ $('h1').html();
               <b>Getting CSS properties</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('h1').css('fontSize'); // returns a string such as "19px"
 </pre>
             </div>
@@ -2352,7 +2354,7 @@ $('h1').css('fontSize'); // returns a string such as "19px"
               <b>Setting CSS properties</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('h1').css('fontSize', '100px'); // setting an individual property
 $('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple properties
 </pre>
@@ -2375,7 +2377,7 @@ $('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple prop
                 <b>Working with classes</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var $h1 = $('h1');
 
 $h1.addClass('big');
@@ -2407,7 +2409,7 @@ if ($h1.hasClass('big')) { ... }
                 <b>Basic dimensions methods</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('h1').width('50px');   // sets the width of all H1 elements
 $('h1').width();         // gets the width of the first H1
 
@@ -2436,7 +2438,7 @@ $('h1').position();      // returns an object containing position
                 <b>Setting attributes</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('a').attr('href', 'allMyHrefsAreTheSameNow.html');
 $('a').attr({
     'title' : 'all titles are the same too!',
@@ -2453,7 +2455,7 @@ $('a').attr({
                 <b>Getting attributes</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('a').attr('href');  // returns the href for the first a element in the document
 </pre>
               </div>
@@ -2481,7 +2483,7 @@ $('a').attr('href');  // returns the href for the first a element in the documen
               <b>Moving around the DOM using traversal methods</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('h1').next('p');
 $('div:visible').parent();
 $('input[name=first_name]').closest('form');
@@ -2498,7 +2500,7 @@ $('li.selected').siblings();
               <b>Iterating over a selection</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('#myList li').each(function(idx, el) {
     console.log(
         'Element ' + idx +
@@ -2608,7 +2610,7 @@ $('#myList li').each(function(idx, el) {
                 <b>Changing the HTML of an element</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#myDiv p:first')
     .html('New &lt;strong&gt;first&lt;/strong&gt; paragraph!');
 </pre>
@@ -2646,7 +2648,7 @@ $('#myDiv p:first')
                   <b>Moving elements using different approaches</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 // make the first list item the last list item
 var $li = $('#myList li:first').appendTo('#myList');
 
@@ -2672,7 +2674,7 @@ $('#myList').append($('#myList li:first'));
                   <b>Making a copy of an element</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 // copy the first list item to the end of the list
 $('#myList li:first').clone().appendTo('#myList');
 </pre>
@@ -2722,7 +2724,7 @@ $('#myList li:first').clone().appendTo('#myList');
                 <b>Creating new elements</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('&lt;p&gt;This is a new paragraph&lt;/p&gt;');
 $('&lt;li class="new"&gt;new list item&lt;/li&gt;');
 </pre>
@@ -2733,7 +2735,7 @@ $('&lt;li class="new"&gt;new list item&lt;/li&gt;');
                 <b>Creating a new element with an attribute object</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('&lt;a/&gt;', {
     html : 'This is a &lt;strong&gt;new&lt;/strong&gt; link',
     'class' : 'new',
@@ -2753,7 +2755,7 @@ $('&lt;a/&gt;', {
                 <b>Getting a new element on to the page</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var $myNewElement = $('&lt;p&gt;New element&lt;/p&gt;');
 $myNewElement.appendTo('#content');
 
@@ -2773,7 +2775,7 @@ $('ul').last().after($myNewElement.clone());  // clone the p so now we have 2
                 <b>Creating and adding an element to the page at the same time</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('ul').append('&lt;li&gt;list item&lt;/li&gt;');
 </pre>
               </div>
@@ -2785,7 +2787,7 @@ $('ul').append('&lt;li&gt;list item&lt;/li&gt;');
             <p>
               The syntax for adding new elements to the page is so easy, it's tempting to forget that there's a huge performance cost for adding to the DOM repeatedly. If you are adding many elements to the same container, you'll want to concatenate all the html into a single string, and then append that string to the container instead of appending the elements one at a time. You can use an array to gather all the pieces together, then <code class="code">join</code> them into a single string for appending.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 var myItems = [], $myList = $('#myList');
 
 for (var i=0; i&lt;100; i++) {
@@ -2809,7 +2811,7 @@ $myList.append(myItems.join(''));
                   <b>Manipulating a single attribute</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('#myDiv a:first').attr('href', 'newDestination.html');
 </pre>
                 </div>
@@ -2819,7 +2821,7 @@ $('#myDiv a:first').attr('href', 'newDestination.html');
                   <b>Manipulating multiple attributes</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('#myDiv a:first').attr({
     href : 'newDestination.html',
     rel : 'super-special'
@@ -2832,7 +2834,7 @@ $('#myDiv a:first').attr({
                   <b>Using a function to determine an attribute's new value</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('#myDiv a:first').attr({
     rel : 'super-special',
     href : function(idx, href) {
@@ -2950,7 +2952,7 @@ $('#myDiv a:first').attr('href', function(idx, href) {
                     <p>
                       Add five new list items to the end of the unordered list #myList. Hint:
                     </p>
-                    <pre class="programlisting">
+                    <pre class="brush: js">
 for (var i = 0; i&lt;5; i++) { ... }
 </pre>
                   </li>
@@ -2996,7 +2998,7 @@ for (var i = 0; i&lt;5; i++) { ... }
             <p>
               Until now, we’ve been dealing entirely with methods that are called on a jQuery object. For example:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 $('h1').remove();
 </pre>
             <p>
@@ -3034,7 +3036,7 @@ $('h1').remove();
                   <p>
                     Removes leading and trailing whitespace.
                   </p>
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $.trim('    lots of extra whitespace    ');
 // returns 'lots of extra whitespace'
 </pre>
@@ -3046,7 +3048,7 @@ $.trim('    lots of extra whitespace    ');
                   <p>
                     Iterates over arrays and objects.
                   </p>
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $.each([ 'foo', 'bar', 'baz' ], function(idx, val) {
     console.log('element ' + idx + 'is ' + val);
 });
@@ -3071,7 +3073,7 @@ $.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
                   <p>
                     Returns a value's index in an array, or -1 if the value is not in the array.
                   </p>
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var myArray = [ 1, 2, 3, 5 ];
 
 if ($.inArray(4, myArray) !== -1) {
@@ -3086,7 +3088,7 @@ if ($.inArray(4, myArray) !== -1) {
                   <p>
                     Changes the properties of the first object using the properties of subsequent objects.
                   </p>
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var firstObject = { foo : 'bar', a : 'b' };
 var secondObject = { foo : 'baz' };
 
@@ -3097,7 +3099,7 @@ console.log(newObject.foo);   // 'baz'
                   <p>
                     If you don't want to change any of the objects you pass to <code class="code">$.extend</code>, pass an empty object as the first argument.
                   </p>
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var firstObject = { foo : 'bar', a : 'b' };
 var secondObject = { foo : 'baz' };
 
@@ -3113,7 +3115,7 @@ console.log(newObject.foo);   // 'baz'
                   <p>
                     Returns a function that will always run in the provided scope — that is, sets the meaning of <code class="code">this</code> inside the passed function to the second argument.
                   </p>
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var myFunction = function() { console.log(this); };
 var myObject = { foo : 'bar' };
 
@@ -3125,7 +3127,7 @@ myProxyFunction(); // logs myObject object
                   <p>
                     If you have an object with methods, you can pass the object and the name of a method to return a function that will always run in the scope of the object.
                   </p>
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var myObject = {
     myFn : function() {
         console.log(this);
@@ -3151,7 +3153,7 @@ $('#foo').click($.proxy(myObject, 'myFn')); // logs myObject
                 <b>Checking the type of an arbitrary value</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var myValue = [1, 2, 3];
 
 // Using JavaScript's typeof operator to test for primative types
@@ -3183,7 +3185,7 @@ jQuery.isArray(myValue); // true
                 <b>Storing and retrieving data related to an element</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#myDiv').data('keyName', { foo : 'bar' });
 $('#myDiv').data('keyName'); // { foo : 'bar' }
 </pre>
@@ -3200,7 +3202,7 @@ $('#myDiv').data('keyName'); // { foo : 'bar' }
                 <b>Storing a relationship between elements using <code class="code">$.fn.data</code></b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#myList li').each(function() {
     var $li = $(this), $div = $li.find('div.content');
     $li.data('contentDiv', $div);
@@ -3249,7 +3251,7 @@ $firstLi.data('contentDiv').html('new content');
                 <b>Putting jQuery into no-conflict mode</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 &lt;script src="prototype.js"&gt;&lt;/script&gt;
 &lt;script src="jquery.js"&gt;&lt;/script&gt;
 &lt;script&gt;var $j = jQuery.noConflict();&lt;/script&gt;
@@ -3264,7 +3266,7 @@ $firstLi.data('contentDiv').html('new content');
                 <b>Using the $ inside a self-executing anonymous function</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 &lt;script src="prototype.js"&gt;&lt;/script&gt;
 &lt;script src="jquery.js"&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -3318,7 +3320,7 @@ jQuery.noConflict();
                 <b>Event binding using a convenience method</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('p').click(function() {
     console.log('click');
 });
@@ -3330,7 +3332,7 @@ $('p').click(function() {
                 <b>Event biding using the <code class="code">$.fn.bind</code> method</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('p').bind('click', function() {
     console.log('click');
 });
@@ -3342,7 +3344,7 @@ $('p').bind('click', function() {
                 <b>Event binding using the <code class="code">$.fn.bind</code> method with data</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('input').bind(
     'click change',  // bind to multiple events
     { foo : 'bar' }, // pass in data
@@ -3369,7 +3371,7 @@ $('input').bind(
                   <b>Switching handlers using the <code class="code">$.fn.one</code> method</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('p').one('click', function() {
     console.log('You just clicked this for the first time!');
     $(this).click(function() { console.log('You have clicked this before!'); });
@@ -3395,7 +3397,7 @@ $('p').one('click', function() {
                   <b>Unbinding all click handlers on a selection</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('p').unbind('click');
 </pre>
                 </div>
@@ -3405,7 +3407,7 @@ $('p').unbind('click');
                   <b>Unbinding a particular click handler</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var foo = function() { console.log('foo'); };
 var bar = function() { console.log('bar'); };
 
@@ -3429,7 +3431,7 @@ $('p').unbind('click', bar); // foo is still bound to the click event
                   <b>Namespacing events</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('p').bind('click.myNamespace', function() { /* ... */ });
 $('p').unbind('click.myNamespace');
 $('p').unbind('.myNamespace'); // unbind all events in the namespace
@@ -3508,7 +3510,7 @@ $('p').unbind('.myNamespace'); // unbind all events in the namespace
             <p>
               In addition to the event object, the event handling function also has access to the DOM element that the handler was bound to via the keyword <code class="code">this</code>. To turn the DOM element into a jQuery object that we can use jQuery methods on, we simply do <code class="code">$(this)</code>, often following this idiom:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 var $this = $(this);
 </pre>
             <div class="example">
@@ -3516,7 +3518,7 @@ var $this = $(this);
                 <b>Preventing a link from being followed</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('a').click(function(e) {
     var $this = $(this);
     if ($this.attr('href').match('evil')) {
@@ -3540,7 +3542,7 @@ $('a').click(function(e) {
                 <b>Triggering an event handler the right way</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var foo = function(e) {
     if (e) {
         console.log(e);
@@ -3579,7 +3581,7 @@ foo(); // instead of $('p').trigger('click')
               <b>Event delegation using <code class="code">$.fn.delegate</code></b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('#myUnorderedList').delegate('li', 'click', function(e) {
     var $myListItem = $(this);
     // ...
@@ -3592,7 +3594,7 @@ $('#myUnorderedList').delegate('li', 'click', function(e) {
               <b>Event delegation using <code class="code">$.fn.live</code></b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('#myUnorderedList li').live('click', function(e) {
     var $myListItem = $(this);
     // ...
@@ -3614,7 +3616,7 @@ $('#myUnorderedList li').live('click', function(e) {
                 <b>Unbinding delegated events</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#myUnorderedList').undelegate('li', 'click');
 $('#myUnorderedList li').die('click');
 </pre>
@@ -3649,7 +3651,7 @@ $('#myUnorderedList li').die('click');
                 <b>The hover helper function</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#menu li').hover(function() {
     $(this).toggleClass('hover');
 });
@@ -3674,7 +3676,7 @@ $('#menu li').hover(function() {
                   <b>The toggle helper function</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('p.expander').toggle(
     function() {
         $(this).prev().addClass('open');
@@ -3882,7 +3884,7 @@ $('p.expander').toggle(
                 <b>A basic use of a built-in effect</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('h1').show();
 </pre>
               </div>
@@ -3901,7 +3903,7 @@ $('h1').show();
                   <b>Setting the duration of an effect</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('h1').fadeIn(300);      // fade in over 300ms
 $('h1').fadeOut('slow');  // using a built-in speed definition
 </pre>
@@ -3916,7 +3918,7 @@ $('h1').fadeOut('slow');  // using a built-in speed definition
                 <p>
                   jQuery has an object at <code class="code">jQuery.fx.speeds</code> that contains the default speed, as well as settings for <code class="code">"slow"</code> and <code class="code">"fast"</code>.
                 </p>
-                <pre class="programlisting">
+                <pre class="brush: js">
 speeds: {
     slow: 600,
     fast: 200,
@@ -3932,7 +3934,7 @@ speeds: {
                     <b>Augmenting <code class="code">jQuery.fx.speeds</code> with custom speed definitions</b>
                   </p>
                   <div class="example-contents">
-                    <pre class="programlisting">
+                    <pre class="brush: js">
 jQuery.fx.speeds.blazing = 100;
 jQuery.fx.speeds.turtle = 2000;
 </pre>
@@ -3954,7 +3956,7 @@ jQuery.fx.speeds.turtle = 2000;
                   <b>Running code when an animation is complete</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('div.old').fadeOut(300, function() { $(this).remove(); });
 </pre>
                 </div>
@@ -3967,7 +3969,7 @@ $('div.old').fadeOut(300, function() { $(this).remove(); });
                   <b>Run a callback even if there were no elements to animate</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var $thing = $('#nonexistent');
 
 var cb = function() {
@@ -3995,7 +3997,7 @@ if ($thing.length) {
               <b>Custom effects with <code class="code">$.fn.animate</code></b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('div.funtimes').animate(
     {
         left : "+=50",
@@ -4032,7 +4034,7 @@ $('div.funtimes').animate(
                 <b>Per-property easing</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('div.funtimes').animate(
     {
         left : [ "+=50", "swing" ],
@@ -4071,7 +4073,7 @@ $('div.funtimes').animate(
                   <p>
                     Wait the specified number of milliseconds before running the next animation.
                   </p>
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('h1').show(300).delay(1000).hide(300);
 </pre>
                 </dd>
@@ -4309,7 +4311,7 @@ $('h1').show(300).delay(1000).hide(300);
               <p>
                 The asynchronicity of Ajax catches many new jQuery users off guard. Because Ajax calls are asynchronous by default, the response is not immediately available. Responses can only be handled using a callback. So, for example, the following code will not work:
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 var response;
 $.get('foo.php', function(r) { response = r; });
 console.log(response); <span class="emphasis"><em>// undefined!</em></span>
@@ -4317,7 +4319,7 @@ console.log(response); <span class="emphasis"><em>// undefined!</em></span>
               <p>
                 Instead, we need to pass a callback function to our request; this callback will run when the request succeeds, at which point we can access the data that it returned, if any.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 $.get('foo.php', function(response) { console.log(response); });
 </pre>
             </div>
@@ -4368,7 +4370,7 @@ $.get('foo.php', function(response) { console.log(response); });
                 <b>Using the core $.ajax method</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $.ajax({
     // the URL for the request
     url : 'post.php',
@@ -4643,7 +4645,7 @@ $.ajax({
                   <b>Using jQuery's Ajax convenience methods</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 // get plain text or html
 $.get('/users.php', { userId : 1234 }, function(resp) {
     console.log(resp);
@@ -4678,7 +4680,7 @@ $.getJSON('/details.php', function(resp) {
                   <b>Using <code class="code">$.fn.load</code> to populate an element</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('#newContent').load('/foo.html');
 </pre>
                 </div>
@@ -4688,7 +4690,7 @@ $('#newContent').load('/foo.html');
                   <b>Using <code class="code">$.fn.load</code> to populate an element based on a selector</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $('#newContent').load('/foo.html <span class="bold"><strong>#myDiv h1:first</strong></span>', function(html) {
   alert('Content updated!');
 });
@@ -4709,7 +4711,7 @@ $('#newContent').load('/foo.html <span class="bold"><strong>#myDiv h1:first</str
                 <b>Turning form data into a query string</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#myForm').serialize();
 </pre>
               </div>
@@ -4719,7 +4721,7 @@ $('#myForm').serialize();
                 <b>Creating an array of objects containing form data</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#myForm').serializeArray();
 
 // creates a structure like this:
@@ -4743,7 +4745,7 @@ $('#myForm').serializeArray();
                 <b>Using YQL and JSONP</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $.ajax({
     url : 'http://query.yahooapis.com/v1/public/yql',
 
@@ -4784,7 +4786,7 @@ $.ajax({
                 <b>Setting up a loading indicator using Ajax Events</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $('#loading_indicator')
     .ajaxStart(function() { $(this).show(); })
     .ajaxStop(function() { $(this).hide(); });
@@ -4816,7 +4818,7 @@ $('#loading_indicator')
               <p>
                 Note that each blog headline in index.html includes a link to the post. You'll need to leverage the href of that link to get the proper content from blog.html. Once you have the href, here's one way to process it into an ID that you can use as a selector in <code class="code">$.fn.load</code>:
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 var href = 'blog.html#post1';
 var tempArray = href.split('#');
 var id = '#' + tempArray[1];
@@ -4894,7 +4896,7 @@ var id = '#' + tempArray[1];
             <p>
               The notation for creating a typical plugin is as follows:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 (function($){
     $.fn.myNewPlugin = function() {
         return this.each(function(){
@@ -4906,13 +4908,13 @@ var id = '#' + tempArray[1];
             <p>
               Don't let that confuse you though. The point of a jQuery plugin is to extend jQuery's prototype object, and that's what's happening on this line:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 $.fn.myNewPlugin = function() { //...
 </pre>
             <p>
               We wrap this assignment in an immediately-invoked function:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 (function($){
     //...
 }(jQuery));
@@ -4923,7 +4925,7 @@ $.fn.myNewPlugin = function() { //...
             <p>
               So our actual plugin, thus far, is this:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 $.fn.myNewPlugin = function() {
     return this.each(function(){
         // do something
@@ -4933,7 +4935,7 @@ $.fn.myNewPlugin = function() {
             <p>
               The <code class="code">this</code> keyword within the new plugin refers to the jQuery object on which the plugin is being called.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 var somejQueryObject = $('#something');
 
 $.fn.myNewPlugin = function() {
@@ -4948,7 +4950,7 @@ somejQueryObject.myNewPlugin(); // alerts 'true'
             <p>
               So, to do something with a collection we need to loop through it, which is most easily achieved using jQuery's <code class="code">each()</code> method:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 $.fn.myNewPlugin = function() {
     return this.each(function(){
 
@@ -4958,7 +4960,7 @@ $.fn.myNewPlugin = function() {
             <p>
               jQuery's <code class="code">each()</code> method, like most other jQuery methods, returns a jQuery object, thus enabling what we've all come to know and love as 'chaining' (<code class="code">$(...).css().attr()...</code>). We wouldn't want to break this convention so we return the <code class="code">this</code> object. Within this loop you can do whatever you want with each element. Here's an example of a small plugin using some of the techniques we've discussed:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 (function($){
     $.fn.showLinkLocation = function() {
         return this.filter('a').each(function(){
@@ -4975,7 +4977,7 @@ $('a').showLinkLocation();
             <p>
               This handy plugin goes through all anchors in the collection and appends the <code class="code">href</code> attribute in brackets.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 &lt;!-- Before plugin is called: --&gt;
 &lt;a href="page.html"&gt;Foo&lt;/a&gt;
 
@@ -4985,7 +4987,7 @@ $('a').showLinkLocation();
             <p>
               Our plugin can be optimised though:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 (function($){
     $.fn.showLinkLocation = function() {
         return this.filter('a').append(function(){
@@ -5000,7 +5002,7 @@ $('a').showLinkLocation();
             <p>
               Here's another example of a plugin. This one doesn't require us to loop through every elememt with the <code class="code">each()</code> method. Instead, we're simply going to delegate to other jQuery methods directly:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 (function($){
     $.fn.fadeInAndAddClass = function(duration, className) {
         return this.fadeIn(duration, function(){
@@ -5051,7 +5053,7 @@ $('a').fadeInAndAddClass(400, 'finishedFading');
                 <b>Creating a plugin to add and remove a class on hover</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 // defining the plugin
 (function($){
     $.fn.hoverClass = function(c) {
@@ -5074,7 +5076,7 @@ $('li').hoverClass('hover');
                 <b>The Mike Alsup jQuery Plugin Development Pattern</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 //
 // create closure
 //
@@ -5158,7 +5160,7 @@ $('li').hoverClass('hover');
               <b>A simple, stateful plugin using the jQuery UI widget factory</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $.widget("nmk.progressbar", {
     _create: function() {
         var progress = this.options.value + "%";
@@ -5186,7 +5188,7 @@ $.widget("nmk.progressbar", {
               <b>Passing options to a widget</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $("&lt;div&gt;&lt;/div&gt;")
     .appendTo( "body" )
     .progressbar({ value: 20 });
@@ -5201,7 +5203,7 @@ $("&lt;div&gt;&lt;/div&gt;")
               <b>Setting default options for a widget</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $.widget("nmk.progressbar", {
     // default options
     options: {
@@ -5231,7 +5233,7 @@ $.widget("nmk.progressbar", {
               <b>Creating widget methods</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 $.widget("nmk.progressbar", {
     options: {
         value: 0
@@ -5279,7 +5281,7 @@ $.widget("nmk.progressbar", {
               <b>Calling methods on a plugin instance</b>
             </p>
             <div class="example-contents">
-              <pre class="programlisting">
+              <pre class="brush: js">
 var bar = $("&lt;div&gt;&lt;/div&gt;")
     .appendTo("body")
     .progressbar({ value: 20 });
@@ -5317,7 +5319,7 @@ alert(bar.progressbar("value"));
                 <b>Responding when an option is set</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $.widget("nmk.progressbar", {
     options: {
         value: 0
@@ -5356,7 +5358,7 @@ $.widget("nmk.progressbar", {
                 <b>Providing callbacks for user extension</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $.widget("nmk.progressbar", {
     options: {
         value: 0
@@ -5394,7 +5396,7 @@ $.widget("nmk.progressbar", {
                 <b>Binding to widget events</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 var bar = $("&lt;div&gt;&lt;/div&gt;")
     .appendTo("body")
     .progressbar({
@@ -5421,7 +5423,7 @@ bar.progressbar("option", "value", 100);
               <p>
                 Because the plugin instance is directly linked to the DOM element, you can access the plugin instance directly instead of going through the exposed plugin method if you want. This will allow you to call methods directly on the plugin instance instead of passing method names as strings and will also give you direct access to the plugin’s properties.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 var bar = $("&lt;div&gt;&lt;/div&gt;")
     .appendTo("body")
     .progressbar()
@@ -5436,7 +5438,7 @@ alert(bar.options.value);
               <p>
                 One of the biggest benefits of having a constructor and prototype for a plugin is the ease of extending the plugin. By adding or modifying methods on the plugin’s prototype, we can modify the behavior of all instances of our plugin. For example, if we wanted to add a method to our progress bar to reset the progress to 0% we could add this method to the prototype and it would instantly be available to be called on any plugin instance.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 $.nmk.progressbar.prototype.reset = function() {
     this._setOption("value", 0);
 };
@@ -5457,7 +5459,7 @@ $.nmk.progressbar.prototype.reset = function() {
                 <b>Adding a destroy method to a widget</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 $.widget( "nmk.progressbar", {
     options: {
         value: 0
@@ -5527,7 +5529,7 @@ $.widget( "nmk.progressbar", {
               <p>
                 Open the file <code class="filename">/exercises/index.html</code> in your browser. Use the file <code class="filename">/exercises/js/stripe.js</code>. Your task is to write a plugin called "stripe" that you can call on any table element. When the plugin is called on a table element, it should change the color of odd rows in the table body to a user-specified color.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('#myTable').stripe('#cccccc');
 </pre>
               <p>
@@ -5588,7 +5590,7 @@ $('#myTable').stripe('#cccccc');
             <p>
               In a for loop, don't access the length property of an array every time; cache it beforehand.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 var myLength = myArray.length;
 
 for (var i = 0; i &lt; myLength; i++) {
@@ -5609,7 +5611,7 @@ for (var i = 0; i &lt; myLength; i++) {
             <p>
               Touching the DOM comes at a cost; if you're adding a lot of elements to the DOM, do it all at once, not one at a time.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // this is bad
 $.each(myArray, function(i, item) {
    var newListItem = '&lt;li&gt;' + item + '&lt;/li&gt;';
@@ -5647,7 +5649,7 @@ $('#ballers').html(myHtml);
             <p>
               Don't repeat yourself; if you're repeating yourself, you're doing it wrong.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // BAD
 if ($eventfade.data('currently') != 'showing') {
     $eventfade.stop();
@@ -5683,7 +5685,7 @@ $.each($elems, function(i,elem) {
             <p>
               Anonymous functions bound everywhere are a pain. They're difficult to debug, maintain, test, or reuse. Instead, use an object literal to organize and name your handlers and callbacks.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // BAD
 $(document).ready(function() {
     $('#magic').click(function(e) {
@@ -5738,7 +5740,7 @@ $(document).ready(PI.onReady);
               <p>
                 Beginning your selector with an ID is always best.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 // fast
 $('#container div.robotarm');
 
@@ -5758,7 +5760,7 @@ $('#container').find('div.robotarm');
               <p>
                 Be specific on the right-hand side of your selector, and less specific on the left.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 // unoptimized
 $('div.data .gonzalez');
 
@@ -5771,7 +5773,7 @@ $('.data td.gonzalez');
               <p>
                 Avoid excessive specificity.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('.data table.attendees td.gonzalez');
 
 // better: drop the middle if possible
@@ -5790,7 +5792,7 @@ $('.data td.gonzalez');
               <p>
                 Selections that specify or imply that a match could be found anywhere can be very slow.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('.buttons &gt; *');  // extremely expensive
 $('.buttons').children();  // much better
 
@@ -5816,7 +5818,7 @@ $('.gender input:radio'); // much better
             <p>
               In addition to performance benefits, event delegation also allows you to add new contained elements to your page without having to re-bind the event handlers for them as they're added.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // bad (if there are lots of list items)
 $('li.trigger').click(handlerFn);
 
@@ -5841,7 +5843,7 @@ $('#myList').delegate('li.trigger', 'click', handlerFn);
             <p>
               The DOM is slow; you want to avoid manipulating it as much as possible. jQuery introduced <code class="code">$.fn.detach</code> in version 1.4 to help address this issue, allowing you to remove an element from the DOM while you work with it.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 var $table = $('#myTable');
 var $parent = $table.parent();
 
@@ -5863,7 +5865,7 @@ $parent.append(table);
             <p>
               If you're changing the CSS of more than 20 elements using $.fn.css, consider adding a style tag to the page instead for a nearly 60% increase in speed.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // fine for up to 20 elements, slow after that
 $('a.swedberg').css('color', '#asd123');
 $('&lt;style type="text/css"&gt;a.swedberg { color : #asd123 }&lt;/style&gt;')
@@ -5883,7 +5885,7 @@ $('&lt;style type="text/css"&gt;a.swedberg { color : #asd123 }&lt;/style&gt;')
             <p>
               Using $.data on a DOM element instead of calling $.fn.data on a jQuery selection can be up to 10 times faster. Be sure you understand the difference between a DOM element and a jQuery selection before doing this, though.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // regular
 $(elem).data(key,value);  
 
@@ -5904,7 +5906,7 @@ $(elem).data(key,value);  
             <p>
               jQuery won't tell you if you're trying to run a whole lot of code on an empty selection — it will proceed as though nothing's wrong. It's up to you to verify that your selection contains some elements.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // BAD: this runs three functions
 // before it realizes there's nothing
 // in the selection
@@ -5941,7 +5943,7 @@ jQuery.fn.doOnce = function(func){
             <p>
               Variables can be defined in one statement instead of several.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // old &amp; busted
 var test = 1;
 var test2 = function() { ... };
@@ -5955,7 +5957,7 @@ var test = 1,
             <p>
               In self-executing functions, variable definition can be skipped all together.
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 (function(foo, bar) { ... })(1, 2);
 </pre>
           </div>
@@ -5969,7 +5971,7 @@ var test = 1,
                 </div>
               </div>
             </div>
-            <pre class="programlisting">
+            <pre class="brush: js">
 // old way
 if (type == 'foo' || type == 'bar') { ... }
 
@@ -6066,7 +6068,7 @@ if (({ foo : 1, bar : 1 })[type]) { ... }
                   <b>An object literal</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var myFeature = {
     myProperty : 'hello',
 
@@ -6096,7 +6098,7 @@ myFeature.readSettings(); // logs { foo : 'bar' }
               <p>
                 How would we apply this pattern to jQuery code? Let's say that we had this code written in the traditional jQuery style:
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 // clicking on a list item loads some content
 // using the list item's ID and hides content
 // in sibling list items
@@ -6125,7 +6127,7 @@ $(document).ready(function() {
                   <b>Using an object literal for a jQuery feature</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var myFeature = {
     init : function(settings) {
         myFeature.config = {
@@ -6231,7 +6233,7 @@ $(document).ready(myFeature.init);
                   <b>The module pattern</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 var feature =(function() {
 
     // private variables and functions
@@ -6277,7 +6279,7 @@ feature.sayPrivateThing();
                   <b>Using the module pattern for a jQuery feature</b>
                 </p>
                 <div class="example-contents">
-                  <pre class="programlisting">
+                  <pre class="brush: js">
 $(document).ready(function() {
     var feature = (function() {
 
@@ -6381,7 +6383,7 @@ $(document).ready(function() {
                 <b>Using RequireJS: A simple example</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
@@ -6399,7 +6401,7 @@ $(document).ready(function() {
             <p>
               The call to <code class="code">require(["app"])</code> tells RequireJS to load the <code class="filename">scripts/app.js</code> file. RequireJS will load any dependency that is passed to <code class="code">require()</code> without a <code class="filename">.js</code> extension from the same directory as <code class="filename">require-jquery.js</code>, though this can be configured to behave differently. If you feel more comfortable specifying the whole path, you can also do the following:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 &lt;script&gt;require(["scripts/app.js"]);&lt;/script&gt;
 </pre>
             <p>
@@ -6410,7 +6412,7 @@ $(document).ready(function() {
                 <b>A simple JavaScript file with dependencies</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 require(["jquery.alpha", "jquery.beta"], function() {
     //the jquery.alpha.js and jquery.beta.js plugins have been loaded.
     $(function() {
@@ -6438,7 +6440,7 @@ require(["jquery.alpha", "jquery.beta"], function() {
                 <b>Defining a RequireJS module that has no dependencies</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 require.def("my/simpleshirt",
     {
         color: "black",
@@ -6459,7 +6461,7 @@ require.def("my/simpleshirt",
                     <b>Defining a RequireJS module with dependencies</b>
                   </p>
                   <div class="example-contents">
-                    <pre class="programlisting">
+                    <pre class="brush: js">
 require.def("my/shirt",
     ["my/cart", "my/inventory"],
     function(cart, inventory) {
@@ -6480,7 +6482,7 @@ require.def("my/shirt",
                 <p>
                   In this example, a my/shirt module is created. It depends on my/cart and my/inventory. On disk, the files are structured like this:
                 </p>
-                <pre class="programlisting">
+                <pre class="brush: js">
 my/cart.js
 my/inventory.js
 my/shirt.js
@@ -6496,7 +6498,7 @@ my/shirt.js
                     <b>Defining a RequireJS module that returns a function</b>
                   </p>
                   <div class="example-contents">
-                    <pre class="programlisting">
+                    <pre class="brush: js">
 require.def("my/title",
     ["my/dependency1", "my/dependency2"],
     function(dep1, dep2) {
@@ -6525,7 +6527,7 @@ require.def("my/title",
             <p>
               Once you incorporate RequireJS for dependency management, your page is set up to be optimized very easily. Download the RequireJS source and place it anywhere you like, preferrably somewhere outside your web development area. For the purposes of this example, the RequireJS source is placed as a sibling to the <code class="filename">webapp</code> directory, which contains the HTML page and the scripts directory with all the scripts. Complete directory structure:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 requirejs/ (used for the build tools)
 webapp/app.html
 webapp/scripts/app.js
@@ -6541,7 +6543,7 @@ webapp/scripts/jquery.beta.js
                 <b>A RequireJS build configuration file</b>
               </p>
               <div class="example-contents">
-                <pre class="programlisting">
+                <pre class="brush: js">
 {
     appDir: "../",
     baseUrl: "scripts/",
@@ -6566,7 +6568,7 @@ webapp/scripts/jquery.beta.js
             <p>
               To start the build, go to the webapp/scripts directory, execute the following command:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 # non-windows systems
 ../../requirejs/build/build.sh app.build.js
 
@@ -6590,7 +6592,7 @@ webapp/scripts/jquery.beta.js
               <p>
                 Open the file <code class="filename">/exercises/portlets.html</code> in your browser. Use the file <code class="filename">/exercises/js/portlets.js</code>. Your task is to create a portlet creation function that uses the module pattern, such that the following code will work:
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 var myPortlet = Portlet({
     title : 'Curry',
     source : 'data/html/curry.html',
@@ -6602,7 +6604,7 @@ myPortlet.$element.appendTo('body');
               <p>
                 Each portlet should be a div with a title, a content area, a button to open/close the portlet, a button to remove the portlet, and a button to refresh the portlet. The portlet returned by the Portlet function should have the following public API:
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 myPortlet.open(); // force open state
 myPortlet.close(); // force close state
 myPortlet.toggle(); // toggle open/close state
@@ -6653,7 +6655,7 @@ myPortlet.setSource('data/html/onions.html');
           <p>
             Why should you care? An example is probably the best way to explain. Suppose you have a lightbulb in a room in a house. The lightbulb is currently turned on, and it’s controlled by two three-way switches and a clapper:
           </p>
-          <pre class="programlisting">
+          <pre class="brush: js">
 &lt;div class="room" id="kitchen"&gt;
     &lt;div class="lightbulb on"&gt;&lt;/div&gt;
     &lt;div class="switch"&gt;&lt;/div&gt;
@@ -6667,7 +6669,7 @@ myPortlet.setSource('data/html/onions.html');
           <p>
             Without custom events, you might write some code like this:
           </p>
-          <pre class="programlisting">
+          <pre class="brush: js">
 $('.switch, .clapper').click(function() {
     var $light = $(this).parent().find('.lightbulb');
     if ($light.hasClass('on')) {
@@ -6680,7 +6682,7 @@ $('.switch, .clapper').click(function() {
           <p>
             With custom events, your code might look more like this:
           </p>
-          <pre class="programlisting">
+          <pre class="brush: js">
 $('.lightbulb').bind('changeState', function(e) {
     var $light = $(this);
     if ($light.hasClass('on')) {
@@ -6700,7 +6702,7 @@ $('.switch, .clapper').click(function() {
           <p>
             Let’s make our example a little more interesting. We’ll add another room to our house, along with a master switch, as shown here:
           </p>
-          <pre class="programlisting">
+          <pre class="brush: js">
 &lt;div class="room" id="kitchen"&gt;
     &lt;div class="lightbulb on"&gt;&lt;/div&gt;
     &lt;div class="switch"&gt;&lt;/div&gt;
@@ -6718,7 +6720,7 @@ $('.switch, .clapper').click(function() {
           <p>
             If there are any lights on in the house, we want the master switch to turn all the lights off; otherwise, we want it to turn all lights on. To accomplish this, we’ll add two more custom events to the lightbulbs: <code class="code">turnOn</code> and <code class="code">turnOff</code>. We’ll make use of them in the <code class="code">changeState</code> custom event, and use some logic to decide which one the master switch should trigger:
           </p>
-          <pre class="programlisting">
+          <pre class="brush: js">
 $('.lightbulb')
     .bind('changeState', function(e) {
         var $light = $(this);
@@ -6774,7 +6776,7 @@ $('#master_switch').click(function() {
             <p>
               Here is an example of the usage of <code class="code">$.fn.bind</code> and <code class="code">$.fn.trigger</code> that uses custom data in both cases:
             </p>
-            <pre class="programlisting">
+            <pre class="brush: js">
 $(document).bind('myCustomEvent', { foo : 'bar' }, function(e, arg1, arg2) {
     console.log(e.data.foo); // 'bar'
     console.log(arg1); // 'bim'
@@ -6820,7 +6822,7 @@ $(document).trigger('myCustomEvent', [ 'bim', 'baz' ]);
               <p>
                 We’ll start with some basic HTML:
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 &lt;h1&gt;Twitter Search&lt;/h1&gt;
 &lt;input type="button" id="get_trends"
     value="Load Trending Terms" /&gt;
@@ -6895,7 +6897,7 @@ $(document).trigger('myCustomEvent', [ 'bim', 'baz' ]);
               <p>
                 The plugin is also responsible for adding the action buttons to the container. It binds a click event to each action’s list item, and uses the list item’s class to determine which custom event will be triggered on the corresponding results container.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 $.fn.twitterResult = function(settings) {
     return this.each(function() {
         var $results = $(this),
@@ -7035,7 +7037,7 @@ $.fn.twitterResult.events = {
               <p>
                 Here's how the Twitter container bindings look:
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('#twitter')
     .bind('getResults', function(e, term) {
         // make sure we don't have a box for this term already
@@ -7074,7 +7076,7 @@ $('#twitter')
               <p>
                 Let’s start by hooking up our text input and the “Load Trending Terms” button. For the text input, we’ll capture the term that was entered in the input and pass it as we trigger the Twitter container’s <code class="code">getResults</code> event. Clicking the “Load Trending Terms” will trigger the Twitter container’s <code class="code">getTrends</code> event:
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 $('form').submit(function(e) {
     e.preventDefault();
     var term = $('#search_term').val();
@@ -7088,7 +7090,7 @@ $('#get_trends').click(function() {
               <p>
                 By adding a few buttons with the appropriate IDs, we can make it possible to remove, collapse, expand, and refresh all results containers at once, as shown below. For the remove button, note how we’re passing a value of true to the event handler as its second argument, telling the event handler that we don’t want to verify the removal of individual containers.
               </p>
-              <pre class="programlisting">
+              <pre class="brush: js">
 $.each(['refresh', 'expand', 'collapse'], function(i, ev) {
     $('#' + ev).click(function(e) { $('#twitter div.results').trigger(ev); });
 });
@@ -7129,8 +7131,10 @@ $('#remove').click(function(e) {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
-<script
-src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.js"></script>
+<script src="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/2.1.382/scripts/shCore.js"></script>
+<script src="http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/2.1.382/scripts/shBrushJScript.js"></script>
+
 <script>
 $(function() {
 
@@ -7167,6 +7171,8 @@ $('div.chapter').each(function(i) {
 
   chapter.prepend('<p class="toc"><a title="Back to top" href="#toc">Back to top</a></p>');
 });
+
+SyntaxHighlighter.all();
 
 });
 </script>
