@@ -1,0 +1,510 @@
+        <div title="Events" class="chapter">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  Events
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div title="Overview" class="section">
+            <h2 class="title">
+              Overview
+            </h2>
+            <p>
+              jQuery provides simple methods for attaching event handlers to selections. When an event occurs, the provided function is executed. Inside the function, this refers to the element that was clicked.
+            </p>
+            <p>
+              For details on jQuery events, visit <a href="http://api.jquery.com/category/events/" class="ulink">http://api.jquery.com/category/events/</a>.
+            </p>
+            <p>
+              The event handling function can receive an event object. This object can be used to determine the nature of the event, and to prevent the event’s default behavior.
+            </p>
+            <p>
+              For details on the event object, visit <a href="http://api.jquery.com/category/events/event-object/" class="ulink">http://api.jquery.com/category/events/event-object/</a>.
+            </p>
+          </div>
+          <div title="Connecting Events to Elements" class="section">
+            <h2 class="title">
+              Connecting Events to Elements
+            </h2>
+            <p>
+              jQuery offers convenience methods for most common events, and these are the methods you will see used most often. These methods -- including <code class="code">$.fn.click</code>, <code class="code">$.fn.focus</code>, <code class="code">$.fn.blur</code>, <code class="code">$.fn.change</code>, etc. -- are shorthand for jQuery's <code class="code">$.fn.bind</code> method. The bind method is useful for binding the same handler function to multiple events, and is also used when you want to provide data to the event hander, or when you are working with custom events.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Event binding using a convenience method</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('p').click(function() {
+    console.log('click');
+});
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Event biding using the <code class="code">$.fn.bind</code> method</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('p').bind('click', function() {
+    console.log('click');
+});
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Event binding using the <code class="code">$.fn.bind</code> method with data</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('input').bind(
+    'click change',  // bind to multiple events
+    { foo : 'bar' }, // pass in data
+
+    function(eventObject) {
+        console.log(eventObject.type, eventObject.data);
+        // logs event type, then { foo : 'bar' }
+    }
+);
+</pre>
+              </div>
+            </div>
+            <div title="Connecting Events to Run Only Once" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Connecting Events to Run Only Once
+                </h3>
+              </div>
+              <p>
+                Sometimes you need a particular handler to run only once -- after that, you may want no handler to run, or you may want a different handler to run. jQuery provides the <code class="code">$.fn.one</code> method for this purpose.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Switching handlers using the <code class="code">$.fn.one</code> method</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+$('p').one('click', function() {
+    console.log('You just clicked this for the first time!');
+    $(this).click(function() { console.log('You have clicked this before!'); });
+});
+</pre>
+                </div>
+              </div>
+              <p>
+                The <code class="code">$.fn.one</code> method is especially useful if you need to do some complicated setup the first time an element is clicked, but not subsequent times.
+              </p>
+            </div>
+            <div title="Disconnecting Events" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Disconnecting Events
+                </h3>
+              </div>
+              <p>
+                To disconnect an event handler, you use the <code class="code">$.fn.unbind</code> method and pass in the event type to unbind. If you attached a named function to the event, then you can isolate the unbinding to that named function by passing it as the second argument.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Unbinding all click handlers on a selection</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+$('p').unbind('click');
+</pre>
+                </div>
+              </div>
+              <div class="example">
+                <p class="title">
+                  <b>Unbinding a particular click handler</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var foo = function() { console.log('foo'); };
+var bar = function() { console.log('bar'); };
+
+$('p').bind('click', foo).bind('click', bar);
+$('p').unbind('click', bar); // foo is still bound to the click event
+</pre>
+                </div>
+              </div>
+            </div>
+            <div title="Namespacing Events" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Namespacing Events
+                </h3>
+              </div>
+              <p>
+                For complex applications and for plugins you share with others, it can be useful to namespace your events so you don't unintentionally disconnect events that you didn't or couldn't know about.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Namespacing events</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+$('p').bind('click.myNamespace', function() { /* ... */ });
+$('p').unbind('click.myNamespace');
+$('p').unbind('.myNamespace'); // unbind all events in the namespace
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div title="Inside the Event Handling Function" class="section">
+            <h2 class="title">
+              Inside the Event Handling Function
+            </h2>
+            <p>
+              As mentioned in the overview, the event handling function receives an event object, which contains many properties and methods. The event object is most commonly used to prevent the default action of the event via the preventDefault method. However, the event object contains a number of other useful properties and methods, including:
+            </p>
+            <div class="variablelist">
+              <dl>
+                <dt>
+                  <span class="term">pageX, pageY</span>
+                </dt>
+                <dd>
+                  <p>
+                    The mouse position at the time the event occurred, relative to the top left of the page.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">type</span>
+                </dt>
+                <dd>
+                  <p>
+                    The type of the event (e.g. "click").
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">which</span>
+                </dt>
+                <dd>
+                  <p>
+                    The button or key that was pressed.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">data</span>
+                </dt>
+                <dd>
+                  <p>
+                    Any data that was passed in when the event was bound.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">target</span>
+                </dt>
+                <dd>
+                  <p>
+                    The DOM element that initiated the event.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">preventDefault()</span>
+                </dt>
+                <dd>
+                  <p>
+                    Prevent the default action of the event (e.g. following a link).
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">stopPropagation()</span>
+                </dt>
+                <dd>
+                  <p>
+                    Stop the event from bubbling up to other elements.
+                  </p>
+                </dd>
+              </dl>
+            </div>
+            <p>
+              In addition to the event object, the event handling function also has access to the DOM element that the handler was bound to via the keyword <code class="code">this</code>. To turn the DOM element into a jQuery object that we can use jQuery methods on, we simply do <code class="code">$(this)</code>, often following this idiom:
+            </p>
+            <pre class="brush: js">
+var $this = $(this);
+</pre>
+            <div class="example">
+              <p class="title">
+                <b>Preventing a link from being followed</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('a').click(function(e) {
+    var $this = $(this);
+    if ($this.attr('href').match('evil')) {
+        e.preventDefault();
+        $this.addClass('evil');
+    }
+});
+</pre>
+              </div>
+            </div>
+          </div>
+          <div title="Triggering Event Handlers" class="section">
+            <h2 class="title">
+              Triggering Event Handlers
+            </h2>
+            <p>
+              jQuery provides a way to trigger the event handlers bound to an element without any user interaction via the <code class="code">$.fn.trigger</code> method. While this method has its uses, it should not be used simply to call a function that was bound as a click handler. Instead, you should store the function you want to call in a variable, and pass the variable name when you do your binding. Then, you can call the function itself whenever you want, without the need for <code class="code">$.fn.trigger</code>.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Triggering an event handler the right way</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var foo = function(e) {
+    if (e) {
+        console.log(e);
+    } else {
+        console.log('this didn\'t come from an event!');
+    }
+};
+
+
+$('p').click(foo);
+
+foo(); // instead of $('p').trigger('click')
+</pre>
+              </div>
+            </div>
+          </div>
+          <h2 class="title">
+            Increasing Performance with Event Delegation
+          </h2>
+          <p>
+            You'll frequently use jQuery to add new elements to the page, and when you do, you may need to bind events to those new elements -- events you already bound to similar elements that were on the page originally. Instead of repeating your event binding every time you add elements to the page, you can use event delegation. With event delegation, you bind your event to a container element, and then when the event occurs, you look to see which contained element it occurred on. If this sounds complicated, luckily jQuery makes it easy with its <code class="code">$.fn.live</code> and <code class="code">$.fn.delegate</code> methods.
+          </p>
+          <p>
+            While most people discover event delegation while dealing with elements added to the page later, it has some performance benefits even if you never add more elements to the page. The time required to bind event handlers to hundreds of individual elements is non-trivial; if you have a large set of elements, you should consider delegating related events to a container element.
+          </p>
+          <div class="note">
+          <h3 class="title">
+            Note
+          </h3>
+          <p>
+            The <code class="code">$.fn.live</code> method was introduced in jQuery 1.3, and at that time only certain event types were supported. As of jQuery 1.4.2, the <code class="code">$.fn.delegate</code> method is available, and is the preferred method.
+          </p>
+          </div>
+          <div class="example">
+            <p class="title">
+              <b>Event delegation using <code class="code">$.fn.delegate</code></b>
+            </p>
+            <div class="example-contents">
+              <pre class="brush: js">
+$('#myUnorderedList').delegate('li', 'click', function(e) {
+    var $myListItem = $(this);
+    // ...
+});
+</pre>
+            </div>
+          </div>
+          <div class="example">
+            <p class="title">
+              <b>Event delegation using <code class="code">$.fn.live</code></b>
+            </p>
+            <div class="example-contents">
+              <pre class="brush: js">
+$('#myUnorderedList li').live('click', function(e) {
+    var $myListItem = $(this);
+    // ...
+});
+</pre>
+            </div>
+          </div>
+          <div title="Unbinding Delegated Events" class="section">
+            <div class="titlepage">
+              <h3 class="title">
+                Unbinding Delegated Events
+              </h3>
+            </div>
+            <p>
+              If you need to remove delegated events, you can't simply unbind them. Instead, use <code class="code">$.fn.undelegate</code> for events connected with <code class="code">$.fn.delegate</code>, and <code class="code">$.fn.die</code> for events connected with <code class="code">$.fn.live</code>. As with bind, you can optionally pass in the name of the bound function.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Unbinding delegated events</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('#myUnorderedList').undelegate('li', 'click');
+$('#myUnorderedList li').die('click');
+</pre>
+              </div>
+            </div>
+          </div>
+          <div title="Event Helpers" class="section">
+            <h2 class="title">
+              Event Helpers
+            </h2>
+            <p>
+              jQuery offers two event-related helper functions that save you a few keystrokes.
+            </p>
+            <div class="titlepage">
+              <h3 class="title">
+                <code class="code">$.fn.hover</code>
+              </h3>
+            </div>
+            <p>
+              The <code class="code">$.fn.hover</code> method lets you pass one or two functions to be run when the <code class="code">mouseenter</code> and <code class="code">mouseleave</code> events occur on an element. If you pass one function, it will be run for both events; if you pass two functions, the first will run for <code class="code">mouseenter</code>, and the second will run for <code class="code">mouseleave</code>.
+            </p>
+            <div class="note">
+            <h3 class="title">
+              Note
+            </h3>
+            <p>
+              Prior to jQuery 1.4, the <code class="code">$.fn.hover</code> method required two functions.
+            </p>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>The hover helper function</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('#menu li').hover(function() {
+    $(this).toggleClass('hover');
+});
+</pre>
+              </div>
+            </div>
+            <div title="$.fn.toggle" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  <code class="code">$.fn.toggle</code>
+                </h3>
+              </div>
+              <p>
+                The <code class="code">$.fn.toggle</code> method is triggered by the "click" event and accepts two or more
+                functions. Each time the click event occurs, the next function in the list is called.
+                Generally, <code class="code">$.fn.toggle</code> is used with just two functions; however, it will accept an
+                unlimited number of functions. Be careful, though: providing a long list of functions can be
+                difficult to debug).
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>The toggle helper function</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+$('p.expander').toggle(
+    function() {
+        $(this).prev().addClass('open');
+    },
+    function() {
+        $(this).prev().removeClass('open');
+    }
+);
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div title="Exercises" class="section">
+            <h2 class="title">
+              Exercises
+            </h2>
+            <div title="Create an Input Hint" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Create an Input Hint
+                </h3>
+              </div>
+              <p>
+                Open the file <code class="filename">/exercises/index.html</code> in your browser. Use the file <code class="filename">/exercises/js/inputHint.js</code> or work in Firebug. Your task is to use the text of the label for the search input to create "hint" text for the search input. The steps are as follows:
+              </p>
+              <div class="orderedlist">
+                <ol class="orderedlist">
+                  <li>
+                    <p>
+                      Set the value of the search input to the text of the label element
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Add a class of "hint" to the search input
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Remove the label element
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Bind a focus event to the search input that removes the hint text and the "hint" class
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Bind a blur event to the search input that restores the hint text and "hint" class if no search text was entered
+                    </p>
+                  </li>
+                </ol>
+              </div>
+              <p>
+                What other considerations might there be if you were creating this functionality for a real site?
+              </p>
+            </div>
+            <div title="Add Tabbed Navigation" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Add Tabbed Navigation
+                </h3>
+              </div>
+              <p>
+                Open the file <code class="filename">/exercises/index.html</code> in your browser. Use the file <code class="filename">/exercises/js/tabs.js</code>. Your task is to create tabbed navigation for the two div.module elements. To accomplish this:
+              </p>
+              <div class="orderedlist">
+                <ol class="orderedlist">
+                  <li>
+                    <p>
+                      Hide all of the modules.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Create an unordered list element before the first module.
+                    </p>
+                  </li>
+                  <li>Iterate over the modules using <code class="code">$.fn.each</code>. For each module, use the text of the h2 element as the text for a list item that you add to the unordered list element.
+                  </li>
+                  <li>
+                    <p>
+                      Bind a click event to the list item that:
+                    </p>
+                    <ul>
+                      <li>
+                        <p>
+                          Shows the related module, and hides any other modules
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Adds a class of "current" to the clicked list item
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Removes the class "current" from the other list item
+                        </p>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>
+                      Finally, show the first tab.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>

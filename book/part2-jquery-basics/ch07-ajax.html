@@ -1,0 +1,689 @@
+        <div title="Ajax" class="chapter">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  Ajax
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div title="Overview" class="section">
+            <h2 class="title">
+              Overview
+            </h2>
+            <p>
+              The XMLHttpRequest method (XHR) allows browsers to communicate with the server without requiring a page reload. This method, also known as Ajax (Asynchronous JavaScript and XML), allows for web pages that provide rich, interactive experiences.
+            </p>
+            <p>
+              Ajax requests are triggered by JavaScript code; your code sends a request to a URL, and when it receives a response, a callback function can be triggered to handle the response. Because the request is asynchronous, the rest of your code continues to execute while the request is being processed, so it’s imperative that a callback be used to handle the response.
+            </p>
+            <p>
+              jQuery provides Ajax support that abstracts away painful browser differences. It offers both a full-featured <code class="code">$.ajax()</code> method, and simple convenience methods such as <code class="code">$.get()</code>, <code class="code">$.getScript()</code>, <code class="code">$.getJSON()</code>, <code class="code">$.post()</code>, and <code class="code">$().load()</code>.
+            </p>
+            <p>
+              Most jQuery applications don’t in fact use XML, despite the name “Ajax”; instead, they transport data as plain HTML or JSON (JavaScript Object Notation).
+            </p>
+            <p>
+              In general, Ajax does not work across domains. Exceptions are services that provide JSONP (JSON with Padding) support, which allow limited cross-domain functionality.
+            </p>
+          </div>
+          <div title="Key Concepts" class="section">
+            <h2 class="title">
+              Key Concepts
+            </h2>
+            <p>
+              Proper use of Ajax-related jQuery methods requires understanding some key concepts first.
+            </p>
+            <div title="GET vs. Post" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  GET vs. Post
+                </h3>
+              </div>
+              <p>
+                The two most common “methods” for sending a request to a server are GET and POST. It’s important to understand the proper application of each.
+              </p>
+              <p>
+                The GET method should be used for non-destructive operations — that is, operations where you are only “getting” data from the server, not changing data on the server. For example, a query to a search service might be a GET request. GET requests may be cached by the browser, which can lead to unpredictable behavior if you are not expecting it. GET requests generally send all of their data in a query string.
+              </p>
+              <p>
+                The POST method should be used for destructive operations — that is, operations where you are changing data on the server. For example, a user saving a blog post should be a POST request. POST requests are generally not cached by the browser; a query string can be part of the URL, but the data tends to be sent separately as post data.
+              </p>
+            </div>
+            <div title="Data Types" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Data Types
+                </h3>
+              </div>
+              <p>
+                jQuery generally requires some instruction as to the type of data you expect to get back from an Ajax request; in some cases the data type is specified by the method name, and in other cases it is provided as part of a configuration object. There are several options:
+              </p>
+              <div class="variablelist">
+                <dl>
+                  <dt>
+                    <span class="term">text</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      For transporting simple strings
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">html</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      For transporting blocks of HTML to be placed on the page
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">script</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      For adding a new script to the page
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">json</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      For transporting JSON-formatted data, which can include strings, arrays, and objects
+                    </p>
+                    <div class="note">
+                    <h3 class="title">
+                      Note
+                    </h3>
+                    <p>
+                      As of jQuery 1.4, if the JSON data sent by your server isn't properly formatted, the request may fail silently. See <a href="http://json.org" class="ulink">http://json.org</a> for details on properly formatting JSON, but as a general rule, use built-in language methods for generating JSON on the server to avoid syntax issues.
+                    </p>
+                    </div>
+                  </dd>
+                  <dt>
+                    <span class="term">jsonp</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      For transporting JSON data from another domain
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">xml</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      For transporting data in a custom XML schema
+                    </p>
+                  </dd>
+                </dl>
+              </div>
+              <p class="remark">
+                <i><span class="remark">I am a strong proponent of using the JSON format in most cases, as it provides the most flexibility. It is especially useful for sending both HTML and data at the same time.</span></i>
+              </p>
+            </div>
+            <div title="A is for Asynchronous" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  A is for Asynchronous
+                </h3>
+              </div>
+              <p>
+                The asynchronicity of Ajax catches many new jQuery users off guard. Because Ajax calls are asynchronous by default, the response is not immediately available. Responses can only be handled using a callback. So, for example, the following code will not work:
+              </p>
+              <pre class="brush: js">
+var response;
+$.get('foo.php', function(r) { response = r; });
+console.log(response); <span class="emphasis"><em>// undefined!</em></span>
+</pre>
+              <p>
+                Instead, we need to pass a callback function to our request; this callback will run when the request succeeds, at which point we can access the data that it returned, if any.
+              </p>
+              <pre class="brush: js">
+$.get('foo.php', function(response) { console.log(response); });
+</pre>
+            </div>
+            <div title="Same-Origin Policy and JSONP" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Same-Origin Policy and JSONP
+                </h3>
+              </div>
+              <p>
+                In general, Ajax requests are limited to the same protocol (http or https), the same port, and the same domain as the page making the request. This limitation does not apply to scripts that are loaded via jQuery's Ajax methods.
+              </p>
+              <p>
+                The other exception is requests targeted at a JSONP service on another domain. In the case of JSONP, the provider of the service has agreed to respond to your request with a script that can be loaded into the page using a <code class="code">&lt;script&gt;</code> tag, thus avoiding the same-origin limitation; that script will include the data you requested, wrapped in a callback function you provide.
+              </p>
+            </div>
+            <div title="Ajax and Firebug" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Ajax and Firebug
+                </h3>
+              </div>
+              <p>
+                Firebug (or the Webkit Inspector in Chrome or Safari) is an invaluable tool for working with Ajax requests. You can see Ajax requests as they happen in the Console tab of Firebug (and in the Resources &gt; XHR panel of Webkit Inspector), and you can click on a request to expand it and see details such as the request headers, response headers, response content, and more. If something isn't going as expected with an Ajax request, this is the first place to look to track down what's wrong.
+              </p>
+            </div>
+          </div>
+          <div title="jQuery's Ajax-Related Methods" class="section">
+            <h2 class="title">
+              jQuery's Ajax-Related Methods
+            </h2>
+            <p>
+              While jQuery does offer many Ajax-related convenience methods, the core <code class="code">$.ajax</code> method is at the heart of all of them, and understanding it is imperative. We'll review it first, and then touch briefly on the convenience methods.
+            </p>
+            <p class="remark">
+              <i><span class="remark">I generally use the $.ajax method and do not use convenience methods. As you'll see, it offers features that the convenience methods do not, and its syntax is more easily understandable, in my opinion.</span></i>
+            </p>
+            <div class="titlepage">
+              <h3 class="title">
+                $.ajax
+              </h3>
+            </div>
+            <p>
+              jQuery’s core <code class="code">$.ajax</code> method is a powerful and straightforward way of creating Ajax requests. It takes a configuration object that contains all the instructions jQuery requires to complete the request. The <code class="code">$.ajax</code> method is particularly valuable because it offers the ability to specify both success and failure callbacks. Also, its ability to take a configuration object that can be defined separately makes it easier to write reusable code. For complete documentation of the configuration options, visit <a href="http://api.jquery.com/jQuery.ajax/" class="ulink">http://api.jquery.com/jQuery.ajax/</a>.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Using the core $.ajax method</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$.ajax({
+    // the URL for the request
+    url : 'post.php',
+
+    // the data to send
+    // (will be converted to a query string)
+    data : { id : 123 },
+
+    // whether this is a POST or GET request
+    type : 'GET',
+
+    // the type of data we expect back
+    dataType : 'json',
+
+    // code to run if the request succeeds;
+    // the response is passed to the function
+    success : function(json) {
+        $('&lt;h1/&gt;').text(json.title).appendTo('body');
+        $('&lt;div class="content"/&gt;')
+            .html(json.html).appendTo('body');
+    },
+
+    // code to run if the request fails;
+    // the raw request and status codes are
+    // passed to the function
+    error : function(xhr, status) {
+        alert('Sorry, there was a problem!');
+    },
+
+    // code to run regardless of success or failure
+    complete : function(xhr, status) {
+        alert('The request is complete!');
+    }
+});
+</pre>
+              </div>
+            </div>
+            <div class="note">
+            <h3 class="title">
+              Note
+            </h3>
+            <p>
+              A note about the <code class="code">dataType</code> setting: if the server sends back data that is in a different format than you specify, your code may fail, and the reason will not always be clear, because the HTTP response code will not show an error. When working with Ajax requests, make sure your server is sending back the data type you're asking for, and verify that the Content-type header is accurate for the data type. For example, for JSON data, the Content-type header should be <code class="code">application/json</code>.
+            </p>
+            </div>
+            <div title="$.ajax Options" class="section">
+              <div class="titlepage">
+                <h4 class="title">
+                  <code class="code">$.ajax</code> Options
+                </h4>
+              </div>
+              <p>
+                There are many, many options for the $.ajax method, which is part of its power. For a complete list of options, visit <a href="http://api.jquery.com/jQuery.ajax/" class="ulink">http://api.jquery.com/jQuery.ajax/</a>; here are several that you will use frequently:
+              </p>
+              <div class="variablelist">
+                <dl>
+                  <dt>
+                    <span class="term">async</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      Set to <code class="code">false</code> if the request should be sent synchronously. Defaults to <code class="code">true</code>. Note that if you set this option to false, your request will block execution of other code until the response is received.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">cache</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      Whether to use a cached response if available. Defaults to <code class="code">true</code> for all dataTypes except "script" and "jsonp". When set to false, the URL will simply have a cachebusting parameter appended to it.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">complete</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      A callback function to run when the request is complete, regardless of success or failure. The function receives the raw request object and the text status of the request.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">context</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      The scope in which the callback function(s) should run (i.e. what <code class="code">this</code> will mean inside the callback function(s)). By default, <code class="code">this</code> inside the callback function(s) refers to the object originally passed to <code class="code">$.ajax</code>.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">data</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      The data to be sent to the server. This can either be an object or a query string, such as <code class="code">foo=bar&amp;baz=bim</code>.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">dataType</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      The type of data you expect back from the server. By default, jQuery will look at the MIME type of the response if no dataType is specified.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">error</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      A callback function to run if the request results in an error. The function receives the raw request object and the text status of the request.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">jsonp</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      The callback name to send in a query string when making a JSONP request. Defaults to "callback".
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">success</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      A callback function to run if the request succeeds. The function receives the response data (converted to a JavaScript object if the dataType was JSON), as well as the text status of the request and the raw request object.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">timeout</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      The time in milliseconds to wait before considering the request a failure.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">traditional</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      Set to true to use the param serialization style in use prior to jQuery 1.4. For details, see <a href="http://api.jquery.com/jQuery.param/" class="ulink">http://api.jquery.com/jQuery.param/</a>.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">type</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      The type of the request, "POST" or "GET". Defaults to "GET". Other request types, such as "PUT" and "DELETE" can be used, but they may not be supported by all browsers.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">url</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      The URL for the request.
+                    </p>
+                  </dd>
+                </dl>
+              </div>
+              <p>
+                The <code class="code">url</code> option is the only required property of the <code class="code">$.ajax</code> configuration object; all other properties are optional.
+              </p>
+            </div>
+            <div title="Convenience Methods" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Convenience Methods
+                </h3>
+              </div>
+              <p>
+                If you don't need the extensive configurability of <code class="code">$.ajax</code>, and you don't care about handling errors, the Ajax convenience functions provided by jQuery can be useful, terse ways to accomplish Ajax requests. These methods are just "wrappers" around the core <code class="code">$.ajax</code> method, and simply pre-set some of the options on the <code class="code">$.ajax</code> method.
+              </p>
+              <p>
+                The convenience methods provided by jQuery are:
+              </p>
+              <div class="variablelist">
+                <dl>
+                  <dt>
+                    <span class="term">$.get</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      Perform a GET request to the provided URL.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">$.post</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      Perform a POST request to the provided URL.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">$.getScript</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      Add a script to the page.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">$.getJSON</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      Perform a GET request, and expect JSON to be returned.
+                    </p>
+                  </dd>
+                </dl>
+              </div>
+              <p>
+                In each case, the methods take the following arguments, in order:
+              </p>
+              <div class="variablelist">
+                <dl>
+                  <dt>
+                    <span class="term">url</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      The URL for the request. Required.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">data</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      The data to be sent to the server. Optional. This can either be an object or a query string, such as <code class="code">foo=bar&amp;baz=bim</code>.
+                    </p>
+                    <div class="note">
+                    <h3 class="title">
+                      Note
+                    </h3>
+                    <p>
+                      This option is not valid for <code class="code">$.getScript</code>.
+                    </p>
+                    </div>
+                  </dd>
+                  <dt>
+                    <span class="term">success callback</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      A callback function to run if the request succeeds. Optional. The function receives the response data (converted to a JavaScript object if the data type was JSON), as well as the text status of the request and the raw request object.
+                    </p>
+                  </dd>
+                  <dt>
+                    <span class="term">data type</span>
+                  </dt>
+                  <dd>
+                    <p>
+                      The type of data you expect back from the server. Optional.
+                    </p>
+                    <div class="note">
+                    <h3 class="title">
+                      Note
+                    </h3>
+                    <p>
+                      This option is only applicable for methods that don't already specify the data type in their name.
+                    </p>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+              <div class="example">
+                <p class="title">
+                  <b>Using jQuery's Ajax convenience methods</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+// get plain text or html
+$.get('/users.php', { userId : 1234 }, function(resp) {
+    console.log(resp);
+});
+
+// add a script to the page, then run a function defined in it
+$.getScript('/static/js/myScript.js', function() {
+    functionFromMyScript();
+});
+
+// get JSON-formatted data from the server
+$.getJSON('/details.php', function(resp) {
+    $.each(resp, function(k, v) {
+        console.log(k + ' : ' + v);
+    });
+});
+</pre>
+                </div>
+              </div>
+            </div>
+            <div title="$.fn.load" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  <code class="code">$.fn.load</code>
+                </h3>
+              </div>
+              <p>
+                The <code class="code">$.fn.load</code> method is unique among jQuery’s Ajax methods in that it is called on a selection. The <code class="code">$.fn.load</code> method fetches HTML from a URL, and uses the returned HTML to populate the selected element(s). In addition to providing a URL to the method, you can optionally provide a selector; jQuery will fetch only the matching content from the returned HTML.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Using <code class="code">$.fn.load</code> to populate an element</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+$('#newContent').load('/foo.html');
+</pre>
+                </div>
+              </div>
+              <div class="example">
+                <p class="title">
+                  <b>Using <code class="code">$.fn.load</code> to populate an element based on a selector</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+$('#newContent').load('/foo.html <span class="bold"><strong>#myDiv h1:first</strong></span>', function(html) {
+  alert('Content updated!');
+});
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div title="Ajax and Forms" class="section">
+            <h2 class="title">
+              Ajax and Forms
+            </h2>
+            <p>
+              jQuery’s ajax capabilities can be especially useful when dealing with forms. The <a href="http://jquery.malsup.com/form/" class="ulink">jQuery Form Plugin</a> is a well-tested tool for adding Ajax capabilities to forms, and you should generally use it for handling forms with Ajax rather than trying to roll your own solution for anything remotely complex. That said, there are a two jQuery methods you should know that relate to form processing in jQuery: <code class="code">$.fn.serialize</code> and <code class="code">$.fn.serializeArray</code>.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Turning form data into a query string</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('#myForm').serialize();
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Creating an array of objects containing form data</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('#myForm').serializeArray();
+
+// creates a structure like this:
+[
+    { name : 'field1', value : 123 },
+    { name : 'field2', value : 'hello world' }
+]
+</pre>
+              </div>
+            </div>
+          </div>
+          <div title="Working with JSONP" class="section">
+            <h2 class="title">
+              Working with JSONP
+            </h2>
+            <p>
+              The advent of JSONP -- essentially a consensual cross-site scripting hack -- has opened the door to powerful mashups of content. Many prominent sites provide JSONP services, allowing you access to their content via a predefined API. A particularly great source of JSONP-formatted data is the <a href="http://developer.yahoo.com/yql/console/" class="ulink">Yahoo! Query Language</a>, which we'll use in the following example to fetch news about cats.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Using YQL and JSONP</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$.ajax({
+    url : 'http://query.yahooapis.com/v1/public/yql',
+
+    // the name of the callback parameter,
+    // as specified by the YQL service
+    jsonp : 'callback',
+
+    // tell jQuery we're expecting JSONP
+    dataType : 'jsonp',
+
+    // tell YQL what we want and that we want JSON
+    data : {
+        q : 'select title,abstract,url from search.news where query="cat"',
+        format : 'json'
+    },
+
+    // work with the response
+    success : function(response) {
+        console.log(response);
+    }
+});
+</pre>
+              </div>
+            </div>
+            <p>
+              jQuery handles all the complex aspects of JSONP behind-the-scenes -- all we have to do is tell jQuery the name of the JSONP callback parameter specified by YQL ("callback" in this case), and otherwise the whole process looks and feels like a normal Ajax request.
+            </p>
+          </div>
+          <div title="Ajax Events" class="section">
+            <h2 class="title">
+              Ajax Events
+            </h2>
+            <p>
+              Often, you’ll want to perform an operation whenever an Ajax requests starts or stops, such as showing or hiding a loading indicator. Rather than defining this behavior inside every Ajax request, you can bind Ajax events to elements just like you'd bind other events. For a complete list of Ajax events, visit <a href="http://docs.jquery.com/Ajax_Events" class="ulink">http://docs.jquery.com/Ajax_Events</a>.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Setting up a loading indicator using Ajax Events</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('#loading_indicator')
+    .ajaxStart(function() { $(this).show(); })
+    .ajaxStop(function() { $(this).hide(); });
+</pre>
+              </div>
+            </div>
+          </div>
+          <div title="Exercises" class="section">
+            <h2 class="title">
+              Exercises
+            </h2>
+            <div title="Load External Content" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Load External Content
+                </h3>
+              </div>
+              <p>
+                Open the file <code class="filename">/exercises/index.html</code> in your browser. Use the file <code class="filename">/exercises/js/load.js</code>. Your task is to load the content of a blog item when a user clicks on the title of the item.
+              </p>
+              <div class="orderedlist">
+                <ol class="orderedlist">
+                  <li>Create a target div after the headline for each blog post and store a reference to it on the headline element using <code class="code">$.fn.data</code>.
+                  </li>
+                  <li>Bind a click event to the headline that will use the <code class="code">$.fn.load</code> method to load the appropriate content from <code class="filename">/exercises/data/blog.html</code> into the target div. Don't forget to prevent the default action of the click event.
+                  </li>
+                </ol>
+              </div>
+              <p>
+                Note that each blog headline in index.html includes a link to the post. You'll need to leverage the href of that link to get the proper content from blog.html. Once you have the href, here's one way to process it into an ID that you can use as a selector in <code class="code">$.fn.load</code>:
+              </p>
+              <pre class="brush: js">
+var href = 'blog.html#post1';
+var tempArray = href.split('#');
+var id = '#' + tempArray[1];
+</pre>
+              <p>
+                Remember to make liberal use of <code class="code">console.log</code> to make sure you're on the right path!
+              </p>
+            </div>
+            <div title="Load Content Using JSON" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Load Content Using JSON
+                </h3>
+              </div>
+              <p>
+                Open the file <code class="filename">/exercises/index.html</code> in your browser. Use the file <code class="filename">/exercises/js/specials.js</code>. Your task is to show the user details about the special for a given day when the user selects a day from the select dropdown.
+              </p>
+              <div class="orderedlist">
+                <ol class="orderedlist">
+                  <li>
+                    <p>
+                      Append a target div after the form that's inside the #specials element; this will be where you put information about the special once you receive it.
+                    </p>
+                  </li>
+                  <li>Bind to the change event of the select element; when the user changes the selection, send an Ajax request to <code class="filename">/exercises/data/specials.json</code>.
+                  </li>
+                  <li>When the request returns a response, use the value the user selected in the select (hint: <code class="code">$.fn.val</code>) to look up information about the special in the JSON response.
+                  </li>
+                  <li>
+                    <p>
+                      Add some HTML about the special to the target div you created.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Finally, because the form is now Ajax-enabled, remove the submit button from the form.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+              <p>
+                Note that we're loading the JSON every time the user changes their selection. How could we change the code so we only make the request once, and then use a cached response when the user changes their choice in the select?
+              </p>
+            </div>
+          </div>
+        </div>
