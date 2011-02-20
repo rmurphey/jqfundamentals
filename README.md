@@ -8,6 +8,20 @@ This material is licensed under the Creative Commons Attribution-Share Alike 3.0
 
 Want to contribute? Fork the repo, make your changes, and submit a pull request. The source for the book itself is in `/book/html/`.
 
+## Building This Book ##
+For editing and collaborating purposes, the contents of jQuery Fundamentals is broken into parts and chapters. If you would like to build a copy, simply type "make" in your terminal or console in the root folder of the project. If you are a windows user, you'll need either or [GNU Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm) or [cygwin](http://cygwin.com/). For example:
+
+Clone the jqfundamentals repository to your local machine
+`> git clone https://github.com/rmurphey/jqfundamentals.git`
+
+Change to the newly cloned repository's directory
+`> cd jqfundamentals`
+
+Make the book
+`> make`
+
+This will create a folder called "publish" with the `index.html` file and related css/js folders inside of it. 
+
 ## Using This Material ##
 Per the license, you are welcome to use this material; if you're using it to teach a class, I'd love for you to let me know about it.
 
