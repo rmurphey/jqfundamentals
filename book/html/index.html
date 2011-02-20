@@ -1348,7 +1348,11 @@ greeting();
                 </h3>
               </div>
               <p>
-                A common pattern in JavaScript is the self-executing anonymous function. This pattern creates a function expression and then immediately executes the function. This pattern is extremely useful for cases where you want to avoid polluting the global namespace with your code -- no variables declared inside of the function are visible outside of it.
+                A common pattern in JavaScript is the self-executing anonymous
+                function. This pattern creates a function expression and then
+                immediately executes the function. This pattern is extremely
+                useful for cases where you want to avoid polluting the global
+                namespace with your code &mdash; no variables declared inside of the function are visible outside of it.
               </p>
               <div class="example">
                 <p class="title">
@@ -1373,7 +1377,7 @@ console.log(foo);   // undefined!
                 </h3>
               </div>
               <p>
-                In JavaScript, functions are "first-class citizens" -- they can be assigned to variables or passed to other functions as arguments. Passing functions as arguments is an extremely common idiom in jQuery.
+                In JavaScript, functions are "first-class citizens" &mdash they can be assigned to variables or passed to other functions as arguments. Passing functions as arguments is an extremely common idiom in jQuery.
               </p>
               <div class="example">
                 <p class="title">
@@ -1416,7 +1420,8 @@ myFn(myOtherFn);   // logs 'hello world'
               Testing Type
             </h2>
             <p>
-              JavaScript offers a way to test the "type" of a variable. However, the result can be confusing -- for example, the type of an Array is "object".
+              JavaScript offers a way to test the "type" of a variable.
+              However, the result can be confusing &mdash; for example, the type of an Array is "object".
             </p>
             <p>
               It's common practice to use the <code class="code">typeof</code> operator when trying to determining the type of a specific value.
@@ -1609,10 +1614,14 @@ obj.sayHello();  // logs 'Hi! My name is Rebecca'
               "Scope" refers to the variables that are available to a piece of code at a given time. A lack of understanding of scope can lead to frustrating debugging experiences.
             </p>
             <p>
-              When a variable is declared inside of a function using the <code class="code">var</code> keyword, it is only available to code inside of that function -- code outside of that function cannot access the variable. On the other hand, functions defined <span class="emphasis"><em>inside</em></span> that function <span class="emphasis"><em>will</em></span> have access to to the declared variable.
+              When a variable is declared inside of a function using the <code
+              class="code">var</code> keyword, it is only available to code
+              inside of that function &mdash; code outside of that function cannot access the variable. On the other hand, functions defined <span class="emphasis"><em>inside</em></span> that function <span class="emphasis"><em>will</em></span> have access to to the declared variable.
             </p>
             <p>
-              Furthermore, variables that are declared inside a function without the <code class="code">var</code> keyword are not local to the function -- JavaScript will traverse the scope chain all the way up to the window scope to find where the variable was previously defined. If the variable wasn't previously defined, it will be defined in the global scope, which can have extremely unexpected consequences;
+              Furthermore, variables that are declared inside a function
+              without the <code class="code">var</code> keyword are not local
+              to the function &mdash; JavaScript will traverse the scope chain all the way up to the window scope to find where the variable was previously defined. If the variable wasn't previously defined, it will be defined in the global scope, which can have extremely unexpected consequences;
             </p>
             <div class="example">
               <p class="title">
@@ -1723,7 +1732,10 @@ bim();  // bim is not defined outside of the anonymous function,
               Closures are an extension of the concept of scope — functions have access to variables that were available in the scope where the function was created. If that’s confusing, don’t worry: closures are generally best understood by example.
             </p>
             <p>
-              In “Functions can "see" changes in variable values after the function is defined”, we saw how functions have access to changing variable values. The same sort of behavior exists with functions defined within loops -- the function "sees" the change in the variable's value even after the function is defined, resulting in all clicks alerting 5.
+              In “Functions can "see" changes in variable values after the
+              function is defined”, we saw how functions have access to
+              changing variable values. The same sort of behavior exists with
+              functions defined within loops &mdash; the function "sees" the change in the variable's value even after the function is defined, resulting in all clicks alerting 5.
             </p>
             <div class="example">
               <p class="title">
@@ -2049,7 +2061,13 @@ var $divs = $('div');
             Note
           </h3>
           <p>
-            In “Storing selections in a variable”, the variable name begins with a dollar sign. Unlike in other languages, there's nothing special about the dollar sign in JavaScript -- it's just another character. We use it here to indicate that the variable contains a jQuery object. This practice -- a sort of <a href="http://en.wikipedia.org/wiki/Hungarian_notation" class="ulink">Hungarian notation</a> -- is merely convention, and is not mandatory.
+            In “Storing selections in a variable”, the variable name begins
+            with a dollar sign. Unlike in other languages, there's nothing
+            special about the dollar sign in JavaScript &mdash; it's just
+            another character. We use it here to indicate that the variable
+            contains a jQuery object. This practice &mdash; a sort of <a
+            href="http://en.wikipedia.org/wiki/Hungarian_notation"
+            class="ulink">Hungarian notation</a> &mdash; is merely convention, and is not mandatory.
           </p>
           </div>
           <p>
@@ -2218,7 +2236,7 @@ $('ul li').eq(5);               // the sixth
               </p>
               <div class="example-contents">
                 <pre class="brush: js">
-$("#myForm :input'); // get all elements that accept input
+$('#myForm :input'); // get all elements that accept input
 </pre>
               </div>
             </div>
@@ -2288,7 +2306,11 @@ $('#content')
               Note
             </h3>
             <p>
-              Chaining is extraordinarily powerful, and it's a feature that many libraries have adapted since it was made popular by jQuery. However, it must be used with care. Extensive chaining can make code extremely difficult to modify or debug. There is no hard-and-fast rule to how long a chain should be -- just know that it is easy to get carried away.
+              Chaining is extraordinarily powerful, and it's a feature that
+              many libraries have adapted since it was made popular by jQuery.
+              However, it must be used with care. Extensive chaining can make
+              code extremely difficult to modify or debug. There is no
+              hard-and-fast rule to how long a chain should be &mdash; just know that it is easy to get carried away.
             </p>
             </div>
             <div title="Getters &amp; Setters" class="section">
@@ -2361,7 +2383,8 @@ $('h1').css({ 'fontSize' : '100px', 'color' : 'red' }); // setting multiple prop
             </div>
           </div>
           <p class="remark">
-            <i><span class="remark">Note the style of the argument we use on the second line -- it is an object that contains multiple properties. This is a common way to pass multiple arguments to a function, and many jQuery setter methods accept objects to set mulitple values at once.</span></i>
+            <i><span class="remark">Note the style of the argument we use on
+            the second line &mdash; it is an object that contains multiple properties. This is a common way to pass multiple arguments to a function, and many jQuery setter methods accept objects to set mulitple values at once.</span></i>
           </p>
           <div title="Using CSS Classes for Styling" class="section">
             <div class="titlepage">
@@ -2475,7 +2498,8 @@ $('a').attr('href');  // returns the href for the first a element in the documen
             Note
           </h3>
           <p>
-            Be cautious with traversing long distances in your documents -- complex traversal makes it imperative that your document's structure remain the same, something that's difficult to guarantee even if you're the one creating the whole application from server to client. One- or two-step traversal is fine, but you generally want to avoid traversals that take you from one container to another.
+            Be cautious with traversing long distances in your documents
+            &mdash; complex traversal makes it imperative that your document's structure remain the same, something that's difficult to guarantee even if you're the one creating the whole application from server to client. One- or two-step traversal is fine, but you generally want to avoid traversals that take you from one container to another.
           </p>
           </div>
           <div class="example">
@@ -2641,7 +2665,12 @@ $('#myDiv p:first')
                 For example, jQuery provides <code class="code">$.fn.insertAfter</code> and <code class="code">$.fn.after</code>. The <code class="code">$.fn.insertAfter</code> method places the selected element(s) after the element that you provide as an argument; the <code class="code">$.fn.after</code> method places the element provided as an argument after the selected element. Several other methods follow this pattern: <code class="code">$.fn.insertBefore</code> and <code class="code">$.fn.before</code>; <code class="code">$.fn.appendTo</code> and <code class="code">$.fn.append</code>; and <code class="code">$.fn.prependTo</code> and <code class="code">$.fn.prepend</code>.
               </p>
               <p>
-                The method that makes the most sense for you will depend on what elements you already have selected, and whether you will need to store a reference to the elements you're adding to the page. If you need to store a reference, you will always want to take the first approach -- placing the selected elements relative to another element -- as it returns the element(s) you're placing. In this case, <code class="code">$.fn.insertAfter</code>, <code class="code">$.fn.insertBefore</code>, <code class="code">$.fn.appendTo</code>, and <code class="code">$.fn.prependTo</code> will be your tools of choice.
+                The method that makes the most sense for you will depend on
+                what elements you already have selected, and whether you will
+                need to store a reference to the elements you're adding to the
+                page. If you need to store a reference, you will always want to
+                take the first approach &mdash; placing the selected elements
+                relative to another element &mdash; as it returns the element(s) you're placing. In this case, <code class="code">$.fn.insertAfter</code>, <code class="code">$.fn.insertBefore</code>, <code class="code">$.fn.appendTo</code>, and <code class="code">$.fn.prependTo</code> will be your tools of choice.
               </p>
               <div class="example">
                 <p class="title">
@@ -2765,7 +2794,8 @@ $('ul').last().after($myNewElement.clone());  // clone the p so now we have 2
               </div>
             </div>
             <p class="remark">
-              <i><span class="remark">Strictly speaking, you don't have to store the created element in a variable -- you could just call the method to add the element to the page directly after the $(). However, most of the time you will want a reference to the element you added, so you don't need to select it later.</span></i>
+              <i><span class="remark">Strictly speaking, you don't have to
+              store the created element in a variable &mdash; you could just call the method to add the element to the page directly after the $(). However, most of the time you will want a reference to the element you added, so you don't need to select it later.</span></i>
             </p>
             <p>
               You can even create an element as you're adding it to the page, but note that in this case you don't get a reference to the newly created element.
@@ -3313,7 +3343,12 @@ jQuery.noConflict();
               Connecting Events to Elements
             </h2>
             <p>
-              jQuery offers convenience methods for most common events, and these are the methods you will see used most often. These methods -- including <code class="code">$.fn.click</code>, <code class="code">$.fn.focus</code>, <code class="code">$.fn.blur</code>, <code class="code">$.fn.change</code>, etc. -- are shorthand for jQuery's <code class="code">$.fn.bind</code> method. The bind method is useful for binding the same handler function to multiple events, and is also used when you want to provide data to the event hander, or when you are working with custom events.
+              jQuery offers convenience methods for most common events, and
+              these are the methods you will see used most often. These methods
+              &mdash; including <code class="code">$.fn.click</code>, <code
+              class="code">$.fn.focus</code>, <code
+              class="code">$.fn.blur</code>, <code
+              class="code">$.fn.change</code>, etc. &mdash; are shorthand for jQuery's <code class="code">$.fn.bind</code> method. The bind method is useful for binding the same handler function to multiple events, and is also used when you want to provide data to the event hander, or when you are working with custom events.
             </p>
             <div class="example">
               <p class="title">
@@ -3364,7 +3399,8 @@ $('input').bind(
                 </h3>
               </div>
               <p>
-                Sometimes you need a particular handler to run only once -- after that, you may want no handler to run, or you may want a different handler to run. jQuery provides the <code class="code">$.fn.one</code> method for this purpose.
+                Sometimes you need a particular handler to run only once
+                &mdash; after that, you may want no handler to run, or you may want a different handler to run. jQuery provides the <code class="code">$.fn.one</code> method for this purpose.
               </p>
               <div class="example">
                 <p class="title">
@@ -3563,7 +3599,9 @@ foo(); // instead of $('p').trigger('click')
             Increasing Performance with Event Delegation
           </h2>
           <p>
-            You'll frequently use jQuery to add new elements to the page, and when you do, you may need to bind events to those new elements -- events you already bound to similar elements that were on the page originally. Instead of repeating your event binding every time you add elements to the page, you can use event delegation. With event delegation, you bind your event to a container element, and then when the event occurs, you look to see which contained element it occurred on. If this sounds complicated, luckily jQuery makes it easy with its <code class="code">$.fn.live</code> and <code class="code">$.fn.delegate</code> methods.
+            You'll frequently use jQuery to add new elements to the page, and
+            when you do, you may need to bind events to those new elements
+            &mdash; events you already bound to similar elements that were on the page originally. Instead of repeating your event binding every time you add elements to the page, you can use event delegation. With event delegation, you bind your event to a container element, and then when the event occurs, you look to see which contained element it occurred on. If this sounds complicated, luckily jQuery makes it easy with its <code class="code">$.fn.live</code> and <code class="code">$.fn.delegate</code> methods.
           </p>
           <p>
             While most people discover event delegation while dealing with elements added to the page later, it has some performance benefits even if you never add more elements to the page. The time required to bind event handlers to hundreds of individual elements is non-trivial; if you have a large set of elements, you should consider delegating related events to a container element.
@@ -3949,7 +3987,8 @@ jQuery.fx.speeds.turtle = 2000;
                 </h3>
               </div>
               <p>
-                Often, you'll want to run some code once an animation is done -- if you run it before the animation is done, it may affect the quality of the animation, or it may remove elements that are part of the animation. <span class="termdef">[Definition: <em class="firstterm">Callback functions</em> provide a way to register your interest in an event that will happen in the future.]</span> In this case, the event we'll be responding to is the conclusion of the animation. Inside of the callback function, the keyword <code class="code">this</code> refers to the element that the effect was called on; as we did inside of event handler functions, we can turn it into a jQuery object via <code class="code">$(this)</code>.
+                Often, you'll want to run some code once an animation is done
+                &mdash; if you run it before the animation is done, it may affect the quality of the animation, or it may remove elements that are part of the animation. <span class="termdef">[Definition: <em class="firstterm">Callback functions</em> provide a way to register your interest in an event that will happen in the future.]</span> In this case, the event we'll be responding to is the conclusion of the animation. Inside of the callback function, the keyword <code class="code">this</code> refers to the element that the effect was called on; as we did inside of event handler functions, we can turn it into a jQuery object via <code class="code">$(this)</code>.
               </p>
               <div class="example">
                 <p class="title">
@@ -4024,7 +4063,9 @@ $('div.funtimes').animate(
               </h3>
             </div>
             <p>
-              <span class="termdef">[Definition: <em class="firstterm">Easing</em> describes the manner in which an effect occurs -- whether the rate of change is steady, or varies over the duration of the animation.]</span> jQuery includes only two methods of easing: swing and linear. If you want more natural transitions in your animations, various easing plugins are available.
+              <span class="termdef">[Definition: <em
+              class="firstterm">Easing</em> describes the manner in which an
+              effect occurs &mdash; whether the rate of change is steady, or varies over the duration of the animation.]</span> jQuery includes only two methods of easing: swing and linear. If you want more natural transitions in your animations, various easing plugins are available.
             </p>
             <p>
               As of jQuery 1.4, it is possible to do per-property easing when using the $.fn.animate method.
@@ -4738,7 +4779,8 @@ $('#myForm').serializeArray();
               Working with JSONP
             </h2>
             <p>
-              The advent of JSONP -- essentially a consensual cross-site scripting hack -- has opened the door to powerful mashups of content. Many prominent sites provide JSONP services, allowing you access to their content via a predefined API. A particularly great source of JSONP-formatted data is the <a href="http://developer.yahoo.com/yql/console/" class="ulink">Yahoo! Query Language</a>, which we'll use in the following example to fetch news about cats.
+              The advent of JSONP &mdash; essentially a consensual cross-site
+              scripting hack &mdash; has opened the door to powerful mashups of content. Many prominent sites provide JSONP services, allowing you access to their content via a predefined API. A particularly great source of JSONP-formatted data is the <a href="http://developer.yahoo.com/yql/console/" class="ulink">Yahoo! Query Language</a>, which we'll use in the following example to fetch news about cats.
             </p>
             <div class="example">
               <p class="title">
@@ -4771,7 +4813,8 @@ $.ajax({
               </div>
             </div>
             <p>
-              jQuery handles all the complex aspects of JSONP behind-the-scenes -- all we have to do is tell jQuery the name of the JSONP callback parameter specified by YQL ("callback" in this case), and otherwise the whole process looks and feels like a normal Ajax request.
+              jQuery handles all the complex aspects of JSONP behind-the-scenes
+              &mdash; all we have to do is tell jQuery the name of the JSONP callback parameter specified by YQL ("callback" in this case), and otherwise the whole process looks and feels like a normal Ajax request.
             </p>
           </div>
           <div title="Ajax Events" class="section">
