@@ -1,0 +1,33 @@
+{
+  "people" : [
+    {
+      "id" : "jaubourg",
+      "name" : "Julian Auborg"
+    },
+
+    {
+      "id" : "phiggins",
+      "name" : "Peter Higgins"
+    },
+
+    {
+      "id" : "blowery",
+      "name" : "Ben Lowery"
+    },
+
+    {
+      "id" : "jeresig",
+      "name" : "John Resig"
+    },
+
+    {
+      "id" : "slightlylate",
+      "name" : "Alex Russell"
+    },
+
+    {
+      "id" : "ajpiano",
+      "name" : "Adam Sontag"
+    }
+  ]
+}

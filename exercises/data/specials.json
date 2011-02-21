@@ -5,11 +5,18 @@
 		"image" : "/images/special.jpg",
 		"color" : "red"
 	},
-	
+
 	"tuesday" : {
 		"title" : "Twofer Tuesday",
 		"text" : "Two vegetables for the price of one!.",
 		"image" : "/images/special.jpg",
 		"color" : "green"
-	}
+	},
+
+  "friday" : {
+    "title" : "20% Off",
+    "text" : "All meals 20% off. Yeah, on our busiest day.",
+    "image" : "/images/special.jpg",
+    "color" : "cyan"
+  }
 }
