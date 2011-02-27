@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <title>Jasmine Test Runner</title>
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-1.0.1/jasmine.css">
+  <script type="text/javascript" src="libs/jasmine/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine/jasmine-html.js"></script>
+
+  <!--
+  include the code you want to test here; you can include it via script tag,
+  or if you're just trying this out, you can include it directly inline
+  -->
+
+  <!-- edit these files to create your tests -->
+  <script type="text/javascript" src="tests/tests-jasmine-helper.js"></script>
+  <script type="text/javascript" src="tests/tests-jasmine.js"></script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+  jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+  jasmine.getEnv().execute();
+</script>
+
+</body>
+</html>
+
