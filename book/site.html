@@ -1,0 +1,137 @@
+<<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" >
+    <meta charset="utf-8">
+    <title>
+      jQuery Fundamentals
+    </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/shCore.css">
+		<link rel="stylesheet" type="text/css" href="css/shThemeRDark.css">
+  </head>
+  <body>
+    <div title="jQuery Fundamentals" class="book">
+
+      <div id="titlepage">
+        <div>
+          <div>
+            <h1 class="title">
+              jQuery Fundamentals
+            </h1>
+          </div>
+          <div>
+            <div class="author">
+              <h3 class="author">
+                By <a href="http://www.rebeccamurphey.com" class="ulink">Rebecca Murphey</a>
+              </h3>
+            </div>
+          </div>
+          <div>
+            <div class="othercredit">
+              <h3 class="othercredit">
+                <span class="orgname"><a href="http://github.com/rmurphey/jqfundamentals" class="ulink">http://github.com/rmurphey/jqfundamentals</a></span>
+              </h3>
+            </div>
+          </div>
+          <div>
+            <div class="othercredit">
+              <h3 class="othercredit">
+                <span class="orgname">With contributions by James Padolsey, Paul Irish, and others. See the GitHub repository for a complete history of contributions.</span>
+              </h3>
+            </div>
+          </div>
+          <div>
+            <p class="copyright">
+              Copyright © 2011
+            </p>
+          </div>
+          <div>
+            <div title="Legal Notice" class="legalnotice">
+              <p>
+                Licensed by Rebecca Murphey under the <a href="http://creativecommons.org/licenses/by-sa/3.0/us/" class="ulink">Creative Commons Attribution-Share Alike 3.0 United States license</a>. You are free to copy, distribute, transmit, and remix this work, provided you attribute the work to Rebecca Murphey as the original author and reference <a href="http://github.com/rmurphey/jqfundamentals" class="ulink">the GitHub repository for the work</a>. If you alter, transform, or build upon this work, you may distribute the resulting work only under the same, similar or a compatible license. Any of the above conditions can be waived if you get permission from the copyright holder. For any reuse or distribution, you must make clear to others the license terms of this work. The best way to do this is with <a href="http://creativecommons.org/licenses/by-sa/3.0/us/" class="ulink">a link to the license</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> <!-- end titlepage -->
+
+      <div id="toc">
+        <h2>Contents</h2>
+        <ul>
+        <!-- JS-generated TOC goes here -->
+        </ul>
+      </div>
+
+      <div id="loe">
+        <h2>List of Examples</h2>
+        <ul>
+        <!-- JS-generated list of examples goes here -->
+        </ul>
+      </div>
+
+			<%CONTENT%>
+			
+
+
+       </div>
+
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-143877-9']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.js"></script>
+  <script src="js/shCore.js"></script>
+  <script src="js/shBrushJScript.js"></script>
+
+  <script>
+  $(function() {
+
+  var toc = $('#toc ul'),
+      loe = $('#loe ul');
+
+  function makeLi(text, href) {
+    return $('<li><a href="' + href + '">' + text + '</a></li>');
+  }
+
+  $('div.chapter').each(function(i) {
+    var chapter = $(this),
+        chapterNumber = i + 1;
+
+    toc.append(
+      makeLi('Chapter ' + chapterNumber + ': ' + chapter.attr('title'), '#chapter-' + chapterNumber)
+    );
+
+    chapter.attr('id', 'chapter-' + chapterNumber);
+
+    chapter.find('div.example').each(function(j) {
+      var example = $(this),
+          title = example.find('p.title'),
+          exampleNumber = chapterNumber + '.' + (j+1),
+          exampleName = title.text();
+
+      loe.append(
+        makeLi('Example ' + exampleNumber + ': ' + exampleName, '#example-' + exampleNumber)
+      );
+
+      example.attr('id', 'example-' + exampleNumber);
+      title.html('Example ' + exampleNumber + ': ' + exampleName);
+    });
+
+    chapter.prepend('<p class="toc"><a title="Back to top" href="#toc">Back to top</a></p>');
+  });
+
+  SyntaxHighlighter.all();
+
+  });
+  </script>
+
+    </body>
+  </html>

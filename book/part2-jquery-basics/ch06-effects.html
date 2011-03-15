@@ -1,0 +1,388 @@
+        <div title="Effects" class="chapter">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  Effects
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div title="Overview" class="section">
+            <h2 class="title">
+              Overview
+            </h2>
+            <p>
+              jQuery makes it trivial to add simple effects to your page. Effects can use the built-in settings, or provide a customized duration. You can also create custom animations of arbitrary CSS properties.
+            </p>
+            <p>
+              For complete details on jQuery effects, visit <a href="http://api.jquery.com/category/effects/" class="ulink">http://api.jquery.com/category/effects/</a>.
+            </p>
+          </div>
+          <div title="Built-in Effects" class="section">
+            <h2 class="title">
+              Built-in Effects
+            </h2>
+            <p>
+              Frequently used effects are built into jQuery as methods:
+            </p>
+            <div class="variablelist">
+              <dl>
+                <dt>
+                  <span class="term">$.fn.show</span>
+                </dt>
+                <dd>
+                  <p>
+                    Show the selected element.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">$.fn.hide</span>
+                </dt>
+                <dd>
+                  <p>
+                    Hide the selected elements.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">$.fn.fadeIn</span>
+                </dt>
+                <dd>
+                  <p>
+                    Animate the opacity of the selected elements to 100%.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">$.fn.fadeOut</span>
+                </dt>
+                <dd>
+                  <p>
+                    Animate the opacity of the selected elements to 0%.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">$.fn.slideDown</span>
+                </dt>
+                <dd>
+                  <p>
+                    Display the selected elements with a vertical sliding motion.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">$.fn.slideUp</span>
+                </dt>
+                <dd>
+                  <p>
+                    Hide the selected elements with a vertical sliding motion.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">$.fn.slideToggle</span>
+                </dt>
+                <dd>
+                  <p>
+                    Show or hide the selected elements with a vertical sliding motion, depending on whether the elements are currently visible.
+                  </p>
+                </dd>
+              </dl>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>A basic use of a built-in effect</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('h1').show();
+</pre>
+              </div>
+            </div>
+            <div title="Changing the Duration of Built-in Effects" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Changing the Duration of Built-in Effects
+                </h3>
+              </div>
+              <p>
+                With the exception of <code class="code">$.fn.show</code> and <code class="code">$.fn.hide</code>, all of the built-in methods are animated over the course of 400ms by default. Changing the duration of an effect is simple.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Setting the duration of an effect</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+$('h1').fadeIn(300);      // fade in over 300ms
+$('h1').fadeOut('slow');  // using a built-in speed definition
+</pre>
+                </div>
+              </div>
+              <div title="jQuery.fx.speeds" class="section">
+                <div class="titlepage">
+                  <h4 class="title">
+                    jQuery.fx.speeds
+                  </h4>
+                </div>
+                <p>
+                  jQuery has an object at <code class="code">jQuery.fx.speeds</code> that contains the default speed, as well as settings for <code class="code">"slow"</code> and <code class="code">"fast"</code>.
+                </p>
+                <pre class="brush: js">
+speeds: {
+    slow: 600,
+    fast: 200,
+    // Default speed
+    _default: 400
+}
+</pre>
+                <p>
+                  It is possible to override or add to this object. For example, you may want to change the default duration of effects, or you may want to create your own effects speed.
+                </p>
+                <div class="example">
+                  <p class="title">
+                    <b>Augmenting <code class="code">jQuery.fx.speeds</code> with custom speed definitions</b>
+                  </p>
+                  <div class="example-contents">
+                    <pre class="brush: js">
+jQuery.fx.speeds.blazing = 100;
+jQuery.fx.speeds.turtle = 2000;
+</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div title="Doing Something when an Effect is Done" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Doing Something when an Effect is Done
+                </h3>
+              </div>
+              <p>
+                Often, you'll want to run some code once an animation is done
+                &mdash; if you run it before the animation is done, it may affect the quality of the animation, or it may remove elements that are part of the animation. <span class="termdef">[Definition: <em class="firstterm">Callback functions</em> provide a way to register your interest in an event that will happen in the future.]</span> In this case, the event we'll be responding to is the conclusion of the animation. Inside of the callback function, the keyword <code class="code">this</code> refers to the element that the effect was called on; as we did inside of event handler functions, we can turn it into a jQuery object via <code class="code">$(this)</code>.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Running code when an animation is complete</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+$('div.old').fadeOut(300, function() { $(this).remove(); });
+</pre>
+                </div>
+              </div>
+              <p>
+                Note that if your selection doesn't return any elements, your callback will never run! You can solve this problem by testing whether your selection returned any elements; if not, you can just run the callback immediately.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Run a callback even if there were no elements to animate</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var $thing = $('#nonexistent');
+
+var cb = function() {
+    console.log('done!');
+};
+
+if ($thing.length) {
+    $thing.fadeIn(300, cb);
+} else {
+    cb();
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2 class="title">
+            Custom Effects with <code class="code">$.fn.animate</code>
+          </h2>
+          <p>
+            jQuery makes it possible to animate arbitrary CSS properties via the <code class="code">$.fn.animate</code> method. The <code class="code">$.fn.animate</code> method lets you animate to a set value, or to a value relative to the current value.
+          </p>
+          <div class="example">
+            <p class="title">
+              <b>Custom effects with <code class="code">$.fn.animate</code></b>
+            </p>
+            <div class="example-contents">
+              <pre class="brush: js">
+$('div.funtimes').animate(
+    {
+        left : "+=50",
+        opacity : 0.25
+    },
+    300, // duration
+    function() { console.log('done!'); // calback
+});
+</pre>
+            </div>
+          </div>
+          <div class="note">
+          <h3 class="title">
+            Note
+          </h3>
+          <p>
+            Color-related properties cannot be animated with <code class="code">$.fn.animate</code> using jQuery out of the box. Color animations can easily be accomplished by including the <a href="http://plugins.jquery.com/files/jquery.color.js.txt" class="ulink">color plugin</a>. We'll discuss using plugins later in the book.
+          </p>
+          </div>
+          <div title="Easing" class="section">
+            <div class="titlepage">
+              <h3 class="title">
+                Easing
+              </h3>
+            </div>
+            <p>
+              <span class="termdef">[Definition: <em
+              class="firstterm">Easing</em> describes the manner in which an
+              effect occurs &mdash; whether the rate of change is steady, or varies over the duration of the animation.]</span> jQuery includes only two methods of easing: swing and linear. If you want more natural transitions in your animations, various easing plugins are available.
+            </p>
+            <p>
+              As of jQuery 1.4, it is possible to do per-property easing when using the $.fn.animate method.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Per-property easing</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('div.funtimes').animate(
+    {
+        left : [ "+=50", "swing" ],
+        opacity : [ 0.25, "linear" ]
+    },
+    300
+);
+</pre>
+              </div>
+            </div>
+            <p>
+              For more details on easing options, see <a href="http://api.jquery.com/animate/" class="ulink">http://api.jquery.com/animate/</a>.
+            </p>
+          </div>
+          <div title="Managing Effects" class="section">
+            <h2 class="title">
+              Managing Effects
+            </h2>
+            <p>
+              jQuery provides several tools for managing animations.
+            </p>
+            <div class="variablelist">
+              <dl>
+                <dt>
+                  <span class="term">$.fn.stop</span>
+                </dt>
+                <dd>
+                  <p>
+                    Stop currently running animations on the selected elements.
+                  </p>
+                </dd>
+                <dt>
+                  <span class="term">$.fn.delay</span>
+                </dt>
+                <dd>
+                  <p>
+                    Wait the specified number of milliseconds before running the next animation.
+                  </p>
+                  <pre class="brush: js">
+$('h1').show(300).delay(1000).hide(300);
+</pre>
+                </dd>
+                <dt>
+                  <span class="term">jQuery.fx.off</span>
+                </dt>
+                <dd>
+                  <p>
+                    If this value is true, there will be no transition for animations; elements will immediately be set to the target final state instead. This can be especially useful when dealing with older browsers; you also may want to provide the option to your users.
+                  </p>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div title="Exercises" class="section">
+            <h2 class="title">
+              Exercises
+            </h2>
+            <div title="Reveal Hidden Text" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Reveal Hidden Text
+                </h3>
+              </div>
+              <p>
+                Open the file <code class="filename">/exercises/index.html</code> in your browser. Use the file <code class="filename">/exercises/js/blog.js</code>. Your task is to add some interactivity to the blog section of the page. The spec for the feature is as follows:
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    Clicking on a headline in the #blog div should slide down the excerpt paragraph
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Clicking on another headline should slide down its excerpt paragraph, and slide up any other currently showing excerpt paragraphs.
+                  </p>
+                </li>
+              </ul>
+              <p>
+                Hint: don't forget about the <code class="code">:visible</code> selector!
+              </p>
+            </div>
+            <div title="Create Dropdown Menus" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Create Dropdown Menus
+                </h3>
+              </div>
+              <p>
+                Open the file <code class="filename">/exercises/index.html</code> in your browser. Use the file <code class="filename">/exercises/js/navigation.js</code>. Your task is to add dropdowns to the main navigation at the top of the page.
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    Hovering over an item in the main menu should show that item's submenu items, if any.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Exiting an item should hide any submenu items.
+                  </p>
+                </li>
+              </ul>
+              <p>
+                To accomplish this, use the <code class="code">$.fn.hover</code> method to add and remove a class from the submenu items to control whether they're visible or hidden. (The file at <code class="filename">/exercises/css/styles.css</code> includes the "hover" class for this purpose.)
+              </p>
+            </div>
+            <div title="Create a Slideshow" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Create a Slideshow
+                </h3>
+              </div>
+              <p>
+                Open the file <code class="filename">/exercises/index.html</code> in your browser. Use the file <code class="filename">/exercises/js/slideshow.js</code>. Your task is to take a plain semantic HTML page and enhance it with JavaScript by adding a slideshow.
+              </p>
+              <div class="orderedlist">
+                <ol class="orderedlist">
+                  <li>
+                    <p>
+                      Move the #slideshow element to the top of the body.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Write code to cycle through the list items inside the element; fade one in, display it for a few seconds, then fade it out and fade in the next one.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      When you get to the end of the list, start again at the beginning.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+              <p>
+                For an extra challenge, create a navigation area under the slideshow that shows how many images there are and which image you're currently viewing. (Hint: $.fn.prevAll will come in handy for this.)
+              </p>
+            </div>
+          </div>
+        </div>
