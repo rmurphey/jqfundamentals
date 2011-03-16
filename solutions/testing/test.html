@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <title>Jasmine Test Runner</title>
+  <link rel="stylesheet" type="text/css" href="../../exercises/libs/jasmine/jasmine.css">
+
+  <script type="text/javascript" src="../../exercises/libs/jasmine/jasmine.js"></script>
+  <script type="text/javascript" src="../../exercises/libs/jasmine/jasmine-html.js"></script>
+
+  <!--
+  include the code you want to test here; you can include it via script tag,
+  or if you're just trying this out, you can include it directly inline
+  -->
+
+  <!-- edit these files to create your tests -->
+  <script src="../../exercises/libs/jquery-1.5.1.js"></script>
+  <script src="portlet.js"></script>
+  <script src="portlet-test.js"></script>
+
+</head>
+<body>
+  <div id="target"></div>
+
+<script type="text/javascript">
+  jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+  jasmine.getEnv().execute();
+</script>
+
+</body>
+</html>
+
