@@ -136,7 +136,7 @@
               <pre class="brush: js">
 var response;
 $.get('foo.php', function(r) { response = r; });
-console.log(response); <span class="emphasis"><em>// undefined!</em></span>
+console.log(response); // undefined!
 </pre>
               <p>
                 Instead, we need to pass a callback function to our request; this callback will run when the request succeeds, at which point we can access the data that it returned, if any.
