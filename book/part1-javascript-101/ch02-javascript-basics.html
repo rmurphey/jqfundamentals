@@ -1,0 +1,1493 @@
+        <div title="JavaScript Basics" class="chapter">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  JavaScript Basics
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div title="Overview" class="section">
+            <h2 class="title">
+              Overview
+            </h2>
+            <p>
+              jQuery is built on top of JavaScript, a rich and expressive language in its own right. This section covers the basic concepts of JavaScript, as well as some frequent pitfalls for people who have not used JavaScript before. While it will be of particular value to people with no programming experience, even people who have used other programming languages may benefit from learning about some of the peculiarities of JavaScript.
+            </p>
+            <p>
+              If you’re interested in learning more about the JavaScript language, I highly recommend <em class="citetitle">JavaScript: The Good Parts</em> by Douglas Crockford.
+            </p>
+          </div>
+          <div title="Syntax Basics" class="section">
+            <h2 class="title">
+              Syntax Basics
+            </h2>
+            <p>
+              Understanding statements, variable naming, whitespace, and other basic JavaScript syntax.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>A simple variable declaration</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var foo = 'hello world';
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Whitespace has no meaning outside of quotation marks</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var foo =         'hello world';
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Parentheses indicate precedence</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+2 * 3 + 5;    // returns 11; multiplication happens first
+2 * (3 + 5);  // returns 16; addition happens first
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Tabs enhance readability, but have no special meaning</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var foo = function() {
+    console.log('hello');
+};
+</pre>
+              </div>
+            </div>
+          </div>
+          <div title="Operators" class="section">
+            <h2 class="title">
+              Operators
+            </h2>
+            <div title="Basic Operators" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Basic Operators
+                </h3>
+              </div>
+              <p>
+                Basic operators allow you to manipulate values.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Concatenation</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var foo = 'hello';
+var bar = 'world';
+
+console.log(foo + ' ' + bar); // 'hello world'
+</pre>
+                </div>
+              </div>
+              <div class="example">
+                <p class="title">
+                  <b>Multiplication and division</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+2 * 3;
+2 / 3;
+</pre>
+                </div>
+              </div>
+              <div class="example">
+                <p class="title">
+                  <b>Incrementing and decrementing</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var i = 1;
+
+var j = ++i;  // pre-increment:  j equals 2; i equals 2
+var k = i++;  // post-increment: k equals 2; i equals 3
+</pre>
+                </div>
+              </div>
+            </div>
+            <div title="Operations on Numbers &amp; Strings" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Operations on Numbers &amp; Strings
+                </h3>
+              </div>
+              <p>
+                In JavaScript, numbers and strings will occasionally behave in ways you might not expect.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Addition vs. concatenation</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var foo = 1;
+var bar = '2';
+
+console.log(foo + bar);  // 12. uh oh
+</pre>
+                </div>
+              </div>
+              <div class="example">
+                <p class="title">
+                  <b>Forcing a string to act as a number</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var foo = 1;
+var bar = '2';
+
+// coerce the string to a number
+console.log(foo + Number(bar));
+</pre>
+                </div>
+              </div>
+              <p>
+                The Number constructor, when called as a function (like above) will have the effect of casting its argument into a number. You could also use the unary plus operator, which does the same thing:
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Forcing a string to act as a number (using the unary-plus operator)</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+console.log(foo + +bar);
+</pre>
+                </div>
+              </div>
+            </div>
+            <div class="titlepage">
+              <h3 class="title">
+                Logical Operators
+              </h3>
+            </div>
+            <p>
+              Logical operators allow you to evaluate a series of operands using AND and OR operations.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Logical AND and OR operators</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var foo = 1;
+var bar = 0;
+var baz = 2;
+
+foo || bar;   // returns 1, which is true
+bar || foo;   // returns 1, which is true
+
+foo &amp;&amp; bar;   // returns 0, which is false
+foo &amp;&amp; baz;   // returns 2, which is true
+baz &amp;&amp; foo;   // returns 1, which is true
+</pre>
+              </div>
+            </div>
+            <p>
+              Though it may not be clear from the example, the <code class="code">||</code> operator returns the value of the first truthy operand, or, in cases where neither operand is truthy, it'll return the last of both operands. The <code class="code">&amp;&amp;</code> operator returns the value of the first false operand, or the value of the last operand if both operands are truthy.
+            </p>
+            <p>
+             Be sure to consult <a title="Truthy and Falsy Things" href="#Truthy and Falsy Things">the section called “Truthy and Falsy Things”</a> for more details on which values evaluate to <code class="code">true</code> and which evaluate to <code class="code">false</code>.
+            </p>
+            <div class="note">
+            <h3 class="title">
+              Note
+            </h3>
+            <p>
+              You'll sometimes see developers use these logical operators for flow control instead of using <code class="code">if</code> statements. For example:
+            </p>
+            <pre class="brush: js">
+// do something with foo if foo is truthy
+foo &amp;&amp; doSomething(foo);
+
+// set bar to baz if baz is truthy;
+// otherwise, set it to the return
+// value of createBar()
+var bar = baz || createBar();
+</pre>
+            <p>
+              This style is quite elegant and pleasantly terse; that said, it can be really hard to read, especially for beginners. I bring it up here so you'll recognize it in code you read, but I don't recommend using it until you're extremely comfortable with what it means and how you can expect it to behave.
+            </p>
+            </div>
+            <div title="Comparison Operators" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Comparison Operators
+                </h3>
+              </div>
+              <p>
+                Comparison operators allow you to test whether values are equivalent or whether values are identical.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Comparison operators</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var foo = 1;
+var bar = 0;
+var baz = '1';
+var bim = 2;
+
+foo == bar;   // returns false
+foo != bar;   // returns true
+foo == baz;   <span class="bold"><strong>// returns true; careful!</strong></span>
+
+foo === baz;             // returns false
+foo !== baz;             // returns true
+foo === parseInt(baz);   // returns true
+
+foo &gt; bim;    // returns false
+bim &gt; baz;    // returns true
+foo &lt;= baz;   // returns true
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2 class="title">
+            Conditional Code
+          </h2>
+          <p>
+            Sometimes you only want to run a block of code under certain conditions. Flow control — via <code class="code">if</code> and <code class="code">else</code> blocks —&nbsp;lets you run code only under certain conditions.
+          </p>
+          <div class="example">
+            <p class="title">
+              <b>Flow control</b>
+            </p>
+            <div class="example-contents">
+              <pre class="brush: js">
+var foo = true;
+var bar = false;
+
+if (bar) {
+    // this code will never run
+    console.log('hello!');
+}
+
+if (bar) {
+    // this code won't run
+} else {
+    if (foo) {
+        // this code will run
+    } else {
+        // this code would run if foo and bar were both false
+    }
+}
+</pre>
+            </div>
+          </div>
+          <div class="note">
+          <h3 class="title">
+            Note
+          </h3>
+          <p>
+            While curly braces aren't strictly required around single-line <code class="code">if</code> statements, using them consistently, even when they aren't strictly required, makes for vastly more readable code.
+          </p>
+          <p>
+            Be mindful not to define functions with the same name multiple times within separate <code class="code">if</code>/<code class="code">else</code> blocks, as doing so may not have the expected result.
+          </p>
+          </div>
+
+          <div title="Truthy and Falsy Things" id="Truthy and Falsy Things" class="section">
+            <div class="titlepage">
+              <h3 class="title">
+                Truthy and Falsy Things
+              </h3>
+            </div>
+            <p>
+              In order to use flow control successfully, it's important to understand which kinds of values are "truthy" and which kinds of values are "falsy." Sometimes, values that seem like they should evaluate one way actually evaluate another.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Values that evaluate to <code class="code">true</code></b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+'0';
+'any string';
+[];  // an empty array
+{};  // an empty object
+1;   // any non-zero number
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Values that evaluate to <code class="code">false</code></b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+0;
+'';  // an empty string
+NaN; // JavaScript's "not-a-number" variable
+null;
+undefined;  // be careful -- undefined can be redefined!
+</pre>
+              </div>
+            </div>
+          </div>
+          <div title="Conditional Variable Assignment with The Ternary Operator" class="section">
+            <div class="titlepage">
+              <h3 class="title">
+                Conditional Variable Assignment with The Ternary Operator
+              </h3>
+            </div>
+            <p>
+              Sometimes you want to set a variable to a value depending on some condition. You could use an <code class="code">if</code>/<code class="code">else</code> statement, but in many cases the ternary operator is more convenient. <span class="termdef">[Definition: The <em class="firstterm">ternary operator</em> tests a condition; if the condition is true, it returns a certain value, otherwise it returns a different value.]</span>
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>The ternary operator</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+// set foo to 1 if bar is true;
+// otherwise, set foo to 0
+var foo = bar ? 1 : 0;
+</pre>
+              </div>
+            </div>
+            <p>
+              While the ternary operator can be used without assigning the return value to a variable, this is generally discouraged.
+            </p>
+          </div>
+          <div title="Switch Statements" class="section">
+            <div class="titlepage">
+              <h3 class="title">
+                Switch Statements
+              </h3>
+            </div>
+            <p>
+              Rather than using a series of if/else if/else blocks, sometimes it can be useful to use a switch statement instead. <span class="termdef">[Definition: <em class="firstterm">Switch statements</em> look at the value of a variable or expression, and run different blocks of code depending on the value.]</span>
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>A switch statement</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+switch (foo) {
+
+    case 'bar':
+        alert('the value was bar -- yay!');
+    break;
+
+    case 'baz':
+        alert('boo baz :(');
+    break;
+
+    default:
+        alert('everything else is just ok');
+    break;
+
+}
+</pre>
+              </div>
+            </div>
+            <p>
+              Switch statements have somewhat fallen out of favor in JavaScript, because often the same behavior can be accomplished by creating an object that has more potential for reuse, testing, etc. For example:
+            </p>
+            <pre class="brush: js">
+var stuffToDo = {
+    'bar' : function() {
+        alert('the value was bar -- yay!');
+    },
+
+    'baz' : function() {
+        alert('boo baz :(');
+    },
+
+    'default' : function() {
+        alert('everything else is just ok');
+    }
+};
+
+if (stuffToDo[foo]) {
+    stuffToDo[foo]();
+} else {
+    stuffToDo['default']();
+}
+</pre>
+            <p>
+              We'll look at objects in greater depth later in this chapter.
+            </p>
+          </div>
+          <div title="Loops" class="section">
+            <h2 class="title">
+              Loops
+            </h2>
+            <p>
+              Loops let you run a block of code a certain number of times.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Loops</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+// logs 'try 0', 'try 1', ..., 'try 4'
+for (var i=0; i&lt;5; i++) {
+    console.log('try ' + i);
+}
+</pre>
+              </div>
+            </div>
+            <p>
+              <em><span class="remark">Note that in</span></em> <em>Loops even though we use the keyword <span class="token">var</span> before the variable name <code class="varname">i</code>, this does not "scope" the variable <code class="varname">i</code> to the loop block. We'll discuss scope in depth later in this chapter.</em>
+            </p>
+            <div title="The for loop" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  The for loop
+                </h3>
+              </div>
+              <p>
+                A <code class="code">for</code> loop is made up of four statements and has the following structure:
+              </p>
+              <pre class="brush: js">
+for ([initialisation]; [conditional]; [iteration])
+ [loopBody]
+</pre>
+              <p>
+                The <span class="emphasis"><em>initialisation</em></span> statement is executed only once, before the loop starts. It gives you an opportunity to prepare or declare any variables.
+              </p>
+              <p>
+                The <span class="emphasis"><em>conditional</em></span> statement is executed before each iteration, and its return value decides whether or not the loop is to continue. If the conditional statement evaluates to a falsey value then the loop stops.
+              </p>
+              <p>
+                The <span class="emphasis"><em>iteration</em></span> statement is executed at the end of each iteration and gives you an opportunity to change the state of important variables. Typically, this will involve incrementing or decrementing a counter and thus bringing the loop ever closer to its end.
+              </p>
+              <p>
+                The <span class="emphasis"><em>loopBody</em></span> statement is what runs on every iteration. It can contain anything you want. You'll typically have multiple statements that need to be executed and so will wrap them in a block ( <code class="code">{...}</code>).
+              </p>
+              <p>
+                Here's a typical <code class="code">for</code> loop:
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>A typical <code class="code">for</code> loop</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+for (var i = 0, limit = 100; i &lt; limit; i++) {
+    // This block will be executed 100 times
+    console.log('Currently at ' + i);
+    // Note: the last log will be "Currently at 99"
+}
+</pre>
+                </div>
+              </div>
+            </div>
+            <div title="The while loop" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  The while loop
+                </h3>
+              </div>
+              <p>
+                A <code class="code">while</code> loop is similar to an <code class="code">if</code> statement, except that its body will keep executing until the condition evaluates to false.
+              </p>
+              <pre class="brush: js">
+while ([conditional]) [loopBody]
+</pre>
+              <p>
+                Here's a typical <code class="code">while</code> loop:
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>A typical <code class="code">while</code> loop</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var i = 0;
+while (i &lt; 100) {
+
+    // This block will be executed 100 times
+    console.log('Currently at ' + i);
+
+    i++; // increment i
+
+}
+</pre>
+                </div>
+              </div>
+              <p>
+                You'll notice that we're having to increment the counter within the loop's body. It is possible to combine the conditional and incrementer, like so:
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>A <code class="code">while</code> loop with a combined conditional and incrementer</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var i = -1;
+while (++i &lt; 100) {
+    // This block will be executed 100 times
+    console.log('Currently at ' + i);
+}
+</pre>
+                </div>
+              </div>
+              <p>
+                Notice that we're starting at <code class="code">-1</code> and using the prefix incrementer (<code class="code">++i</code>).
+              </p>
+            </div>
+            <div title="The do-while loop" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  The do-while loop
+                </h3>
+              </div>
+              <p>
+                This is almost exactly the same as the <code class="code">while</code> loop, except for the fact that the loop's body is executed at least once before the condition is tested.
+              </p>
+              <pre class="brush: js">
+do [loopBody] while ([conditional])
+</pre>
+              <p>
+                Here's a <code class="code">do-while</code> loop:
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>A <code class="code">do-while</code> loop</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+do {
+
+    // Even though the condition evaluates to false
+    // this loop's body will still execute once.
+
+    alert('Hi there!');
+
+} while (false);
+</pre>
+                </div>
+              </div>
+              <p>
+                These types of loops are quite rare since only few situations require a loop that blindly executes at least once. Regardless, it's good to be aware of it.
+              </p>
+            </div>
+            <div title="Breaking and continuing" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Breaking and continuing
+                </h3>
+              </div>
+              <p>
+                Usually, a loop's termination will result from the conditional statement not evaluating to true, but it is possible to stop a loop in its tracks from within the loop's body with the <code class="code">break</code> statement.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Stopping a loop</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+for (var i = 0; i &lt; 10; i++) {
+    if (something) {
+        break;
+    }
+}
+</pre>
+                </div>
+              </div>
+              <p>
+                You may also want to continue the loop without executing more of the loop's body. This is done using the <code class="code">continue</code> statement.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Skipping to the next iteration of a loop</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+for (var i = 0; i &lt; 10; i++) {
+
+    if (something) {
+        continue;
+    }
+
+    // The following statement will only be executed
+    // if the conditional 'something' has not been met
+    console.log('I have been reached');
+
+}
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div title="Reserved Words" class="section">
+            <h2 class="title">
+              Reserved Words
+            </h2>
+            <p>
+              JavaScript has a number of “reserved words,” or words that have special meaning in the language. You should avoid using these words in your code except when using them with their intended meaning.
+            </p>
+            <ul>
+                <li>
+                  <code class="code">abstract</code>
+                </li>
+                <li>
+                  <code class="code">boolean</code>
+                </li>
+                <li>
+                  <code class="code">break</code>
+                </li>
+                <li>
+                  <code class="code">byte</code>
+                </li>
+                <li>
+                  <code class="code">case</code>
+                </li>
+                <li>
+                  <code class="code">catch</code>
+                </li>
+                <li>
+                  <code class="code">char</code>
+                </li>
+                <li>
+                  <code class="code">class</code>
+                </li>
+                <li>
+                  <code class="code">const</code>
+                </li>
+                <li>
+                  <code class="code">continue</code>
+                </li>
+                <li>
+                  <code class="code">debugger</code>
+                </li>
+                <li>
+                  <code class="code">default</code>
+                </li>
+                <li>
+                  <code class="code">delete</code>
+                </li>
+                <li>
+                  <code class="code">do</code>
+                </li>
+                <li>
+                  <code class="code">double</code>
+                </li>
+                <li>
+                  <code class="code">else</code>
+                </li>
+                <li>
+                  <code class="code">enum</code>
+                </li>
+                <li>
+                  <code class="code">export</code>
+                </li>
+                <li>
+                  <code class="code">extends</code>
+                </li>
+                <li>
+                  <code class="code">final</code>
+                </li>
+                <li>
+                  <code class="code">finally</code>
+                </li>
+                <li>
+                  <code class="code">float</code>
+                </li>
+                <li>
+                  <code class="code">for</code>
+                </li>
+                <li>
+                  <code class="code">function</code>
+                </li>
+                <li>
+                  <code class="code">goto</code>
+                </li>
+                <li>
+                  <code class="code">if</code>
+                </li>
+                <li>
+                  <code class="code">implements</code>
+                </li>
+                <li>
+                  <code class="code">import</code>
+                </li>
+                <li>
+                  <code class="code">in</code>
+                </li>
+                <li>
+                  <code class="code">instanceof</code>
+                </li>
+                <li>
+                  <code class="code">int</code>
+                </li>
+                <li>
+                  <code class="code">interface</code>
+                </li>
+                <li>
+                  <code class="code">long</code>
+                </li>
+                <li>
+                  <code class="code">native</code>
+                </li>
+                <li>
+                  <code class="code">new</code>
+                </li>
+                <li>
+                  <code class="code">package</code>
+                </li>
+                <li>
+                  <code class="code">private</code>
+                </li>
+                <li>
+                  <code class="code">protected</code>
+                </li>
+                <li>
+                  <code class="code">public</code>
+                </li>
+                <li>
+                  <code class="code">return</code>
+                </li>
+                <li>
+                  <code class="code">short</code>
+                </li>
+                <li>
+                  <code class="code">static</code>
+                </li>
+                <li>
+                  <code class="code">super</code>
+                </li>
+                <li>
+                  <code class="code">switch</code>
+                </li>
+                <li>
+                  <code class="code">synchronized</code>
+                </li>
+                <li>
+                  <code class="code">this</code>
+                </li>
+                <li>
+                  <code class="code">throw</code>
+                </li>
+                <li>
+                  <code class="code">throws</code>
+                </li>
+                <li>
+                  <code class="code">transient</code>
+                </li>
+                <li>
+                  <code class="code">try</code>
+                </li>
+                <li>
+                  <code class="code">typeof</code>
+                </li>
+                <li>
+                  <code class="code">var</code>
+                </li>
+                <li>
+                  <code class="code">void</code>
+                </li>
+                <li>
+                  <code class="code">volatile</code>
+                </li>
+                <li>
+                  <code class="code">while</code>
+                </li>
+                <li>
+                  <code class="code">with</code>
+                </li>
+            </ul>
+          </div>
+          <div title="Arrays" class="section">
+            <h2 class="title">
+              Arrays
+            </h2>
+            <p>
+              Arrays are zero-indexed lists of values. They are a handy way to store a set of related items of the same type (such as strings), though in reality, an array can include multiple types of items, including other arrays.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>A simple array</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var myArray = [ 'hello', 'world' ];
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Accessing array items by index</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var myArray = [ 'hello', 'world', 'foo', 'bar' ];
+console.log(myArray[3]);   // logs 'bar'
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Testing the size of an array</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var myArray = [ 'hello', 'world' ];
+console.log(myArray.length);   // logs 2
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Changing the value of an array item</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var myArray = [ 'hello', 'world' ];
+myArray[1] = 'changed';
+</pre>
+              </div>
+            </div>
+            <p class="remark">
+              <i><span class="remark">While it's possible to change the value of an array item as shown in</span> “Changing the value of an array item”, it's generally not advised.</i>
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Adding elements to an array</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var myArray = [ 'hello', 'world' ];
+myArray.push('new');
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Working with arrays</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var myArray = [ 'h', 'e', 'l', 'l', 'o' ];
+var myString = myArray.join('');   // 'hello'
+var mySplit = myString.split('');  // [ 'h', 'e', 'l', 'l', 'o' ]
+</pre>
+              </div>
+            </div>
+          </div>
+          <h2 class="title">
+            Objects
+          </h2>
+          <p>
+            Objects contain one or more key-value pairs. The key portion can be any string. The value portion can be any type of value: a number, a string, an array, a function, or even another object.
+          </p>
+          <p>
+            <span class="termdef">[Definition: When one of these values is a function, it’s called a <em class="firstterm">method</em> of the object.]</span> Otherwise, they are called properties.
+          </p>
+          <p>
+            As it turns out, nearly everything in JavaScript is an object — arrays, functions, numbers, even strings — and they all have properties and methods.
+          </p>
+          <div class="example">
+            <p class="title">
+              <b>Creating an "object literal"</b>
+            </p>
+            <div class="example-contents">
+              <pre class="brush: js">
+var myObject = {
+    sayHello : function() {
+        console.log('hello');
+    },
+
+    myName : 'Rebecca'
+};
+
+myObject.sayHello();            // logs 'hello'
+console.log(myObject.myName);   // logs 'Rebecca'
+</pre>
+            </div>
+          </div>
+          <div class="note">
+          <h3 class="title">
+            Note
+          </h3>
+          <p>
+            When creating object literals, you should note that the key portion of each key-value pair can be written as any valid JavaScript identifier, a string (wrapped in quotes) or a number:
+          </p>
+          <pre class="brush: js">
+var myObject = {
+    validIdentifier: 123,
+    'some string': 456,
+    99999: 789
+};
+</pre>
+          <p>
+            Object literals can be extremely useful for code organization; for more information, read <a href="http://blog.rebeccamurphey.com/2009/10/15/using-objects-to-organize-your-code/" class="ulink">Using Objects to Organize Your Code</a> by Rebecca Murphey.
+          </p>
+          </div>
+          <div title="Functions" class="section">
+            <h2 class="title">
+              Functions
+            </h2>
+            <p>
+              Functions contain blocks of code that need to be executed repeatedly. Functions can take zero or more arguments, and can optionally return a value.
+            </p>
+            <p>
+              Functions can be created in a variety of ways:
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Function Declaration</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+function foo() { /* do something */ }
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Named Function Expression</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var foo = function() { /* do something */ }
+</pre>
+              </div>
+            </div>
+            <p class="remark">
+              <i><span class="remark">I prefer the named function expression method of setting a function's name, for some rather</span></i> <i><a href="http://yura.thinkweb2.com/named-function-expressions/" class="ulink">in-depth and technical reasons</a>. You are likely to see both methods used in others' JavaScript code.</i>
+            </p>
+            <div title="Using Functions" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Using Functions
+                </h3>
+              </div>
+              <div class="example">
+                <p class="title">
+                  <b>A simple function</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var greet = function(person, greeting) {
+    var text = greeting + ', ' + person;
+    console.log(text);
+};
+
+
+greet('Rebecca', 'Hello');
+</pre>
+                </div>
+              </div>
+              <div class="example">
+                <p class="title">
+                  <b>A function that returns a value</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var greet = function(person, greeting) {
+    var text = greeting + ', ' + person;
+    return text;
+};
+
+console.log(greet('Rebecca','hello'));
+</pre>
+                </div>
+              </div>
+              <div class="example">
+                <p class="title">
+                  <b>A function that returns another function</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var greet = function(person, greeting) {
+    var text = greeting + ', ' + person;
+    return function() { console.log(text); };
+};
+
+
+var greeting = greet('Rebecca', 'Hello');
+greeting();
+</pre>
+                </div>
+              </div>
+            </div>
+            <div title="Self-Executing Anonymous Functions" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Self-Executing Anonymous Functions
+                </h3>
+              </div>
+              <p>
+                A common pattern in JavaScript is the self-executing anonymous
+                function. This pattern creates a function expression and then
+                immediately executes the function. This pattern is extremely
+                useful for cases where you want to avoid polluting the global
+                namespace with your code &mdash; no variables declared inside of the function are visible outside of it.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>A self-executing anonymous function</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+(function(){
+    var foo = 'Hello world';
+})();
+
+
+console.log(foo);   // undefined!
+</pre>
+                </div>
+              </div>
+            </div>
+            <div title="Functions as Arguments" class="section">
+              <div class="titlepage">
+                <h3 class="title">
+                  Functions as Arguments
+                </h3>
+              </div>
+              <p>
+                In JavaScript, functions are "first-class citizens" &mdash they can be assigned to variables or passed to other functions as arguments. Passing functions as arguments is an extremely common idiom in jQuery.
+              </p>
+              <div class="example">
+                <p class="title">
+                  <b>Passing an anonymous function as an argument</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var myFn = function(fn) {
+    var result = fn();
+    console.log(result);
+};
+
+myFn(function() { return 'hello world'; });   // logs 'hello world'
+</pre>
+                </div>
+              </div>
+              <div class="example">
+                <p class="title">
+                  <b>Passing a named function as an argument</b>
+                </p>
+                <div class="example-contents">
+                  <pre class="brush: js">
+var myFn = function(fn) {
+    var result = fn();
+    console.log(result);
+};
+
+var myOtherFn = function() {
+    return 'hello world';
+};
+
+myFn(myOtherFn);   // logs 'hello world'
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div title="Testing Type" class="section">
+            <h2 class="title">
+              Testing Type
+            </h2>
+            <p>
+              JavaScript offers a way to test the "type" of a variable.
+              However, the result can be confusing &mdash; for example, the type of an Array is "object".
+            </p>
+            <p>
+              It's common practice to use the <code class="code">typeof</code> operator when trying to determining the type of a specific value.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Testing the type of various variables</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var myFunction = function() {
+    console.log('hello');
+};
+
+var myObject = {
+    foo : 'bar'
+};
+
+var myArray = [ 'a', 'b', 'c' ];
+
+var myString = 'hello';
+
+var myNumber = 3;
+
+typeof myFunction;   // returns 'function'
+typeof myObject;     // returns 'object'
+typeof myArray;      // <span class="bold"><strong>returns 'object' -- careful!</strong></span>
+typeof myString;     // returns 'string';
+typeof myNumber;     // returns 'number'
+
+typeof null;         // <span class="bold"><strong>returns 'object' -- careful!</strong></span>
+
+
+if (myArray.push &amp;&amp; myArray.slice &amp;&amp; myArray.join) {
+    // probably an array
+    // (this is called "duck typing")
+}
+
+if (Object.prototype.toString.call(myArray) === '[object Array]') {
+    // Definitely an array!
+    // This is widely considered as the most robust way
+    // to determine if a specific value is an Array.
+}
+</pre>
+              </div>
+            </div>
+            <p>
+              jQuery offers utility methods to help you determine the type of an arbitrary value. These will be covered later.
+            </p>
+          </div>
+          <h2 class="title">
+            The <code class="code">this</code> keyword
+          </h2>
+          <p>
+            In JavaScript, as in most object-oriented programming languages, <code class="code">this</code> is a special keyword that is used within methods to refer to the object on which a method is being invoked. The value of <code class="code">this</code> is determined using a simple series of steps:
+          </p>
+          <div class="orderedlist">
+            <ol class="orderedlist">
+              <li>If the function is invoked using <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call" class="ulink">Function.call</a> or <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply" class="ulink">Function.apply</a>, <code class="code">this</code> will be set to the first argument passed to call/apply. If the first argument passed to call/apply is <code class="code">null</code> or <code class="code">undefined</code>, <code class="code">this</code> will refer to the global object (which is the <code class="code">window</code> object in Web browsers).
+              </li>
+              <li>If the function being invoked was created using <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind" class="ulink">Function.bind</a>, <code class="code">this</code> will be the first argument that was passed to bind at the time the function was created.
+              </li>
+              <li>If the function is being invoked as a method of an object, <code class="code">this</code> will refer to that object.
+              </li>
+              <li>Otherwise, the function is being invoked as a standalone function not attached to any object, and <code class="code">this</code> will refer to the global object.
+              </li>
+            </ol>
+          </div>
+          <div class="example">
+            <p class="title">
+              <b>A function invoked using Function.call</b>
+            </p>
+            <div class="example-contents">
+              <pre class="brush: js">
+var myObject = {
+    sayHello : function() {
+        console.log('Hi! My name is ' + this.myName);
+    },
+
+    myName : 'Rebecca'
+};
+
+var secondObject = {
+    myName : 'Colin'
+};
+
+myObject.sayHello();                  // logs 'Hi! My name is Rebecca'
+myObject.sayHello.call(secondObject); // logs 'Hi! My name is Colin'
+</pre>
+            </div>
+          </div>
+          <div class="example">
+            <p class="title">
+              <b>A function created using Function.bind</b>
+            </p>
+            <div class="example-contents">
+              <pre class="brush: js">
+var myName = 'the global object',
+
+    sayHello = function () {
+        console.log('Hi! My name is ' + this.myName);
+    },
+
+    myObject = {
+        myName : 'Rebecca'
+    };
+
+var myObjectHello = sayHello.bind(myObject);
+
+sayHello();       // logs 'Hi! My name is the global object'
+myObjectHello();  // logs 'Hi! My name is Rebecca'
+</pre>
+            </div>
+          </div>
+          <div class="example">
+            <p class="title">
+              <b>A function being attached to an object at runtime</b>
+            </p>
+            <div class="example-contents">
+              <pre class="brush: js">
+var myName = 'the global object',
+
+    sayHello = function() {
+        console.log('Hi! My name is ' + this.myName);
+    },
+
+    myObject = {
+        myName : 'Rebecca'
+    },
+
+    secondObject = {
+        myName : 'Colin'
+    };
+
+myObject.sayHello = sayHello;
+secondObject.sayHello = sayHello;
+
+sayHello();               // logs 'Hi! My name is the global object'
+myObject.sayHello();      // logs 'Hi! My name is Rebecca'
+secondObject.sayHello();  // logs 'Hi! My name is Colin'
+</pre>
+            </div>
+          </div>
+          <div class="note">
+          <h3 class="title">
+            Note
+          </h3>
+          <p>
+            When invoking a function deep within a long namespace, it is often tempting to reduce the amount of code you need to type by storing a reference to the actual function as a single, shorter variable. It is important not to do this with instance methods as this will cause the value of <code class="code">this</code> within the function to change, leading to incorrect code operation. For instance:
+          </p>
+          <pre class="brush: js">
+var myNamespace = {
+    myObject : {
+        sayHello : function() {
+            console.log('Hi! My name is ' + this.myName);
+        },
+
+        myName : 'Rebecca'
+    }
+};
+
+var hello = myNamespace.myObject.sayHello;
+
+hello();  // logs 'Hi! My name is undefined'
+</pre>
+          <p>
+            You can, however, safely reduce everything up to the object on which the method is invoked:
+          </p>
+          <pre class="brush: js">
+var myNamespace = {
+    myObject : {
+        sayHello : function() {
+            console.log('Hi! My name is ' + this.myName);
+        },
+
+        myName : 'Rebecca'
+    }
+};
+
+var obj = myNamespace.myObject;
+
+obj.sayHello();  // logs 'Hi! My name is Rebecca'
+</pre>
+          </div>
+          <div title="Scope" class="section">
+            <h2 class="title">
+              Scope
+            </h2>
+            <p>
+              "Scope" refers to the variables that are available to a piece of code at a given time. A lack of understanding of scope can lead to frustrating debugging experiences.
+            </p>
+            <p>
+              When a variable is declared inside of a function using the <code
+              class="code">var</code> keyword, it is only available to code
+              inside of that function &mdash; code outside of that function cannot access the variable. On the other hand, functions defined <span class="emphasis"><em>inside</em></span> that function <span class="emphasis"><em>will</em></span> have access to to the declared variable.
+            </p>
+            <p>
+              Furthermore, variables that are declared inside a function
+              without the <code class="code">var</code> keyword are not local
+              to the function &mdash; JavaScript will traverse the scope chain all the way up to the window scope to find where the variable was previously defined. If the variable wasn't previously defined, it will be defined in the global scope, which can have extremely unexpected consequences;
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Functions have access to variables defined in the same scope</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var foo = 'hello';
+
+var sayHello = function() {
+    console.log(foo);
+};
+
+sayHello();         // logs 'hello'
+console.log(foo);   // also logs 'hello'
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Code outside the scope in which a variable was defined does not have access to the variable</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var sayHello = function() {
+    var foo = 'hello';
+    console.log(foo);
+};
+
+sayHello();         // logs 'hello'
+console.log(foo);   // doesn't log anything
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Variables with the same name can exist in different scopes with different values</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var foo = 'world';
+
+var sayHello = function() {
+    var foo = 'hello';
+    console.log(foo);
+};
+
+sayHello();         // logs 'hello'
+console.log(foo);   // logs 'world'
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Functions can "see" changes in variable values after the function is defined</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var myFunction = function() {
+    var foo = 'hello';
+
+    var myFn = function() {
+        console.log(foo);
+    };
+
+    foo = 'world';
+
+    return myFn;
+};
+
+var f = myFunction();
+f();  // logs 'world' -- uh oh
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Scope insanity</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+// a self-executing anonymous function
+(function() {
+    var baz = 1;
+    var bim = function() { alert(baz); };
+    bar = function() { alert(baz); };
+})();
+
+console.log(baz);  // baz is not defined outside of the function
+
+bar();  // bar is defined outside of the anonymous function
+        // because it wasn't declared with var; furthermore,
+        // because it was defined in the same scope as baz,
+        // it has access to baz even though other code
+        // outside of the function does not
+
+bim();  // bim is not defined outside of the anonymous function,
+        // so this will result in an error
+</pre>
+              </div>
+            </div>
+          </div>
+          <div title="Closures" class="section">
+            <h2 class="title">
+              Closures
+            </h2>
+            <p>
+              Closures are an extension of the concept of scope — functions have access to variables that were available in the scope where the function was created. If that’s confusing, don’t worry: closures are generally best understood by example.
+            </p>
+            <p>
+              In “Functions can "see" changes in variable values after the
+              function is defined”, we saw how functions have access to
+              changing variable values. The same sort of behavior exists with
+              functions defined within loops &mdash; the function "sees" the change in the variable's value even after the function is defined, resulting in all clicks alerting 5.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>How to lock in the value of <code class="code">i</code>?</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+/* this won't behave as we want it to; */
+/* every click will alert 5 */
+for (var i=0; i&lt;5; i++) {
+    $('&lt;p&gt;click me&lt;/p&gt;').appendTo('body').click(function() {
+        alert(i);
+    });
+}
+</pre>
+              </div>
+            </div>
+            <div class="example">
+              <p class="title">
+                <b>Locking in the value of <code class="code">i</code> with a closure</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+/* fix: “close” the value of i inside createFunction, so it won't change */
+var createFunction = function(i) {
+    return function() { alert(i); };
+};
+
+for (var i=0; i&lt;5; i++) {
+    $('&lt;p&gt;click me&lt;/p&gt;').appendTo('body').click(createFunction(i));
+}
+</pre>
+              </div>
+            </div>
+            <p>
+              Closures can also be used to resolve issues with the <code class="code">this</code> keyword, which is unique to each scope:
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Using a closure to access inner and outer object instances simultaneously</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var outerObj = {
+    myName : 'outer',
+    outerFunction : function () {
+
+        // provide a reference to outerObj through innerFunction's closure
+        var self = this;
+
+        var innerObj = {
+            myName : 'inner',
+            innerFunction : function () {
+                console.log(self.myName, this.myName); // logs 'outer inner'
+            }
+        };
+
+        innerObj.innerFunction();
+
+        console.log(this.myName); // logs 'outer'
+    }
+};
+
+outerObj.outerFunction();
+</pre>
+              </div>
+            </div>
+            <p>
+              This mechanism can be particularly useful when dealing with callbacks, though in those cases, it is often better to use <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind" class="ulink">Function.bind</a>, which will avoid any overhead associated with scope traversal.
+            </p>
+          </div>
+        </div>

@@ -1,0 +1,300 @@
+        <div title="jQuery Core" class="chapter">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h2 class="title">
+                  jQuery Core
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div title="$ vs $()" class="section">
+            <h2 class="title">
+              <code class="code">$</code> vs <code class="code">$()</code>
+            </h2>
+            <p>
+              Until now, we’ve been dealing entirely with methods that are called on a jQuery object. For example:
+            </p>
+            <pre class="brush: js">
+$('h1').remove();
+</pre>
+            <p>
+              Most jQuery methods are called on jQuery objects as shown above; these methods are said to be part of the <code class="code">$.fn</code> namespace, or the “jQuery prototype,” and are best thought of as jQuery object methods.
+            </p>
+            <p>
+              However, there are several methods that do not act on a selection; these methods are said to be part of the jQuery namespace, and are best thought of as core jQuery methods.
+            </p>
+            <p>
+              This distinction can be incredibly confusing to new jQuery users. Here’s what you need to remember:
+            </p>
+            <ul>
+              <li>Methods called on jQuery selections are in the <code class="code">$.fn</code> namespace, and automatically receive and return the selection as this.
+              </li>
+              <li>Methods in the <code class="code">$</code> namespace are generally utility-type methods, and do not work with selections; they are not automatically passed any arguments, and their return value will vary.
+              </li>
+            </ul>
+            <p>
+              There are a few cases where object methods and core methods have the same names, such as <code class="code">$.each</code> and <code class="code">$.fn.each</code>. In these cases, be extremely careful when reading the documentation that you are exploring the correct method.
+            </p>
+          </div>
+          <div title="Utility Methods" class="section">
+            <h2 class="title">
+              Utility Methods
+            </h2>
+            <p>
+              jQuery offers several utility methods in the <code class="code">$</code> namespace. These methods are helpful for accomplishing routine programming tasks. Below are examples of a few of the utility methods; for a complete reference on jQuery utility methods, visit <a href="http://api.jquery.com/category/utilities/" class="ulink">http://api.jquery.com/category/utilities/</a>.
+            </p>
+            <div class="variablelist">
+              <dl>
+                <dt>
+                  <span class="term">$.trim</span>
+                </dt>
+                <dd>
+                  <p>
+                    Removes leading and trailing whitespace.
+                  </p>
+                  <pre class="brush: js">
+$.trim('    lots of extra whitespace    ');
+// returns 'lots of extra whitespace'
+</pre>
+                </dd>
+                <dt>
+                  <span class="term">$.each</span>
+                </dt>
+                <dd>
+                  <p>
+                    Iterates over arrays and objects.
+                  </p>
+                  <pre class="brush: js">
+$.each([ 'foo', 'bar', 'baz' ], function(idx, val) {
+    console.log('element ' + idx + 'is ' + val);
+});
+
+$.each({ foo : 'bar', baz : 'bim' }, function(k, v) {
+    console.log(k + ' : ' + v);
+});
+</pre>
+                  <div class="note">
+                  <h3 class="title">
+                    Note
+                  </h3>
+                  <p>
+                    There is also a method <code class="code">$.fn.each</code>, which is used for iterating over a selection of elements.
+                  </p>
+                  </div>
+                </dd>
+                <dt>
+                  <span class="term">$.inArray</span>
+                </dt>
+                <dd>
+                  <p>
+                    Returns a value's index in an array, or -1 if the value is not in the array.
+                  </p>
+                  <pre class="brush: js">
+var myArray = [ 1, 2, 3, 5 ];
+
+if ($.inArray(4, myArray) !== -1) {
+    console.log('found it!');
+}
+</pre>
+                </dd>
+                <dt>
+                  <span class="term">$.extend</span>
+                </dt>
+                <dd>
+                  <p>
+                    Changes the properties of the first object using the properties of subsequent objects.
+                  </p>
+                  <pre class="brush: js">
+var firstObject = { foo : 'bar', a : 'b' };
+var secondObject = { foo : 'baz' };
+
+var newObject = $.extend(firstObject, secondObject);
+console.log(firstObject.foo); // 'baz'
+console.log(newObject.foo);   // 'baz'
+</pre>
+                  <p>
+                    If you don't want to change any of the objects you pass to <code class="code">$.extend</code>, pass an empty object as the first argument.
+                  </p>
+                  <pre class="brush: js">
+var firstObject = { foo : 'bar', a : 'b' };
+var secondObject = { foo : 'baz' };
+
+var newObject = $.extend({}, firstObject, secondObject);
+console.log(firstObject.foo); // 'bar'
+console.log(newObject.foo);   // 'baz'
+</pre>
+                </dd>
+                <dt>
+                  <span class="term">$.proxy</span>
+                </dt>
+                <dd>
+                  <p>
+                    Returns a function that will always run in the provided scope — that is, sets the meaning of <code class="code">this</code> inside the passed function to the second argument.
+                  </p>
+                  <pre class="brush: js">
+var myFunction = function() { console.log(this); };
+var myObject = { foo : 'bar' };
+
+myFunction(); // logs window object
+
+var myProxyFunction = $.proxy(myFunction, myObject);
+myProxyFunction(); // logs myObject object
+</pre>
+                  <p>
+                    If you have an object with methods, you can pass the object and the name of a method to return a function that will always run in the scope of the object.
+                  </p>
+                  <pre class="brush: js">
+var myObject = {
+    myFn : function() {
+        console.log(this);
+    }
+};
+
+$('#foo').click(myObject.myFn); // logs DOM element #foo
+$('#foo').click($.proxy(myObject, 'myFn')); // logs myObject
+</pre>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div title="Checking types" class="section">
+            <h2 class="title">
+              Checking types
+            </h2>
+            <p>
+              As mentioned in the "JavaScript basics" section, jQuery offers a few basic utility methods for determining the type of a specific value.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Checking the type of an arbitrary value</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+var myValue = [1, 2, 3];
+
+// Using JavaScript's typeof operator to test for primative types
+typeof myValue == 'string'; // false
+typeof myValue == 'number'; // false
+typeof myValue == 'undefined'; // false
+typeof myValue == 'boolean'; // false
+
+// Using strict equality operator to check for null
+myValue === null; // false
+
+// Using jQuery's methods to check for non-primative types
+jQuery.isFunction(myValue); // false
+jQuery.isPlainObject(myValue); // false
+jQuery.isArray(myValue); // true
+</pre>
+              </div>
+            </div>
+          </div>
+          <div title="Data Methods" class="section">
+            <h2 class="title">
+              Data Methods
+            </h2>
+            <p>
+              As your work with jQuery progresses, you'll find that there's often data about an element that you want to store with the element. In plain JavaScript, you might do this by adding a property to the DOM element, but you'd have to deal with memory leaks in some browsers. jQuery offers a straightforward way to store data related to an element, and it manages the memory issues for you.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Storing and retrieving data related to an element</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('#myDiv').data('keyName', { foo : 'bar' });
+$('#myDiv').data('keyName'); // { foo : 'bar' }
+</pre>
+              </div>
+            </div>
+            <p>
+              You can store any kind of data on an element, and it's hard to overstate the importance of this when you get into complex application development. For the purposes of this class, we'll mostly use <code class="code">$.fn.data</code> to store references to other elements.
+            </p>
+            <p>
+              For example, we may want to establish a relationship between a list item and a div that's inside of it. We could establish this relationship every single time we interact with the list item, but a better solution would be to establish the relationship once, and then store a pointer to the div on the list item using <code class="code">$.fn.data</code>:
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Storing a relationship between elements using <code class="code">$.fn.data</code></b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('#myList li').each(function() {
+    var $li = $(this), $div = $li.find('div.content');
+    $li.data('contentDiv', $div);
+});
+
+// later, we don't have to find the div again;
+// we can just read it from the list item's data
+var $firstLi = $('#myList li:first');
+$firstLi.data('contentDiv').html('new content');
+</pre>
+              </div>
+            </div>
+            <p>
+              In addition to passing <code class="code">$.fn.data</code> a single key-value pair to store data, you can also pass an object containing one or more pairs.
+            </p>
+          </div>
+          <div title="Feature &amp; Browser Detection" class="section">
+            <h2 class="title">
+              Feature &amp; Browser Detection
+            </h2>
+            <p>
+              Although jQuery eliminates most JavaScript browser quirks, there are still occasions when your code needs to know about the browser environment.
+            </p>
+            <p>
+              jQuery offers the <code class="code">$.support</code> object, as well as the deprecated <code class="code">$.browser</code> object, for this purpose. For complete documentation on these objects, visit <a href="http://api.jquery.com/jQuery.support/" class="ulink">http://api.jquery.com/jQuery.support/</a> and <a href="http://api.jquery.com/jQuery.browser/" class="ulink">http://api.jquery.com/jQuery.browser/</a>.
+            </p>
+            <p>
+              The <code class="code">$.support</code> object is dedicated to determining what features a browser supports; it is recommended as a more “future-proof” method of customizing your JavaScript for different browser environments.
+            </p>
+            <p>
+              The <code class="code">$.browser</code> object was deprecated in favor of the <code class="code">$.support</code> object, but it will not be removed from jQuery anytime soon. It provides direct detection of the browser brand and version.
+            </p>
+          </div>
+          <div title="Avoiding Conflicts with Other Libraries" class="section">
+            <h2 class="title">
+              Avoiding Conflicts with Other Libraries
+            </h2>
+            <p>
+              If you are using another JavaScript library that uses the <code class="code">$</code> variable, you can run into conflicts with jQuery. In order to avoid these conflicts, you need to put jQuery in no-conflict mode immediately after it is loaded onto the page and before you attempt to use jQuery in your page.
+            </p>
+            <p>
+              When you put jQuery into no-conflict mode, you have the option of assigning a variable name to replace <code class="code">$</code>.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Putting jQuery into no-conflict mode</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+&lt;script src="prototype.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.js"&gt;&lt;/script&gt;
+&lt;script&gt;var $j = jQuery.noConflict();&lt;/script&gt;
+</pre>
+              </div>
+            </div>
+            <p>
+              You can continue to use the standard <code class="code">$</code> by wrapping your code in a self-executing anonymous function; this is a standard pattern for plugin authoring, where the author cannot know whether another library will have taken over the <code class="code">$</code>.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Using the $ inside a self-executing anonymous function</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+&lt;script src="prototype.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+jQuery.noConflict();
+
+(function($) {
+   // your code here, using the $
+})(jQuery);
+&lt;/script&gt;
+</pre>
+              </div>
+            </div>
+          </div>
+        </div>
