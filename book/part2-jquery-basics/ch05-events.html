@@ -170,7 +170,7 @@ $('p').unbind('.myNamespace'); // unbind all events in the namespace
               </h3>
             </div>
             <p>
-              Quite often elements in your application will be bound to multiple events with each having a different callback handler. In these cases you can pass an object literal into <code class="code">$.fn.bind</code> with the key being the event type and the value being the callback handler.
+              Quite often elements in your application will be bound to multiple events, each having a different function for handing the event. In these cases you can pass an object into <code class="code">$.fn.bind</code> with one or more key/value pairs, with the key being the event name and the value being the function to handle the event.
             </p>
             <div class="example">
               <p class="title">
