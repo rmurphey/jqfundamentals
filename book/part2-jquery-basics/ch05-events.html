@@ -35,7 +35,7 @@
               &mdash; including <code class="code">$.fn.click</code>, <code
               class="code">$.fn.focus</code>, <code
               class="code">$.fn.blur</code>, <code
-              class="code">$.fn.change</code>, etc. &mdash; are shorthand for jQuery's <code class="code">$.fn.bind</code> method. The bind method is useful for binding the same handler function to multiple events, and is also used when you want to provide data to the event hander, or when you are working with custom events.
+              class="code">$.fn.change</code>, etc. &mdash; are shorthand for jQuery's <code class="code">$.fn.bind</code> method. The bind method is useful for binding the same handler function to multiple events, when you want to provide data to the event hander, when you are working with custom events, or when you want to pass an object of multiple events and handlers.
             </p>
             <div class="example">
               <p class="title">
@@ -163,6 +163,38 @@ $('p').unbind('.myNamespace'); // unbind all events in the namespace
               </div>
             </div>
           </div>
+					<div title="Binding Multiple Events" class="section">
+            <div class="titlepage">
+              <h3 class="title">
+                Binding Multiple Events
+              </h3>
+            </div>
+            <p>
+              Quite often elements in your application will be bound to multiple events, each having a different function for handing the event. In these cases you can pass an object into <code class="code">$.fn.bind</code> with one or more key/value pairs, with the key being the event name and the value being the function to handle the event.
+            </p>
+            <div class="example">
+              <p class="title">
+                <b>Binding Multiple Events</b>
+              </p>
+              <div class="example-contents">
+                <pre class="brush: js">
+$('p').bind({
+	'click': function() { console.log('clicked!'); },
+	'mouseover': function() { console.log('hovered!'); }
+});
+</pre>
+              </div>
+            </div>
+          </div>
+					<div class="note">
+          <h3 class="title">
+            Note
+          </h3>
+          <p>
+            The option to pass an object of multiple events and handlers to <code class="code">$.fn.bind</code> was introduced in jQuery 1.4.4.
+          </p>
+          </div>
+        </div>
           <div title="Inside the Event Handling Function" class="section">
             <h2 class="title">
               Inside the Event Handling Function
