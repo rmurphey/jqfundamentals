@@ -537,7 +537,7 @@ $('h1').html();
             Note
           </h3>
           <p>
-            CSS properties that normally include a hyphen need to be <em class="firstterm">camel cased</em> in JavaScript. For example, the CSS property <code class="code">font-size</code> is expressed as <code class="code">fontSize</code> in JavaScript.
+            CSS properties that normally include a hyphen need to be <em class="firstterm">camel cased</em> in JavaScript. For example, the CSS property <code class="code">font-size</code> is expressed as <code class="code">fontSize</code> when used as a property name in JavaScript. This does not apply, however, when passing the name of a CSS property to the <code class="code">$.fn.css</code> method as a string &mdash; in that case, either the camel cased or hyphenated form will work.</p>
           </p>
           </div>
           <div class="example">
@@ -547,6 +547,7 @@ $('h1').html();
             <div class="example-contents">
               <pre class="brush: js">
 $('h1').css('fontSize'); // returns a string such as "19px"
+$('h1').css('font-size'); // also works
 </pre>
             </div>
           </div>
