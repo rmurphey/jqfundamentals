@@ -4,3 +4,4 @@ book/*.xml~
 book/pub/fo/jquery-fundamentals-book.fo
 old/*
 sandbox
+publish/

@@ -12,8 +12,6 @@ Until the new repository is made public, you can continue to submit issues on
 this repository; however, if you have a pull request, I suggest holding off
 until the new repository is announced.
 
---
-
 # jQuery Fundamentals Training Material #
 
 This repository contains evolving content to be used as teaching material for a
