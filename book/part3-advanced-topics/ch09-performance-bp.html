@@ -1,619 +1,433 @@
-        <div title="Code Organization" class="chapter">
+ <div title="Performance Best Practices" class="chapter">
           <div class="titlepage">
             <div>
               <div>
                 <h2 class="title">
-                  Code Organization
+                  Performance Best Practices
                 </h2>
               </div>
             </div>
           </div>
-          <div title="Overview" class="section">
-            <h2 class="title">
-              Overview
-            </h2>
-            <p>
-              When you move beyond adding simple enhancements to your website with jQuery and start developing full-blown client-side applications, you need to consider how to organize your code. In this chapter, we'll take a look at various code organization patterns you can use in your jQuery application and explore the RequireJS dependency management and build system.
-            </p>
-            <div title="Key Concepts" class="section">
-              <div class="titlepage">
-                <h3 class="title">
-                  Key Concepts
-                </h3>
-              </div>
-              <p>
-                Before we jump into code organization patterns, it's important to understand some concepts that are common to all good code organization patterns.
-              </p>
-              <ul>
-                <li>Your code should be divided into units of functionality — modules, services, etc. Avoid the temptation to have all of your code in one huge <code class="code">$(document).ready()</code> block. This concept, loosely, is known as encapsulation.
-                </li>
-                <li>
-                  <p>
-                    Don't repeat yourself. Identify similarities among pieces of functionality, and use inheritance techniques to avoid repetitive code.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Despite jQuery's DOM-centric nature, JavaScript applications are not all about the DOM. Remember that not all pieces of functionality need to — or should — have a DOM representation.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Units of functionality should be <a href="http://en.wikipedia.org/wiki/Loose_coupling" class="ulink">loosely coupled</a> — a unit of functionality should be able to exist on its own, and communication between units should be handled via a messaging system such as custom events or pub/sub. Stay away from direct communication between units of functionality whenever possible.
-                  </p>
-                </li>
-              </ul>
-              <p>
-                The concept of loose coupling can be especially troublesome to developers making their first foray into complex applications, so be mindful of this as you're getting started.
-              </p>
-            </div>
-          </div>
-          <div title="Encapsulation" class="section">
-            <h2 class="title">
-              Encapsulation
-            </h2>
-            <p>
-              The first step to code organization is separating pieces of your application into distinct pieces; sometimes, even just this effort is sufficient to lend
-            </p>
-            <div title="The Object Literal" class="section">
-              <div class="titlepage">
-                <h3 class="title">
-                  The Object Literal
-                </h3>
-              </div>
-              <p>
-                An object literal is perhaps the simplest way to encapsulate related code. It doesn't offer any privacy for properties or methods, but it's useful for eliminating anonymous functions from your code, centralizing configuration options, and easing the path to reuse and refactoring.
-              </p>
-              <div class="example">
-                <p class="title">
-                  <b>An object literal</b>
-                </p>
-                <div class="example-contents">
-                  <pre class="brush: js">
-var myFeature = {
-    myProperty : 'hello',
-
-    myMethod : function() {
-        console.log(myFeature.myProperty);
-    },
-
-    init : function(settings) {
-        myFeature.settings = settings;
-    },
-
-    readSettings : function() {
-        console.log(myFeature.settings);
-    }
-};
-
-myFeature.myProperty; // 'hello'
-myFeature.myMethod(); // logs 'hello'
-myFeature.init({ foo : 'bar' });
-myFeature.readSettings(); // logs { foo : 'bar' }
-</pre>
-                </div>
-              </div>
-              <p>
-                The object literal above is simply an object assigned to a variable. The object has one property and several methods. All of the properties and methods are public, so any part of your application can see the properties and call methods on the object. While there is an init method, there's nothing requiring that it be called before the object is functional.
-              </p>
-              <p>
-                How would we apply this pattern to jQuery code? Let's say that we had this code written in the traditional jQuery style:
-              </p>
-              <pre class="brush: js">
-// clicking on a list item loads some content
-// using the list item's ID and hides content
-// in sibling list items
-$(document).ready(function() {
-  $('#myFeature li')
-    .append('&lt;div/&gt;')
-    .click(function() {
-      var $this = $(this);
-      var $div = $this.find('div');
-      $div.load('foo.php?item=' +
-        $this.attr('id'),
-        function() {
-          $div.show();
-          $this.siblings()
-            .find('div').hide();
-        }
-      );
-    });
-});
-</pre>
-              <p>
-                If this were the extent of our application, leaving it as-is would be fine. On the other hand, if this was a piece of a larger application, we'd do well to keep this functionality separate from unrelated functionality. We might also want to move the URL out of the code and into a configuration area. Finally, we might want to break up the chain to make it easier to modify pieces of the functionality later.
-              </p>
-              <div class="example">
-                <p class="title">
-                  <b>Using an object literal for a jQuery feature</b>
-                </p>
-                <div class="example-contents">
-                  <pre class="brush: js">
-var myFeature = {
-    init : function(settings) {
-        myFeature.config = {
-            $items : $('#myFeature li'),
-            $container : $('&lt;div class="container"&gt;&lt;/div&gt;'),
-            urlBase : '/foo.php?item='
-        };
-
-        // allow overriding the default config
-        $.extend(myFeature.config, settings);
-
-        myFeature.setup();
-    },
-
-    setup : function() {
-        myFeature.config.$items
-            .each(myFeature.createContainer)
-            .click(myFeature.showItem);
-    },
-
-    createContainer : function() {
-        var $i = $(this),
-            $c = myFeature.config.$container.clone()
-                     .appendTo($i);
-
-        $i.data('container', $c);
-    },
-
-    buildUrl : function() {
-        return myFeature.config.urlBase +
-               myFeature.$currentItem.attr('id');
-    },
-
-    showItem : function() {
-        var myFeature.$currentItem = $(this);
-        myFeature.getContent(myFeature.showContent);
-    },
-
-    getContent : function(callback) {
-        var url = myFeature.buildUrl();
-        myFeature.$currentItem
-            .data('container').load(url, callback);
-    },
-
-    showContent : function() {
-        myFeature.$currentItem
-            .data('container').show();
-        myFeature.hideContent();
-    },
-
-    hideContent : function() {
-        myFeature.$currentItem.siblings()
-            .each(function() {
-                $(this).data('container').hide();
-            });
-    }
-};
-
-$(document).ready(myFeature.init);
-</pre>
-                </div>
-              </div>
-              <p>
-                The first thing you'll notice is that this approach is obviously far longer than the original — again, if this were the extent of our application, using an object literal would likely be overkill. Assuming it's not the extent of our application, though, we've gained several things:
-              </p>
-              <ul>
-                <li>
-                  <p>
-                    We've broken our feature up into tiny methods. In the future, if we want to change how content is shown, it's clear where to change it. In the original code, this step is much harder to locate.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    We've eliminated the use of anonymous functions.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    We've moved configuration options out of the body of the code and put them in a central location.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    We've eliminated the constraints of the chain, making the code easier to refactor, remix, and rearrange.
-                  </p>
-                </li>
-              </ul>
-              <p>
-                For non-trivial features, object literals are a clear improvement over a long stretch of code stuffed in a $(document).ready() block, as they get us thinking about the pieces of our functionality. However, they aren't a whole lot more advanced than simply having a bunch of function declarations inside of that $(document).ready() block.
-              </p>
-            </div>
-            <div title="The Module Pattern" class="section">
-              <div class="titlepage">
-                <h3 class="title">
-                  The Module Pattern
-                </h3>
-              </div>
-              <p>
-                The module pattern overcomes some of the limitations of the object literal, offering privacy for variables and functions while exposing a public API if desired.
-              </p>
-              <div class="example">
-                <p class="title">
-                  <b>The module pattern</b>
-                </p>
-                <div class="example-contents">
-                  <pre class="brush: js">
-var feature =(function() {
-
-    // private variables and functions
-    var privateThing = 'secret',
-        publicThing = 'not secret',
-
-        changePrivateThing = function() {
-            privateThing = 'super secret';
-        },
-
-        sayPrivateThing = function() {
-            console.log(privateThing);
-            changePrivateThing();
-        };
-
-    // public API
-    return {
-        publicThing : publicThing,
-        sayPrivateThing : sayPrivateThing
-    }
-
-})();
-
-feature.publicThing; // 'not secret'
-
-feature.sayPrivateThing();
-// logs 'secret' and changes the value
-// of privateThing
-</pre>
-                </div>
-              </div>
-              <p>
-                In the example above, we self-execute an anonymous function that returns an object. Inside of the function, we define some variables. Because the variables are defined inside of the function, we don't have access to them outside of the function unless we put them in the return object. This means that no code outside of the function has access to the <code class="code">privateThing</code> variable or to the <code class="code">changePrivateThing</code> function. However, <code class="code">sayPrivateThing</code> does have access to <code class="code">privateThing</code> and <code class="code">changePrivateThing</code>, because both were defined in the same scope as <code class="code">sayPrivateThing</code>.
-              </p>
-              <p>
-                This pattern is powerful because, as you can gather from the variable names, it can give you private variables and functions while exposing a limited API consisting of the returned object's properties and methods.
-              </p>
-              <p>
-                Below is a revised version of the previous example, showing how we could create the same feature using the module pattern while only exposing one public method of the module, <code class="code">showItemByIndex()</code>.
-              </p>
-              <div class="example">
-                <p class="title">
-                  <b>Using the module pattern for a jQuery feature</b>
-                </p>
-                <div class="example-contents">
-                  <pre class="brush: js">
-$(document).ready(function() {
-    var feature = (function() {
-
-        var $items = $('#myFeature li'),
-            $container = $('&lt;div class="container"&gt;&lt;/div&gt;'),
-            $currentItem,
-
-            urlBase = '/foo.php?item=',
-
-            createContainer = function() {
-                var $i = $(this),
-                    $c = $container.clone().appendTo($i);
-
-                $i.data('container', $c);
-            },
-
-            buildUrl = function() {
-                return urlBase + $currentItem.attr('id');
-            },
-
-            showItem = function() {
-                var $currentItem = $(this);
-                getContent(showContent);
-            },
-
-            showItemByIndex = function(idx) {
-                $.proxy(showItem, $items.get(idx));
-            },
-
-            getContent = function(callback) {
-                $currentItem.data('container').load(buildUrl(), callback);
-            },
-
-            showContent = function() {
-                $currentItem.data('container').show();
-                hideContent();
-            },
-
-            hideContent = function() {
-                $currentItem.siblings()
-                    .each(function() {
-                        $(this).data('container').hide();
-                });
-            };
-
-        $items
-            .each(createContainer)
-            .click(showItem);
-
-        return { showItemByIndex : showItemByIndex };
-    })();
-
-    feature.showItemByIndex(0);
-});
-</pre>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h2 class="title">
-            Managing Dependencies
-          </h2>
-          <div class="note">
-          <h3 class="title">
-            Note
-          </h3>
           <p>
-            This section is based heavily on the excellent RequireJS documentation at <a href="http://requirejs.org/docs/jquery.html" class="ulink">http://requirejs.org/docs/jquery.html</a>, and is used with the permission of RequireJS author James Burke.
+            This chapter covers a number of jQuery and JavaScript best practices, in no particular order. Many of the best practices in this chapter are based on the <a href="http://paulirish.com/perf" class="ulink">jQuery Anti-Patterns for Performance</a> presentation by Paul Irish.
           </p>
-          </div>
-          <p>
-            When a project reaches a certain size, managing the script modules for a project starts to get tricky. You need to be sure to sequence the scripts in the right order, and you need to start seriously thinking about combining scripts together into a bundle for deployment, so that only one or a very small number of requests are made to load the scripts. You may also want to load code on the fly, after page load.
-          </p>
-          <p>
-            RequireJS, a dependency management tool by James Burke, can help you manage the script modules, load them in the right order, and make it easy to combine the scripts later via the RequireJS optimization tool without needing to change your markup. It also gives you an easy way to load scripts after the page has loaded, allowing you to spread out the download size over time.
-          </p>
-          <p>
-            RequireJS has a module system that lets you define well-scoped modules, but you do not have to follow that system to get the benefits of dependency management and build-time optimizations. Over time, if you start to create more modular code that needs to be reused in a few places, the module format for RequireJS makes it easy to write encapsulated code that can be loaded on the fly. It can grow with you, particularly if you want to incorporate internationalization (i18n) string bundles, to localize your project for different languages, or load some HTML strings and make sure those strings are available before executing code, or even use JSONP services as dependencies.
-          </p>
-          <div title="Getting RequireJS" class="section">
+          <div title="Cache length during loops" class="sect1">
             <div class="titlepage">
-              <h3 class="title">
-                Getting RequireJS
-              </h3>
-            </div>
-            <p>
-              The easiest way to use RequireJS with jQuery is to <a href="http://requirejs.org/docs/download.html" class="ulink">download a build of jQuery that has RequireJS built in</a>. This build excludes portions of RequireJS that duplicate jQuery functionality. You may also find it useful to download <a href="http://requirejs.org/docs/release/0.11.0/jquery-require-sample.zip" class="ulink">a sample jQuery project that uses RequireJS</a>.
-            </p>
-          </div>
-          <div title="Using RequireJS with jQuery" class="section">
-            <div class="titlepage">
-              <h3 class="title">
-                Using RequireJS with jQuery
-              </h3>
-            </div>
-            <p>
-              Using RequireJS in your page is simple: just include the jQuery that has RequireJS built in, then require your application files. The following example assumes that the jQuery build, and your other scripts, are all in a <code class="filename">scripts/</code> directory.
-            </p>
-            <div class="example">
-              <p class="title">
-                <b>Using RequireJS: A simple example</b>
-              </p>
-              <div class="example-contents">
-                <pre class="brush: js">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;jQuery+RequireJS Sample Page&lt;/title&gt;
-        &lt;script src="scripts/require-jquery.js"&gt;&lt;/script&gt;
-        &lt;script&gt;require(["app"]);&lt;/script&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h1&gt;jQuery+RequireJS Sample Page&lt;/h1&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</pre>
+              <div>
+                <div>
+                  <h2 class="title">
+                    Cache length during loops
+                  </h2>
+                </div>
               </div>
             </div>
             <p>
-              The call to <code class="code">require(["app"])</code> tells RequireJS to load the <code class="filename">scripts/app.js</code> file. RequireJS will load any dependency that is passed to <code class="code">require()</code> without a <code class="filename">.js</code> extension from the same directory as <code class="filename">require-jquery.js</code>, though this can be configured to behave differently. If you feel more comfortable specifying the whole path, you can also do the following:
+              In a for loop, don't access the length property of an array every time; cache it beforehand.
             </p>
             <pre class="brush: js">
-&lt;script&gt;require(["scripts/app.js"]);&lt;/script&gt;
-</pre>
-            <p>
-              What is in <code class="filename">app.js</code>? Another call to <code class="filename">require.js</code> to load all the scripts you need and any init work you want to do for the page. This example <code class="filename">app.js</code> script loads two plugins, <code class="filename">jquery.alpha.js</code> and <code class="filename">jquery.beta.js</code> (not the names of real plugins, just an example). The plugins should be in the same directory as <code class="filename">require-jquery.js</code>:
-            </p>
-            <div class="example">
-              <p class="title">
-                <b>A simple JavaScript file with dependencies</b>
-              </p>
-              <div class="example-contents">
-                <pre class="brush: js">
-require(["jquery.alpha", "jquery.beta"], function() {
-    //the jquery.alpha.js and jquery.beta.js plugins have been loaded.
-    $(function() {
-        $('body').alpha().beta();
-    });
-});
-</pre>
-              </div>
-            </div>
-          </div>
-          <div title="Creating Reusable Modules with RequireJS" class="section">
-            <div class="titlepage">
-              <h3 class="title">
-                Creating Reusable Modules with RequireJS
-              </h3>
-            </div>
-            <p>
-              RequireJS makes it easy to define reusable modules via <code class="code">require.def()</code>. A RequireJS module can have dependencies that can be used to define a module, and a RequireJS module can return a value — an object, a function, whatever — that can then be consumed by yet other modules.
-            </p>
-            <p>
-              If your module does not have any dependencies, then just specify the name of the module as the first argument to <code class="code">require.def()</code>. The second argument is just an object literal that defines the module's properties. For example:
-            </p>
-            <div class="example">
-              <p class="title">
-                <b>Defining a RequireJS module that has no dependencies</b>
-              </p>
-              <div class="example-contents">
-                <pre class="brush: js">
-require.def("my/simpleshirt",
-    {
-        color: "black",
-        size: "unisize"
-    }
-);
-</pre>
-              </div>
-            </div>
-                <p>
-                  This example would be stored in a my/simpleshirt.js file.
-                </p>
-                <p>
-                  If your module has dependencies, you can specify the dependencies as the second argument to <code class="code">require.def()</code> (as an array) and then pass a function as the third argument. The function will be called to define the module once all dependencies have loaded. The function receives the values returned by the dependencies as its arguments (in the same order they were required in the array), and the function should return an object that defines the module.
-                </p>
-                <div class="example">
-                  <p class="title">
-                    <b>Defining a RequireJS module with dependencies</b>
-                  </p>
-                  <div class="example-contents">
-                    <pre class="brush: js">
-require.def("my/shirt",
-    ["my/cart", "my/inventory"],
-    function(cart, inventory) {
-        //return an object to define the "my/shirt" module.
-        return {
-            color: "blue",
-            size: "large"
-            addToCart: function() {
-                inventory.decrement(this);
-                cart.add(this);
-            }
-        }
-    }
-);
-</pre>
-                  </div>
-                </div>
-                <p>
-                  In this example, a my/shirt module is created. It depends on my/cart and my/inventory. On disk, the files are structured like this:
-                </p>
-                <pre class="brush: js">
-my/cart.js
-my/inventory.js
-my/shirt.js
-</pre>
-                <p>
-                  The function that defines <code class="code">my/shirt</code> is not called until the <code class="code">my/cart</code> and <code class="code">my/inventory</code> modules have been loaded, and the function receives the modules as the <code class="code">cart</code> and <code class="code">inventory</code> arguments. The order of the function arguments must match the order in which the dependencies were required in the dependencies array. The object returned by the function call defines the <code class="code">my/shirt</code> module. Be defining modules in this way, <code class="code">my/shirt</code> does not exist as a global object. Modules that define globals are explicitly discouraged, so multiple versions of a module can exist in a page at a time.
-                </p>
-                <p>
-                  Modules do not have to return objects; any valid return value from a function is allowed.
-                </p>
-                <div class="example">
-                  <p class="title">
-                    <b>Defining a RequireJS module that returns a function</b>
-                  </p>
-                  <div class="example-contents">
-                    <pre class="brush: js">
-require.def("my/title",
-    ["my/dependency1", "my/dependency2"],
-    function(dep1, dep2) {
-        //return a function to define "my/title". It gets or sets
-        //the window title.
-        return function(title) {
-            return title ? (window.title = title) : window.title;
-        }
-    }
-);
-</pre>
-                  </div>
-                </div>
-                <p>
-                  Only one module should be required per JavaScript file.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div title="Optimizing Your Code: The RequireJS Build Tool" class="section">
-            <div class="titlepage">
-              <h3 class="title">
-                Optimizing Your Code: The RequireJS Build Tool
-              </h3>
-            </div>
-            <p>
-              Once you incorporate RequireJS for dependency management, your page is set up to be optimized very easily. Download the RequireJS source and place it anywhere you like, preferrably somewhere outside your web development area. For the purposes of this example, the RequireJS source is placed as a sibling to the <code class="filename">webapp</code> directory, which contains the HTML page and the scripts directory with all the scripts. Complete directory structure:
-            </p>
-            <pre class="brush: js">
-requirejs/ (used for the build tools)
-webapp/app.html
-webapp/scripts/app.js
-webapp/scripts/require-jquery.js
-webapp/scripts/jquery.alpha.js
-webapp/scripts/jquery.beta.js
-</pre>
-            <p>
-              Then, in the scripts directory that has <code class="filename">require-jquery.js</code> and app.js, create a file called app.build.js with the following contents:
-            </p>
-            <div class="example">
-              <p class="title">
-                <b>A RequireJS build configuration file</b>
-              </p>
-              <div class="example-contents">
-                <pre class="brush: js">
-{
-    appDir: "../",
-    baseUrl: "scripts/",
-    dir: "../../webapp-build",
-    //Comment out the optimize line if you want
-    //the code minified by Closure Compiler using
-    //the "simple" optimizations mode
-    optimize: "none",
+var myLength = myArray.length;
 
-    modules: [
-        {
-            name: "app"
-        }
-    ]
+for (var i = 0; i &lt; myLength; i++) {
+    // do stuff
 }
 </pre>
+          </div>
+          <div title="Append new content outside of a loop" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Append new content outside of a loop
+                  </h2>
+                </div>
               </div>
             </div>
             <p>
-              To use the build tool, you need Java 6 installed. Closure Compiler is used for the JavaScript minification step (if <code class="code">optimize: "none"</code> is commented out), and it requires Java 6.
-            </p>
-            <p>
-              To start the build, go to the webapp/scripts directory, execute the following command:
+              Touching the DOM comes at a cost; if you're adding a lot of elements to the DOM, do it all at once, not one at a time.
             </p>
             <pre class="brush: js">
-# non-windows systems
-../../requirejs/build/build.sh app.build.js
+// this is bad
+$.each(myArray, function(i, item) {
+   var newListItem = '&lt;li&gt;' + item + '&lt;/li&gt;';
+   $('#ballers').append(newListItem);
+});
 
-# windows systems
-..\..\requirejs\build\build.bat app.build.js
+// better: do this
+var frag = document.createDocumentFragment();
+
+$.each(myArray, function(i, item) {
+    var newListItem = '&lt;li&gt;' + item + '&lt;/li&gt;';
+    frag.appendChild(newListItem);
+});
+$('#ballers')[0].appendChild(frag);
+
+// or do this
+var myHtml = '';
+
+$.each(myArray, function(i, item) {
+    html += '&lt;li&gt;' + item + '&lt;/li&gt;';
+});
+$('#ballers').html(myHtml);
 </pre>
-            <p>
-              Now, in the webapp-build directory, <code class="filename">app.js</code> will have the <code class="filename">app.js</code> contents, <code class="filename">jquery.alpha.js</code> and <code class="filename">jquery.beta.js</code> inlined. If you then load the <code class="filename">app.html</code> file in the <code class="filename">webapp-build</code> directory, you should not see any network requests for <code class="filename">jquery.alpha.js</code> and <code class="filename">jquery.beta.js</code>.
-            </p>
           </div>
-          <div title="Exercises" class="section">
-            <h2 class="title">
-              Exercises
-            </h2>
-            <div title="Create a Portlet Module" class="section">
+          <div title="Keep things DRY" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Keep things DRY
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Don't repeat yourself; if you're repeating yourself, you're doing it wrong.
+            </p>
+            <pre class="brush: js">
+// BAD
+if ($eventfade.data('currently') != 'showing') {
+    $eventfade.stop();
+}
+
+if ($eventhover.data('currently') != 'showing') {
+    $eventhover.stop();
+}
+
+if ($spans.data('currently') != 'showing') {
+    $spans.stop();
+}
+
+// GOOD!!
+var $elems = [$eventfade, $eventhover, $spans];
+$.each($elems, function(i,elem) {
+    if (elem.data('currently') != 'showing') {
+        elem.stop();
+    }
+});
+</pre>
+          </div>
+          <div title="Beware anonymous functions" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Beware anonymous functions
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Anonymous functions bound everywhere are a pain. They're difficult to debug, maintain, test, or reuse. Instead, use an object literal to organize and name your handlers and callbacks.
+            </p>
+            <pre class="brush: js">
+// BAD
+$(document).ready(function() {
+    $('#magic').click(function(e) {
+        $('#yayeffects').slideUp(function() {
+            // ...
+        });
+    });
+
+    $('#happiness').load(url + ' #unicorns', function() {
+        // ...
+    });
+});
+
+// BETTER
+var PI = {
+    onReady : function() {
+        $('#magic').click(PI.candyMtn);
+        $('#happiness').load(PI.url + ' #unicorns', PI.unicornCb);
+    },
+
+    candyMtn : function(e) {
+        $('#yayeffects').slideUp(PI.slideCb);
+    },
+
+    slideCb : function() { ... },
+
+    unicornCb : function() { ... }
+};
+
+$(document).ready(PI.onReady);
+</pre>
+          </div>
+          <div title="Optimize Selectors" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Optimize Selectors
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Selector optimization is less important than it used to be, as more browsers implement <code class="code">document.querySelectorAll()</code> and the burden of selection shifts from jQuery to the browser. However, there are still some tips to keep in mind.
+            </p>
+            <div title="ID-Based Selectors" class="sect2">
               <div class="titlepage">
                 <h3 class="title">
-                  Create a Portlet Module
+                  ID-Based Selectors
                 </h3>
               </div>
               <p>
-                Open the file <code class="filename">/exercises/portlets.html</code> in your browser. Use the file <code class="filename">/exercises/js/portlets.js</code>. Your task is to create a portlet creation function that uses the module pattern, such that the following code will work:
+                Beginning your selector with an ID is always best.
               </p>
               <pre class="brush: js">
-var myPortlet = Portlet({
-    title : 'Curry',
-    source : 'data/html/curry.html',
-    initialState : 'open' // or 'closed'
-});
+// fast
+$('#container div.robotarm');
 
-myPortlet.$element.appendTo('body');
+// super-fast
+$('#container').find('div.robotarm');
 </pre>
               <p>
-                Each portlet should be a div with a title, a content area, a button to open/close the portlet, a button to remove the portlet, and a button to refresh the portlet. The portlet returned by the Portlet function should have the following public API:
+                The <code class="code">$.fn.find</code> approach is faster because the first selection is handled without going through the Sizzle selector engine — ID-only selections are handled using <code class="code">document.getElementById()</code>, which is extremely fast because it is native to the browser.
+              </p>
+            </div>
+            <div title="Specificity" class="sect2">
+              <div class="titlepage">
+                <h3 class="title">
+                  Specificity
+                </h3>
+              </div>
+              <p>
+                Be specific on the right-hand side of your selector, and less specific on the left.
               </p>
               <pre class="brush: js">
-myPortlet.open(); // force open state
-myPortlet.close(); // force close state
-myPortlet.toggle(); // toggle open/close state
-myPortlet.refresh(); // refresh the content
-myPortlet.destroy(); // remove the portlet from the page
-myPortlet.setSource('data/html/onions.html');
-// change the source
+// unoptimized
+$('div.data .gonzalez');
+
+// optimized
+$('.data td.gonzalez');
+</pre>
+              <p>
+                Use <code class="code">tag.class</code> if possible on your right-most selector, and just <code class="code">tag</code> or just <code class="code">.class</code> on the left.
+              </p>
+              <p>
+                Avoid excessive specificity.
+              </p>
+              <pre class="brush: js">
+$('.data table.attendees td.gonzalez');
+
+// better: drop the middle if possible
+$('.data td.gonzalez');
+</pre>
+              <p>
+                A "flatter" DOM also helps improve selector performance, as the selector engine has fewer layers to traverse when looking for an element.
+              </p>
+            </div>
+            <div title="Avoid the Universal Selector" class="sect2">
+              <div class="titlepage">
+                <h3 class="title">
+                  Avoid the Universal Selector
+                </h3>
+              </div>
+              <p>
+                Selections that specify or imply that a match could be found anywhere can be very slow.
+              </p>
+              <pre class="brush: js">
+$('.buttons &gt; *');  // extremely expensive
+$('.buttons').children();  // much better
+
+$('.gender :radio');  // implied universal selection
+$('.gender *:radio'); // same thing, explicit now
+$('.gender input:radio'); // much better
 </pre>
             </div>
+          </div>
+          <div title="Use Event Delegation" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Use Event Delegation
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Event delegation allows you to bind an event handler to one container element (for example, an unordered list) instead of multiple contained elements (for example, list items). jQuery makes this easy with $.fn.live and $.fn.delegate. Where possible, you should use <code class="code">$.fn.delegate</code> instead of <code class="code">$.fn.live</code>, as it eliminates the need for an unnecessary selection, and its explicit context (vs. <code class="code">$.fn.live</code>'s context of <code class="code">document</code>) reduces overhead by approximately 80%.
+            </p>
+            <p>
+              In addition to performance benefits, event delegation also allows you to add new contained elements to your page without having to re-bind the event handlers for them as they're added.
+            </p>
+            <pre class="brush: js">
+// bad (if there are lots of list items)
+$('li.trigger').click(handlerFn);
+
+// better: event delegation with $.fn.live
+$('li.trigger').live('click', handlerFn);
+
+// best: event delegation with $.fn.delegate
+// allows you to specify a context easily
+$('#myList').delegate('li.trigger', 'click', handlerFn);
+</pre>
+          </div>
+          <div title="Detach Elements to Work With Them" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Detach Elements to Work With Them
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              The DOM is slow; you want to avoid manipulating it as much as possible. jQuery introduced <code class="code">$.fn.detach</code> in version 1.4 to help address this issue, allowing you to remove an element from the DOM while you work with it.
+            </p>
+            <pre class="brush: js">
+var $table = $('#myTable');
+var $parent = $table.parent();
+
+$table.detach();
+// ... add lots and lots of rows to table
+$parent.append(table);
+</pre>
+          </div>
+          <div title="Use Stylesheets for Changing CSS on Many Elements" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Use Stylesheets for Changing CSS on Many Elements
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              If you're changing the CSS of more than 20 elements using $.fn.css, consider adding a style tag to the page instead for a nearly 60% increase in speed.
+            </p>
+            <pre class="brush: js">
+// fine for up to 20 elements, slow after that
+$('a.swedberg').css('color', '#asd123');
+$('&lt;style type="text/css"&gt;a.swedberg { color : #asd123 }&lt;/style&gt;')
+    .appendTo('head');
+</pre>
+          </div>
+          <div title="Use $.data Instead of $.fn.data" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Use <code class="code">$.data</code> Instead of <code class="code">$.fn.data</code>
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Using $.data on a DOM element instead of calling $.fn.data on a jQuery selection can be up to 10 times faster. Be sure you understand the difference between a DOM element and a jQuery selection before doing this, though.
+            </p>
+            <pre class="brush: js">
+// regular
+$(elem).data(key,value);  
+
+// 10x faster
+ $.data(elem,key,value);
+</pre>
+          </div>
+          <div title="Don't Act on Absent Elements" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Don't Act on Absent Elements
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              jQuery won't tell you if you're trying to run a whole lot of code on an empty selection — it will proceed as though nothing's wrong. It's up to you to verify that your selection contains some elements.
+            </p>
+            <pre class="brush: js">
+// BAD: this runs three functions
+// before it realizes there's nothing
+// in the selection
+$('#nosuchthing').slideUp();
+
+// Better
+var $mySelection = $('#nosuchthing');
+if ($mySelection.length) { $mySelection.slideUp(); }
+
+// BEST: add a doOnce plugin
+jQuery.fn.doOnce = function(func){
+    this.length &amp;&amp; func.apply(this);
+    return this;
+ }
+
+ $('li.cartitems').doOnce(function(){ 
+    // make it ajax! \o/ 
+});
+</pre>
+            <p>
+              This guidance is especially applicable for jQuery UI widgets, which have a lot of overhead even when the selection doesn't contain elements.
+            </p>
+          </div>
+          <div title="Variable Definition" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Variable Definition
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Variables can be defined in one statement instead of several.
+            </p>
+            <pre class="brush: js">
+// old &amp; busted
+var test = 1;
+var test2 = function() { ... };
+var test3 = test2(test);
+
+// new hotness
+var test = 1,
+    test2 = function() { ... },
+    test3 = test2(test);
+</pre>
+            <p>
+              In self-executing functions, variable definition can be skipped all together.
+            </p>
+            <pre class="brush: js">
+(function(foo, bar) { ... })(1, 2);
+</pre>
+          </div>
+          <div title="Conditionals" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Conditionals
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <pre class="brush: js">
+// old way
+if (type == 'foo' || type == 'bar') { ... }
+
+// better
+if (/^(foo|bar)$/.test(type)) { ... }
+
+// object literal lookup
+if (({ foo : 1, bar : 1 })[type]) { ... }
+</pre>
+          </div>
+          <div title="Don't Treat jQuery as a Black Box" class="sect1">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h2 class="title">
+                    Don't Treat jQuery as a Black Box
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p>
+              Use the source as your documentation — bookmark <a href="http://bit.ly/jqsource" class="ulink">http://bit.ly/jqsource</a> and refer to it often.
+            </p>
           </div>
         </div>

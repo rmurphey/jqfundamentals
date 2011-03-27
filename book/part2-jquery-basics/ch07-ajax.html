@@ -136,7 +136,7 @@
               <pre class="brush: js">
 var response;
 $.get('foo.php', function(r) { response = r; });
-console.log(response); <span class="emphasis"><em>// undefined!</em></span>
+console.log(response); // undefined!
 </pre>
               <p>
                 Instead, we need to pass a callback function to our request; this callback will run when the request succeeds, at which point we can access the data that it returned, if any.
@@ -513,7 +513,7 @@ $('#newContent').load('/foo.html');
                 </p>
                 <div class="example-contents">
                   <pre class="brush: js">
-$('#newContent').load('/foo.html <span class="bold"><strong>#myDiv h1:first</strong></span>', function(html) {
+$('#newContent').load('/foo.html #myDiv h1:first', function(html) {
   alert('Content updated!');
 });
 </pre>
