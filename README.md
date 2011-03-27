@@ -1,3 +1,19 @@
+# THIS REPOSITORY IS NO LONGER BEING MAINTAINED
+
+Please see my [blog
+post](http://blog.rebeccamurphey.com/the-future-of-jquery-fundamentals-and-a-confe);
+jQuery Fundamentals will be serving as the basis for a new jQuery learning site
+maintained by the jQuery project, and ongoing maintenance and support for this
+content will transfer to the jQuery project. The project will continue to
+maintain a public repository for the content; details to come soon. When that
+repository is made public, this repository will be removed.
+
+Until the new repository is made public, you can continue to submit issues on
+this repository; however, if you have a pull request, I suggest holding off
+until the new repository is announced.
+
+--
+
 # jQuery Fundamentals Training Material #
 
 This repository contains evolving content to be used as teaching material for a
@@ -6,46 +22,6 @@ book.
 
 If you're looking for the latest release of the book, visit
 <http://jqfundamentals.com/book/>.
-
-## Contributing ##
-
-This material is licensed under the Creative Commons Attribution-Share Alike
-3.0 US license because I am eager to see other people contribute to it. Pull
-requests are welcome and encouraged! Check out the Issues page for the project
-to see the most recent list of things that still need to be done.
-
-Want to contribute? Fork the repo, make your changes, and submit a pull
-request. The source for the book itself is in the `/book/` folder.
-
-## Reporting Issues ##
-
-Your feedback is essential to improving jQuery Fundamentals; if you see an
-error or an opportunity for improvement, please [open an
-issue](https://github.com/rmurphey/jqfundamentals/issues). When reporting
-issues, be sure to include the following:
-
-- A clear sentence, in the title of the issue, that summarizes the issue as an
-  action item. For example, "Add information about other JavaScript consoles"
-  is a good issue title; "Chapter 1" is not.
-- A longer description of the issue in the description area, as appropriate.
-- Links to any resources that would help resolve the issue or material that
-  would provide further clarification.
-
-## Suggesting Changes to Content ##
-
-If you'd like to suggest a change to the book, the *strong* preference is that
-you submit a [pull request](http://help.github.com/pull-requests/) rather than
-describing your proposed change in an issue. Once a pull request is submitted,
-it will be reviewed for inclusion.
-
-## Suggesting Additions to Content ##
-
-If you've come across a blog post or other resource that would be great for
-inclusion in jQuery Fundamentals, please [open an
-issue](https://github.com/rmurphey/jqfundamentals/issues) with a link to the
-resource, and indicate in the issue whether you've already discussed inclusion
-of the resource with the author.
-
 
 ## Using this Repository to Generate the HTML Book ##
 
