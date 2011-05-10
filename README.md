@@ -5,7 +5,7 @@ The content is now being maintained by the jQuery Project at [web-learn-jquery-c
 
 jQuery Fundamentals will be serving as the basis for a new jQuery learning site
 maintained by the jQuery project, and ongoing maintenance and support for this
-content will transfer to the jQuery project. For more details, se my [blog
+content will transfer to the jQuery project. For more details, see my [blog
 post](http://blog.rebeccamurphey.com/the-future-of-jquery-fundamentals-and-a-confe).
 
 Please do not open issues on this repo; use the new jQuery Project repo instead.
