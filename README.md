@@ -7,7 +7,6 @@ jQuery Fundamentals will be serving as the basis for a new jQuery learning site
 maintained by the jQuery project, and ongoing maintenance and support for this
 content will transfer to the jQuery project. For more details, se my [blog
 post](http://blog.rebeccamurphey.com/the-future-of-jquery-fundamentals-and-a-confe).
-The old repo has been archived in the archive branch.
 
 Please do not open issues on this repo; use the new jQuery Project repo instead.
 
