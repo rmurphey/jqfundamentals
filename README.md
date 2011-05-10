@@ -1,16 +1,12 @@
 # THIS REPOSITORY IS NO LONGER BEING MAINTAINED
 
+The content is now being maintained by the jQuery Project at [web-learn-jquery-com](https://github.com/jquery/web-learn-jquery-com).
+
 Please see my [blog
 post](http://blog.rebeccamurphey.com/the-future-of-jquery-fundamentals-and-a-confe);
 jQuery Fundamentals will be serving as the basis for a new jQuery learning site
 maintained by the jQuery project, and ongoing maintenance and support for this
-content will transfer to the jQuery project. The project will continue to
-maintain a public repository for the content; details to come soon. When that
-repository is made public, this repository will be removed.
-
-Until the new repository is made public, you can continue to submit issues on
-this repository; however, if you have a pull request, I suggest holding off
-until the new repository is announced.
+content will transfer to the jQuery project. 
 
 # jQuery Fundamentals Training Material #
 
