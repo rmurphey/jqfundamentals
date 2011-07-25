@@ -79,10 +79,11 @@ for (i=0; i<5; i++) {
 // Remove the odd list items (hint: .remove()).
 $('#myList li:odd').remove();
 
-// Add another h2 and another paragraph to div.module.
-$('div.module')
-	.append('<h2>new heading</h2>')
-	.append('<p>new paragraph</p>');
+//Add another h2 and paragraph element to the last div with a class of module
+	var insertion = '<h2>h2 header</h2><p>paragraph insertion</p>'	
+	$('div.module:last').append(insertion);
+	//or
+	$('div.module:last').append('<h1>Inserted H1 Header</h1>');
 
 // Add another option to the select element with a value of “Wednesday”.
 $('select').append('<option value="wednesday">Wednesday</option>');
