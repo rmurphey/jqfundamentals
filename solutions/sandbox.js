@@ -80,10 +80,10 @@ for (i=0; i<5; i++) {
 $('#myList li:odd').remove();
 
 //Add another h2 and paragraph element to the last div with a class of module
-	var insertion = '<h2>h2 header</h2><p>paragraph insertion</p>'	
-	$('div.module:last').append(insertion);
-	//or
-	$('div.module:last').append('<h1>Inserted H1 Header</h1>');
+var insertion = '<h2>h2 header</h2><p>paragraph insertion</p>'	
+$('div.module:last').append(insertion);
+//or
+$('div.module:last').append('<h1>Inserted H1 Header</h1>');
 
 // Add another option to the select element with a value of “Wednesday”.
 $('select').append('<option value="wednesday">Wednesday</option>');
