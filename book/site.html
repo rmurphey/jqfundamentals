@@ -159,6 +159,17 @@
 
   SyntaxHighlighter.all();
 
+	$(document).delegate('.code, .term', 'click', function(e){
+		var pattern = /^(?:\$\.)(fn\.)?([a-z]+)$/,
+				matched = pattern.exec($(this).text()),
+				method = '';
+
+		if (matched) {
+			method = matched[1] ? matched[2] : 'jQuery.' + matched[2];
+			window.open('http://api.jquery.com/' + method, '_docs');
+		}
+	});
+
   });
   </script>
 
