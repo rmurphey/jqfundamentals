@@ -1,6 +1,6 @@
 # THIS REPOSITORY IS NO LONGER BEING MAINTAINED
 
-The content is now being maintained by the jQuery Project at [web-learn-jquery-com](https://github.com/jquery/web-learn-jquery-com).
+The content is now being maintained by the jQuery Project at the [learn.jquery.com repo](https://github.com/jquery/learn.jquery.com).
 
 
 jQuery Fundamentals will be serving as the basis for a new jQuery learning site
