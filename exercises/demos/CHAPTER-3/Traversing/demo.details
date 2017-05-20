@@ -1,0 +1,7 @@
+---
+ name: jQuery Fundamentals Chapter 3 Traversing
+ description: jQuery Fundamentals Chapter 3 Traversing
+ authors:
+	- Rebecca Murphey
+ normalize_css: yes
+ ...

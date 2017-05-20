@@ -1,0 +1,7 @@
+---
+ name: jQuery Fundamentals Chapter 3 Manipulating
+ description: jQuery Fundamentals Chapter 3 Manipulating
+ authors:
+	- Rebecca Murphey
+ normalize_css: yes
+ ...
