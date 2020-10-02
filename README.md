@@ -10,7 +10,7 @@ post](http://blog.rebeccamurphey.com/the-future-of-jquery-fundamentals-and-a-con
 
 Please do not open issues on this repo; use the new jQuery Project repo instead.
 
-## Using this Material ##
+## Material Used ##
 
 You are welcome to use this material according to the terms of the
 [license](http://creativecommons.org/licenses/by-sa/3.0/us/); if
